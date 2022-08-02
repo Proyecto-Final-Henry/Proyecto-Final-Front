@@ -7,7 +7,7 @@ function Nav() {
         return (
             <nav>
                 <div className="logo">
-                <a href="/home">
+                <a href="/">
                     <img src={Logo} alt="logo"/>
                 </a>
                 </div>
