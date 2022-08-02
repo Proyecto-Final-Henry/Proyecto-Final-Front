@@ -1,6 +1,6 @@
 import Nav from "../Nav/Nav"
 import ComparativoPremium from "../../assets/comparativa.png"
-import style from "../../css/contact.module.css"
+import style from "../../css/premium.module.css"
 import { useHistory } from "react-router-dom";
 
 function Premium() {
@@ -28,7 +28,10 @@ function Premium() {
           <img src={ComparativoPremium} alt="Premium vs Free" />
         </div>
       
-        <button onClick={handleButton}>Pasate al plan Premium</button>
+        <div>
+          <button class="btn btn-outline-success" onClick={handleButton}>Pasate al plan Premium</button>
+        </div>
+
       </div>
     );
   }
