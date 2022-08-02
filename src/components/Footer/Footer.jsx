@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default function Footer(){
     return(
@@ -10,67 +9,16 @@ export default function Footer(){
                         <h4>Title One</h4>
                     </li>
                     <li>
-                        <a href="">Creadores</a>
+                        <a href="/creadores">Creadores</a>
                     </li>
                     <li>
-                        <a href="">Patrocinadores</a>
+                        <a href="/patrocinadores">Patrocinadores</a>
                     </li>
                     <li>
-                        <a href="">Creadores</a>
+                        <a href="/creadores">Creadores</a>
                     </li>
                     <li>
-                        <a href="">Patrocinadores</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <h4>Title One</h4>
-                    </li>
-                    <li>
-                        <a href="">Creadores</a>
-                    </li>
-                    <li>
-                        <a href="">Patrocinadores</a>
-                    </li>
-                    <li>
-                        <a href="">Creadores</a>
-                    </li>
-                    <li>
-                        <a href="">Patrocinadores</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <h4>Title One</h4>
-                    </li>
-                    <li>
-                        <a href="">Creadores</a>
-                    </li>
-                    <li>
-                        <a href="">Patrocinadores</a>
-                    </li>
-                    <li>
-                        <a href="">Creadores</a>
-                    </li>
-                    <li>
-                        <a href="">Patrocinadores</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <h4>Title One</h4>
-                    </li>
-                    <li>
-                        <a href="">Creadores</a>
-                    </li>
-                    <li>
-                        <a href="">Patrocinadores</a>
-                    </li>
-                    <li>
-                        <a href="">Creadores</a>
-                    </li>
-                    <li>
-                        <a href="">Patrocinadores</a>
+                        <a href="/creadores">Patrocinadores</a>
                     </li>
                 </ul>
             </div>
