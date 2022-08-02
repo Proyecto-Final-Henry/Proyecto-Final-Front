@@ -4,12 +4,12 @@ import Home from "./components/Home/Home"
 import Login from "./components/Login/Login"
 import Contact from "./components/Contact/Contact"
 import Premium from "./components/Premium/Premium"
+import Nav from "./components/Nav/Nav";
 import './App.css';
 
 
 function App() {
   return (
-
     <div className="App">
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login}/>
