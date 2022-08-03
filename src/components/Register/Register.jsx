@@ -1,79 +1,103 @@
 import { useState } from "react";
+import Alerta from "../AlertaMensaje/Alerta";
+import axios from "axios"
 
-function Register() {
+const Register = () => {
 
-  let [user, setUser] = useState({
-    name: '',
-    email: "",
-    password: "",
- });
+  const [ name , setName] = useState("")
+  const [ email , setEmail ] = useState("")
+  const [ password , setPassword ] = useState("")
+  const [ repetirPassword , setRepetirPassword ] = useState("")
+  const [ alerta , setAlerta ] = useState({})
 
-let [error, setError] = useState({
-    name: '',
-    email: "",
-    password: "",
- });
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+    if([name,email,password,repetirPassword].includes("")){
+      setAlerta({msg:"Hay campos vacios", error: true})
+      setTimeout(() => {
+        setAlerta({})
+      },2500)
+      return
+    }
 
- function onInputChange(e) {
-  e.preventDefault()
-  setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-      [e.target.email]: e.target.value,
-      [e.target.password]: e.target.value,
-  });
-  let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-  if (user.name === '') {
-      setError(error = {
-        ...error,
-        name: 'El nombre no puede estar en blanco'
-     });
-    } else {
-      setError(error = {
-         ...error,
-         name: ''
-      })
-  };
-  if (!regexEmail.test(user.email)) {
-    setError(error = {
-        ...error,
-        email: 'Formato de email invalido'
-    }) 
-  } else {
-    setError(error = {
-       ...error,
-       email: ''
-    })
-   };
-   if (user.password.length <= 8) { // opcional
-    setError(error = {
-       ...error,
-       password: 'contraseña debe ser de minimo 8 caracteres'
-    })
- } else {
-    setError(error = {
-       ...error,
-       password: ''
-    })
-  };
- };
+    if(password !== repetirPassword){
+      setAlerta({msg: "Las passwords deben ser iguales" , error: true})
+      setTimeout(() => {
+        setAlerta({})
+      },2500)
+      return
+    }
+
+    if(password.length < 6){
+      setAlerta({msg: "La password es muy corta, necesita mas de 6 caracteres", error: true})
+      setTimeout(()=>{
+        setAlerta({})
+      },2500)
+      return
+    }
+
+    setAlerta({})
+    try {
+      const url = `http://localhost:3001/api/back-end/users/register`
+      await axios.post(url, { name, password , email })
+      setAlerta({msg: "Creado correctamente, revisa tu email" , error: false})
+    } catch (error) {
+      setAlerta({msg: error.response.data.msg , error: true})
+      setTimeout(() => {
+        setAlerta({})
+      },2500)
+    }
+
+  }
+
+
+  const { msg } = alerta
 
     return (
-      <form>
+      <>
+      {msg && <Alerta alerta={alerta} />}
+      <form onSubmit={handleSubmit}>
         <div class="form-group">
           <label style={{color: "white"}}>Nombre</label>
-          <input type="text" class="form-control" onChange={onInputChange} name="name" value={user.name} aria-describedby="emailHelp" placeholder="Nombre..."/>
+          <input type="text" 
+          class="form-control" 
+          onChange={e => setName(e.target.value)} 
+          value={name} 
+          aria-describedby="emailHelp"
+           placeholder="Nombre..."/>
         </div>
         <div class="form-group">
           <label style={{color: "white"}} >Direccion de email</label>
-          <input type="email" class="form-control" onChange={onInputChange} name="email" value={user.email} aria-describedby="emailHelp" placeholder="Correo..."/>
+          <input 
+          type="email" 
+          class="form-control" 
+          onChange={e => setEmail(e.target.value)} 
+          value={email} 
+          aria-describedby="emailHelp" 
+          placeholder="Correo..."/>
         </div>
         <div class="form-group">
           <label style={{color: "white"}}>Contraseña</label>
-          <input type="password" class="form-control" onChange={onInputChange} name="password" value={user.password} placeholder="Contraseña..."/>
+          <input 
+          type="password" 
+          class="form-control" 
+          onChange={e => setPassword(e.target.value)}  
+          value={password} 
+          placeholder="Contraseña..."/>
         </div>
-        <button type="submit" class="btn btn-outline-success">Registrarse</button>
+        <div class="form-group">
+          <label style={{color: "white"}}>Repetir Contraseña</label>
+          <input 
+          type="password" 
+          class="form-control" 
+          onChange={e => setRepetirPassword(e.target.value)}  
+          value={repetirPassword} 
+          placeholder="Repetir Contraseña..."/>
+        </div>
+        <input type="submit" class="btn btn-outline-success" value= "Registrarse"/>
       </form>
+      </>
     );
   };
 
