@@ -6,6 +6,7 @@ import Contact from "./components/Contact/Contact"
 import Premium from "./components/Premium/Premium"
 import Register from "./components/Register/Register";
 import NavigationB from "./components/Nav/Nav";
+import UserProfile from "./components/UserProfile/UserProfile";
 import './App.css';
 import './index.css'
 
@@ -37,6 +38,10 @@ function App() {
       <Route exact path="/contact"> 
         <NavigationB/> 
         <Contact/> 
+      </Route>
+      <Route exact path="/user/:userId"> 
+        <NavigationB/> 
+        <UserProfile/> 
       </Route>
 
     </div>
