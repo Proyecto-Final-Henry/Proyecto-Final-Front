@@ -1,4 +1,3 @@
-import Nav from "../Nav/Nav"
 import ComparativoPremium from "../../assets/comparativa.png"
 import style from "../../css/premium.module.css"
 import { useHistory } from "react-router-dom";
@@ -12,7 +11,6 @@ function Premium() {
 
     return (
       <div>
-        <Nav/>
         <div className={style.mainDiv}>
            <h1>Beneficios de Usuarios Premium</h1>          
         </div>
