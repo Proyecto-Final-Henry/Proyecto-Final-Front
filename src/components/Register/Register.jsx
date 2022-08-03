@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Alerta from "../AlertaMensaje/Alerta";
 import axios from "axios"
-import Button from 'react-bootstrap/Button';
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
-
+  const history = useHistory();
   const [ name , setName] = useState("")
   const [ email , setEmail ] = useState("")
   const [ password , setPassword ] = useState("")
@@ -43,14 +43,16 @@ const Register = () => {
       const url = `http://localhost:3001/api/back-end/users/register`
       await axios.post(url, { name, password , email })
       setAlerta({msg: "Creado correctamente, revisa tu email" , error: false})
+      setTimeout(() => {
+        history.push("/");
+      },8000)
     } catch (error) {
       setAlerta({msg: error.response.data.msg , error: true})
       setTimeout(() => {
         setAlerta({})
       },2500)
-    }
-
-  }
+    };
+  };
 
 
   const { msg } = alerta

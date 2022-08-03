@@ -6,10 +6,12 @@ import Contact from "./components/Contact/Contact"
 import Premium from "./components/Premium/Premium"
 import Register from "./components/Register/Register";
 import NavigationB from "./components/Nav/Nav";
+import NavigationM from "./components/NavMain/NavMain";
 import UserProfile from "./components/UserProfile/UserProfile";
+import Feed from "./components/Feed/Feed";
+import RecoverPassword from "./components/RecoverPass/RecoverPass";
 import './App.css';
 import './index.css'
-
 
 function App() {
   return (
@@ -39,8 +41,19 @@ function App() {
         <NavigationB/> 
         <Contact/> 
       </Route>
-      <Route exact path="/user/:userId"> 
+
+      <Route exact path="/recover"> 
         <NavigationB/> 
+        <RecoverPassword/> 
+      </Route>
+
+      <Route exact path="/feed"> 
+        <NavigationM/> 
+        <Feed/> 
+      </Route>
+
+      <Route exact path="/user/:userId"> 
+        <NavigationM/> 
         <UserProfile/> 
       </Route>
 
