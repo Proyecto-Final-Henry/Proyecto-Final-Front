@@ -1,5 +1,4 @@
 import ControlledCarousel from "./Carousel";
-import Footer from "../Footer/Footer";
 import Info from "./Info";
 
 function Home() {
@@ -12,11 +11,10 @@ function Home() {
           <Info/>
         </div>
         <div className="footer-l">
-          <Footer/>
         </div>
         
       </div>
     );
-  }
+  };
 
 export default Home;

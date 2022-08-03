@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Alerta from "../AlertaMensaje/Alerta";
 import axios from "axios"
+import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const history = useHistory();
@@ -96,7 +98,11 @@ const Register = () => {
             <div className="crear">
                 <br />
                 <br />
-                <Button variant="outline-success" type="submit">Registro</Button>
+          <Button variant="outline-success" type="submit">Registro</Button>
+          </div>
+          <br />
+          <div>
+            <Link to="/register"> Ya tienes cuenta? Inicia sesión</Link>
           </div>
         </form>
         </div>

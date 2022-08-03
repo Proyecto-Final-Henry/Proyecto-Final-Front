@@ -20,11 +20,12 @@ function App() {
   return (
     <div className="App">
       
-      <Route exact path="/home"> 
+      <Route exact path="/"> 
         <NavigationB/> 
         <Home/> 
         <Footer/>
       </Route>
+
       <Route exact path="/login"> 
         <NavigationB/> 
         <Login/> 
@@ -63,6 +64,7 @@ function App() {
         <NavigationM/> 
         <UserProfile/> 
       </Route>
+
       <Route exact path="/search"> 
         <NavigationB/>
         <SearchResult/>
