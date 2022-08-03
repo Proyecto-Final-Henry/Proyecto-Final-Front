@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       
-      <Route exact path="/"> 
+      <Route exact path="/home"> 
         <NavigationB/> 
         <Home/> 
       </Route>

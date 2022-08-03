@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(1, 1, 1);
+  background-color: black;
 }
 
 code {
@@ -24,6 +24,10 @@ Nav{
   background-color:rgb(34, 34, 34);
   box-shadow: 0 5px 10px 	#1DB954;
 } 
+Nav a{
+  text-decoration: none;
+  padding-top: 8px;
+}
 Nav a h5{
   color: #1DB954;
   padding: 10px;
@@ -62,7 +66,7 @@ Nav h5:hover{
 }
 .footer-container{
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(1,1fr);
   gap: 20px;
   align-items: flex-start;
   justify-content: center;
@@ -70,6 +74,18 @@ Nav h5:hover{
 .footer-container ul{
   margin: 0 auto;
   list-style: none;
+}
+.social ul{
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.creadores ul{
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 /*Form*/
 .cre{
@@ -86,7 +102,9 @@ Nav h5:hover{
   padding: 35px;
   border: 6px solid transparent;
 }
-
+.form label{
+  padding: 10px;
+}
 .form input, textarea{
   outline: none;
 
@@ -100,13 +118,28 @@ Nav h5:hover{
 
 .crear{
   text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 .crear button{
   width: 300px;
   height: 60px;
   font-size: 17px;
-  border: none;
-  background-color: #1DB954;
-  color: white;
+}
+
+
+@media(max-width:600px){
+  
+.creadores ul{
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-content: space-around;
+  align-items: center;
+}
+.creadores ul li{
+  padding: 10px;
+  align-items: center;
+}
 }
