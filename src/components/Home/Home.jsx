@@ -9,9 +9,9 @@ function Home() {
         <div className="Caro">
            <ControlledCarousel/>
         </div>
-        {/* <div className="footer-l">
+        <div className="footer-l">
             <Footer/>
-        </div> */}
+        </div>
       </div>
     );
   }
