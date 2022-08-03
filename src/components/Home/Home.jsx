@@ -1,17 +1,17 @@
-import Nav from "../Nav/Nav"
+import NavigationB from "../Nav/Nav";
 import ControlledCarousel from "./Carousel";
 import Footer from "../Footer/Footer";
 
 function Home() {
     return (
       <div>
-        <Nav/>
+        <NavigationB/>
         <div className="Caro">
            <ControlledCarousel/>
         </div>
-        <div className="footer-l">
+        {/* <div className="footer-l">
             <Footer/>
-        </div>
+        </div> */}
       </div>
     );
   }
