@@ -6,6 +6,7 @@ import Contact from "./components/Contact/Contact"
 import Premium from "./components/Premium/Premium"
 import Register from "./components/Register/Register";
 import NavigationB from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 import NavigationM from "./components/NavMain/NavMain";
 import UserProfile from "./components/UserProfile/UserProfile";
 import SearchResult from "./components/Search/SearchResult";
@@ -22,25 +23,30 @@ function App() {
       <Route exact path="/home"> 
         <NavigationB/> 
         <Home/> 
+        <Footer/>
       </Route>
       <Route exact path="/login"> 
         <NavigationB/> 
         <Login/> 
+        <Footer/>
       </Route>
 
       <Route exact path="/register"> 
         <NavigationB/> 
         <Register/> 
+        <Footer/>
       </Route>
 
       <Route exact path="/premium"> 
         <NavigationB/> 
         <Premium/> 
+        <Footer/>
       </Route>
 
       <Route exact path="/contact"> 
         <NavigationB/> 
         <Contact/> 
+        <Footer/>
       </Route>
 
       <Route exact path="/recover"> 
