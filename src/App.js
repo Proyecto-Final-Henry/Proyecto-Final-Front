@@ -8,12 +8,14 @@ import Register from "./components/Register/Register";
 import NavigationB from "./components/Nav/Nav";
 import NavigationM from "./components/NavMain/NavMain";
 import UserProfile from "./components/UserProfile/UserProfile";
+import SearchResult from "./components/Search/SearchResult";
 import Feed from "./components/Feed/Feed";
 import RecoverPassword from "./components/RecoverPass/RecoverPass";
 import './App.css';
 import './index.css'
 
 function App() {
+
   return (
     <div className="App">
       
@@ -21,7 +23,6 @@ function App() {
         <NavigationB/> 
         <Home/> 
       </Route>
-
       <Route exact path="/login"> 
         <NavigationB/> 
         <Login/> 
@@ -55,6 +56,10 @@ function App() {
       <Route exact path="/user/:userId"> 
         <NavigationM/> 
         <UserProfile/> 
+      </Route>
+      <Route exact path="/search"> 
+        <NavigationB/>
+        <SearchResult/>
       </Route>
 
     </div>
