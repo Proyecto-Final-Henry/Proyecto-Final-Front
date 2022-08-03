@@ -6,6 +6,7 @@ import Contact from "./components/Contact/Contact"
 import Premium from "./components/Premium/Premium"
 import Register from "./components/Register/Register";
 import './App.css';
+import './index.css'
 
 
 function App() {

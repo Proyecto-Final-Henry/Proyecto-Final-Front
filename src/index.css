@@ -5,9 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: rgb(1, 1, 1);
 }
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -71,4 +70,43 @@ Nav h5:hover{
 .footer-container ul{
   margin: 0 auto;
   list-style: none;
+}
+/*Form*/
+.cre{
+  padding-top: 40px;
+}
+
+.form{
+  background-color: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0 auto;
+  width: 500px;
+  padding: 35px;
+  border: 6px solid transparent;
+}
+
+.form input, textarea{
+  outline: none;
+
+}
+
+.field{
+  border: solid 1px;
+  padding: 10px;
+  width: 280px;
+}
+
+.crear{
+  text-align: center;
+}
+
+.crear button{
+  width: 300px;
+  height: 60px;
+  font-size: 17px;
+  border: none;
+  background-color: #1DB954;
+  color: white;
 }

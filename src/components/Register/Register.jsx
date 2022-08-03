@@ -16,7 +16,7 @@ let [error, setError] = useState({
  function onInputChange(e) {
   e.preventDefault()
   setUser({
-      ...videogame,
+      // ...videogame,
       [e.target.name]: e.target.value,
       [e.target.email]: e.target.value,
       [e.target.password]: e.target.value,

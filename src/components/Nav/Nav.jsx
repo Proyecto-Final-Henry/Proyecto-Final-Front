@@ -17,13 +17,13 @@ export default function NavigationB() {
                             <img src={Logo} alt="logo"/>
                         </Nav.Link>
                     </div>
-                    <Nav.Link href="#features"><h5>HOME</h5></Nav.Link>
-                    <Nav.Link href="#pricing"><h5>PREMIUM</h5></Nav.Link>
-                    <Nav.Link href="#pricing"><h5>CONTACT</h5></Nav.Link>
+                    <Nav.Link href="/"><h5>HOME</h5></Nav.Link>
+                    <Nav.Link href="/premium"><h5>PREMIUM</h5></Nav.Link>
+                    <Nav.Link href="/contact"><h5>CONTACT</h5></Nav.Link>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="#deets"><h5>SING IN</h5></Nav.Link>
-                    <Nav.Link href="#deets"><h5>SING UP</h5></Nav.Link>
+                    <Nav.Link href="/login"><h5>SING IN</h5></Nav.Link>
+                    <Nav.Link href="/register"><h5>SING UP</h5></Nav.Link>
                     
                 </Nav>
                 </Navbar.Collapse>
