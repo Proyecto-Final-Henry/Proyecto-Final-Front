@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function Register() {
+
   let [user, setUser] = useState({
     name: '',
     email: "",
@@ -71,7 +72,7 @@ let [error, setError] = useState({
           <label style={{color: "white"}}>Contraseña</label>
           <input type="password" class="form-control" onChange={onInputChange} name="password" value={user.password} placeholder="Contraseña..."/>
         </div>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button type="submit" class="btn btn-outline-success">Registrarse</button>
       </form>
     );
   };
