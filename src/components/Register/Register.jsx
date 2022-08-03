@@ -16,7 +16,7 @@ let [error, setError] = useState({
  function onInputChange(e) {
   e.preventDefault()
   setUser({
-      ...videogame,
+      ...user,
       [e.target.name]: e.target.value,
       [e.target.email]: e.target.value,
       [e.target.password]: e.target.value,
@@ -61,15 +61,15 @@ let [error, setError] = useState({
       <form>
         <div class="form-group">
           <label style={{color: "white"}}>Nombre</label>
-          <input type="text" class="form-control" name="InputName" aria-describedby="emailHelp" placeholder="Nombre..."/>
+          <input type="text" class="form-control" onChange={onInputChange} name="name" value={user.name} aria-describedby="emailHelp" placeholder="Nombre..."/>
         </div>
         <div class="form-group">
           <label style={{color: "white"}} >Direccion de email</label>
-          <input type="email" class="form-control" name="InputEmail" aria-describedby="emailHelp" placeholder="Correo..."/>
+          <input type="email" class="form-control" onChange={onInputChange} name="email" value={user.email} aria-describedby="emailHelp" placeholder="Correo..."/>
         </div>
         <div class="form-group">
           <label style={{color: "white"}}>Contraseña</label>
-          <input type="password" class="form-control" name="InputPassword" placeholder="Contraseña..."/>
+          <input type="password" class="form-control" onChange={onInputChange} name="password" value={user.password} placeholder="Contraseña..."/>
         </div>
         <button type="submit" class="btn btn-primary">Registrarse</button>
       </form>
