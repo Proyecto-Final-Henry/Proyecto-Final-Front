@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Footer(){
     return(
-        <div class="footer-links">
-            <div class="footer-container">
+        <div className="footer-links">
+            <div className="footer-container">
                 <ul>
                     <li>
                         <h4>Title One</h4>
