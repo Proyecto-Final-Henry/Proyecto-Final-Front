@@ -1,4 +1,3 @@
-import Nav from "../Nav/Nav"
 import style from "../../css/contact.module.css"
 import { useState } from "react";
 import { sendEmailContact } from "../../redux/actions";
@@ -36,7 +35,6 @@ function Contact() {
                 email: input.email,
                 message: input.message,
             }
-            // console.log('infoo:::', newEmail);
             dispatch(sendEmailContact(newEmail));
             alert('Gracias por el mensaje, responderemos lo más breve posible')
             setInput({
