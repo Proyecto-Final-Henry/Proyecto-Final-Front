@@ -1,11 +1,9 @@
 import React from "react";
-import NavigationB from "../Nav/Nav";
 import Button from 'react-bootstrap/Button';
 
 export default function Login() {
   return(
     <div className="created">
-      <NavigationB/>
         <div className="cre">
           <form className="form">
               <h1>Login</h1>

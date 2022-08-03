@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from "../../img/logo.png"
+import { Link } from 'react-router-dom';
 
 export default function NavigationB() {
   return (
@@ -17,13 +18,13 @@ export default function NavigationB() {
                             <img src={Logo} alt="logo"/>
                         </Nav.Link>
                     </div>
-                    <Nav.Link href="/"><h5>HOME</h5></Nav.Link>
-                    <Nav.Link href="/premium"><h5>PREMIUM</h5></Nav.Link>
-                    <Nav.Link href="/contact"><h5>CONTACT</h5></Nav.Link>
+                    <Link to="/" ><h5>HOME</h5></Link>
+                    <Link to="/premium"><h5>PREMIUM</h5></Link>
+                    <Link to="/contact"><h5>CONTACT</h5></Link>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="/login"><h5>SING IN</h5></Nav.Link>
-                    <Nav.Link href="/register"><h5>SING UP</h5></Nav.Link>
+                    <Link to="/login"><h5>SING IN</h5></Link>
+                    <Link to="/register"><h5>SING UP</h5></Link>
                     
                 </Nav>
                 </Navbar.Collapse>
