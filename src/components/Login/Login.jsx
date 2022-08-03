@@ -1,5 +1,6 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
   return(
@@ -31,7 +32,16 @@ export default function Login() {
                 <br />
                   <Button variant="success">Iniciar Sesion</Button>
               </div>
+              <br />
+              <div>
+               <Link to="/recover"> Olvidaste tu contraseña?</Link>
+              </div>
+              <br />
+              <div>
+                <Link to="/register"> Crea tu cuenta</Link>
+              </div>
           </form>
+
         </div>
     </div>
     );
