@@ -1,3 +1,4 @@
 export const SEND_EMAIL_CONTACT = 'SEND_EMAIL_CONTACT';
 export const GET_ARTISTS = 'GET_ARTISTS';
 export const GET_PLAYLIST = 'GET_PLAYLIST';
+export const GET_USER_DATA = "GET_USER_DATA"

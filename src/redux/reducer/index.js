@@ -1,5 +1,5 @@
 
-import {GET_USER_DATA} from '../actions'
+import {GET_USER_DATA} from '../constants'
 
 const initialState = {
     userData:[],
