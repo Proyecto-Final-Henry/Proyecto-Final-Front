@@ -60,46 +60,47 @@ const Register = () => {
     return (
       <>
       {msg && <Alerta alerta={alerta} />}
-      <form onSubmit={handleSubmit}>
-        <div class="form-group">
-          <label style={{color: "white"}}>Nombre</label>
-          <input type="text" 
-          class="form-control" 
-          onChange={e => setName(e.target.value)} 
-          value={name} 
-          aria-describedby="emailHelp"
-           placeholder="Nombre..."/>
+      <div className="created">
+        <div className="cre">
+          <form onSubmit={handleSubmit} className="form">
+            <h1>Registro</h1>
+            <label>Nombre</label>
+            <input type="text" 
+            className="field"
+            onChange={e => setName(e.target.value)} 
+            value={name} 
+            aria-describedby="emailHelp"
+            placeholder="Nombre..."/>
+            <label>Direccion de email</label>
+            <input 
+            type="email" 
+            className="field"
+            onChange={e => setEmail(e.target.value)} 
+            value={email} 
+            aria-describedby="emailHelp" 
+            placeholder="Correo..."/>
+            <label>Contraseña</label>
+            <input 
+            type="password" 
+            className="field"
+            onChange={e => setPassword(e.target.value)}  
+            value={password} 
+            placeholder="Contraseña..."/>
+            <label>Repetir Contraseña</label>
+            <input 
+            type="password" 
+            className="field" 
+            onChange={e => setRepetirPassword(e.target.value)}  
+            value={repetirPassword} 
+            placeholder="Repetir Contraseña..."/>
+            <div className="crear">
+                <br />
+                <br />
+                <Button variant="outline-success" type="submit">Registro</Button>
+          </div>
+        </form>
         </div>
-        <div class="form-group">
-          <label style={{color: "white"}} >Direccion de email</label>
-          <input 
-          type="email" 
-          class="form-control" 
-          onChange={e => setEmail(e.target.value)} 
-          value={email} 
-          aria-describedby="emailHelp" 
-          placeholder="Correo..."/>
-        </div>
-        <div class="form-group">
-          <label style={{color: "white"}}>Contraseña</label>
-          <input 
-          type="password" 
-          class="form-control" 
-          onChange={e => setPassword(e.target.value)}  
-          value={password} 
-          placeholder="Contraseña..."/>
-        </div>
-        <div class="form-group">
-          <label style={{color: "white"}}>Repetir Contraseña</label>
-          <input 
-          type="password" 
-          class="form-control" 
-          onChange={e => setRepetirPassword(e.target.value)}  
-          value={repetirPassword} 
-          placeholder="Repetir Contraseña..."/>
-        </div>
-        <input type="submit" class="btn btn-outline-success" value= "Registrarse"/>
-      </form>
+      </div>
       </>
     );
   };

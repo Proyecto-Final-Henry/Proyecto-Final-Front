@@ -18,7 +18,7 @@ export default function NavigationB() {
                             <img src={Logo} alt="logo"/>
                         </Nav.Link>
                     </div>
-                    <Link to="/" ><h5>HOME</h5></Link>
+                    <Link to="/home" ><h5>HOME</h5></Link>
                     <Link to="/premium"><h5>PREMIUM</h5></Link>
                     <Link to="/contact"><h5>CONTACT</h5></Link>
                 </Nav>

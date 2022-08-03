@@ -30,7 +30,7 @@ export default function Login() {
               <div className="crear">
                 <br />
                 <br />
-                  <Button variant="success">Iniciar Sesion</Button>
+                  <Button variant="outline-success">Iniciar Sesion</Button>{' '}
               </div>
               <br />
               <div>
