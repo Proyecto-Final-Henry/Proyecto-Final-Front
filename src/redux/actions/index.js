@@ -1,6 +1,7 @@
 
 import {
     SEND_EMAIL_CONTACT,
+    GET_USER_DATA,
 } from "../constants";
 
 import axios from "axios";
@@ -19,8 +20,7 @@ export const sendEmailContact = (values) => {
         })
         .catch( e => console.log(e));
     }
-
-export const GET_USER_DATA = "GET_USER_DATA"
+}
 
 export function getUserData(id) {
     return async function(dispatch) {
