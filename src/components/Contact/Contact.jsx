@@ -5,7 +5,6 @@ function Contact() {
 
     return (
       <div>
-        <Nav/>
         <div className={style.mainDiv}>
            <h1>Información de contacto</h1>          
         </div>
