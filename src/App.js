@@ -66,7 +66,7 @@ function App() {
       </Route>
 
       <Route exact path="/search"> 
-        <NavigationB/>
+        <NavigationM/>
         <SearchResult/>
       </Route>
 
