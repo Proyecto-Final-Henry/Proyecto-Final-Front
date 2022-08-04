@@ -2,10 +2,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from "../../img/logo.png"
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import SearchBar from '../Search/SearchBar';
+import Button from 'react-bootstrap/Button';
 
 export default function NavigationM(){
+    const history = useHistory()
+
+    const cerrarSesion = () => {
+        localStorage.removeItem("token")
+        history.push("/")
+    }
+
     return(
         <nav>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='Nav'>
@@ -24,8 +32,8 @@ export default function NavigationM(){
                     <SearchBar/>
                 </Nav>
                 <Nav>
-                    <Link to="/user/1"><h5>PERFIL</h5></Link>
-                    <Link to="/"><h5>LOGOUT</h5></Link>
+                    <Link to="/user"><h5>PERFIL</h5></Link>
+                    <Button onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</Button>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
