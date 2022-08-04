@@ -16,10 +16,9 @@ export default function SearchBar (){
         setToFind(event.target.value);
     }
     const handleSubmit=(event) =>{
-        //event.preventDefault();
+        event.preventDefault();
         dispatch(getSearch(toFind))
-        history.push("/search")
-       
+        history.push("/search")       
     }
 
 
