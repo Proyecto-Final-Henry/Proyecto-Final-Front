@@ -1,12 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Alerta from "../AlertaMensaje/Alerta";
+import axios from "axios"
+import { useHistory } from "react-router-dom";
 
-export default function Login() {
+const Login = () => {
+
+  const [ email , setEmail ] = useState("")
+  const [ password , setPassword ] = useState("")
+  const [ alerta , setAlerta ] = useState({})
+
+  const history = useHistory();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+ 
+    if([email,password].includes("")){
+      setAlerta({msg:"Ambos campos son requeridos" , error: true})
+      setTimeout(() => {
+        setAlerta({})
+      },2500)
+      return
+    }
+
+    try {
+      const url = `http://localhost:3001/api/back-end/users/login`
+      const { data } = await axios.post( url , {email,password})
+      localStorage.setItem("token", data.token)
+      history.push("/user")
+    } catch (error) {
+      setAlerta({msg: error.response.data.msg , error: true})
+    }
+
+  }
+
+  const { msg } = alerta
+
   return(
     <div className="created">
         <div className="cre">
-          <form className="form">
+          {msg && <Alerta alerta={alerta} />}
+          <form onSubmit={handleSubmit} className="form">
               <h1>Login</h1>
               <div>
                   <br />
@@ -15,22 +50,28 @@ export default function Login() {
                   <input 
                   type="text" 
                   className="field"
-                  placeholder="Enter Email"/>
+                  placeholder="Enter Email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  />
               </div>
               <div>
                   <br />
                   <label>Contrasena:</label>
                   <br />
                   <input 
-                  type="text" 
+                  type="password" 
                   className="field" 
-                  placeholder="Enter Password"/>
+                  placeholder="Enter Password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  />
                   <br />
               </div>   
               <div className="crear">
                 <br />
                 <br />
-                  <Button variant="outline-success">Iniciar Sesion</Button>
+                  <Button type="submit" variant="outline-success">Iniciar Sesion</Button>
               </div>
               <br />
               <div>
@@ -44,5 +85,7 @@ export default function Login() {
 
         </div>
     </div>
-    );
+    )
   }
+
+export default Login 

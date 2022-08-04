@@ -102,7 +102,7 @@ const Register = () => {
           </div>
           <br />
           <div>
-            <Link to="/register"> Ya tienes cuenta? Inicia sesión</Link>
+            <Link to="/login"> Ya tienes cuenta? Inicia sesión</Link>
           </div>
         </form>
         </div>
