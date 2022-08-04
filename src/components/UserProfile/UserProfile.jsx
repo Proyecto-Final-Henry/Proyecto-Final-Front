@@ -42,7 +42,7 @@ export default function UserProfile (){
         <div>
             <h1>esperando data a renderizar!</h1>
             <div>
-                <img src='https://p16-va-default.akamaized.net/img/musically-maliva-obj/1665282759496710~c5_720x720.jpeg' alt='userImg'></img>
+                <img src={user?.userImg} alt='userImg'></img>
                 <p className="userP">{user?.name}</p>
                 <p className="userP">{user?.email}</p>
                 <button onClick={cerrarSesion} >Cerrar sesion</button>
