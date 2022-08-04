@@ -5,6 +5,7 @@ import Login from "./components/Login/Login"
 import Contact from "./components/Contact/Contact"
 import Premium from "./components/Premium/Premium"
 import Register from "./components/Register/Register";
+import ConfirmarCuenta from "./components/ConfirmarCuenta/ConfirmarCuenta";
 import NavigationB from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import NavigationM from "./components/NavMain/NavMain";
@@ -35,6 +36,12 @@ function App() {
       <Route exact path="/register"> 
         <NavigationB/> 
         <Register/> 
+        <Footer/>
+      </Route>
+
+      <Route exact path="/confirmar/:token"> 
+        <NavigationB/> 
+        <ConfirmarCuenta/> 
         <Footer/>
       </Route>
 
