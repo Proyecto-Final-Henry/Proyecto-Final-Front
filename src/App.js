@@ -51,6 +51,12 @@ function App() {
         <Footer/>
       </Route>
 
+      <Route exact path="/pay"> 
+        <NavigationB/> 
+        <Premium/> 
+        <Footer/>
+      </Route>
+
       <Route exact path="/contact"> 
         <NavigationB/> 
         <Contact/> 
