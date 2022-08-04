@@ -15,6 +15,8 @@ import Feed from "./components/Feed/Feed";
 import RecoverPassword from "./components/RecoverPass/RecoverPass";
 import './App.css';
 import './index.css'
+import Free from "./components/Free/Free";
+import Pay from "./components/Pay/Pay";
 
 function App() {
 
@@ -51,9 +53,15 @@ function App() {
         <Footer/>
       </Route>
 
+      <Route exact path="/free"> 
+        <NavigationB/> 
+        <Free/> 
+        <Footer/>
+      </Route>
+
       <Route exact path="/pay"> 
         <NavigationB/> 
-        <Premium/> 
+        <Pay/> 
         <Footer/>
       </Route>
 
