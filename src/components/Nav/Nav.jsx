@@ -15,9 +15,9 @@ export default function NavigationB() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                     <div className="logo">
-                        <Nav.Link>
+                        <Link to="/">
                             <img src={Logo} alt="logo"/>
-                        </Nav.Link>
+                        </Link>
                     </div>
                     <Link to="/" ><h5>HOME</h5></Link>
                     <Link to="/premium"><h5>PREMIUM</h5></Link>

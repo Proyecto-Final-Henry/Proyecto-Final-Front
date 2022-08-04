@@ -26,7 +26,9 @@ Nav{
 } 
 Nav a{
   text-decoration: none;
-  padding-top: 8px;
+  padding-top: 12px;
+  margin-left: 18px;
+  margin-right: 18px;
 }
 Nav a h5{
   color: #1DB954;
@@ -35,10 +37,11 @@ Nav a h5{
 }
 Nav h5:hover{
   color: white;
+  transition: all .3s ease-in-out;
 }
 
 .logo img{
-  height: 50px;
+  height: 60px;
 
 }
 

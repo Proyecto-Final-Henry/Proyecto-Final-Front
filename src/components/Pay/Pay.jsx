@@ -17,7 +17,7 @@ function Pay() {
         <div>
           <img src="https://yerbamateargentina.org.ar/imagenes/archivos/noticias/79288_imagen_1227x747xrecortarxagrandar.jpg?random=1608575522" alt="algun dia" />
         </div>
-      
+        <br />
         <div>
           <button class="btn btn-outline-success" onClick={handleButton}>Regresar al Home</button>
         </div>
@@ -26,4 +26,4 @@ function Pay() {
     );
   }
 
-export default Premium;
+export default Pay;
