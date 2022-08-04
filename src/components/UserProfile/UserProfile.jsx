@@ -3,7 +3,6 @@ import { useEffect , useState } from "react"
 import { useHistory } from "react-router-dom"
 import axios from "axios"
 import "../../css/users.css"
-import { Button } from "bootstrap"
 
 export default function UserProfile (){
     //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params 

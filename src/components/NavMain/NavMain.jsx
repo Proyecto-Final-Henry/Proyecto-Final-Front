@@ -10,7 +10,6 @@ export default function NavigationM(){
         <nav>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='Nav'>
             <Container>
-                
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">

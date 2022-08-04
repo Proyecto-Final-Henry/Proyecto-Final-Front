@@ -60,7 +60,7 @@ function App() {
         <Feed/> 
       </Route>
 
-      <Route exact path="/user"> 
+      <Route exact path="/user/:id"> 
         <NavigationM/> 
         <UserProfile/> 
       </Route>
