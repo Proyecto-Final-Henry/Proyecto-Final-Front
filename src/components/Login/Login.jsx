@@ -28,7 +28,7 @@ const Login = () => {
       const url = `http://localhost:3001/api/back-end/users/login`
       const { data } = await axios.post( url , {email,password})
       localStorage.setItem("token", data.token)
-      history.push("/user")
+      history.push("/feed")
     } catch (error) {
       setAlerta({msg: error.response.data.msg , error: true})
     }
