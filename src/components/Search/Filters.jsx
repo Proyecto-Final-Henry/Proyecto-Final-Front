@@ -20,7 +20,7 @@ export default function Filters (){
 
     useEffect(()=>{
         dispatch(getSearch(query, state.type))
-    },[state.type,dispatch])
+    },[state.type,dispatch]);
 
 
     return(
@@ -35,4 +35,4 @@ export default function Filters (){
                 </form>
         </div>
     )
-}
+};

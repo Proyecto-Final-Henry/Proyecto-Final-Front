@@ -5,14 +5,14 @@ import axios from 'axios';
 
 const NewPassword = () => {
 
-    const [ password , setPassword ] = useState("")
-    const [ repitepassword , setRepitePassword] = useState("")
-    const [ passwordConfirmada , setPasswordConfirmada] = useState(false)
-    const [ tokenValido , setTokenValido] = useState(false)
-    const [ alerta , setAlerta ] = useState({})
+    const [ password , setPassword ] = useState("");
+    const [ repitepassword , setRepitePassword] = useState("");
+    const [ passwordConfirmada , setPasswordConfirmada] = useState(false);
+    const [ tokenValido , setTokenValido] = useState(false);
+    const [ alerta , setAlerta ] = useState({});
 
-    const params = useParams()
-    const { token } = params
+    const params = useParams();
+    const { token } = params;
 
     useEffect(() => {
         const comprobarToken = async () => {
@@ -24,9 +24,9 @@ const NewPassword = () => {
             } catch (error) {
                 setAlerta({msg: error.response.data.msg, error: true})
             }
-        }
+        };
         comprobarToken()
-    },[])
+    },[]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -37,7 +37,7 @@ const NewPassword = () => {
                 setAlerta({})
             },2500)
             return
-        }
+        };
 
         if(password !== repitepassword){
             setAlerta({msg: "Ambas passwords deben ser iguales", error: true})
@@ -45,7 +45,7 @@ const NewPassword = () => {
                 setAlerta({})
             }, 2500)
             return
-        }
+        };
 
         try {
             const url = `http://localhost:3001/api/back-end/users/olvide-password/${token}`
@@ -55,10 +55,10 @@ const NewPassword = () => {
             
         } catch (error) {
             setAlerta({msg: error.response.data.msg , error: true})
-        }
-    }
+        };
+    };
 
-    const { msg } = alerta
+    const { msg } = alerta;
 
   return (
     <>
@@ -106,7 +106,7 @@ const NewPassword = () => {
         </div>
     </div>
     </>
-  )
-}
+  );
+};
 
 export default NewPassword

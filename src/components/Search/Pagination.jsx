@@ -41,21 +41,19 @@ export default function Pagination (){
               break;
             }
           }
-          
           return [ ...pages];
+    };
        
-    }
-       
-    
       const handleMoveLeft = evt => {
         let page= index - spill.limit
         dispatch(getSearch(query, filter,page))
-      }
+      };
     
       const handleMoveRight = evt => {
         let page= index + spill.limit
         dispatch(getSearch(query, filter,page))        
-      }
+      };
+
     if ( spill.prev===undefined && spill.next===undefined) return null;  
     const pages = fetchPageNumbers();
     
@@ -75,4 +73,4 @@ export default function Pagination (){
         </div>
       </Fragment>
     );
-}
+};

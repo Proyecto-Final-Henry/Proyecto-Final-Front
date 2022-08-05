@@ -7,12 +7,12 @@ import SearchBar from '../Search/SearchBar';
 import Button from 'react-bootstrap/Button';
 
 export default function NavigationM(){
-    const history = useHistory()
+    const history = useHistory();
 
     const cerrarSesion = () => {
-        localStorage.removeItem("token")
-        history.push("/")
-    }
+        localStorage.removeItem("token");
+        history.push("/");
+    };
 
     return (
         <nav>
@@ -40,4 +40,4 @@ export default function NavigationM(){
             </Navbar>
     </nav>
       );    
-}
+};

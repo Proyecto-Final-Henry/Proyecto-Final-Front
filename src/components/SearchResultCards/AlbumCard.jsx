@@ -1,6 +1,6 @@
 import style from "../../css/resultSearch.module.css";
+
 export default function AlbumCard (props){
-    
     return(
         <div className={style.card}>
             <img src={props.img} alt="img"></img>
@@ -10,6 +10,5 @@ export default function AlbumCard (props){
             <p>{props.type}</p>
             </div>                       
         </div>
-    )
-
-}
+    );
+};

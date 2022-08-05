@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Logo from "../../img/logo.png"
+import Logo from "../../img/logo.png";
 import { Link } from 'react-router-dom';
 
 export default function NavigationB() {
@@ -32,4 +32,4 @@ export default function NavigationB() {
             </Navbar>
     </nav>
   );
-}
+};

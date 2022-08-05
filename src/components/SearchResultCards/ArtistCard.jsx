@@ -1,6 +1,6 @@
 import style from "../../css/resultSearch.module.css";
+
 export default function ArtistCard (props){
-    
     return(
         <div className={style.card}>
             <img src={props.img} alt="img"></img>
@@ -9,6 +9,5 @@ export default function ArtistCard (props){
             <p>{props.type}</p>
             </div>                       
         </div>
-    )
-
-}
+    );
+};
