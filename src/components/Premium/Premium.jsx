@@ -1,5 +1,5 @@
-import ComparativoPremium from "../../assets/comparativa.png"
-import style from "../../css/premium.module.css"
+import ComparativoPremium from "../../assets/comparativa.png";
+import style from "../../css/premium.module.css";
 import { useHistory } from "react-router-dom";
 
 function Premium() {
@@ -7,7 +7,7 @@ function Premium() {
     
     function handleButton() {
         history.push("/pay")
-    }
+    };
 
     return (
       <div>
@@ -32,6 +32,6 @@ function Premium() {
 
       </div>
     );
-  }
+  };
 
 export default Premium;

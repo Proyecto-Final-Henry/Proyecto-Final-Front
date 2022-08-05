@@ -2,40 +2,38 @@ import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Alerta from "../AlertaMensaje/Alerta";
-import axios from "axios"
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
 
-  const [ email , setEmail ] = useState("")
-  const [ password , setPassword ] = useState("")
-  const [ alerta , setAlerta ] = useState({})
+  const [ email , setEmail ] = useState("");
+  const [ password , setPassword ] = useState("");
+  const [ alerta , setAlerta ] = useState({});
 
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault()
- 
     if([email,password].includes("")){
       setAlerta({msg:"Ambos campos son requeridos" , error: true})
       setTimeout(() => {
         setAlerta({})
       },2500)
-      return
-    }
+      return;
+    };
 
     try {
       const url = `http://localhost:3001/api/back-end/users/login`
       const { data } = await axios.post( url , {email,password})
       localStorage.setItem("token", data.token)
-      history.push("/user")
+      history.push("/feed")
     } catch (error) {
       setAlerta({msg: error.response.data.msg , error: true})
-    }
+    };
+  };
 
-  }
-
-  const { msg } = alerta
+  const { msg } = alerta;
 
   return(
     <div className="created">
@@ -86,6 +84,6 @@ const Login = () => {
         </div>
     </div>
     )
-  }
+  };
 
-export default Login 
+export default Login;

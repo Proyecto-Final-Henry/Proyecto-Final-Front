@@ -6,7 +6,7 @@ function Pay() {
     
     function handleButton() {
         history.push("/")
-    }
+    };
 
     return (
       <div>
@@ -24,6 +24,6 @@ function Pay() {
 
       </div>
     );
-  }
+  };
 
 export default Pay;
