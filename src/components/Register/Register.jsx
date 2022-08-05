@@ -1,44 +1,44 @@
 import { useState } from "react";
 import Alerta from "../AlertaMensaje/Alerta";
-import axios from "axios"
+import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 const Register = () => {
   const history = useHistory();
-  const [ name , setName] = useState("")
-  const [ email , setEmail ] = useState("")
-  const [ password , setPassword ] = useState("")
-  const [ repetirPassword , setRepetirPassword ] = useState("")
-  const [ alerta , setAlerta ] = useState({})
+  const [ name , setName] = useState("");
+  const [ email , setEmail ] = useState("");
+  const [ password , setPassword ] = useState("");
+  const [ repetirPassword , setRepetirPassword ] = useState("");
+  const [ alerta , setAlerta ] = useState({});
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     
     if([name,email,password,repetirPassword].includes("")){
       setAlerta({msg:"Hay campos vacios", error: true})
       setTimeout(() => {
         setAlerta({})
       },2500)
-      return
-    }
+      return;
+    };
 
     if(password !== repetirPassword){
       setAlerta({msg: "Las passwords deben ser iguales" , error: true})
       setTimeout(() => {
         setAlerta({})
       },2500)
-      return
-    }
+      return;
+    };
 
     if(password.length < 6){
       setAlerta({msg: "La password es muy corta, necesita mas de 6 caracteres", error: true})
       setTimeout(()=>{
         setAlerta({})
       },2500)
-      return
-    }
+      return;
+    };
 
     setAlerta({})
     try {
@@ -47,17 +47,16 @@ const Register = () => {
       setAlerta({msg: "Creado correctamente, revisa tu email" , error: false})
       setTimeout(() => {
         history.push("/");
-      },8000)
+      },8000);
     } catch (error) {
       setAlerta({msg: error.response.data.msg , error: true})
       setTimeout(() => {
         setAlerta({})
-      },2500)
+      },2500);
     };
   };
 
-
-  const { msg } = alerta
+  const { msg } = alerta;
 
     return (
       <>
