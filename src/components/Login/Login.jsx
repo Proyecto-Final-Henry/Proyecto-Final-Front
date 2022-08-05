@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Alerta from "../AlertaMensaje/Alerta";
+import Alert from 'react-bootstrap/Alert';
 import axios from "axios"
 import { useHistory } from "react-router-dom";
 
@@ -40,7 +41,7 @@ const Login = () => {
   return(
     <div className="created">
         <div className="cre">
-          {msg && <Alerta alerta={alerta} />}
+          {msg && <Alerta alerta={alerta} className="alert"/>}
           <form onSubmit={handleSubmit} className="form">
               <h1>Login</h1>
               <div>

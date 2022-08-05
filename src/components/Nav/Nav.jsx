@@ -3,7 +3,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from "../../img/logo.png"
 import { Link } from 'react-router-dom';
-import SearchBar from '../Search/SearchBar';
 
 export default function NavigationB() {
   return (
