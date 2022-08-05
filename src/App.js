@@ -16,6 +16,8 @@ import RecoverPassword from "./components/RecoverPass/RecoverPass";
 import './App.css';
 import './index.css'
 import NewPassword from "./components/NewPassword/NewPassword";
+import Free from "./components/Free/Free";
+import Pay from "./components/Pay/Pay";
 
 function App() {
 
@@ -49,6 +51,18 @@ function App() {
       <Route exact path="/premium"> 
         <NavigationB/> 
         <Premium/> 
+        <Footer/>
+      </Route>
+
+      <Route exact path="/free"> 
+        <NavigationB/> 
+        <Free/> 
+        <Footer/>
+      </Route>
+
+      <Route exact path="/pay"> 
+        <NavigationB/> 
+        <Pay/> 
         <Footer/>
       </Route>
 

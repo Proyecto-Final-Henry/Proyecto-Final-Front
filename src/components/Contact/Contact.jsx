@@ -2,8 +2,11 @@ import style from "../../css/contact.module.css"
 import { useState } from "react";
 import { sendEmailContact } from "../../redux/actions";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function Contact() {
+    let history = useHistory();
+
     const dispatch = useDispatch();
     const [input, setInput] = useState({
         name: "",
@@ -42,6 +45,9 @@ function Contact() {
                 email: "",
                 message: "",
             });
+            setTimeout(() => {
+                history.push("/");
+              },5000)
         }else{
             if(input.name === '') return alert('Ingrese su nombre');
             if(error.name) return alert(error.name);
