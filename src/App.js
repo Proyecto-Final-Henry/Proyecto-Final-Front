@@ -9,6 +9,7 @@ import NavigationB from "./components/Nav/Nav";
 import UserProfile from "./components/UserProfile/UserProfile";
 import './App.css';
 import './index.css'
+import PanelUser from "./views/PanelUser/PanelUser";
 
 
 function App() {
@@ -43,7 +44,9 @@ function App() {
         <NavigationB/> 
         <UserProfile/> 
       </Route>
-
+      <Route exact path="/home"> 
+        <PanelUser/>
+      </Route>
     </div>
 
   );

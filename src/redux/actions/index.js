@@ -1,14 +1,14 @@
-
 import {
     SEND_EMAIL_CONTACT,
+    GET_USER_DATA
 } from "../constants";
 
 import axios from "axios";
 
-const urlTest = 'http://localhost:3001/api/back-end';
+const urlApi = 'http://localhost:3001/api/back-end';
 
 export const sendEmailContact = (values) => {
-    const url =  urlTest+'/sendEmailContact';
+    const url =  urlApi+'/sendEmailContact';
     return async (dispatch) => {
         axios.post(url, values)
         .then(responde => {
@@ -19,9 +19,7 @@ export const sendEmailContact = (values) => {
         })
         .catch( e => console.log(e));
     }
-
-export const GET_USER_DATA = "GET_USER_DATA"
-
+}
 export function getUserData(id) {
     return async function(dispatch) {
       return fetch("http://localhost:3001/api/back-end/users/perfil")
