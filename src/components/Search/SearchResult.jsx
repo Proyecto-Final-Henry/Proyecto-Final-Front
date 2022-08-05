@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 import ArtistCard from '../SearchResultCards/ArtistCard';
 import AlbumCard from '../SearchResultCards/AlbumCard';
 import TrackCard from "../SearchResultCards/TrackCard";
@@ -8,7 +8,6 @@ import style from "../../css/resultSearch.module.css";
 
 export default function SearchResult (){
     const data = useSelector(store => store.searchResult);
-
 
     return(
         <div className={style.box}>
@@ -60,6 +59,5 @@ export default function SearchResult (){
             })}
             </div>                       
         </div>
-    )
-
-}
+    );
+};

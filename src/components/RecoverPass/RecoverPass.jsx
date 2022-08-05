@@ -3,9 +3,8 @@ import axios from "axios";
 import Alerta from "../AlertaMensaje/Alerta";
 
 const RecoverPassword = () => {
-
-    const [ email , setEmail ] = useState("")
-    const [ alerta , setAlerta ] = useState({})
+    const [ email , setEmail ] = useState("");
+    const [ alerta , setAlerta ] = useState({});
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -16,7 +15,7 @@ const RecoverPassword = () => {
                 setAlerta({})
             },2500)
             return
-        }
+        };
 
         try {
             const url = `http://localhost:3001/api/back-end/users/olvide-password`
@@ -24,10 +23,10 @@ const RecoverPassword = () => {
             setAlerta({msg: data.msg})
         } catch (error) {
             setAlerta({msg: error.response.data.msg , error: true})
-        }
-    }
+        };
+    };
 
-    const { msg } = alerta
+    const { msg } = alerta;
 
 return(
  <div className="created">
@@ -54,8 +53,8 @@ return(
           </form>
         </div>
     </div>
-    )
-}
+    );
+};
 
 
 export default RecoverPassword;

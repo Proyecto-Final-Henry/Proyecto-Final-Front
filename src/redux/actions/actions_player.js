@@ -19,8 +19,8 @@ export const getGenres = () => {
             })
         })
         .catch( e => console.log(e));
-    }
-}
+    };
+};
 export const getGenre = (id) => {
     const url =  `${urlApi}/genres?genre=${id}`;
     return async (dispatch) => {
@@ -32,11 +32,11 @@ export const getGenre = (id) => {
             })
         })
         .catch( e => console.log(e));
-    }
-}
+    };
+};
 
 export const cleanGenre = () => {
     return {
         type: CLEAN_GENRE
-    }
-}
+    };
+};

@@ -1,11 +1,9 @@
+import axios from "axios";
 import {
     SEND_EMAIL_CONTACT,
-    GET_USER_DATA
     GET_USER_DATA,
-    GET_SEARCH
+    GET_SEARCH,
 } from "../constants";
-
-import axios from "axios";
 
 const urlApi = 'http://localhost:3001/api/back-end';
 
@@ -20,8 +18,8 @@ export const sendEmailContact = (values) => {
             })
         })
         .catch( e => console.log(e));
-    }
-}
+    };
+};
 
 export function getUserData(id) {
     return async function(dispatch) {
@@ -31,8 +29,8 @@ export function getUserData(id) {
           dispatch({ type: GET_USER_DATA, payload: json });
         });
     };
+};
 
-}
 export function getSearch(toFind, filter, index){
     return async function(dispatch) {
         return fetch(`http://localhost:3001/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}`)
@@ -41,5 +39,4 @@ export function getSearch(toFind, filter, index){
             dispatch({ type: GET_SEARCH, payload:{response:json, query:toFind, filter:filter, index:index} });
           });
       };
-
-}
+};

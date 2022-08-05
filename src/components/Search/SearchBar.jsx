@@ -4,8 +4,6 @@ import { useHistory } from "react-router-dom";
 import { getSearch } from '../../redux/actions';
 import Button from 'react-bootstrap/Button';
 
-
-
 export default function SearchBar (){
     const [toFind, setToFind]= useState("");
     const dispatch= useDispatch();
@@ -15,12 +13,12 @@ export default function SearchBar (){
 
     function handleChange(event) {
         setToFind(event.target.value);
-    }
+    };
     const handleSubmit=(event) =>{
         event.preventDefault();
-        dispatch(getSearch(toFind))
-        history.push("/search")       
-    }
+        dispatch(getSearch(toFind));
+        history.push("/search");  
+    };
 
 
     return(
@@ -34,6 +32,5 @@ export default function SearchBar (){
         />
       <Button onClick={handleSubmit}  variant="outline-success" className='pagiBo'>Search</Button>
     </div>
-    )
-
-}
+    );
+};

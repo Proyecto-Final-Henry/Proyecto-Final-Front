@@ -10,6 +10,5 @@ export default function TrackCard (props){
             <p>{props.type}</p>
             </div>                       
         </div>
-    )
-
-}
+    );
+};

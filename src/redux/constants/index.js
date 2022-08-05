@@ -1,8 +1,4 @@
 export const SEND_EMAIL_CONTACT = 'SEND_EMAIL_CONTACT';
-
-export const GET_USER_DATA = "GET_USER_DATA"
-
-// CONSTANTS PLAYER
 export const GET_GENRE = 'GET_GENRE';
 export const GET_GENRES = 'GET_GENRES';
 export const CLEAN_GENRE = 'CLEAN_GENRE';
