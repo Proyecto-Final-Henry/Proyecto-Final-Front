@@ -2,7 +2,7 @@ import style from "../../css/contact.module.css"
 import { useState } from "react";
 import { sendEmailContact } from "../../redux/actions";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 function Contact() {
     let history = useHistory();

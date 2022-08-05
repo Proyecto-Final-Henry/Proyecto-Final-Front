@@ -5,6 +5,7 @@ import Logo from "../../img/logo.png"
 import { Link, useHistory } from 'react-router-dom';
 import SearchBar from '../Search/SearchBar';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export default function NavigationM(){
     const history = useHistory()
@@ -14,7 +15,7 @@ export default function NavigationM(){
         history.push("/")
     }
 
-    return(
+    return (
         <nav>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='Nav'>
             <Container>
@@ -27,17 +28,17 @@ export default function NavigationM(){
                         </Link>
                     </div>
                     <Link to= "/feed" ><h5>INICIO</h5></Link>
+                    <Link to="/user"><h5>PERFIL</h5></Link>
                 </Nav>
                 <Nav>
                     <SearchBar/>
                 </Nav>
                 <Nav>
-                    <Link to="/user"><h5>PERFIL</h5></Link>
-                    <Button onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</Button>
+                    <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
             </Navbar>
     </nav>
-    )
+      );    
 }
