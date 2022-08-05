@@ -1,5 +1,5 @@
-import React from 'react'
-import '../../css/alerta.css'
+import React from 'react';
+import '../../css/alerta.css';
 
 const Alerta = ({alerta}) => {
   return (
@@ -8,7 +8,7 @@ const Alerta = ({alerta}) => {
         {alerta.msg}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Alerta
+export default Alerta;

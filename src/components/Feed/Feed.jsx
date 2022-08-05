@@ -1,6 +1,6 @@
-import { useEffect } from "react"
-import { useHistory } from "react-router-dom"
-import ejemplo from "../../assets/ejemplo.png"
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import ejemplo from "../../assets/ejemplo.png";
 
 export default function Feed(){
     const history = useHistory()
@@ -20,6 +20,7 @@ export default function Feed(){
         <div>
             <br />
             <img src={ejemplo} alt="aca va el feed" />
+            
         </div>
-    )
-}
+    );
+};
