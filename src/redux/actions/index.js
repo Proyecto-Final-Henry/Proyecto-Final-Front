@@ -8,7 +8,7 @@ import axios from "axios";
 const urlApi = 'http://localhost:3001/api/back-end';
 
 export const sendEmailContact = (values) => {
-    const url =  urlApi+'/sendEmailContact';
+    const url =  urlApi+'/users/sendEmailContact';
     return async (dispatch) => {
         axios.post(url, values)
         .then(responde => {
