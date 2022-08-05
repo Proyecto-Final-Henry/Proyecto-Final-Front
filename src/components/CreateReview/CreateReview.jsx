@@ -1,22 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router";
-import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
 
-export default function CreateReview() {
+export default function CreateReview({ apiId, type, name }) {
   const [review, setReview] = useState({
     title: "",
     score: 0,
     description: "",
-    type: "",
-    name: "",
   });
 
   const history = useHistory();
 
   const [user, setUser] = useState("");
-
-  const apiId = useParams().id;
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -48,18 +43,15 @@ export default function CreateReview() {
     e.preventDefault();
 
     try {
-      await axios.post(
-        {
-          apiId,
-          title: review.title,
-          score: review.score,
-          description: review.description,
-          type: review.type,
-          name: review.name,
-          userId: user.id,
-        },
-        "http://localhost:3001/api/back-end/reviews/create"
-      );
+      await axios.post("http://localhost:3001/api/back-end/reviews/create", {
+        apiId,
+        type,
+        name,
+        title: review.title,
+        score: review.score,
+        description: review.description,
+        userId: user.id,
+      });
     } catch (err) {
       throw new Error("No pudimos crear tu review");
     }
@@ -67,6 +59,7 @@ export default function CreateReview() {
 
   const handleChange = (e) => {
     e.preventDefault();
+    console.log(`${e.target.name} : ${e.target.value}`);
     setReview({
       ...review,
       [e.target.name]: e.target.value,
@@ -84,20 +77,12 @@ export default function CreateReview() {
         onChange={handleChange}
       />
       <label>Calificación</label>
-      {/* <select id="reviewScore" name="score" onChange={handleChange}>
-        <option value={1}>1</option>
-        <option value={2}>2</option>
-        <option value={3}>3</option>
-        <option value={4}>4</option>
-        <option value={5}>5</option>
-      </select> */}
       <input
         type="range"
         id="reviewScore"
         name="score"
         min="0"
         max="5"
-        value="0"
         step="1"
         onChange={handleChange}
       />
@@ -107,18 +92,6 @@ export default function CreateReview() {
         placeholder="¡Tu reseña!"
         rows="4"
         columns="50"
-        onChange={handleChange}
-      />
-      <select id="reviewType" name="type" onChange={handleChange}>
-        <option value={"artist"}>artista</option>
-        <option value={"album"}>álbum</option>
-        <option value={"song"}>canción</option>
-      </select>
-      <input
-        type="text"
-        id="reviewName"
-        placeholder="Nombre"
-        name="name"
         onChange={handleChange}
       />
       <input type="submit" value="Crear reseña" />
