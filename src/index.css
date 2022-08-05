@@ -19,6 +19,7 @@ Nav{
   height: 10%;
   min-height: 0%;
   max-width: 100%;
+  display: flex;
   justify-content: space-around;
   align-items: center;
   background-color:rgb(34, 34, 34);
@@ -146,4 +147,23 @@ Nav h5:hover{
   padding: 10px;
   align-items: center;
 }
+}
+
+/*sea*/
+.pagi{
+  font-size: 17px;
+  height: 35px;
+  width: 200px;
+}
+.pagiBo{
+  background-color: black;
+  color: white;
+  width: 70px;
+  height: 40px;
+}
+.ete{
+  padding: 20px;
+}
+.boton{
+  padding: 40px;
 }

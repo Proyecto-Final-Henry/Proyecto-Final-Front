@@ -2,6 +2,7 @@ import {useDispatch} from 'react-redux';
 import { useState,  } from 'react';
 import { useHistory } from "react-router-dom";
 import { getSearch } from '../../redux/actions';
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -23,21 +24,15 @@ export default function SearchBar (){
 
 
     return(
-        
-        <div>
-            <form  onSubmit={(e) => handleSubmit(e)}>
-          <div>
-            <input
-              type="text"
-              id="name"
-              value={toFind}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-          <button type="submit">BUSCAR</button>
-        </form>
-            
-        </div>
+      <div className='ete'>
+        <input
+        type="search"
+        placeholder="Search"
+        className="pagi"
+        aria-label="Search"
+        />
+      <Button variant="outline-success" className='pagiBo'>Search</Button>
+    </div>
     )
 
 }
