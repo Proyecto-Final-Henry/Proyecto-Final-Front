@@ -37,3 +37,19 @@
 .boxUl ul {
     list-style: none;
 }
+
+.Links{
+    text-decoration: none;
+    padding-top: 8px;
+    color: #1DB954;
+    padding: 10px;
+    padding-left: 10px;
+    font: bolder;
+}
+
+.Links:hover{
+    color: white;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    transform: scale(1.5);
+  }

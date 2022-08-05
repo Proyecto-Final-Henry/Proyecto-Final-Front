@@ -11,6 +11,7 @@ const initialState = {
     genres:[],
     genre:{},
 };
+
 function rootReducer(state = initialState, action) {
     switch (action.type) {
         case GET_USER_DATA:
@@ -33,7 +34,11 @@ function rootReducer(state = initialState, action) {
             ...state, 
             genre: {}
           }
-
+          return {...state, userData: action.payload}
+        
+        case GET_SEARCH:
+          return {...state, searchResult: action.payload}
+        
         default:
           return state;
       }
