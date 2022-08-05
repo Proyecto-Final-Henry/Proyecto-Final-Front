@@ -15,6 +15,7 @@ import Feed from "./components/Feed/Feed";
 import RecoverPassword from "./components/RecoverPass/RecoverPass";
 import './App.css';
 import './index.css'
+import NewPassword from "./components/NewPassword/NewPassword";
 
 function App() {
 
@@ -60,6 +61,11 @@ function App() {
       <Route exact path="/recover"> 
         <NavigationB/> 
         <RecoverPassword/> 
+      </Route>
+
+      <Route exact path="/olvide-password/:token"> 
+        <NavigationB/> 
+        <NewPassword/> 
       </Route>
 
       <Route exact path="/feed"> 
