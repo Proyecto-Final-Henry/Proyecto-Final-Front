@@ -33,12 +33,12 @@ export function getUserData(id) {
     };
 
 }
-export function getSearch(toFind, filter){
+export function getSearch(toFind, filter, index){
     return async function(dispatch) {
-        return fetch(`http://localhost:3001/api/back-end/songs/search?query=${toFind}&filter=${filter}`)
+        return fetch(`http://localhost:3001/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}`)
           .then(response => response.json())
           .then(json => {
-            dispatch({ type: GET_SEARCH, payload: json });
+            dispatch({ type: GET_SEARCH, payload:{response:json, query:toFind, filter:filter, index:index} });
           });
       };
 

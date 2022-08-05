@@ -1,5 +1,5 @@
 import style from "../../css/resultSearch.module.css";
-export default function AlbumCard (props){
+export default function TrackCard (props){
     
     return(
         <div className={style.card}>

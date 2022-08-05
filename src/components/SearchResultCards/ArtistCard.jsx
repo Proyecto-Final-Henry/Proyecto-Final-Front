@@ -1,10 +1,13 @@
+import style from "../../css/resultSearch.module.css";
 export default function ArtistCard (props){
     
     return(
-        <div>
+        <div className={style.card}>
             <img src={props.img} alt="img"></img>
-            <p>{props.title}</p>
-            <p>{props.type}</p>                       
+            <div className={style.text}>
+            <p>{props.name}</p>
+            <p>{props.type}</p>
+            </div>                       
         </div>
     )
 

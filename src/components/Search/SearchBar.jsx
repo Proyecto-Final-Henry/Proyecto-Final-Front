@@ -30,8 +30,9 @@ export default function SearchBar (){
         placeholder="Search"
         className="pagi"
         aria-label="Search"
+        onChange={handleChange}
         />
-      <Button onClick={handleSubmit} onChange={handleChange} variant="outline-success" className='pagiBo'>Search</Button>
+      <Button onClick={handleSubmit}  variant="outline-success" className='pagiBo'>Search</Button>
     </div>
     )
 
