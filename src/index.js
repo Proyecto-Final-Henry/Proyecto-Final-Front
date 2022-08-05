@@ -11,11 +11,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-  <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>    
-  </React.StrictMode>
   </Provider>
 );
 

@@ -1,10 +1,12 @@
-import Nav from "../Nav/Nav"
-import style from "../../css/contact.module.css"
+import style from "../../css/contact.module.css";
 import { useState } from "react";
 import { sendEmailContact } from "../../redux/actions";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function Contact() {
+    let history = useHistory();
+
     const dispatch = useDispatch();
     const [input, setInput] = useState({
         name: "",
@@ -26,7 +28,7 @@ function Contact() {
         setError(
             validateInput({...input, [e.target.name]:e.target.value})
         );
-    }
+    };
     const onSubmit = (e) => {
         e.preventDefault();
         
@@ -35,8 +37,7 @@ function Contact() {
                 name: input.name,
                 email: input.email,
                 message: input.message,
-            }
-            // console.log('infoo:::', newEmail);
+            };
             dispatch(sendEmailContact(newEmail));
             alert('Gracias por el mensaje, responderemos lo más breve posible')
             setInput({
@@ -44,6 +45,9 @@ function Contact() {
                 email: "",
                 message: "",
             });
+            setTimeout(() => {
+                history.push("/");
+              },5000)
         }else{
             if(input.name === '') return alert('Ingrese su nombre');
             if(error.name) return alert(error.name);
@@ -98,26 +102,26 @@ function Contact() {
 
       </div>
     );
-  }
+  };
 
 export default Contact;
 
 export function validateInput (input){
-  let error = {}
+  let error = {};
   if(!input.name){
     error.name = '* Nombre es requerido';
   }else if(!/^[A-Za-z ]+$/.test(input.name)){
     error.name = '* Nombre es inválido, solo acepta letras';
-  }
+  };
   if(!input.email){
     error.email = '* Email es requerido';
   }else if(!/\S+@\S+\.\S+/.test(input.email)){
     error.email = '* Email es inválido, ejm: prueba@gmail.com';
-  }
+  };
   if(!input.message){
       error.message = '* Mensaje es requerido';
   }else if(input.message.length === 0){
       error.message = '* Mensaje es inválido';
-  }
+  };
   return error;
-}
+};

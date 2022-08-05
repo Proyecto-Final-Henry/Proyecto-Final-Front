@@ -1,5 +1,5 @@
 import GenreCard from "./GenreCard";
-import style from "../../css/panelUser.module.css"
+import style from "../../css/panelUser.module.css";
 
 function Genres(props) {    
     if (props.genres.length !== 0) {
@@ -24,7 +24,7 @@ function Genres(props) {
         );
     } else {
         
-    }
-}
+    };
+};
 
 export default Genres;

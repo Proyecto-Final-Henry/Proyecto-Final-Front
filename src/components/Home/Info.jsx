@@ -1,7 +1,9 @@
-import info1 from '../../img/info1.jpeg'
-import info2 from '../../img/info2.jpeg'
-import info3 from '../../img/info3.jpeg'
-import style from "../../css/info.module.css"
+import info1 from '../../img/info1.jpeg';
+import info2 from '../../img/info2.jpeg';
+import info3 from '../../img/info3.jpeg';
+import style from "../../css/info.module.css";
+import { Link } from 'react-router-dom';
+
 export default function Info (){
     return (
         <div>
@@ -41,7 +43,7 @@ export default function Info (){
                             </li>
                         </ul>
                     </div>
-                    <p>USUARIO FREE</p>          
+                    <p className={style.Links}><Link className={style.Links} to="/free">USUARIO FREE </Link></p>          
                 </div>
                 <div className={style.boxBtnChild}>
                     <div className={style.boxUl}>
@@ -63,9 +65,9 @@ export default function Info (){
                             </li>
                         </ul>
                     </div>
-                    <p>USUARIO PREMIUM</p>         
+                    <p className={style.Links} > <Link className={style.Links} to="/premium">USUARIO PREMIUM </Link> </p>         
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
