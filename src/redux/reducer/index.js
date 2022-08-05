@@ -1,5 +1,10 @@
+import {
+  GET_USER_DATA,
+  GET_GENRE,
+  GET_GENRES,
+  CLEAN_GENRE
+} from "../constants";
 
-import {GET_USER_DATA, GET_SEARCH} from '../constants'
 
 const initialState = {
     userData:[],
@@ -8,12 +13,33 @@ const initialState = {
     query:'',
     filter:'',
     index:0
+    genres:[],
+    genre:{},
 };
+
 function rootReducer(state = initialState, action) {
     switch (action.type) {
         case GET_USER_DATA:
+          return {
+            ...state, 
+            userData: action.payload
+          }
+        case GET_GENRES:
+          return {
+            ...state, 
+            genres : [...action.payload],
+          }
+        case GET_GENRE:
+          return {
+            ...state, 
+            genre: action.payload
+          }
+        case CLEAN_GENRE:
+          return {
+            ...state, 
+            genre: {}
+          }
           return {...state, userData: action.payload}
-        
         case GET_SEARCH:
           let response= action.payload.response;
           let valueIndex;
@@ -30,7 +56,6 @@ function rootReducer(state = initialState, action) {
             filter:action.payload.filter,
             index: valueIndex
           }
-        
         default:
           return state;
       }

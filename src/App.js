@@ -14,6 +14,7 @@ import Feed from "./components/Feed/Feed";
 import RecoverPassword from "./components/RecoverPass/RecoverPass";
 import './App.css';
 import './index.css'
+import PanelUser from "./views/PanelUser/PanelUser";
 import NewPassword from "./components/NewPassword/NewPassword";
 import Free from "./components/Free/Free";
 import Pay from "./components/Pay/Pay";
@@ -89,6 +90,10 @@ function App() {
       <Route exact path="/user"> 
         <NavigationM/> 
         <UserProfile/> 
+      </Route>
+
+      <Route exact path="/home"> 
+        <PanelUser/>
       </Route>
 
       <Route exact path="/search"> 
