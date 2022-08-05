@@ -7,11 +7,7 @@ import Pagination from "./Pagination";
 import style from "../../css/resultSearch.module.css";
 
 export default function SearchResult (){
-    const data = useSelector(store => store.searchResult)
-    const pagination = useSelector(store => store.pagination)
-    const query = useSelector(store => store.query)
-    const filter= useSelector(store=>store.filter)
-    const index= useSelector(store=>store.index)
+    const data = useSelector(store => store.searchResult);
 
 
     return(
@@ -22,12 +18,7 @@ export default function SearchResult (){
             <div>
                 <Pagination/>
             </div>
-            <div>
-            {console.log(data)}
-            {console.log(pagination)}
-            {console.log(query)}
-            {console.log(filter)}
-            {console.log(index)}            
+            <div>           
             {data.map((e,i)=>{
                 if(e.type==='artist'){
                     return (

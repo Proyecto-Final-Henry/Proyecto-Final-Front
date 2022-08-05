@@ -1,7 +1,5 @@
 import { Fragment } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { useState, useEffect  } from 'react';
-import { useHistory } from "react-router-dom";
 import { getSearch } from '../../redux/actions';
 
 const LEFT_PAGE = 'LEFT';
@@ -16,18 +14,8 @@ export default function Pagination (){
    
     const dispatch= useDispatch();
 
-    // useEffect(()=>{
-    //     dispatch(getSearch(query, filter))
-    // },[state.type,dispatch])
-    console.log(spill)
-    console.log(query)
-    console.log(filter)
-    console.log(index)
+    
     const fetchPageNumbers = () => {
-        console.log("estoy entrando")
-           
-             
-        if (spill.next) {        
           let pages = [];        
           const LeftSpill = spill.prev;        
           const RightSpill = spill.next;        
@@ -53,9 +41,9 @@ export default function Pagination (){
               break;
             }
           }
-          console.log(pages)
+          
           return [ ...pages];
-        }
+       
     }
        
     
