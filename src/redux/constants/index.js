@@ -8,3 +8,4 @@ export const GET_USER_DATA = "GET_USER_DATA";
 export const GET_SEARCH = "GET_SEARCH";
 export const GET_ARTIST_DATA = "GET_ARTIST_DATA";
 export const GET_ARTIST_TOP = "GET_ARTIST_TOP";
+export const GET_RES_REVIEWS = "GET_RES_REVIEWS"; //resource reviews (artist, album, song)

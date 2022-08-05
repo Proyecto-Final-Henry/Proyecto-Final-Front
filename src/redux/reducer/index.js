@@ -6,6 +6,7 @@ import {
   CLEAN_GENRE,
   GET_ARTIST_DATA,
   GET_ARTIST_TOP,
+  GET_RES_REVIEWS,
 } from "../constants";
 
 const initialState = {
@@ -19,6 +20,7 @@ const initialState = {
   genre: {},
   artistData: {},
   artistTop: [],
+  resReviews: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -73,6 +75,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         artistTop: action.payload,
+      };
+    case GET_RES_REVIEWS:
+      return {
+        ...state,
+        resReviews: action.payload,
       };
     default:
       return state;

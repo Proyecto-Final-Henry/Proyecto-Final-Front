@@ -3,6 +3,8 @@ import { getArtistData } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import CreateReview from "../CreateReview/CreateReview";
+import ArtistTop from "../ArtistTop/ArtistTop";
+import ReviewDeck from "../ReviewDeck/ReviewDeck";
 
 export default function ArtistDetail() {
   let dispatch = useDispatch();
@@ -13,12 +15,14 @@ export default function ArtistDetail() {
   }, []);
 
   let artistData = useSelector((state) => state.artistData);
-  console.log(artistData);
 
   return (
     <div>
       <h1>{artistData.name}</h1>
       <img src={artistData.image} alt={artistData.name} />
+      <h2>Top Songs:</h2>
+      <ArtistTop artistId={artistId} />
+      <ReviewDeck apiId={artistId} type="artist" />
       <CreateReview apiId={artistId} type="artist" name={artistData.name} />
     </div>
   );

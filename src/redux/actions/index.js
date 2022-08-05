@@ -4,6 +4,8 @@ import {
   GET_USER_DATA,
   GET_SEARCH,
   GET_ARTIST_DATA,
+  GET_ARTIST_TOP,
+  GET_RES_REVIEWS,
 } from "../constants";
 
 const urlApi = "http://localhost:3001/api/back-end";
@@ -74,8 +76,21 @@ export function getArtistTop(id) {
       )
       .then((artist) => {
         dispatch({
-          type: GET_ARTIST_DATA,
+          type: GET_ARTIST_TOP,
           payload: artist.data,
+        });
+      });
+  };
+}
+
+export function getResReviews(id, type) {
+  return async (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/api/back-end/search/db?id=${id}&type=${type}`)
+      .then((reviews) => {
+        dispatch({
+          type: GET_RES_REVIEWS,
+          payload: reviews.data.reviews,
         });
       });
   };
