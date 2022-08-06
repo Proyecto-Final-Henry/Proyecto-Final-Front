@@ -20,6 +20,9 @@ import Free from "./components/Free/Free";
 import Pay from "./components/Pay/Pay";
 import ArtistDetail from "./components/ArtistDetail/ArtistDetail";
 import AlbumDetail from "./components/AlbumDetail/AlbumDetail";
+import PayCheck from "./components/Pay/PayCheck";
+import PaySuccess from "./components/Pay/PaySuccess";
+import PayError from "./components/Pay/PayError";
 
 function App() {
   return (
@@ -63,6 +66,24 @@ function App() {
       <Route exact path="/pay">
         <NavigationB />
         <Pay />
+        <Footer />
+      </Route>
+
+      <Route exact path="/pay/check">
+        <NavigationB />
+        <PayCheck />
+        <Footer />
+      </Route>
+
+      <Route exact path="/pay/success">
+        <NavigationB />
+        <PaySuccess/>
+        <Footer />
+      </Route>
+
+      <Route exact path="/pay/error">
+        <NavigationB />
+        <PayError/>
         <Footer />
       </Route>
 
