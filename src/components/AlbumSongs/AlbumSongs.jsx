@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getAlbumSongs } from "../../redux/actions";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 
 export default function AlbumSongs({ albumId }) {
   let dispatch = useDispatch();
@@ -23,7 +22,7 @@ export default function AlbumSongs({ albumId }) {
             <p>duración: {(parseInt(s.duration) / 60).toFixed(2)}</p>
           </div>
         );
-      })}
+      })};
     </div>
   );
-}
+};
