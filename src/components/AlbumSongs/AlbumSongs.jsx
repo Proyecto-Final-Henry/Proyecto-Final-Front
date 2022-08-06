@@ -17,10 +17,10 @@ export default function AlbumSongs({ albumId }) {
       {albumSongs.map((s) => {
         return (
           <div id={s.id} key={s.id}>
-            <Link to={`/song/${s.id}`}>
-              <p>{s.title}</p>
-            </Link>
-            <p>duración: {s.duration}</p>
+            {/* <Link to={`/song/${s.id}`}> */}
+            <p>{s.title}</p>
+            {/* </Link> */}
+            <p>duración: {(parseInt(s.duration) / 60).toFixed(2)}</p>
           </div>
         );
       })}
