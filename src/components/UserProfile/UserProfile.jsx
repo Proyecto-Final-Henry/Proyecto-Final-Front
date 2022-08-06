@@ -2,6 +2,7 @@
 import { useEffect , useState } from "react"
 import { useHistory } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
+import Pay from "../Pay/Pay"
 import axios from "axios"
 import "../../css/users.css"
 
@@ -37,6 +38,7 @@ export default function UserProfile (){
         localStorage.removeItem("token")
         history.push("/")
     }
+    console.log(user)
 
     return(
         <div className="detail">
@@ -48,6 +50,7 @@ export default function UserProfile (){
                     <p className="userP">Desde {user?.createdDate}</p>
                     <p className="userP">Usuario {user?.role}</p>
                     <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
+                    <Pay />
                 </div>
             </div>
         </div>

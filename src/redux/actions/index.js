@@ -8,6 +8,7 @@ import {
   GET_RES_REVIEWS,
   GET_ALBUM_DATA,
   GET_ALBUM_SONGS,
+  GET_ALL_REVIEWS,
 } from "../constants";
 
 const urlApi = "http://localhost:3001/api/back-end";
@@ -122,4 +123,16 @@ export function getAlbumSongs(id) {
         });
       });
   };
+}
+
+export function getAllReviews(){
+  return async (dispatch) => {
+    axios.get("http://localhost:3001/api/back-end/reviews")
+    .then(reviews => {
+      dispatch({
+        type: GET_ALL_REVIEWS,
+        payload: reviews.data
+      })
+    })
+  }
 }
