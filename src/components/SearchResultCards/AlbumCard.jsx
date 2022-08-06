@@ -2,7 +2,7 @@ import style from "../../css/resultSearch.module.css";
 
 export default function AlbumCard (props){
     return(
-        <div className={style.card}>
+        <div className="card">
             <img src={props.img} alt="img"></img>
             <div className={style.text}>
             <p>{props.title}</p>

@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import ejemplo from "../../assets/ejemplo.png";
+import Perfil from './PerfilFeed';
+import Per from './PerfilSide';
+import Re from './Re';
+
 
 export default function Feed(){
     const history = useHistory()
@@ -17,10 +20,16 @@ export default function Feed(){
     },[])
 
     return(
-        <div>
-            <br />
-            <img src={ejemplo} alt="aca va el feed" />
-            
+        <div className="todo">
+            <div className="er">
+                <Per/>
+            </div>
+            <div className="cen">
+                <Perfil/>
+            </div>
+            <div className="ult">
+                <Re/>
+            </div> 
         </div>
     );
 };
