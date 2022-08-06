@@ -9,3 +9,6 @@ export const GET_SEARCH = "GET_SEARCH";
 export const GET_ARTIST_DATA = "GET_ARTIST_DATA";
 export const GET_ARTIST_TOP = "GET_ARTIST_TOP";
 export const GET_RES_REVIEWS = "GET_RES_REVIEWS"; //resource reviews (artist, album, song)
+export const GET_ALBUM_DATA = "GET_ALBUM_DATA";
+export const GET_ALBUM_SONGS = "GET_ALBUM_SONGS";
+export const GET_ALL_REVIEWS = "GET_ALL_REVIEWS"

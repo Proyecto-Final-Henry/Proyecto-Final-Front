@@ -17,9 +17,9 @@ export default function ArtistTop({ artistId }) {
       {artistTop.map((s) => {
         return (
           <div id={s.id} key={s.id}>
-            <Link to={`/song/${s.id}`}>
-              <p>{s.title}</p>
-            </Link>
+            {/* <Link to={`/song/${s.id}`}> */}
+            <p>{s.title}</p>
+            {/* </Link> */}
             <p>Album:</p>
             <Link to={`/album/${s.album.idAlbum}`}>
               <p>{s.album.titleAlbum}</p>

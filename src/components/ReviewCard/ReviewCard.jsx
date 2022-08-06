@@ -1,8 +1,8 @@
 export default function ReviewCard({ reviewArray }) {
   return (
     <div>
-      {reviewArray ? (
-        reviewArray.map((r) => {
+      {reviewArray.reviews ? (
+        reviewArray.reviews.map((r) => {
           return (
             <div className="reviewCard" key={r.id}>
               <p>{r.title}</p>

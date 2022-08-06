@@ -6,6 +6,9 @@ import {
   GET_ARTIST_DATA,
   GET_ARTIST_TOP,
   GET_RES_REVIEWS,
+  GET_ALBUM_DATA,
+  GET_ALBUM_SONGS,
+  GET_ALL_REVIEWS,
 } from "../constants";
 
 const urlApi = "http://localhost:3001/api/back-end";
@@ -90,8 +93,46 @@ export function getResReviews(id, type) {
       .then((reviews) => {
         dispatch({
           type: GET_RES_REVIEWS,
-          payload: reviews.data.reviews,
+          payload: reviews.data,
         });
       });
   };
+}
+
+export function getAlbumData(id) {
+  return async (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/api/back-end/albums?album=${id}`)
+      .then((album) => {
+        dispatch({
+          type: GET_ALBUM_DATA,
+          payload: album.data,
+        });
+      });
+  };
+}
+
+export function getAlbumSongs(id) {
+  return async (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/api/back-end/albums/albumsongs?album=${id}`)
+      .then((albumSongs) => {
+        dispatch({
+          type: GET_ALBUM_SONGS,
+          payload: albumSongs.data,
+        });
+      });
+  };
+}
+
+export function getAllReviews(){
+  return async (dispatch) => {
+    axios.get("http://localhost:3001/api/back-end/reviews")
+    .then(reviews => {
+      dispatch({
+        type: GET_ALL_REVIEWS,
+        payload: reviews.data
+      })
+    })
+  }
 }

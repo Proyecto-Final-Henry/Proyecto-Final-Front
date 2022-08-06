@@ -7,6 +7,9 @@ import {
   GET_ARTIST_DATA,
   GET_ARTIST_TOP,
   GET_RES_REVIEWS,
+  GET_ALBUM_DATA,
+  GET_ALBUM_SONGS,
+  GET_ALL_REVIEWS
 } from "../constants";
 
 const initialState = {
@@ -21,6 +24,9 @@ const initialState = {
   artistData: {},
   artistTop: [],
   resReviews: [],
+  albumData: {},
+  albumSongs: [],
+  allReviews: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -81,6 +87,21 @@ function rootReducer(state = initialState, action) {
         ...state,
         resReviews: action.payload,
       };
+    case GET_ALBUM_DATA:
+      return {
+        ...state,
+        albumData: action.payload,
+      };
+    case GET_ALBUM_SONGS:
+      return {
+        ...state,
+        albumSongs: action.payload,
+      };
+    case GET_ALL_REVIEWS:
+      return {
+        ...state,
+        allReviews: action.payload
+      }
     default:
       return state;
   }
