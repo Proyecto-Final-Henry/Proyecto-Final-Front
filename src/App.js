@@ -19,6 +19,7 @@ import NewPassword from "./components/NewPassword/NewPassword";
 import Free from "./components/Free/Free";
 import Pay from "./components/Pay/Pay";
 import ArtistDetail from "./components/ArtistDetail/ArtistDetail";
+import AlbumDetail from "./components/AlbumDetail/AlbumDetail";
 
 function App() {
   return (
@@ -102,6 +103,10 @@ function App() {
 
       <Route exact path="/artist/:id">
         <ArtistDetail />
+      </Route>
+
+      <Route exact path="/album/:id">
+        <AlbumDetail />
       </Route>
     </div>
   );
