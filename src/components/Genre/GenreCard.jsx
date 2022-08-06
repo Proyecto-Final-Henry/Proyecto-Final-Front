@@ -13,6 +13,6 @@ function GenreCard(props) {
             }
         </div>
     );
-}
+};
 
 export default GenreCard;

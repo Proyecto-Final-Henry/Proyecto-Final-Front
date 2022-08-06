@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import ArtistCard from '../SearchResultCards/ArtistCard';
 import AlbumCard from '../SearchResultCards/AlbumCard';
 import TrackCard from "../SearchResultCards/TrackCard";
@@ -8,6 +10,18 @@ import style from "../../css/resultSearch.module.css";
 
 export default function SearchResult (){
     const data = useSelector(store => store.searchResult);
+    const history = useHistory();
+
+    useEffect(() => {
+        const autenticarUsuario = async () => {
+            const token = localStorage.getItem("token")
+            if(!token){
+                history.push("/login")
+                return
+            };
+        };
+         autenticarUsuario();
+    },[]);
 
     return(
         <div className={style.box}>
@@ -29,7 +43,7 @@ export default function SearchResult (){
                         type={e.type}
                         />
                     )
-                }else if(e.type==='album'){
+                } else if(e.type==='album') {
                     return (
                         <AlbumCard
                         key={i}
@@ -41,7 +55,7 @@ export default function SearchResult (){
                         />
 
                     )
-                }else if(e.type==='track'){
+                } else if(e.type==='track') {
                     return (
                         <TrackCard
                         key={i}
@@ -56,7 +70,7 @@ export default function SearchResult (){
                 else return (
                     <p>otro typo de dato</p>
                 )
-            })}
+            })};
             </div>                       
         </div>
     );
