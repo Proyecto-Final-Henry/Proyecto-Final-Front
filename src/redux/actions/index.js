@@ -92,7 +92,7 @@ export function getResReviews(id, type) {
       .then((reviews) => {
         dispatch({
           type: GET_RES_REVIEWS,
-          payload: reviews.data.reviews,
+          payload: reviews.data,
         });
       });
   };

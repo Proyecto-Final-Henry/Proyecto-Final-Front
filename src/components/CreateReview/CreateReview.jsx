@@ -59,7 +59,6 @@ export default function CreateReview({ apiId, type, name }) {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log(`${e.target.name} : ${e.target.value}`);
     setReview({
       ...review,
       [e.target.name]: e.target.value,

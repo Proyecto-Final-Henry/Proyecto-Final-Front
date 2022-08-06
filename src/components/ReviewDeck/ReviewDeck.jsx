@@ -14,6 +14,7 @@ export default function ReviewDeck({ apiId, type }) {
 
   return (
     <div>
+      <h2>Reseñas:</h2>
       <ReviewCard reviewArray={reviewArray} />
     </div>
   );

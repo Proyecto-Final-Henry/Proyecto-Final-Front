@@ -9,7 +9,9 @@ export default function AlbumCard(props) {
         <Link to={`album/${props.id}`}>
           <p>{props.title}</p>
         </Link>
-        <p>{props.artist}</p>
+        <Link to={`artist/${props.artistId}`}>
+          <p>{props.artist}</p>
+        </Link>
         <p>{props.type}</p>
       </div>
     </div>

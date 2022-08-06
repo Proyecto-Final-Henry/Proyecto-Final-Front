@@ -102,10 +102,12 @@ function App() {
       </Route>
 
       <Route exact path="/artist/:id">
+        <NavigationM />
         <ArtistDetail />
       </Route>
 
       <Route exact path="/album/:id">
+        <NavigationM />
         <AlbumDetail />
       </Route>
     </div>
