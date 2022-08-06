@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Perfil from './PerfilFeed';
+import Per from './PerfilSide';
+import Re from './Re';
 import ejemplo from "../../assets/ejemplo.png";
 import { getAllReviews } from "../../redux/actions";
 import ReviewCardFeed from "../ReviewCard/ReviewCardFeed";
@@ -27,14 +30,16 @@ export default function Feed(){
     console.log(reviews)
 
     return(
-        <div>
-            <br />
-            <img src={ejemplo} alt="aca va el feed" />
-            <h1>TODAS LAS REVIEWS</h1>
-            {reviews?.map(r => {
-                return <ReviewCardFeed title={r.title} score={r.score} description={r.description} name={r.user.name} userImg={r.user.userImg} />
-            })}
-            
+        <div className="todo">
+            <div className="er">
+                <Per/>
+            </div>
+            <div className="cen">
+                <Perfil/>
+            </div>
+            <div className="ult">
+                <Re/>
+            </div> 
         </div>
     );
 };
