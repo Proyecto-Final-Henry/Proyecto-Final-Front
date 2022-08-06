@@ -2,8 +2,14 @@
 import { useEffect , useState } from "react";
 import { useHistory } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+<<<<<<< HEAD
 import axios from "axios";
 import "../../css/users.css";
+=======
+import Pay from "../Pay/Pay"
+import axios from "axios"
+import "../../css/users.css"
+>>>>>>> 004e0cdf4f902be8969a4f44de43cb18d685db49
 
 export default function UserProfile (){
     //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params 
@@ -37,6 +43,7 @@ export default function UserProfile (){
         localStorage.removeItem("token")
         history.push("/")
     }
+    console.log(user)
 
     return(
         <div className="detail">
@@ -48,6 +55,7 @@ export default function UserProfile (){
                     <p className="userP">Desde {user?.createdDate}</p>
                     <p className="userP">Usuario {user?.role}</p>
                     <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
+                    <Pay />
                 </div>
             </div>
         </div>
