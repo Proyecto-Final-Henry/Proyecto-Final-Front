@@ -23,7 +23,6 @@ import AlbumDetail from "./components/AlbumDetail/AlbumDetail";
 import PaySuccess from "./components/Pay/PaySuccess";
 import PayError from "./components/Pay/PayError";
 import ReviewCard from "./components/ReviewCard/ReviewCard";
-import ReviewCardFeed from "./components/ReviewCard/ReviewCardFeed";
 import Music from "./components/Music/Music";
 
 function App() {

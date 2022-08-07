@@ -9,6 +9,7 @@ import {
   GET_ALBUM_DATA,
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
+  GET_RANDOM_SONGS
 } from "../constants";
 
 const urlApi = "http://localhost:3001/api/back-end";
@@ -36,7 +37,7 @@ export function getUserData(id) {
         dispatch({ type: GET_USER_DATA, payload: json });
       });
   };
-}
+};
 
 export function getSearch(toFind, filter, index) {
   return async function (dispatch) {
@@ -56,7 +57,7 @@ export function getSearch(toFind, filter, index) {
         });
       });
   };
-}
+};
 
 export function getArtistData(id) {
   return async (dispatch) => {
@@ -69,7 +70,7 @@ export function getArtistData(id) {
         });
       });
   };
-}
+};
 
 export function getArtistTop(id) {
   return async (dispatch) => {
@@ -84,7 +85,7 @@ export function getArtistTop(id) {
         });
       });
   };
-}
+};
 
 export function getResReviews(id, type) {
   return async (dispatch) => {
@@ -97,7 +98,7 @@ export function getResReviews(id, type) {
         });
       });
   };
-}
+};
 
 export function getAlbumData(id) {
   return async (dispatch) => {
@@ -110,7 +111,7 @@ export function getAlbumData(id) {
         });
       });
   };
-}
+};
 
 export function getAlbumSongs(id) {
   return async (dispatch) => {
@@ -123,7 +124,7 @@ export function getAlbumSongs(id) {
         });
       });
   };
-}
+};
 
 export function getAllReviews(){
   return async (dispatch) => {
@@ -133,6 +134,19 @@ export function getAllReviews(){
         type: GET_ALL_REVIEWS,
         payload: reviews.data
       })
-    })
-  }
-}
+    });
+  };
+};
+
+export function getRandomSongs(){
+  return async (dispatch) => {
+    axios.get("http://localhost:3001/api/back-end/songs/random")
+    .then(randomSongs => {
+      dispatch({
+        type: GET_RANDOM_SONGS,
+        payload: randomSongs.data
+      })
+    });
+  };
+};
+
