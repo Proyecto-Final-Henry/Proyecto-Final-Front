@@ -1,9 +1,8 @@
 import { useEffect , useState } from "react"
-import { useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import axios from "axios"
 import "../../css/users.css"
-
 export default function UserProfile (){
     //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params 
     const history = useHistory()
@@ -40,8 +39,10 @@ export default function UserProfile (){
     return(
             <div className="fe">
                 <div className="car">
-                    <img src={user?.userImg} alt='userImg'></img>
-                    <h3>{user?.name}</h3>
+                    <Link to="/user" style={{"text-decoration": "none"}}>
+                        <img src={user?.userImg} alt='userImg'></img>
+                        <h3>{user?.name}</h3>
+                    </Link>
                     <p>{user?.email}</p>
                     <p>Desde {user?.createdDate}</p>
                     <p>Usuario {user?.role}</p>

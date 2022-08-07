@@ -11,7 +11,6 @@ function ContentHome() {
         dispatch(getGenres());
     }, [dispatch]);
 
-    console.log('generos', genres);
     return (
         <div>
             <Genres genres={genres}/>

@@ -22,6 +22,9 @@ import ArtistDetail from "./components/ArtistDetail/ArtistDetail";
 import AlbumDetail from "./components/AlbumDetail/AlbumDetail";
 import PaySuccess from "./components/Pay/PaySuccess";
 import PayError from "./components/Pay/PayError";
+import ReviewCard from "./components/ReviewCard/ReviewCard";
+import ReviewCardFeed from "./components/ReviewCard/ReviewCardFeed";
+import Music from "./components/Music/Music";
 
 function App() {
   return (
@@ -101,6 +104,13 @@ function App() {
       <Route exact path="/feed">
         <NavigationM/>
         <Feed/>
+        <ReviewCard/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/music">
+        <NavigationM/>
+        <Music/>
         <Footer/>
       </Route>
 

@@ -219,3 +219,90 @@ Nav h5:hover{
   color: rgb(255, 255, 255);
   font-size: 15px;
 }
+.list-group-item{
+  width: 100%;
+  background-color:black ;
+}
+.list-group-item img{
+  width: 100px;
+  height: 100px;
+}
+
+/*Detalle Artista*/
+.ArtistT{
+  width: 100%;
+  height: 10%;
+  min-height: 10%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.ArtistD{
+  padding: 20px;
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0,46,16,1) 65%, rgba(29,185,84,1) 100%);
+}
+.ArtistT img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.imge{
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+}
+.ArtistT h1{
+  color: white;
+}
+.ArtistTo{
+  width: 100%;
+  height: 10%;
+  min-height: 10%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
+.ArtistTo img{
+  height: 80px;
+  width: 80px;
+}
+.ArtistTo p{
+  color: white;
+  font-size: large;
+}
+
+.ArtistTo a{
+  text-decoration: none;
+}
+
+.topSongs h2{
+  padding: 20px;
+  color: white;
+}
+.peque{
+  width: 50%;
+  height: 10%;
+  min-height: 10%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  float: right;
+}
+.peque img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.peque p a{
+  text-decoration: none;
+}
+.peque p{
+  color: white;
+  font-size: large;
+}

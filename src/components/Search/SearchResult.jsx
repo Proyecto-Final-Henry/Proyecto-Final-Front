@@ -71,8 +71,7 @@ export default function SearchResult() {
             );
           } else return <p>otro typo de dato</p>;
         })}
-        ;
       </div>
     </div>
   );
-}
+};

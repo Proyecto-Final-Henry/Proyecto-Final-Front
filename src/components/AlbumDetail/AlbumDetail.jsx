@@ -19,20 +19,25 @@ export default function AlbumDetail() {
   return (
     <div>
       {albumData ? (
-        <div>
-          <h1>{albumData.title}</h1>
-          <img src={albumData.image} alt={albumData.title} />
-          <p>Artist:</p>
-          {albumData.artist && (
-            <Link to={`/artist/${albumData.artist.idartist}`}>
-              <p>{albumData.artist.nameartist}</p>
-            </Link>
-          )}
-          <p>Songs:</p>
-          <AlbumSongs albumId={albumId} />
-          <ReviewDeck apiId={albumId} type="album" />
-          <CreateReview apiId={albumId} type="album" name={albumData.title} />
-        </div>
+          <div className="ArtistD">
+              <div className="ArtistT">
+                <div className="imge">
+                  <img src={albumData.image} alt={albumData.title} />
+                </div>
+                <h1>{albumData.title}</h1>
+              </div>
+              {albumData.artist && (
+                <Link to={`/artist/${albumData.artist.idartist}`}>
+                  <div className="peque">
+                    <img src={albumData.artist.imageartist} alt={albumData.artist.imageartist}/>
+                    <p>{albumData.artist.nameartist}</p>
+                  </div>
+                </Link>
+              )}
+              <AlbumSongs albumId={albumId} />
+              <ReviewDeck apiId={albumId} type="album" />
+              <CreateReview apiId={albumId} type="album" name={albumData.title} />
+          </div>
       ) : (
         <p>¡Estamos buscando el álbum!</p>
       )}
