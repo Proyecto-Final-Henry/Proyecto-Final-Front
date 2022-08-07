@@ -2,10 +2,12 @@ import style from "../../css/premium.module.css";
 import { Link, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getRandomSongs } from '../../redux/actions';
 
 export default function Music() {
     let history = useHistory();
     let dispatch = useDispatch();
+    let random = useSelector((state) => state.randomSongs);
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -16,21 +18,24 @@ export default function Music() {
             }
         };
          autenticarUsuario();
-         // dispatch(getAllAlbums())
-         // dispatch(getAllSongs())
+         dispatch(getRandomSongs())
     },[]);
-
-    let albumArray = useSelector((state) => state.allSongs);
 
     return (
         <div>
-          {albumArray ? (
-            albumArray.map((r) => {
+          {random ? (
+            random.map((r) => {
               return (
                 <div className={style.mainDiv} key={r.id}>
-                  <p>{r.title}</p>
-                  <p>Calificación: {r.score}</p>
-                  <p className="reviewDescription">{r.description}</p>
+                    <p>{r.title}</p>
+                    <p>{r.name}</p>
+                    <img src={r.img} alt="imagen album" />
+                    <Link to={"/artist/" + r.artistId}>
+                        <p>{r.artist}</p>
+                    </Link>
+                    <Link to={"/album/" + r.albumId}>
+                        <p>{r.album}</p>    
+                    </Link>
                 </div>
               );
             })
