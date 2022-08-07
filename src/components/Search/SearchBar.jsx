@@ -16,7 +16,11 @@ export default function SearchBar (){
     const handleSubmit=(event) =>{
         event.preventDefault();
         dispatch(getSearch(toFind));
-        history.push("/search");  
+        if(toFind.length){
+          history.push("/search");  
+        } else {
+          alert("Por favor inserte una canción")
+        };
     };
 
     return(

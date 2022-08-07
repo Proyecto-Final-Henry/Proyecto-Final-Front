@@ -41,19 +41,25 @@ export default function CreateReview({ apiId, type, name }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      await axios.post("http://localhost:3001/api/back-end/reviews/create", {
-        apiId,
-        type,
-        name,
-        title: review.title,
-        score: review.score,
-        description: review.description,
-        userId: user.id,
-      });
+      if (review.title) {
+        await axios.post("http://localhost:3001/api/back-end/reviews/create", {
+          apiId,
+          type,
+          name,
+          title: review.title,
+          score: review.score,
+          description: review.description,
+          userId: user.id,
+        });
+        alert("Review Creada correctamente");
+        history.push("/feed")
+        window.location.reload(true) //forzar un reload para recargar las reviews con la creada incluida
+      } else {
+        alert("Faltan datos para crear tu review");
+      }
     } catch (err) {
-      throw new Error("No pudimos crear tu review");
+      alert("No pudimos crear tu review");
     }
   };
 

@@ -8,8 +8,8 @@ import Re from './Re';
 import { getAllReviews } from "../../redux/actions";
 
 export default function Feed(){
-    const history = useHistory()
-    let dispatch = useDispatch()
+    const history = useHistory();
+    let dispatch = useDispatch();
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -20,12 +20,12 @@ export default function Feed(){
             }
         };
          autenticarUsuario();
-        dispatch(getAllReviews())
-    },[dispatch])
+        dispatch(getAllReviews());
+    },[dispatch]);
 
-    const reviews = useSelector(state => state.allReviews)
+    const reviews = useSelector(state => state.allReviews);
 
-    console.log(reviews)
+    console.log(reviews);
 
     return(
         <div className="todo">
