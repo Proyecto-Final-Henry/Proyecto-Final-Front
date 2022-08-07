@@ -5,9 +5,7 @@ import { useHistory } from "react-router-dom";
 import Perfil from './PerfilFeed';
 import Per from './PerfilSide';
 import Re from './Re';
-import ejemplo from "../../assets/ejemplo.png";
 import { getAllReviews } from "../../redux/actions";
-import ReviewCardFeed from "../ReviewCard/ReviewCardFeed";
 
 export default function Feed(){
     const history = useHistory()

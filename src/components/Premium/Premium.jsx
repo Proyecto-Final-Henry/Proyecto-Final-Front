@@ -33,9 +33,11 @@ function Premium() {
           }
       };
         try {
-          const { data } = await axios.post(`http://localhost:3001/api/back-end/users/create_preference`, {description: "Premium", price: 100, quantity: 3}, config)
-          window.open(data.id.sandbox_init_point);   // window.location.assign(data.id.sandbox_init_point);        
-          history.push("/pay") 
+          if (window.confirm("Seras redirigido a MercadoPago")) {
+            const { data } = await axios.post(`http://localhost:3001/api/back-end/users/create_preference`, {description: "Premium", price: 100, quantity: 3}, config)
+            window.open(data.id.sandbox_init_point);   // window.location.assign(data.id.sandbox_init_point);
+            history.push("/pay");
+          }
         } catch (error) {
          console.log(error) 
         };
@@ -61,7 +63,6 @@ function Premium() {
         <div>
           <button class="btn btn-outline-success" onClick={handleButton}>Pasate al plan Premium</button>
         </div>
-
       </div>
     );
   };

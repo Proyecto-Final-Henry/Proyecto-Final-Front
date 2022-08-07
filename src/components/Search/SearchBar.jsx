@@ -22,6 +22,7 @@ export default function SearchBar (){
     return(
       <div className='ete'>
         <input
+        style={{margin: "10px"}}
         type="search"
         placeholder="Search"
         className="pagi"

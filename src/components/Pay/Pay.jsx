@@ -1,11 +1,10 @@
-import style from "../../css/premium.module.css"
 import checkgif from "../../assets/mercadocheck.gif"
 
 function Pay(props) {
-
     return (
-      <div className={style.mainDiv}>
-        <h3>Estamos comprobando la transacción </h3>
+      <div>
+        <br /><br />
+        <h3 style={{color: "white", "font-style":"italic"}}>Estamos comprobando la transacción... </h3>
         <img src={checkgif} alt="Comprobando tu pago"/>
       </div>
     );

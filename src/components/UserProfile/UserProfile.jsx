@@ -2,7 +2,6 @@
 import { useEffect , useState } from "react";
 import { useHistory } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import Pay from "../Pay/Pay";
 import axios from "axios";
 import "../../css/users.css";
 
@@ -11,6 +10,29 @@ export default function UserProfile (){
     const history = useHistory();
 
     const [ user , setUser ] = useState({});
+
+    const handleButton = async () => {
+        const token = localStorage.getItem("token")
+        if(!token){
+            history.push("/login")
+            return
+        }
+        const config = {
+            headers: {
+                "Content-Type" : "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        };
+          try {
+            if (window.confirm("Seras redirigido a MercadoPago")) {
+              const { data } = await axios.post(`http://localhost:3001/api/back-end/users/create_preference`, {description: "Premium", price: 100, quantity: 3}, config)
+              window.open(data.id.sandbox_init_point);   // window.location.assign(data.id.sandbox_init_point);
+              history.push("/pay");
+            }
+          } catch (error) {
+           console.log(error) 
+          };
+      };
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -48,8 +70,10 @@ export default function UserProfile (){
                     <p className="userP">{user?.email}</p>
                     <p className="userP">Desde {user?.createdDate}</p>
                     <p className="userP">Usuario {user?.role}</p>
+                    {user.role === "Base" ? <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Cambiar a plan Premium</Button> : null}s
+                    <br />
+                    <br />
                     <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
-                    <Pay />
                 </div>
             </div>
         </div>

@@ -8,11 +8,14 @@ function PayError() {
 
     return (
       <div className={style.mainDiv}>
+        <br />
         <h3>
             Ha ocurrido un error durante el pago :(
         </h3>
+        <br />
         <Button onClick={()=>{history.push("/pay")}} variant="outline-success" type="submit" className='boton'>Reintentar</Button>
-        <Button onClick={()=>{history.push("/home")}} variant="outline-success" type="submit" className='boton'>Regresar al Home</Button>
+        <br /> <br />
+        <Button onClick={()=>{history.push("/")}} variant="outline-success" type="submit" className='boton'>Regresar al Home</Button>
       </div>
     );
   };
