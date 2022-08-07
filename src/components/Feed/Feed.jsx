@@ -6,6 +6,7 @@ import Perfil from './PerfilFeed';
 import Per from './PerfilSide';
 import Re from './Re';
 import { getAllReviews } from "../../redux/actions";
+import CreateReview from "../CreateReview/CreateReview";
 
 export default function Feed(){
     const history = useHistory()
@@ -33,10 +34,10 @@ export default function Feed(){
                 <Per/>
             </div>
             <div className="cen">
-                <Perfil/>
+                <Re/>
             </div>
             <div className="ult">
-                <Re/>
+                <CreateReview/>
             </div> 
         </div>
     );

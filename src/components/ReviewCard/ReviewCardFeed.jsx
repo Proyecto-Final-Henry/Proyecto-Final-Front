@@ -1,4 +1,6 @@
+import React from "react";
 import style from "../../css/resultSearch.module.css";
+
 export default function ReviewCardFeed(props){
     
     return(
