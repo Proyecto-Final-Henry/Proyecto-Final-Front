@@ -27,102 +27,108 @@ function App() {
   return (
     <div className="App">
       <Route exact path="/">
-        <NavigationB />
-        <Home />
-        <Footer />
+        <NavigationB/>
+        <Home/>
+        <Footer/>
       </Route>
 
       <Route exact path="/login">
-        <NavigationB />
-        <Login />
-        <Footer />
+        <NavigationB/>
+        <Login/>
+        <Footer/>
       </Route>
 
       <Route exact path="/register">
-        <NavigationB />
-        <Register />
-        <Footer />
+        <NavigationB/>
+        <Register/>
+        <Footer/>
       </Route>
 
       <Route exact path="/confirmar/:token">
-        <NavigationB />
-        <ConfirmarCuenta />
-        <Footer />
+        <NavigationB/>
+        <ConfirmarCuenta/>
+        <Footer/>
       </Route>
 
       <Route exact path="/premium">
-        <NavigationB />
-        <Premium />
-        <Footer />
+        <NavigationB/>
+        <Premium/>
+        <Footer/>
       </Route>
 
       <Route exact path="/free">
-        <NavigationB />
-        <Free />
-        <Footer />
+        <NavigationB/>
+        <Free/>
+        <Footer/>
       </Route>
 
       <Route exact path="/pay">
-        <NavigationB />
-        <Pay />
-        <Footer />
+        <NavigationB/>
+        <Pay/>
+        <Footer/>
       </Route>
 
       <Route exact path="/pay/success">
-        <NavigationB />
+        <NavigationB/>
         <PaySuccess/>
-        <Footer />
+        <Footer/>
       </Route>
 
       <Route exact path="/pay/error">
-        <NavigationB />
+        <NavigationB/>
         <PayError/>
-        <Footer />
+        <Footer/>
       </Route>
 
       <Route exact path="/contact">
-        <NavigationB />
-        <Contact />
-        <Footer />
+        <NavigationB/>
+        <Contact/>
+        <Footer/>
       </Route>
 
       <Route exact path="/recover">
-        <NavigationB />
-        <RecoverPassword />
+        <NavigationB/>
+        <RecoverPassword/>
+        <Footer/>
       </Route>
 
       <Route exact path="/olvide-password/:token">
-        <NavigationB />
-        <NewPassword />
+        <NavigationB/>
+        <NewPassword/>
+        <Footer/>
       </Route>
 
       <Route exact path="/feed">
-        <NavigationM />
-        <Feed />
+        <NavigationM/>
+        <Feed/>
+        <Footer/>
       </Route>
 
       <Route exact path="/user">
-        <NavigationM />
-        <UserProfile />
+        <NavigationM/>
+        <UserProfile/>
+        <Footer/>
       </Route>
 
       <Route exact path="/home">
-        <PanelUser />
+        <PanelUser/>
       </Route>
 
       <Route exact path="/search">
-        <NavigationM />
-        <SearchResult />
+        <NavigationM/>
+        <SearchResult/>
+        <Footer/>
       </Route>
 
       <Route exact path="/artist/:id">
-        <NavigationM />
-        <ArtistDetail />
+        <NavigationM/>
+        <ArtistDetail/>
+        <Footer/>
       </Route>
 
       <Route exact path="/album/:id">
-        <NavigationM />
-        <AlbumDetail />
+        <NavigationM/>
+        <AlbumDetail/>
       </Route>
     </div>
   );
