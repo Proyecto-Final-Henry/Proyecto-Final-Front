@@ -1,42 +1,65 @@
 //import {useSelector} from 'react-redux'; // descomentar cuando este llegando la data
-import { useEffect , useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useEffect , useState } from "react";
+import { useHistory } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import axios from "axios"
-import "../../css/users.css"
+import axios from "axios";
+import "../../css/users.css";
 
 export default function UserProfile (){
     //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params 
-    const history = useHistory()
+    const history = useHistory();
 
-    const [ user , setUser ] = useState({})
+    const [ user , setUser ] = useState({});
+
+    const handleButton = async () => {
+        const token = localStorage.getItem("token")
+        if(!token){
+            history.push("/login")
+            return
+        }
+        const config = {
+            headers: {
+                "Content-Type" : "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        };
+          try {
+            if (window.confirm("Seras redirigido a MercadoPago")) {
+              const { data } = await axios.post(`http://localhost:3001/api/back-end/users/create_preference`, {description: "Premium", price: 100, quantity: 3}, config)
+              window.open(data.id.sandbox_init_point);   // window.location.assign(data.id.sandbox_init_point);
+              history.push("/pay");
+            }
+          } catch (error) {
+           console.log(error) 
+          };
+      };
 
     useEffect(() => {
         const autenticarUsuario = async () => {
             const token = localStorage.getItem("token")
             if(!token){
-                history.push("/login")
-                return
+                history.push("/login");
+                return;
             }
             const config = {
                 headers: {
                     "Content-Type" : "application/json",
                     Authorization: `Bearer ${token}`
                 }
-            }
+            };
             try {
-                const { data } = await axios(`http://localhost:3001/api/back-end/users/perfil`, config)
-                setUser(data)
+                const { data } = await axios(`http://localhost:3001/api/back-end/users/perfil`, config);
+                setUser(data);
             } catch (error) {
-                console.log(error.response.data.msg)
-            }
-        }
-        autenticarUsuario()
+                console.log(error.response.data.msg);
+            };
+        };
+        autenticarUsuario();
     },[])
     const cerrarSesion = () => {
-        localStorage.removeItem("token")
-        history.push("/")
-    }
+        localStorage.removeItem("token");
+        history.push("/");
+    };
 
     return(
         <div className="detail">
@@ -47,10 +70,12 @@ export default function UserProfile (){
                     <p className="userP">{user?.email}</p>
                     <p className="userP">Desde {user?.createdDate}</p>
                     <p className="userP">Usuario {user?.role}</p>
+                    {user.role === "Base" ? <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Cambiar a plan Premium</Button> : null}s
+                    <br />
+                    <br />
                     <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
                 </div>
             </div>
         </div>
-    )
-
-}
+    );
+};

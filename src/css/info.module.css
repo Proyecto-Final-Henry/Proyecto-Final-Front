@@ -53,3 +53,53 @@
     transition: all .3s ease-in-out;
     transform: scale(1.5);
   }
+
+.listaCreadores li{
+        text-decoration: none;
+        padding-top: 8px;
+        padding: 10px;
+        padding-left: 10px;
+        font: bolder;
+}
+
+    
+.listaCreadores li:hover{
+    color: white;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    transform: scale(2);
+  }
+
+  @media(max-width:1205px){
+  
+    .boxTop{
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      justify-content: space-around;
+      align-items: center;
+    }
+    .creadores ul li{
+      padding: 10px;
+      align-items: center;
+    }
+    }
+
+    @media(max-width:815px){
+  
+        .boxTop{
+          padding: 20px;
+          display: grid;
+          grid-template-columns: repeat(1,1fr);
+          justify-content: space-around;
+          align-items: center;
+        }
+        .boxBtn{
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            align-items: center;
+            text-align: center;
+            padding-left:150px;
+          }
+    } 

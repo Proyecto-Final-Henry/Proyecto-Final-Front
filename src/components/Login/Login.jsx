@@ -38,7 +38,7 @@ const Login = () => {
   return(
     <div className="created">
         <div className="cre">
-          {msg && <Alerta alerta={alerta} />}
+          {msg && <Alerta alerta={alerta} className="alert"/>}
           <form onSubmit={handleSubmit} className="form">
               <h1>Login</h1>
               <div>

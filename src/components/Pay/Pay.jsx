@@ -1,27 +1,11 @@
-import { useHistory } from "react-router-dom";
-import style from "../../css/premium.module.css"
+import checkgif from "../../assets/mercadocheck.gif"
 
-function Pay() {
-    let history = useHistory();
-    
-    function handleButton() {
-        history.push("/")
-    };
-
+function Pay(props) {
     return (
       <div>
-        <div className={style.mainDiv}>
-            <h2> Estoy investigando esto todavia</h2>
-        </div>
-        <br />
-        <div>
-          <img src="https://yerbamateargentina.org.ar/imagenes/archivos/noticias/79288_imagen_1227x747xrecortarxagrandar.jpg?random=1608575522" alt="algun dia" />
-        </div>
-        <br />
-        <div>
-          <button class="btn btn-outline-success" onClick={handleButton}>Regresar al Home</button>
-        </div>
-
+        <br /><br />
+        <h3 style={{color: "white", "font-style":"italic"}}>Estamos comprobando la transacción... </h3>
+        <img src={checkgif} alt="Comprobando tu pago"/>
       </div>
     );
   };

@@ -1,4 +1,5 @@
 import React from "react";
+import style from "../../css/info.module.css";
 import { BsFacebook, BsGithub, BsLinkedin,BsSpotify } from "react-icons/bs";
 
 export default function Footer(){
@@ -7,7 +8,7 @@ export default function Footer(){
             <div className="footer-container">
                 <div className="social">
                 <h4>Follow us</h4>
-                    <ul>
+                    <ul className={style.listaCreadores}>
                         <li>
                             <BsFacebook size="3em"/>
                         </li>
@@ -15,7 +16,6 @@ export default function Footer(){
                             <BsGithub size="3em"/>
                         </li>
                         <li>
-
                             <BsLinkedin size="3em"/>
                         </li>
                         <li>
@@ -25,32 +25,30 @@ export default function Footer(){
                 </div>
                 <div className="creadores">
                     <h4>Creadores</h4>
-                    <ul>
+                    <ul className={style.listaCreadores}>
                         <li>
-                            <h5>Lechu</h5>
+                            <a href="https://github.com/JulianLechuga">Lechu</a>
                         </li>
                         <li>
-                            <h5>Ale</h5>
+                            <a href="https://github.com/Alejo2608">Ale</a>
                         </li>
                         <li>
-                            <h5>Cris</h5>
+                            <a href="https://github.com/cristhian-fernandez">Cris</a>
                         </li>
                         <li>
-                            <h5>CrisX2</h5>
+                            <a href="https://github.com/djstylecali">CrisX2</a>
                         </li>
                         <li>
-                            <h5>Nacho</h5>
+                            <a href="https://github.com/Nacho1617">Nacho</a>
                         </li>
                         <li>
-                            <h5>Mauri</h5>
+                            <a href="https://github.com/MauricioCorzo">Mauri</a>
                         </li>
                         <li>
-                            <h5 className="cen">Luis</h5>
+                            <a href="https://github.com/lal-fac" className="cen">Luis</a>
                         </li>
                     </ul>
                 </div>
-                
-                
             </div>
         </div>
     );

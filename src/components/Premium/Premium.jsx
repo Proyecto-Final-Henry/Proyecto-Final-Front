@@ -1,12 +1,46 @@
 import ComparativoPremium from "../../assets/comparativa.png";
 import style from "../../css/premium.module.css";
 import { useHistory } from "react-router-dom";
+import axios from "axios"
 
 function Premium() {
     let history = useHistory();
+
+    // const [ data , setData ] = useState({})
+
+    // useEffect(() => {
+    //   const traerData = async () => {
+    //     try {
+    //       const response  = await axios("http://localhost:3001/api/back-end/users/feedback")
+    //       setData(response)
+    //     } catch (error) {
+    //       console.log(error)
+    //     }
+    //   }
+    //   traerData()
+    // },[])
     
-    function handleButton() {
-        history.push("/pay")
+    const handleButton = async () => {
+      const token = localStorage.getItem("token")
+      if(!token){
+          history.push("/login")
+          return
+      }
+      const config = {
+          headers: {
+              "Content-Type" : "application/json",
+              Authorization: `Bearer ${token}`
+          }
+      };
+        try {
+          if (window.confirm("Seras redirigido a MercadoPago")) {
+            const { data } = await axios.post(`http://localhost:3001/api/back-end/users/create_preference`, {description: "Premium", price: 100, quantity: 3}, config)
+            window.open(data.id.sandbox_init_point);   // window.location.assign(data.id.sandbox_init_point);
+            history.push("/pay");
+          }
+        } catch (error) {
+         console.log(error) 
+        };
     };
 
     return (
@@ -29,7 +63,6 @@ function Premium() {
         <div>
           <button class="btn btn-outline-success" onClick={handleButton}>Pasate al plan Premium</button>
         </div>
-
       </div>
     );
   };
