@@ -1,10 +1,12 @@
+import React from "react";
 import style from "../../css/resultSearch.module.css";
+
 export default function ReviewCardFeed(props){
     
     return(
-        <div className={style.card}>
+        <div>
             <h2>{props.name}</h2>
-            <img src={props.userImg} alt="img"></img>
+            <img src={props.userImg} alt="img"/>
             <div className={style.text}>
             <p>{props.title}</p>
             <p>Score:{props.score}</p>

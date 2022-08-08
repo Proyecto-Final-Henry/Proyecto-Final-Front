@@ -17,11 +17,16 @@ export default function ArtistDetail() {
   let artistData = useSelector((state) => state.artistData);
 
   return (
-    <div>
-      <h1>{artistData.name}</h1>
-      <img src={artistData.image} alt={artistData.name} />
-      <h2>Top Songs:</h2>
-      <ArtistTop artistId={artistId} />
+    <div className="ArtistD">
+      <div className="ArtistT">
+        <div className="imge">
+          <img src={artistData.image} alt={artistData.name} />
+        </div>
+        <h1>{artistData.name}</h1>
+      </div>
+      <div className="top">
+        <ArtistTop artistId={artistId} />
+      </div>
       <ReviewDeck apiId={artistId} type="artist" />
       <CreateReview apiId={artistId} type="artist" name={artistData.name} />
     </div>
