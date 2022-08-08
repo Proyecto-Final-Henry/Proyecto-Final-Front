@@ -2,12 +2,10 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import Perfil from './PerfilFeed';
 import Per from './PerfilSide';
-import ReviewCardFeed from "../ReviewCard/ReviewCardFeed";
+import ReviewCard from "../ReviewCard/ReviewCard";
 import Re from './Re';
 import { getAllReviews } from "../../redux/actions";
-import CreateReview from "../CreateReview/CreateReview";
 
 export default function Feed(){
     const history = useHistory();
@@ -35,10 +33,10 @@ export default function Feed(){
                 <Per/>
             </div>
             <div className="cen">
-                <ReviewCardFeed/>
+                <ReviewCard/>
             </div>
             <div className="ult">
-                <CreateReview/>
+                <Re/>
             </div> 
         </div>
     );
