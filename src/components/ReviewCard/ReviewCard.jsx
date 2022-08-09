@@ -1,32 +1,38 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import style from "../../css/premium.module.css";
+import style from "../../css/rev.css";
 import { Link } from 'react-router-dom';
 import PerfilRev from './PerfilRev'
+import "../../css/perfilrev.css"
 
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
-  console.log(reviewArray)
   return (
-    <div>
+    <div className="reCart">
       {reviewArray ? (
         reviewArray.map((r) => {
           return (
-            <div key={r.id}>
-              <div className="per">
-                <PerfilRev/>
-              </div>
-              <div className="rev">
-                <div className="titulo">
-                  <p>Titulo</p>
-                  <p>{r.title}</p>
+            <div key={r.id} className="reCa">
+              <div className="carti">
+                <div className="per">
+                  <div className="peRe">
+                    <img src={r.user.userImg} alt="" />
+                    <h4>{r.user.name}</h4>
+                    <h5>{r.user.role}</h5>
+                  </div>
                 </div>
-                <div className="califica">
-                  <p>Calificación: {r.score}</p>
-                </div>
-                <div className="descri">
-                  <p>Descripcion:</p>
-                  <p className="reviewDescription">{r.description}</p>
+                <div className="rev">
+                  <div className="titulo">
+                    <p>Titulo</p>
+                    <p>{r.title}</p>
+                  </div>
+                  <div className="califica">
+                    <p>Calificación: {r.score}</p>
+                  </div>
+                  <div className="descri">
+                    <p>Descripcion:</p>
+                    <p className="reviewDescription">{r.description}</p>
+                  </div>
                 </div>
               </div>
             </div>

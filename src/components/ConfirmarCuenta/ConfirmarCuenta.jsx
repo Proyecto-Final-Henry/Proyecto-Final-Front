@@ -28,11 +28,12 @@ const ConfirmarCuenta = () => {
     },[token]);
 
   return (
-    <>
-    <div>
-        <h1>CONFIRMA TU CUENTA Y COMIENZA A DISFRUTAR DE LA MUSIC APP</h1>
+    <div className='confir'>
+
+        <h1>CUENTA CONFIRMADA.</h1>
+        <h1>YA PUEDES COMENZAR A DISFRUTAR DE LA APP</h1>
     </div>
-    </>
+
   );
 };
 
