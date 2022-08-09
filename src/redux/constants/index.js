@@ -15,3 +15,4 @@ export const GET_ALBUM_DATA = "GET_ALBUM_DATA";
 export const GET_ALBUM_SONGS = "GET_ALBUM_SONGS";
 export const GET_ALL_REVIEWS = "GET_ALL_REVIEWS";
 export const GET_RANDOM_SONGS = "GET_RANDOM_SONGS";
+export const GET_SONG_DATA = "GET_SONG_DATA";

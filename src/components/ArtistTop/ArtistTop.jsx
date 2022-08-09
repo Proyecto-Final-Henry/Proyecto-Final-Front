@@ -19,14 +19,14 @@ export default function ArtistTop({ artistId }) {
         return (
           <div className="ArtistTo">
             <div id={s.id} key={s.id} className="ArtistTo">
-            {/* <Link to={`/song/${s.id}`}> */}
-            <img src={s.album.imageAlbum} alt={s.album.titleAlbum} />
-            <p>{s.title}</p>
-            {/* </Link> */}
-            <p>Álbum:</p>
-            <Link to={`/album/${s.album.idAlbum}`}>
-              <p>{s.album.titleAlbum}</p>
-            </Link>
+              <img src={s.album.imageAlbum} alt={s.album.titleAlbum} />
+              <Link to={`/song/${s.id}`}>
+                <p>{s.title}</p>
+              </Link>
+              <p>Álbum:</p>
+              <Link to={`/album/${s.album.idAlbum}`}>
+                <p>{s.album.titleAlbum}</p>
+              </Link>
             </div>
           </div>
         );
