@@ -1,11 +1,12 @@
 import style from "../../css/premium.module.css";
 import { Link, useHistory } from "react-router-dom";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import MusicCard from "./MusicCard";
+import { useDispatch, useSelector } from "react-redux";
+import { getRandomSongs } from '../../redux/actions';
 
 export default function Music() {
     let history = useHistory();
+    let dispatch = useDispatch();
     let random = useSelector((state) => state.randomSongs);
 
     useEffect(() => {
@@ -17,29 +18,27 @@ export default function Music() {
             }
         };
          autenticarUsuario();
+         dispatch(getRandomSongs())
     },[]);
 
     return (
         <div>
           {random ? (
-            <div className={style.musicRandom}>{
-                random.map(song => {
-                  return (
-                    <MusicCard 
-                      key = {song.id}
-                      id = {song.id}
-                      title = {song.title}
-                      album = {song.album}
-                      albumId = {song.albumId}
-                      artist = {song.artist}
-                      artistId = {song.artistId}
-                      img = {song.img}
-                    />
-                  );
-                })
-            }
-            </div>
-
+            random.map((r) => {
+              return (
+                <div className={style.mainDiv} key={r.id}>
+                    <p>{r.title}</p>
+                    <p>{r.name}</p>
+                    <img src={r.img} alt="imagen album" />
+                    <Link to={"/artist/" + r.artistId}>
+                        <p>{r.artist}</p>
+                    </Link>
+                    <Link to={"/album/" + r.albumId}>
+                        <p>{r.album}</p>    
+                    </Link>
+                </div>
+              );
+            })
           ) : (
             <div className={style.mainDiv}>
               <h2>Parece que no hay música aún</h2>

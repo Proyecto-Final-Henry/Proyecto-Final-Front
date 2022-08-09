@@ -18,13 +18,13 @@ export default function NavigationB() {
                             <img src={Logo} alt="logo"/>
                         </Link>
                     </div>
-                    <Link to="/" ><h5>HOME</h5></Link>
+                    <Link to="/" ><h5>INICIO</h5></Link>
                     <Link to="/premium"><h5>PREMIUM</h5></Link>
-                    <Link to="/contact"><h5>CONTACT</h5></Link>
+                    <Link to="/contact"><h5>CONTACTO</h5></Link>
                 </Nav>
                 <Nav>
-                    <Link to="/login"><h5>SING IN</h5></Link>
-                    <Link to="/register"><h5>SING UP</h5></Link>
+                    <Link to="/login"><h5>INGRESA</h5></Link>
+                    <Link to="/register"><h5>REGISTRATE</h5></Link>
                     
                 </Nav>
                 </Navbar.Collapse>

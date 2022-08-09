@@ -12,7 +12,6 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import SearchResult from "./components/Search/SearchResult";
 import Feed from "./components/Feed/Feed";
 import RecoverPassword from "./components/RecoverPass/RecoverPass";
-import "./App.css";
 import "./index.css";
 import PanelUser from "./views/PanelUser/PanelUser";
 import NewPassword from "./components/NewPassword/NewPassword";
@@ -22,7 +21,6 @@ import ArtistDetail from "./components/ArtistDetail/ArtistDetail";
 import AlbumDetail from "./components/AlbumDetail/AlbumDetail";
 import PaySuccess from "./components/Pay/PaySuccess";
 import PayError from "./components/Pay/PayError";
-import ReviewCard from "./components/ReviewCard/ReviewCard";
 import Music from "./components/Music/Music";
 
 function App() {

@@ -28,12 +28,12 @@ export default function SearchBar (){
         <input
         style={{margin: "10px"}}
         type="search"
-        placeholder="Search"
+        placeholder="Busqueda"
         className="pagi"
         aria-label="Search"
         onChange={handleChange}
         />
-      <Button onClick={handleSubmit}  variant="outline-success" className='pagiBo'>Search</Button>
+      <Button onClick={handleSubmit}  variant="outline-success" className='pagiBo'>Buscar</Button>
     </div>
     );
 };

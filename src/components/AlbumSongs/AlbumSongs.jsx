@@ -13,9 +13,7 @@ export default function AlbumSongs({ albumId }) {
   }, []);
 
   let albumData = useSelector((state) => state.albumData);
-
   let albumSongs = useSelector((state) => state.albumSongs);
-
 
   return (
     <div className="topSongs">
@@ -26,7 +24,6 @@ export default function AlbumSongs({ albumId }) {
             {/* <Link to={`/song/${s.id}`}> */}
             <img src={albumData.image} alt={albumData.image} />
             <p>{s.title}</p>
-            {/* </Link> */}
             <p>duración: {(parseInt(s.duration) / 60).toFixed(2)}</p>
           </div>
         );

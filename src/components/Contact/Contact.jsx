@@ -62,8 +62,10 @@ function Contact() {
         </div>
 
         <div className={style.mainDiv}>
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut, veritatis harum! Animi molestias, incidunt dolor soluta est voluptas, quod temporibus obcaecati sit quam dignissimos officiis accusantium ipsa iure impedit reiciendis ad molestiae praesentium porro quia voluptatum dolorem? Assumenda nam odit eos! Maxime, ipsam enim veniam animi sunt nesciunt quibusdam porro!</h3>
-            <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est laborum velit ut asperiores explicabo fugit totam distinctio voluptatibus sequi corporis. Quia nemo eum corporis dignissimos animi consectetur officia provident. Quam quidem adipisci sint commodi ducimus inventore praesentium voluptates nam facilis.</h3>
+            <h3>Nos interesa saber tu experciencia en nuestra página</h3>
+            <h3>Si tuviste algún inconveniente o queres contarnos tu opnion sobre tu página, no dudes en mandarnos un mensaje!</h3>
+            <h4>En Music App, valoramos sobre todas las cosas la experiencia de nuestros usuarios. Cuentanos como te sientes al usar nuestra página o que ideas tiernes para mejorarla.</h4>
+            <h4>¡Leeremos todas las propuetas y las tendremos en cuenta!</h4>
         </div>
 
         <h1 className={style.form_tittle}>Formulario de Contacto</h1>

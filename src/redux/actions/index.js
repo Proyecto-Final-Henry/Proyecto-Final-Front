@@ -4,9 +4,11 @@ import {
   GET_USER_DATA,
   GET_SEARCH,
   GET_ARTIST_DATA,
+  GET_ARTIST_ALBUM,
   GET_ARTIST_TOP,
   GET_RES_REVIEWS,
   GET_ALBUM_DATA,
+  GET_ARTIST_SONGS,
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
   GET_RANDOM_SONGS
@@ -15,18 +17,17 @@ import {
 const urlApi = "http://localhost:3001/api/back-end";
 
 export const sendEmailContact = (values) => {
-  const url = urlApi + "/sendEmailContact";
-  return async (dispatch) => {
-    axios
-      .post(url, values)
-      .then((responde) => {
-        dispatch({
-          type: SEND_EMAIL_CONTACT,
-          payload: responde.data,
-        });
-      })
-      .catch((e) => console.log(e));
-  };
+    const url =  urlApi+'/users/sendEmailContact';
+    return async (dispatch) => {
+        axios.post(url, values)
+        .then(responde => {
+            dispatch({
+                type : SEND_EMAIL_CONTACT,
+                payload : responde.data
+            })
+        })
+        .catch( e => console.log(e));
+    };
 };
 
 export function getUserData(id) {
@@ -66,6 +67,30 @@ export function getArtistData(id) {
       .then((artist) => {
         dispatch({
           type: GET_ARTIST_DATA,
+          payload: artist.data,
+        });
+      });
+  };
+};
+export function getArtistAlbum(id) {
+  return async (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/api/back-end/artists/artistalbums?artist=${id}`)
+      .then((artist) => {
+        dispatch({
+          type: GET_ARTIST_ALBUM,
+          payload: artist.data,
+        });
+      });
+  };
+};
+export function getArtistSongs(id) {
+  return async (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/api/back-end/artists/artistsongs?artist=${id}`)
+      .then((artist) => {
+        dispatch({
+          type: GET_ARTIST_SONGS,
           payload: artist.data,
         });
       });

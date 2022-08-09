@@ -12,7 +12,7 @@
     align-items: center;
     box-sizing: border-box;
     background-color:rgb(34, 34, 34);
-    border: 2px solid #1DB954;;
+    border: 2px solid rgb(75, 0, 130);;
     overflow: hidden;
   }
 
@@ -42,3 +42,98 @@
   overflow: hidden;
 }
 
+.musicRandom{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 50px;
+  justify-content: space-between;
+}
+.musicCard{
+  width: 18%;
+  border: 2px solid #1DB954;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.musicCard_header{
+  position: relative;
+}
+
+.musicCard_header:hover img{
+  filter: blur(1px);
+  opacity: 40%;
+}
+.musicCard_header:hover .dropdown{
+  display: block;
+}
+
+.dropdown{
+  position: absolute !important;
+  top:10px;
+  left: 10px;
+  color:#fff;
+  background-color: transparent;
+  display: none;
+}
+
+.ellipsis{
+  color: #000 !important;
+  background-color: #fff !important;
+  border-radius: 50% !important;
+  border: 1px solid #fff !important;
+  padding: 5px 10px !important;
+  font-size: 22px !important;
+}
+
+.ellipsis:active, .ellipsis:focus, .ellipsis:hover {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #000 !important;
+}
+.ellipsis .btn:focus{
+  box-shadow: 0 !important;
+}
+
+
+.musicCard img{
+  width: 100%;
+}
+
+.musicCard_title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:10px 15px;
+}
+
+.musicCard h2{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+  width: 180px;
+  text-align: left;
+}
+.musicNote{
+  color: #fff;
+  margin-right: 10px;
+}
+
+.musicCard_footer{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px 10px 15px;
+}
+
+.musicCard_footer p{
+  margin: 0;
+  font-size: 15px;
+  color: #fff;
+  width: 60%;
+  text-align: left;
+}
