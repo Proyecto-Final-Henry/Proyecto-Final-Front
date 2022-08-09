@@ -53,6 +53,7 @@ export default function ArtistDetail() {
         <ArtistSongs artistId={artistId} />
       </Tab>
       <Tab eventKey="contact" title="Reseñas">
+      
       <ReviewDeck apiId={artistId} type="artist" />
       <CreateReview apiId={artistId} type="artist" name={artistData.name} />
       </Tab>

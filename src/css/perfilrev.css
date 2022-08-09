@@ -1,0 +1,21 @@
+  .peRe{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(34, 34, 34);
+  }
+  .peRe img{
+    width: 50px;
+    height: 50px;
+  }
+  .peRe h4{
+    color: #1DB954;
+  }
+  .peRe h5{
+    font-size:medium;
+    text-align: center;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+  }

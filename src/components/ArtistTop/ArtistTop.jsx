@@ -16,7 +16,23 @@ export default function ArtistTop({ artistId }) {
 
   return (
     <div className="topSongs">
-      <Songs songs={artistTop}/> 
+      <h2>Top Songs:</h2>
+      {artistTop.map((s) => {
+        return (
+          <div className="ArtistTo">
+            <div id={s.id} key={s.id} className="ArtistTo">
+            {/* <Link to={`/song/${s.id}`}> */}
+            <img src={s.album.imageAlbum} alt={s.album.titleAlbum} />
+            <p>{s.title}</p>
+            {/* </Link> */}
+            <p>Album:</p>
+            <Link to={`/album/${s.album.idAlbum}`}>
+              <p>{s.album.titleAlbum}</p>
+            </Link>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

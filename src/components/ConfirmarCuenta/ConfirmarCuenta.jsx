@@ -32,8 +32,6 @@ const ConfirmarCuenta = () => {
     <div>
         <h1>CONFIRMA TU CUENTA Y COMIENZA A DISFRUTAR DE LA MUSIC APP</h1>
     </div>
-    {!cargando && <Alerta alerta={alerta} />}
-    {cuentaConfirmada && <Link to="/login">Inicia Sesion</Link>}
     </>
   );
 };

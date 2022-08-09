@@ -103,7 +103,6 @@ function App() {
       <Route exact path="/feed">
         <NavigationM/>
         <Feed/>
-        <ReviewCard/>
         <Footer/>
       </Route>
 

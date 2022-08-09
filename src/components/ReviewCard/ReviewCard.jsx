@@ -1,18 +1,34 @@
+import React from "react";
 import { useSelector } from "react-redux";
 import style from "../../css/premium.module.css";
 import { Link } from 'react-router-dom';
+import PerfilRev from './PerfilRev'
 
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
+  console.log(reviewArray)
   return (
     <div>
       {reviewArray ? (
         reviewArray.map((r) => {
           return (
-            <div className={style.revDiv} key={r.id}>
-              <p>{r.title}</p>
-              <p>Calificación: {r.score}</p>
-              <p className="reviewDescription">{r.description}</p>
+            <div key={r.id}>
+              <div className="per">
+                <PerfilRev/>
+              </div>
+              <div className="rev">
+                <div className="titulo">
+                  <p>Titulo</p>
+                  <p>{r.title}</p>
+                </div>
+                <div className="califica">
+                  <p>Calificación: {r.score}</p>
+                </div>
+                <div className="descri">
+                  <p>Descripcion:</p>
+                  <p className="reviewDescription">{r.description}</p>
+                </div>
+              </div>
             </div>
           );
         })
