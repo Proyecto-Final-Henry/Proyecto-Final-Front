@@ -8,7 +8,6 @@ import ReviewDeck from "../ReviewDeck/ReviewDeck";
 import style from "../../css/artistDetail.module.css";
 import Button from 'react-bootstrap/Button';
 import { BsShieldFillCheck } from "react-icons/bs";
-
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import ArtistAlbums from "../ArtistAlbums/ArtistAlbums";

@@ -25,7 +25,7 @@ export default function ReviewCard() {
                   <p>Calificación: {r.score}</p>
                 </div>
                 <div className="descri">
-                  <p>Descripcion:</p>
+                  <p>Descripción:</p>
                   <p className="reviewDescription">{r.description}</p>
                 </div>
               </div>

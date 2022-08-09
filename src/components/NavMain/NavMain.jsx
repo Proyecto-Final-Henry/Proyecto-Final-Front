@@ -34,7 +34,7 @@ export default function NavigationM(){
                     <SearchBar/>
                 </Nav>
                 <Nav>
-                    <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
+                    <Button style={{"margin-top": "6px"}} onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

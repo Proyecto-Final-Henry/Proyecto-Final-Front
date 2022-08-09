@@ -1,6 +1,5 @@
 import { useEffect , useState } from "react"
 import { Link, useHistory } from "react-router-dom"
-import Button from 'react-bootstrap/Button';
 import axios from "axios"
 import "../../css/perfilrev.css"
 export default function UserProfile (){

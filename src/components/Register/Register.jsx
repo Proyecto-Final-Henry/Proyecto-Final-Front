@@ -72,7 +72,7 @@ const Register = () => {
             value={name} 
             aria-describedby="emailHelp"
             placeholder="Nombre..."/>
-            <label>Direccion de email</label>
+            <label>Dirección de email</label>
             <input 
             type="email" 
             className="field"

@@ -22,7 +22,7 @@ function Albums(props) {
         );
     }else{
         return (
-            <div>No hay albunes</div>
+            <div>No hay álbumes disponibles</div>
         )
     }
 }

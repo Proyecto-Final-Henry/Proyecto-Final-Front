@@ -1,7 +1,6 @@
 import React, { useEffect , useState } from 'react';
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import axios from "axios";
-import Alerta from '../AlertaMensaje/Alerta';
 
 const ConfirmarCuenta = () => {
 
@@ -30,7 +29,7 @@ const ConfirmarCuenta = () => {
   return (
     <>
     <div>
-        <h1>CONFIRMA TU CUENTA Y COMIENZA A DISFRUTAR DE LA MUSIC APP</h1>
+        <h1> Tu cuenta ha sido confirmada, comienza a disfrutar de Music App </h1>
     </div>
     </>
   );

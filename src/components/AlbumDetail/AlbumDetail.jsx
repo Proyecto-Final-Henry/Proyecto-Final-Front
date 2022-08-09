@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import CreateReview from "../CreateReview/CreateReview";
 import AlbumSongs from "../AlbumSongs/AlbumSongs";
 import ReviewDeck from "../ReviewDeck/ReviewDeck";
-
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import style from "../../css/artistDetail.module.css";
@@ -24,51 +23,36 @@ export default function AlbumDetail() {
 
   console.log('albumData',albumData);
   return (
-    <div>
-      {albumData ? (
-        // <div>
-        //   <h1>{albumData.title}</h1>
-        //   <img src={albumData.image} alt={albumData.title} />
-        //   <p>Artist:</p>
-        //   {albumData.artist && (
-        //     <Link to={`/artist/${albumData.artist.idartist}`}>
-        //       <p>{albumData.artist.nameartist}</p>
-        //     </Link>
-        //   )}
-        //   <p>Songs:</p>
-        //   c
-        //   <ReviewDeck apiId={albumId} type="album" />
-        //   <CreateReview apiId={albumId} type="album" name={albumData.title} />
-        // </div>
-
+      <div>
+        {albumData ? (
         <div>
-        <div className={style.artistDetail_header}>
           <div>
-            <img src={albumData.image} alt={albumData.name} />
+            <div className={style.artistDetail_header}>
+              <div>
+                <img src={albumData.image} alt={albumData.name} />
+              </div>
+              <div className={style.artistDetail_information}>
+                <p><BsShieldFillCheck/> Álbum Verificado</p>
+                <h1>{albumData.name}</h1>
+                <Button  variant="outline-success">Seguir</Button>
+            </div>
           </div>
-          <div className={style.artistDetail_information}>
-            <p><BsShieldFillCheck/> Álbum Verificado</p>
-            <h1>{albumData.name}</h1>
-            <Button  variant="outline-success">Seguir</Button>
+            <Tabs
+              id="controlled-tab-example"
+              activeKey={key}
+              onSelect={(k) => setKey(k)}
+              className="mb-3"
+            >
+            <Tab eventKey="songs" title="Canciones">
+              <AlbumSongs albumId={albumId} />
+            </Tab>
+            <Tab eventKey="contact" title="Reseñas">
+                <ReviewDeck apiId={albumId} type="album" />
+                <CreateReview apiId={albumId} type="album" name={albumData.title} />
+            </Tab>
+          </Tabs>
           </div>
-        </div>
-  
-          <Tabs
-            id="controlled-tab-example"
-            activeKey={key}
-            onSelect={(k) => setKey(k)}
-            className="mb-3"
-          >
-          <Tab eventKey="songs" title="Canciones">
-            <AlbumSongs albumId={albumId} />
-          </Tab>
-          <Tab eventKey="contact" title="Reseñas">
-              <ReviewDeck apiId={albumId} type="album" />
-              <CreateReview apiId={albumId} type="album" name={albumData.title} />
-          </Tab>
-        </Tabs>
-    
-        </div>
+
           <div className="ArtistD">
               <div className="ArtistT">
                 <div className="imge">
@@ -87,7 +71,8 @@ export default function AlbumDetail() {
               <AlbumSongs albumId={albumId} />
               <ReviewDeck apiId={albumId} type="album" />
               <CreateReview apiId={albumId} type="album" name={albumData.title} />
-          </div>
+            </div>
+        </div>
       ) : (
         <p>¡Estamos buscando el álbum!</p>
       )}

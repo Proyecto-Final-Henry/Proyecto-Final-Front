@@ -28,7 +28,7 @@ function MusicCard(props) {
             <div className={style.musicCard_footer}>
                 <p>{props.artist}</p>
                 <Link to={"/artist/"}>
-                <Button variant="outline-danger" type="submit" >Reseñas</Button>
+                <Button variant="outline-success" type="submit" >Reseñas</Button>
                 </Link>
             </div>
             
