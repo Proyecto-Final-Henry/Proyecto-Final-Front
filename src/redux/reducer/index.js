@@ -5,6 +5,8 @@ import {
   GET_SEARCH,
   CLEAN_GENRE,
   GET_ARTIST_DATA,
+  GET_ARTIST_ALBUM,
+  GET_ARTIST_SONGS,
   GET_ARTIST_TOP,
   GET_RES_REVIEWS,
   GET_ALBUM_DATA,
@@ -24,6 +26,8 @@ const initialState = {
   genre: {},
   artistData: {},
   artistTop: [],
+  artistAlbums: [],
+  artistSongs: [],
   resReviews: [],
   albumData: {},
   albumSongs: [],
@@ -83,6 +87,16 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         artistTop: action.payload,
+      };
+    case GET_ARTIST_ALBUM:
+      return {
+        ...state,
+        artistAlbums: action.payload,
+      };
+    case GET_ARTIST_SONGS:
+      return {
+        ...state,
+        artistSongs: action.payload,
       };
     case GET_RES_REVIEWS:
       return {
