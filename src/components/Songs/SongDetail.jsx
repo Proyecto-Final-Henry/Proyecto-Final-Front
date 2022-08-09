@@ -41,8 +41,8 @@ export default function SongDetail() {
         className="mb-3"
       >
         <Tab eventKey="contact" title="Reseñas">
-          <ReviewDeck apiId={songData.id} type="song" />
-          <CreateReview apiId={songData.id} type="song" name={songData.title} />
+          <ReviewDeck apiId={songId} type="song" />
+          <CreateReview apiId={songId} type="song" name={songData.title} />
         </Tab>
       </Tabs>
     </div>
