@@ -135,6 +135,7 @@ function App() {
       <Route exact path="/album/:id">
         <NavigationM/>
         <AlbumDetail/>
+        <Footer/>
       </Route>
     </div>
   );

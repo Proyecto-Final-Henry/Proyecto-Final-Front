@@ -24,7 +24,7 @@ export default function Footer(){
                         </li>
                     </ul>
                 </div>
-                <Accordion>
+                {/* <Accordion>
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Accordion Item #1</Accordion.Header>
                         <Accordion.Body>
@@ -56,7 +56,7 @@ export default function Footer(){
                             </div>
                         </Accordion.Body>
                     </Accordion.Item>
-                </Accordion>
+                </Accordion> */}
             </div>
         </div>
     );

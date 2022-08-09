@@ -33,8 +33,8 @@ Nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color:rgb(34, 34, 34);
-  box-shadow: 0 5px 10px 	#1DB954;
+  background-color:rgb(255, 255, 255);
+  box-shadow: 0 5px 10px 	#F7567C
 } 
 Nav a{
   text-decoration: none;
@@ -43,7 +43,7 @@ Nav a{
   margin-right: 18px;
 }
 Nav a h5{
-  color: #1DB954;
+  color: #F7567C;
   padding: 10px;
   padding-left: 10px;
 }
@@ -73,6 +73,8 @@ Nav h5:hover{
   color: white;
   font-size: 14px;
   padding: 35px 0;
+  width: 100%;
+  height: 100%;
 }
 .footer-container ul li a{
   color: white;
@@ -194,7 +196,7 @@ Nav h5:hover{
 }
 
 .todo{
-  padding: 40px;
+  padding: 20px;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   width: 100%;
@@ -206,7 +208,7 @@ Nav h5:hover{
 
 /*FeedPer*/
 .fe{
-  width: 60%;
+  width: 100%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -319,4 +321,19 @@ Nav h5:hover{
 .peque p{
   color: white;
   font-size: large;
+}
+.er{
+  width: 60%;
+}
+.cen h1{
+  color: white;
+}
+.confir{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+}
+.confir h1{
+  color: white;
 }
