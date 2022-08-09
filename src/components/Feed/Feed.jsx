@@ -8,6 +8,7 @@ import Re from './Re';
 import { getAllReviews } from "../../redux/actions";
 import Accordion from 'react-bootstrap/Accordion';
 import style from "../../css/artistDetail.module.css";
+import { getRandomSongs } from "../../redux/actions";
 
 
 export default function Feed(){
@@ -24,6 +25,7 @@ export default function Feed(){
         };
          autenticarUsuario();
         dispatch(getAllReviews());
+        dispatch(getRandomSongs());
     },[dispatch]);
 
     const reviews = useSelector(state => state.allReviews);

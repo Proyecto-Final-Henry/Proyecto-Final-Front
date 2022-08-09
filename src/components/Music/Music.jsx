@@ -1,13 +1,11 @@
 import style from "../../css/premium.module.css";
 import { Link, useHistory } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getRandomSongs } from '../../redux/actions';
+import { useSelector } from "react-redux";
 import MusicCard from "./MusicCard";
 
 export default function Music() {
     let history = useHistory();
-    let dispatch = useDispatch();
     let random = useSelector((state) => state.randomSongs);
 
     useEffect(() => {
@@ -19,7 +17,6 @@ export default function Music() {
             }
         };
          autenticarUsuario();
-         dispatch(getRandomSongs())
     },[]);
 
     return (

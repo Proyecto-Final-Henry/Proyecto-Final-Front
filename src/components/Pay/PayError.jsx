@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import style from "../../css/premium.module.css";
 import Button from 'react-bootstrap/Button';

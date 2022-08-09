@@ -1,8 +1,6 @@
 import React from "react";
 
-
 export default function Re(){
-    const top=[]
     return(
         <div className="re">
             <h5>Canciones Recomendadas</h5>

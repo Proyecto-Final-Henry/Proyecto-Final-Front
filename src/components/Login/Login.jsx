@@ -40,7 +40,7 @@ const Login = () => {
         <div className="cre">
           {msg && <Alerta alerta={alerta} className="alert"/>}
           <form onSubmit={handleSubmit} className="form">
-              <h1>Login</h1>
+              <h1>Ingreso</h1>
               <div>
                   <br />
                   <label>Correo:</label>
@@ -55,7 +55,7 @@ const Login = () => {
               </div>
               <div>
                   <br />
-                  <label>Contrasena:</label>
+                  <label>Contraseña:</label>
                   <br />
                   <input 
                   type="password" 
