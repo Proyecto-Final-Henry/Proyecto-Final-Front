@@ -21,14 +21,18 @@ export default function SongDetail() {
   return (
     <div>
       <h1>{songData.title}</h1>
-      <h3>Duración: {(parseInt(songData.duration) / 60).toFixed(2)}</h3>
-      <Link to={`/artist/${songData.artistId}`}>
-        <h3>Artista: {songData.artist}</h3>
-      </Link>
-      <Link to={`/album/${songData.albumId}`}>
-        <h3>Álbum : {songData.album}</h3>
-      </Link>
       <img src={songData.img} alt={songData.album} />
+      <h4>Duración:</h4>
+      <p>{(parseInt(songData.duration) / 60).toFixed(2)}</p>
+      <h4>Artista:</h4>
+      <Link to={`/artist/${songData.artistId}`}>
+        <p>{songData.artist}</p>
+      </Link>
+      <h4>Álbum:</h4>
+      <Link to={`/album/${songData.albumId}`}>
+        <p>{songData.album}</p>
+      </Link>
+      <br />
 
       <Tabs
         id="controlled-tab-example"
