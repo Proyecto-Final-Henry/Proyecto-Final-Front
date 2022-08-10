@@ -1,6 +1,8 @@
 import {useDispatch, useSelector} from 'react-redux';
 import { useState, useEffect} from 'react';
 import { getSearch } from '../../redux/actions';
+import Button from 'react-bootstrap/Button';
+import style from '../../css/filters.module.css'
 
 
 
@@ -24,15 +26,10 @@ export default function Filters (){
 
 
     return(
-        <div>
-            <form>
-                    <select name='type' defaultValue={1} onChange={eventHandler}>
-                        <option disabled value={1}>Seleccione un filtro</option>
-                        <option value={'artist'}>Artist</option>
-                        <option value={'album'}>Album</option>
-                        <option value={'track'}>Track</option>                        
-                    </select>
-                </form>
+        <div className={style.box}>            
+            <Button className={style.btn} variant="outline-success" name='type' value='artist' onClick={eventHandler}>Artista</Button>
+            <Button className={style.btn} variant="outline-success" name='type' value='album' onClick={eventHandler}>Álbum</Button>
+            <Button className={style.btn} variant="outline-success" name='type' value='track' onClick={eventHandler}>Canción</Button>
         </div>
     )
 };
