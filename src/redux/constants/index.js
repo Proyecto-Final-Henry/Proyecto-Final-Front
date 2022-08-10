@@ -6,6 +6,7 @@ export const GET_ARTISTS = "GET_ARTISTS";
 export const GET_PLAYLIST = "GET_PLAYLIST";
 export const GET_USER_DATA = "GET_USER_DATA";
 export const GET_SEARCH = "GET_SEARCH";
+export const GET_ARTIST_SONG_SEARCH = "GET_ARTIST_SONG_SEARCH";
 export const GET_ARTIST_DATA = "GET_ARTIST_DATA";
 export const GET_ARTIST_ALBUM = "GET_ARTIST_ALBUM";
 export const GET_ARTIST_SONGS = "GET_ARTIST_SONGS";

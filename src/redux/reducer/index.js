@@ -3,6 +3,7 @@ import {
   GET_GENRE,
   GET_GENRES,
   GET_SEARCH,
+  GET_ARTIST_SONG_SEARCH,
   CLEAN_GENRE,
   GET_ARTIST_DATA,
   GET_ARTIST_ALBUM,
@@ -30,6 +31,7 @@ const initialState = {
   artistTop: [],
   artistAlbums: [],
   artistSongs: [],
+  artistSongsSearch:[],
   albumDb: [],
   resReviews: [],
   resReviews: {},
@@ -99,10 +101,31 @@ function rootReducer(state = initialState, action) {
         artistAlbums: action.payload,
       };
     case GET_ARTIST_SONGS:
+      let valueIndex2;
+      if (action.payload.index === undefined) {
+        valueIndex2 = 0;
+      } else {
+        valueIndex2 = action.payload.index;
+      }
+      
       return {
+
         ...state,
-        artistSongs: action.payload,
+        artistSongs: action.payload.response.data,
+        pagination: {
+          total: action.payload.response.total,
+          prev: action.payload.response.prev,
+          next: action.payload.response.next,
+          limit: action.payload.response.limit,
+        },
+        index: valueIndex2,
       };
+      case GET_ARTIST_SONG_SEARCH:
+          return {  
+            ...state,
+            artistSongsSearch: action.payload,
+          };    
+        
     case GET_RES_REVIEWS:
       return {
         ...state,

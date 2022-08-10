@@ -12,6 +12,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import ArtistAlbums from "../ArtistAlbums/ArtistAlbums";
 import ArtistSongs from "../ArtistSongs/ArtistSongs";
+import ArtistSongsSearch from "../ArtistSongs/ArtistSongSearch";
 
 export default function ArtistDetail() {
   let dispatch = useDispatch();
@@ -49,7 +50,14 @@ export default function ArtistDetail() {
         <ArtistAlbums artistId={artistId} />
       </Tab>
       <Tab eventKey="songs" title="Canciones">
-        <ArtistSongs artistId={artistId} />
+        <ArtistSongs 
+          artistId={artistId}
+        />
+      </Tab>
+      <Tab eventKey="searchsong" title="Buscar Cancion">
+        <ArtistSongsSearch 
+          artistId={artistId}
+        />
       </Tab>
       <Tab eventKey="contact" title="Reseñas">
       

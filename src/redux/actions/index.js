@@ -3,6 +3,7 @@ import {
   SEND_EMAIL_CONTACT,
   GET_USER_DATA,
   GET_SEARCH,
+  GET_ARTIST_SONG_SEARCH,
   GET_ARTIST_DATA,
   GET_ARTIST_ALBUM,
   GET_ARTIST_TOP,
@@ -63,6 +64,22 @@ export function getSearch(toFind, filter, index) {
       });
   };
 }
+export function getArtistSongSearch(toFind,filter,index,id) {
+  return async function (dispatch) {
+    return axios(
+      `http://localhost:3001/api/back-end/search/track?query=${toFind}&limit=300`
+    )
+      .then((response) => {
+        const arr= response.data.data.filter(e=>{
+          return e.artist.idArtist===parseInt(id)
+        });
+        dispatch({
+          type: GET_ARTIST_SONG_SEARCH,          
+          payload: arr
+        });
+      });
+  };
+}
 
 export function getArtistData(id) {
   return async (dispatch) => {
@@ -90,16 +107,19 @@ export function getArtistAlbum(id) {
       });
   };
 }
-export function getArtistSongs(id) {
+export function getArtistSongs(id, filter, index) {
   return async (dispatch) => {
     return axios
       .get(
-        `http://localhost:3001/api/back-end/artists/artistsongs?artist=${id}`
+        `http://localhost:3001/api/back-end/artists/artistsongs?artist=${id}&index=${index}`
       )
       .then((artist) => {
         dispatch({
           type: GET_ARTIST_SONGS,
-          payload: artist.data,
+          payload: {
+            response: artist.data,
+            index: index,
+          }
         });
       });
   };
