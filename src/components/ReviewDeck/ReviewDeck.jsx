@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getResReviews } from "../../redux/actions";
 import { useEffect } from "react";
-import ReviewCard from "../ReviewCard/ReviewCard";
+import ResReviewCard from "../ReviewCard/ResReviewCard";
 
 export default function ReviewDeck({ apiId, type }) {
   let dispatch = useDispatch();
@@ -10,12 +10,11 @@ export default function ReviewDeck({ apiId, type }) {
     dispatch(getResReviews(apiId, type));
   }, []);
 
-  let reviewArray = useSelector((state) => state.resReviews);
-
+  let resReviews = useSelector((state) => state.resReviews);
   return (
     <div>
       <h2>Reseñas:</h2>
-      <ReviewCard reviewArray={reviewArray} />
+      <ResReviewCard resReviews={resReviews} />
     </div>
   );
 }

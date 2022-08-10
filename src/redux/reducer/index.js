@@ -29,7 +29,7 @@ const initialState = {
   artistTop: [],
   artistAlbums: [],
   artistSongs: [],
-  resReviews: [],
+  resReviews: {},
   albumData: {},
   albumSongs: [],
   allReviews: [],

@@ -118,10 +118,12 @@ export function getArtistTop(id) {
   };
 }
 
-export function getResReviews(id, type) {
+export function getResReviews(apiId, type) {
   return async (dispatch) => {
     return axios
-      .get(`http://localhost:3001/api/back-end/search/db?id=${id}&type=${type}`)
+      .get(
+        `http://localhost:3001/api/back-end/reviews/resource?id=${apiId}&type=${type}`
+      )
       .then((reviews) => {
         dispatch({
           type: GET_RES_REVIEWS,
