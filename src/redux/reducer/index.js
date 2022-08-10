@@ -13,7 +13,7 @@ import {
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
   GET_RANDOM_SONGS,
-  GET_DB_ALBUMS
+  GET_DB_ALBUMS,
   GET_SONG_DATA,
 } from "../constants";
 
