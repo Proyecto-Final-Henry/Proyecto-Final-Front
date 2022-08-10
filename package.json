@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
+    "dotenv": "^16.0.1",
     "dotenv-webpack": "^8.0.0",
     "firebase": "^9.9.2",
     "nodemon": "^2.0.19",
@@ -26,6 +27,11 @@
     "thunk": "^0.0.1",
     "web-vitals": "^2.1.4"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -37,11 +43,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false
   },
   "browserslist": {
     "production": [
