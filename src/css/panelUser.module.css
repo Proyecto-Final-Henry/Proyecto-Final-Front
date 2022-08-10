@@ -24,7 +24,23 @@
     padding: 20px 30px;
 }
 .contentHome_title{
-    text-align: left;
+    text-align: center;
+    width: 15%;
+    margin-top: 50px;
+    padding: 15px;
+    height: fit-content;
+    color: white;
+    min-height: 0%;
+    max-width: 100%;
+    overflow: hidden;
+    display: inline-block;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    background-color:rgb(34, 34, 34);
+    border: 2px solid rgb(75, 0, 130);;
+    box-shadow: 0 5px 10px  rgb(75, 0, 130);
+    overflow: hidden;
 }
 /* Estilos Genres */
 .genres{
@@ -43,12 +59,19 @@
     align-items: center;
     margin: 15px;
 }
+
 .genreCard img{
-    width: 60px;
+    width: 90px;
 }
+
 .genreCard h2{
     margin-left: 30px;
     margin-right: 30px;
-    font-size: 20px;
+    font-size: 30px;
+}
+
+.genreCard:hover{
+    transition: all .3s ease-in-out;
+    transform: scale(1.3);
 }
 

@@ -21,11 +21,11 @@ function Premium() {
     // },[])
     
     const handleButton = async () => {
-      const token = localStorage.getItem("token")
+      const token = localStorage.getItem("token");
       if(!token){
-          history.push("/login")
-          return
-      }
+          history.push("/login");
+          return;
+      };
       const config = {
           headers: {
               "Content-Type" : "application/json",
@@ -39,7 +39,7 @@ function Premium() {
             history.push("/pay");
           }
         } catch (error) {
-         console.log(error) 
+         console.log(error) ;
         };
     };
 
@@ -48,14 +48,14 @@ function Premium() {
         <div className={style.mainDiv}>
            <h1>Beneficios de Usuarios Premium</h1>          
         </div>
-        
+        <br />
         <div className={style.mainDiv}>
             <h3>Canciones ilimitadas</h3>
             <h3>Crea tus propias playlists</h3>
             <h3>Ve quien te sigue</h3>
             <h3>Recompensas exclusivas</h3>
         </div>
-
+<br />
         <div className={style.comparative}>
           <img src={ComparativoPremium} alt="Premium vs Free" />
         </div>

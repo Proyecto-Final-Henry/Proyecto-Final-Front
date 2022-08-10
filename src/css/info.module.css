@@ -41,7 +41,8 @@
 .Links{
     text-decoration: none;
     padding-top: 8px;
-    color: #1DB954;
+    color: #F7567C;
+    text-shadow: 0 5px 10px  rgb(75, 0, 130); ;
     padding: 10px;
     padding-left: 10px;
     font: bolder;
