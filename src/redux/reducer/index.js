@@ -12,7 +12,8 @@ import {
   GET_ALBUM_DATA,
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
-  GET_RANDOM_SONGS
+  GET_RANDOM_SONGS,
+  GET_DB_ALBUMS
 } from "../constants";
 
 const initialState = {
@@ -28,6 +29,7 @@ const initialState = {
   artistTop: [],
   artistAlbums: [],
   artistSongs: [],
+  albumDb: [],
   resReviews: [],
   albumData: {},
   albumSongs: [],
@@ -103,6 +105,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         resReviews: action.payload,
       };
+    case GET_DB_ALBUMS:
+        return {
+          ...state,
+          albumDb: action.payload,
+        };
     case GET_ALBUM_DATA:
       return {
         ...state,
@@ -125,6 +132,6 @@ function rootReducer(state = initialState, action) {
       };
     default:
       return state;
-  }
-}
+  };
+};
 export default rootReducer;

@@ -5,10 +5,11 @@ import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Re from './Re';
-import { getAllReviews } from "../../redux/actions";
+import { createAlbum, getAllReviews } from "../../redux/actions";
 import Accordion from 'react-bootstrap/Accordion';
 import style from "../../css/artistDetail.module.css";
 import { getRandomSongs } from "../../redux/actions";
+import { getGenres } from "../../redux/actions/actions_player";
 
 
 export default function Feed(){
@@ -26,12 +27,13 @@ export default function Feed(){
          autenticarUsuario();
         dispatch(getAllReviews());
         dispatch(getRandomSongs());
+        dispatch(getRandomSongs());
+        dispatch(getGenres());
+        dispatch(createAlbum());
     },[dispatch]);
 
     const reviews = useSelector(state => state.allReviews);
-
-    console.log(reviews);
-
+    
     return(
         <div className="todo">
             <div className="er">

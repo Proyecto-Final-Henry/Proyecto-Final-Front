@@ -11,7 +11,9 @@ import {
   GET_ARTIST_SONGS,
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
-  GET_RANDOM_SONGS
+  GET_RANDOM_SONGS,
+  CREATE_DB_ALBUMS,
+  GET_DB_ALBUMS
 } from "../constants";
 
 const urlApi = "http://localhost:3001/api/back-end";
@@ -120,6 +122,32 @@ export function getResReviews(id, type) {
         dispatch({
           type: GET_RES_REVIEWS,
           payload: reviews.data,
+        });
+      });
+  };
+};
+
+export function createAlbum() {
+  return async (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/api/back-end/albums/create`)
+      .then((albumDB) => {
+        dispatch({
+          type: CREATE_DB_ALBUMS,
+          payload: albumDB.data,
+        });
+      });
+  };
+};
+
+export function getAlbumsDb() {
+  return async (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/api/back-end/albums/getall`)
+      .then((albumDB) => {
+        dispatch({
+          type: GET_DB_ALBUMS,
+          payload: albumDB.data,
         });
       });
   };
