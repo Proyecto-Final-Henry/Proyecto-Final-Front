@@ -71,6 +71,7 @@ export default function UserProfile (){
                     <p className="userP">Miembro desde {user?.createdDate}</p>
                     <p className="userP">Usuario {user?.role}</p>
                     {user.role === "Base" ? <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Cambiar a plan Premium</Button> : null}
+                    {user.role === "Admin" ? <Button onClick={history.push("/admin")} variant="outline-info" type="submit" className='boton'>Cambiar a plan Premium</Button> : null}
                     <br />
                     <br />
                     <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
