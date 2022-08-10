@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Alerta from "../AlertaMensaje/Alerta";
+import "../../css/alerta.css"
 
 const RecoverPassword = () => {
     const [ email , setEmail ] = useState("");
