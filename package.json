@@ -39,17 +39,17 @@
       "react-app/jest"
     ]
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
-    "browser": {
-      "fs": false,
-      "path": false,
-      "os": false
-    },
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
