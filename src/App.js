@@ -1,4 +1,5 @@
 import { Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Contact from "./components/Contact/Contact";
@@ -12,9 +13,7 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import SearchResult from "./components/Search/SearchResult";
 import Feed from "./components/Feed/Feed";
 import RecoverPassword from "./components/RecoverPass/RecoverPass";
-import "./App.css";
 import "./index.css";
-import PanelUser from "./views/PanelUser/PanelUser";
 import NewPassword from "./components/NewPassword/NewPassword";
 import Free from "./components/Free/Free";
 import Pay from "./components/Pay/Pay";
@@ -22,122 +21,140 @@ import ArtistDetail from "./components/ArtistDetail/ArtistDetail";
 import AlbumDetail from "./components/AlbumDetail/AlbumDetail";
 import PaySuccess from "./components/Pay/PaySuccess";
 import PayError from "./components/Pay/PayError";
-import ReviewCard from "./components/ReviewCard/ReviewCard";
 import Music from "./components/Music/Music";
+import Genres from "./components/Genre/Genres";
+import GenreDetail from "./components/Genre/GenreDetail";
+import SongDetail from "./components/Songs/SongDetail";
 
 function App() {
+  const genres = useSelector((state) => state.genres);
+
   return (
     <div className="App">
       <Route exact path="/">
-        <NavigationB/>
-        <Home/>
-        <Footer/>
+        <NavigationB />
+        <Home />
+        <Footer />
       </Route>
 
       <Route exact path="/login">
-        <NavigationB/>
-        <Login/>
-        <Footer/>
+        <NavigationB />
+        <Login />
+        <Footer />
       </Route>
 
       <Route exact path="/register">
-        <NavigationB/>
-        <Register/>
-        <Footer/>
+        <NavigationB />
+        <Register />
+        <Footer />
       </Route>
 
       <Route exact path="/confirmar/:token">
-        <NavigationB/>
-        <ConfirmarCuenta/>
-        <Footer/>
+        <NavigationB />
+        <ConfirmarCuenta />
+        <Footer />
       </Route>
 
       <Route exact path="/premium">
-        <NavigationB/>
-        <Premium/>
-        <Footer/>
+        <NavigationB />
+        <Premium />
+        <Footer />
       </Route>
 
       <Route exact path="/free">
-        <NavigationB/>
-        <Free/>
-        <Footer/>
+        <NavigationB />
+        <Free />
+        <Footer />
       </Route>
 
       <Route exact path="/pay">
-        <NavigationB/>
-        <Pay/>
-        <Footer/>
+        <NavigationB />
+        <Pay />
+        <Footer />
       </Route>
 
       <Route exact path="/pay/success">
-        <NavigationB/>
-        <PaySuccess/>
-        <Footer/>
+        <NavigationB />
+        <PaySuccess />
+        <Footer />
       </Route>
 
       <Route exact path="/pay/error">
-        <NavigationB/>
-        <PayError/>
-        <Footer/>
+        <NavigationB />
+        <PayError />
+        <Footer />
       </Route>
 
       <Route exact path="/contact">
-        <NavigationB/>
-        <Contact/>
-        <Footer/>
+        <NavigationB />
+        <Contact />
+        <Footer />
       </Route>
 
       <Route exact path="/recover">
-        <NavigationB/>
-        <RecoverPassword/>
-        <Footer/>
+        <NavigationB />
+        <RecoverPassword />
+        <Footer />
       </Route>
 
       <Route exact path="/olvide-password/:token">
-        <NavigationB/>
-        <NewPassword/>
-        <Footer/>
+        <NavigationB />
+        <NewPassword />
+        <Footer />
       </Route>
 
       <Route exact path="/feed">
-        <NavigationM/>
-        <Feed/>
-        <Footer/>
+        <NavigationM />
+        <Feed />
+        <Footer />
       </Route>
 
       <Route exact path="/music">
-        <NavigationM/>
-        <Music/>
-        <Footer/>
+        <NavigationM />
+        <Music />
+        <Footer />
       </Route>
 
       <Route exact path="/user">
+        <NavigationM />
+        <UserProfile />
+        <Footer />
+      </Route>
+
+      <Route exact path="/genres">
         <NavigationM/>
-        <UserProfile/>
+        <Genres genres={genres}/>
         <Footer/>
       </Route>
 
-      <Route exact path="/home">
-        <PanelUser/>
+      <Route exact path="/genres/:id">
+        <NavigationM/>
+        <GenreDetail/>
+        <Footer/>
       </Route>
 
       <Route exact path="/search">
-        <NavigationM/>
-        <SearchResult/>
-        <Footer/>
+        <NavigationM />
+        <SearchResult />
+        <Footer />
       </Route>
 
       <Route exact path="/artist/:id">
-        <NavigationM/>
-        <ArtistDetail/>
-        <Footer/>
+        <NavigationM />
+        <ArtistDetail />
+        <Footer />
       </Route>
 
       <Route exact path="/album/:id">
-        <NavigationM/>
-        <AlbumDetail/>
-        <Footer/>
+        <NavigationM />
+        <AlbumDetail />
+        <Footer />
+      </Route>
+
+      <Route exact path="/song/:id">
+        <NavigationM />
+        <SongDetail />
+        <Footer />
       </Route>
     </div>
   );

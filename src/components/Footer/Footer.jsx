@@ -8,7 +8,7 @@ export default function Footer(){
         <div className="footer-links">
             <div className="footer-container">
                 <div className="social">
-                <h4>Follow us</h4>
+                <h4>¡Mantente al tanto de novedades!</h4>
                     <ul className={style.listaCreadores}>
                         <li>
                             <BsFacebook size="3em"/>

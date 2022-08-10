@@ -6,6 +6,7 @@ import AlbumCard from "../SearchResultCards/AlbumCard";
 import TrackCard from "../SearchResultCards/TrackCard";
 import Filters from "./Filters";
 import Pagination from "./Pagination";
+import SearchBar from '../Search/SearchBar';
 import style from "../../css/resultSearch.module.css";
 
 export default function SearchResult() {
@@ -25,6 +26,9 @@ export default function SearchResult() {
 
   return (
     <div className={style.box}>
+      <div>
+        <SearchBar/>
+      </div>
       <div>
         <Filters />
       </div>
@@ -69,7 +73,7 @@ export default function SearchResult() {
                 type={e.type}
               />
             );
-          } else return <p>otro typo de dato</p>;
+          } else return <p>otro typo de dato esto es un error y no debe renderizarse hay, data que estamos ignorando</p>;
         })}
       </div>
     </div>

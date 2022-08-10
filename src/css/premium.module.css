@@ -1,18 +1,19 @@
 .mainDiv{
-    width: 65%;
+    width: 75%;
     margin-top: 50px;
     padding: 15px;
     height: fit-content;
     color: white;
     min-height: 0%;
-    max-width: 100%;
+    max-width: fit-content;
     overflow: hidden;
     display: inline-block;
     justify-content: space-evenly;
     align-items: center;
     box-sizing: border-box;
     background-color:rgb(34, 34, 34);
-    border: 2px solid #1DB954;;
+    border: 2px solid rgb(75, 0, 130);;
+    box-shadow: 0 5px 10px  rgb(75, 0, 130);
     overflow: hidden;
   }
 

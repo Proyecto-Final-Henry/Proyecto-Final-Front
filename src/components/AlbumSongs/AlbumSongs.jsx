@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getAlbumSongs, getAlbumData } from "../../redux/actions";
 import { useEffect } from "react";
-import Songs from "../Songs/Songs";
+import { Link } from "react-router-dom";
 
 export default function AlbumSongs({ albumId }) {
   let dispatch = useDispatch();
@@ -22,13 +22,15 @@ export default function AlbumSongs({ albumId }) {
       {albumSongs.map((s) => {
         return (
           <div id={s.id} key={s.id} className="ArtistTo">
-            {/* <Link to={`/song/${s.id}`}> */}
             <img src={albumData.image} alt={albumData.image} />
-            <p>{s.title}</p>
+            <Link to={`/song/${s.id}`}>
+              <p>{s.title}</p>
+            </Link>
             <p>duración: {(parseInt(s.duration) / 60).toFixed(2)}</p>
           </div>
         );
-      })}; */}
+      })}
+      ;
     </div>
   );
-};
+}

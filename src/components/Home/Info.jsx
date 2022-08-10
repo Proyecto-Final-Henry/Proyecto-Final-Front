@@ -27,19 +27,23 @@ export default function Info (){
                     <div className={style.boxUl}>
                         <ul>
                             <li>
-                                lorem 1
+                                Toda tu música favorita en un solo lugar
                             </li>
+                            <br />
                             <li>
-                                lorem 2
+                                Encuentra nuevos éxitos y descubre canciones
                             </li>
+                            <br />
                             <li>
-                                lorem 3
+                                Míra la actividad de tus amigos y sus gustos musicales
                             </li>
+                            <br />
                             <li>
-                                lorem 4
+                                Comparte tus gustos y opiniones sobre la música que escuchas
                             </li>
+                            <br />
                             <li>
-                                lorem 5
+                                Busca a traves de nuestra inmensa libreria de canciones y artistas
                             </li>
                         </ul>
                     </div>
@@ -49,19 +53,23 @@ export default function Info (){
                     <div className={style.boxUl}>
                         <ul>
                             <li>
-                                lorem 1
+                                Toda tu música favorita en un solo lugar
                             </li>
+                            <br />
                             <li>
-                                lorem 2
+                                Encuentra nuevos éxitos y descubre canciones
                             </li>
+                            <br />
                             <li>
-                                lorem 3
+                                Míra la actividad de tus amigos y sus gustos musicales
                             </li>
+                            <br />
                             <li>
-                                lorem 4
+                                Comparte tus gustos y opiniones sobre la música que escuchas
                             </li>
+                            <br />
                             <li>
-                                lorem 5
+                                Busca a traves de nuestra inmensa libreria de canciones y artistas
                             </li>
                         </ul>
                     </div>
