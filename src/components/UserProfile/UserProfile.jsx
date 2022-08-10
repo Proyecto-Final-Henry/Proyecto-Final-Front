@@ -12,10 +12,10 @@ export default function UserProfile (){
     const [ user , setUser ] = useState({});
 
     const handleButton = async () => {
-        const token = localStorage.getItem("token")
+        const token = localStorage.getItem("token");
         if(!token){
-            history.push("/login")
-            return
+            history.push("/login");
+            return;
         }
         const config = {
             headers: {
@@ -30,13 +30,13 @@ export default function UserProfile (){
               history.push("/pay");
             }
           } catch (error) {
-           console.log(error) 
+           console.log(error);
           };
       };
 
     useEffect(() => {
         const autenticarUsuario = async () => {
-            const token = localStorage.getItem("token")
+            const token = localStorage.getItem("token");
             if(!token){
                 history.push("/login");
                 return;
@@ -70,7 +70,7 @@ export default function UserProfile (){
                     <p className="userP">{user?.email}</p>
                     <p className="userP">Miembro desde {user?.createdDate}</p>
                     <p className="userP">Usuario {user?.role}</p>
-                    {user.role === "Base" ? <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Cambiar a plan Premium</Button> : null}s
+                    {user.role === "Base" ? <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Cambiar a plan Premium</Button> : null}
                     <br />
                     <br />
                     <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
