@@ -10,7 +10,6 @@ const Login = () => {
   const [ email , setEmail ] = useState("");
   const [ password , setPassword ] = useState("");
   const [ alerta , setAlerta ] = useState({});
-
   const history = useHistory();
 
   const handleSubmit = async (e) => {
@@ -24,12 +23,12 @@ const Login = () => {
     };
 
     try {
-      const url = `http://localhost:3001/api/back-end/users/login`
-      const { data } = await axios.post( url , {email,password})
-      localStorage.setItem("token", data.token)
-      history.push("/feed")
+      const url = `/api/back-end/users/login`
+      const { data } = await axios.post( url , {email,password});
+      localStorage.setItem("token", data.token);
+      history.push("/feed");
     } catch (error) {
-      setAlerta({msg: error.response.data.msg , error: true})
+      setAlerta({msg: error.response.data.msg , error: true});
     };
   };
 
@@ -80,7 +79,6 @@ const Login = () => {
                 <Link to="/register"> Crea tu cuenta</Link>
               </div>
           </form>
-
         </div>
     </div>
     )

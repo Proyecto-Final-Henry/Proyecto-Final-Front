@@ -42,7 +42,7 @@ const Register = () => {
 
     setAlerta({})
     try {
-      const url = `http://localhost:3001/api/back-end/users/register`
+      const url = `/api/back-end/users/register`
       await axios.post(url, { name, password , email })
       setAlerta({msg: "Creado correctamente, revisa tu email" , error: false})
       setTimeout(() => {
