@@ -131,6 +131,7 @@ function App() {
         <NavigationM/>
         <GenreDetail/>
         <Footer/>
+      </Route>
 
       <Route exact path="/search">
         <NavigationM />
