@@ -13,6 +13,8 @@ import {
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
   GET_RANDOM_SONGS,
+  CREATE_DB_ALBUMS,
+  GET_DB_ALBUMS,
   GET_SONG_DATA,
 } from "../constants";
 
@@ -152,6 +154,32 @@ export function getResReviews(apiId, type) {
       });
   };
 }
+
+export function createAlbum() {
+  return async (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/api/back-end/albums/create`)
+      .then((albumDB) => {
+        dispatch({
+          type: CREATE_DB_ALBUMS,
+          payload: albumDB.data,
+        });
+      });
+  };
+};
+
+export function getAlbumsDb() {
+  return async (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/api/back-end/albums/getall`)
+      .then((albumDB) => {
+        dispatch({
+          type: GET_DB_ALBUMS,
+          payload: albumDB.data,
+        });
+      });
+  };
+};
 
 export function getAlbumData(id) {
   return async (dispatch) => {
