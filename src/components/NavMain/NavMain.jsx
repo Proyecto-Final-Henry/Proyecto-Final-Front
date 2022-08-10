@@ -3,8 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from "../../img/logo.png"
 import { Link, useHistory } from 'react-router-dom';
-import SearchBar from '../Search/SearchBar';
 import Button from 'react-bootstrap/Button';
+
 
 export default function NavigationM(){
     const history = useHistory();
@@ -32,7 +32,7 @@ export default function NavigationM(){
                     <Link to="/genres"><h5>GÉNEROS</h5></Link>
                 </Nav>
                 <Nav>
-                    <SearchBar/>
+                    <Link to="/search"><h5>BUSCAR</h5></Link>
                 </Nav>
                 <Nav>
                     <Button style={{"margin-top": "6px"}} onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
