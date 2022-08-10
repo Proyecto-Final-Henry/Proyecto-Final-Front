@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSongData } from "../../redux/actions";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ReactPlayer from "react-player";
 import CreateReview from "../CreateReview/CreateReview";
 import ReviewDeck from "../ReviewDeck/ReviewDeck";
 import { Tabs } from "react-bootstrap";

@@ -6,11 +6,8 @@ import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Re from './Re';
 import { createAlbum, getAllReviews } from "../../redux/actions";
-import Accordion from 'react-bootstrap/Accordion';
-import style from "../../css/artistDetail.module.css";
 import { getRandomSongs } from "../../redux/actions";
 import { getGenres } from "../../redux/actions/actions_player";
-
 
 export default function Feed(){
     const history = useHistory();
