@@ -3,7 +3,7 @@ import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
 
 const ConfirmarCuenta = () => {
-    let history = useHistory();s
+    let history = useHistory();
     const [ cuentaConfirmada , setCuentaConfirmada ] = useState(false);
     const [ cargando , setCargando ] = useState(true);
     const [ alerta , setAlerta ] = useState({});
