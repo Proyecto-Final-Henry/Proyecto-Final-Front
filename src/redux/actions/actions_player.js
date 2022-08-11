@@ -6,7 +6,7 @@ import {
 
 import axios from "axios";
 
-const urlApi = 'http://localhost:3001/api/back-end';
+const urlApi = '/api/back-end';
 
 export const getGenres = () => {
     const url =  `${urlApi}/genres`;
