@@ -18,3 +18,4 @@ export const GET_RANDOM_SONGS = "GET_RANDOM_SONGS";
 export const CREATE_DB_ALBUMS = "CREATE_DB_ALBUMS";
 export const GET_DB_ALBUMS = "GET_DB_ALBUMS";
 export const GET_SONG_DATA = "GET_SONG_DATA";
+export const GET_ALL_USERS="GET_ALL_USERS"

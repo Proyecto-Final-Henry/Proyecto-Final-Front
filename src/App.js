@@ -23,11 +23,13 @@ import PaySuccess from "./components/Pay/PaySuccess";
 import PayError from "./components/Pay/PayError";
 import Music from "./components/Music/Music";
 import Genres from "./components/Genre/Genres";
+import {io} from 'socket.io-client'
 import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 
 function App() {
   const genres = useSelector((state) => state.genres);
+
 
   return (
     <div className="App">

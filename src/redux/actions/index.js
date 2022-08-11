@@ -15,6 +15,7 @@ import {
   CREATE_DB_ALBUMS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
+  GET_ALL_USERS
 } from "../constants";
 
 const urlApi = "http://localhost:3001/api/back-end";
@@ -219,6 +220,19 @@ export function getSongData(songId) {
         dispatch({
           type: GET_SONG_DATA,
           payload: songData.data,
+        });
+      });
+  };
+}
+
+export function getAllUsers(){
+  return async (dispatch) => {
+    axios
+      .get("http://localhost:3001/api/back-end/user")
+      .then((allUsers) => {
+        dispatch({
+          type: GET_ALL_USERS,
+          payload: allUsers.data,
         });
       });
   };
