@@ -14,7 +14,7 @@ const ConfirmarCuenta = () => {
     useEffect(() => {
         const confirmarCuenta = async () => {
             try {
-                const url = `http://localhost:3001/api/back-end/users/confirmar/${token}`
+                const url = `/api/back-end/users/confirmar/${token}`
                 const { data } = await axios(url)
                 setCuentaConfirmada(true)
                 setAlerta({msg: data.msg, error: false})
@@ -24,13 +24,15 @@ const ConfirmarCuenta = () => {
             setCargando(false)
         }
         confirmarCuenta()
+        setTimeout(() => {
+            history.push("/login");
+          },8000)
     },[token]);
 
   return (
     <div>
-        <h1> Tu cuenta ha sido confirmada, comienza a disfrutar de Music App </h1>
+        <h1> Tu cuenta ha sido confirmada, comienza a disfrutar de ReMusic </h1>
     </div>
-
   );
 };
 
