@@ -33,7 +33,6 @@ const initialState = {
   artistSongs: [],
   artistSongsSearch:[],
   albumDb: [],
-  resReviews: [],
   resReviews: {},
   albumData: {},
   albumSongs: [],
