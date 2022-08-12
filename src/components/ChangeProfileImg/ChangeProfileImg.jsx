@@ -40,16 +40,20 @@ export default function ChangeProfileImg({ userId, setShowImg }) {
   return (
     <div>
       <h3>Elige una imagen de perfil</h3>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="file"
-          accept="image/png, image/jpeg"
-          onChange={handleImgLoad}
-          name="profilePic"
-        />
-        <input type="submit" value="Cambiar imagen" id="submitImg" disabled />
-      </form>
-      {previewSource && <img src={previewSource} alt="perfil" width="100res" />}
+      {previewSource && (
+        <img src={previewSource} alt="perfil" id="previewImg" />
+      )}
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="file"
+            accept="image/png, image/jpeg"
+            onChange={handleImgLoad}
+            name="profilePic"
+          />
+          <input type="submit" value="Cambiar imagen" id="submitImg" disabled />
+        </form>
+      </div>
     </div>
   );
 }
