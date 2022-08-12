@@ -1,5 +1,4 @@
 import { Route } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Contact from "./components/Contact/Contact";
@@ -28,8 +27,6 @@ import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 
 function App() {
-  const genres = useSelector((state) => state.genres);
-
   return (
     <div className="App">
       <Route exact path="/">
@@ -112,8 +109,8 @@ function App() {
 
       <Route exact path="/music">
         <NavigationM />
-        <Music />
-        <Footer />
+        <Music/>
+        <Footer/>
       </Route>
 
       <Route exact path="/user">
@@ -130,7 +127,7 @@ function App() {
 
       <Route exact path="/genres">
         <NavigationM/>
-        <Genres genres={genres}/>
+        <Genres/>
         <Footer/>
       </Route>
 
@@ -153,14 +150,14 @@ function App() {
       </Route>
 
       <Route exact path="/album/:id">
-        <NavigationM />
-        <AlbumDetail />
+        <NavigationM/>
+        <AlbumDetail/>
         <Footer />
       </Route>
 
       <Route exact path="/song/:id">
-        <NavigationM />
-        <SongDetail />
+        <NavigationM/>
+        <SongDetail/>
         <Footer />
       </Route>
     </div>

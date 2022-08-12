@@ -4,16 +4,13 @@ import { Link } from 'react-router-dom';
 import Alerta from "../AlertaMensaje/Alerta";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { GoogleAuthProvider , signInWithPopup } from "firebase/auth"
-import { auth } from "../../firebase"
-
+import { GoogleAuthProvider , signInWithPopup } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Login = () => {
-
   const [ email , setEmail ] = useState("");
   const [ password , setPassword ] = useState("");
   const [ alerta , setAlerta ] = useState({});
-
   const history = useHistory();
 
   const handleSubmit = async (e) => {
@@ -27,7 +24,7 @@ const Login = () => {
     };
 
     try {
-      const url = `http://localhost:3001/api/back-end/users/login`
+      const url = `/api/back-end/users/login`
       const { data } = await axios.post( url , {email,password})
       localStorage.setItem("token", data.token)
       history.push("/feed")
@@ -36,21 +33,19 @@ const Login = () => {
     };
   };
 
-
-
   const loginGoogle = async () => {
     const provider =  new GoogleAuthProvider()
     const { user } =  await signInWithPopup(auth, provider)
     console.log(user)
      try {
-      const url = `http://localhost:3001/api/back-end/users/googleLogin`
+      const url = `/api/back-end/users/googleLogin`
       const { data } = await axios.post( url , { name: user.displayName, email: user.email, emailVerified: user.emailVerified , userImg: user.photoURL? user.photoURL : null})
       localStorage.setItem("token" , data.token)
       history.push("/feed")
      } catch (error) {
       setAlerta({msg: error.response.data.msg, error:true})
-     }
-  }
+     };
+  };
   
   // const loginFacebook = async () => {  
   //   const provider =  new FacebookAuthProvider()
@@ -61,10 +56,6 @@ const Login = () => {
   //     console.log(error)
   //   }
   // }
-
-
-
-
 
   const { msg } = alerta;
 
@@ -81,7 +72,7 @@ const Login = () => {
                   <input 
                   type="text" 
                   className="field"
-                  placeholder="Enter Email"
+                  placeholder="Email..."
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   />
@@ -93,7 +84,7 @@ const Login = () => {
                   <input 
                   type="password" 
                   className="field" 
-                  placeholder="Enter Password"
+                  placeholder="Contraseña..."
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   />

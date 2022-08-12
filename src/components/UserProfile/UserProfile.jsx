@@ -29,8 +29,8 @@ export default function UserProfile (){
         };
           try {
             if (window.confirm("Seras redirigido a MercadoPago")) {
-              const { data } = await axios.post(`/api/back-end/users/create_preference`, {description: "Premium", price: 599.99, quantity: 1}, config)
-              window.open(data.id.sandbox_init_point);   // window.location.assign(data.id.sandbox_init_point);
+              const { data } = await axios.post(`/api/back-end/users/create_preference`, {description: "Premium", price: 1, quantity: 1}, config)
+              window.open(data.id.init_point);   // sandbox_init_point
               history.push("/pay");
             }
           } catch (error) {
@@ -75,7 +75,7 @@ export default function UserProfile (){
                     <p className="userP">Miembro desde {user?.createdDate}</p>
                     <p className="userP">Usuario {user?.role}</p>
                     {user.role === "Base" ? <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Cambiar a plan Premium</Button> : null}
-                    {user.role === "Admin" ? <Button onClick={handleAdmin} variant="outline-info" type="submit" className='boton'>Cambiar a plan Premium</Button> : null}
+                    {user.role === "Admin" ? <Button onClick={handleAdmin} variant="outline-info" type="submit" className='boton'>Panel de administrador</Button> : null}
                     <br />
                     <br />
                     <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>

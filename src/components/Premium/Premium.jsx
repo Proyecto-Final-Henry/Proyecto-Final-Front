@@ -34,8 +34,8 @@ function Premium() {
       };
         try {
           if (window.confirm("Seras redirigido a MercadoPago")) {
-            const { data } = await axios.post(`http://localhost:3001/api/back-end/users/create_preference`, {description: "Premium", price: 100, quantity: 3}, config)
-            window.open(data.id.sandbox_init_point);   // window.location.assign(data.id.sandbox_init_point);
+            const { data } = await axios.post(`http://localhost:3001/api/back-end/users/create_preference`, {description: "Premium", price: 1, quantity: 1}, config)
+            window.open(data.id.init_point);   // // sandbox_init_point
             history.push("/pay");
           }
         } catch (error) {
