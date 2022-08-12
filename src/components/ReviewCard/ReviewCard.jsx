@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import style from "../../css/rev.css";
 import { Link } from 'react-router-dom';
-import PerfilRev from './PerfilRev'
 import "../../css/perfilrev.css"
 
 export default function ReviewCard() {

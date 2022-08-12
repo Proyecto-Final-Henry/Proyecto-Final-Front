@@ -6,6 +6,7 @@ export const GET_ARTISTS = "GET_ARTISTS";
 export const GET_PLAYLIST = "GET_PLAYLIST";
 export const GET_USER_DATA = "GET_USER_DATA";
 export const GET_SEARCH = "GET_SEARCH";
+export const GET_ARTIST_SONG_SEARCH = "GET_ARTIST_SONG_SEARCH";
 export const GET_ARTIST_DATA = "GET_ARTIST_DATA";
 export const GET_ARTIST_ALBUM = "GET_ARTIST_ALBUM";
 export const GET_ARTIST_SONGS = "GET_ARTIST_SONGS";
@@ -16,6 +17,11 @@ export const GET_ALBUM_SONGS = "GET_ALBUM_SONGS";
 export const GET_ALL_REVIEWS = "GET_ALL_REVIEWS";
 export const GET_RANDOM_SONGS = "GET_RANDOM_SONGS";
 export const CREATE_DB_ALBUMS = "CREATE_DB_ALBUMS";
+export const CREATE_DB_GENRES = "CREATE_DB_GENRES";
 export const GET_DB_ALBUMS = "GET_DB_ALBUMS";
 export const GET_SONG_DATA = "GET_SONG_DATA";
+<<<<<<< HEAD
 export const GET_ALL_USERS="GET_ALL_USERS"
+=======
+export const GET_GENRE_ALBUM = "GET_GENRE_ALBUM";
+>>>>>>> 896f05d71b21672683a44ac9ca53bd88eb166af2

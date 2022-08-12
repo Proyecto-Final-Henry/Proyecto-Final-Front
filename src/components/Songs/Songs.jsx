@@ -12,7 +12,7 @@ function Songs(props) {
                             return (
                                 <SongCard 
                                     key = {song.id}
-                                    index = {index}
+                                    index = {props.index + index}
                                     id = {song.id}
                                     title = {song.title}
                                     duration = {(parseInt(song.duration) / 60).toFixed(2)}

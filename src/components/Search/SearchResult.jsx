@@ -7,9 +7,14 @@ import TrackCard from "../SearchResultCards/TrackCard";
 import Filters from "./Filters";
 import Pagination from "./Pagination";
 import SearchBar from '../Search/SearchBar';
+import { getSearch } from '../../redux/actions';
 import style from "../../css/resultSearch.module.css";
 
 export default function SearchResult() {
+  const pagination = useSelector(store=>store.pagination)
+  const query= useSelector(store=>store.query)
+  const filter= useSelector(store=>store.filter)
+  const index= useSelector(store=>store.index)
   const data = useSelector((store) => store.searchResult);
   const history = useHistory();
 
@@ -27,13 +32,12 @@ export default function SearchResult() {
   return (
     <div className={style.box}>
       <div>
-        <SearchBar/>
+        <SearchBar
+        onSearch={getSearch}
+        />
       </div>
       <div>
-        <Filters />
-      </div>
-      <div>
-        <Pagination />
+        <Filters/>
       </div>
       <div>
         {data.map((e, i) => {
@@ -75,6 +79,14 @@ export default function SearchResult() {
             );
           } else return <p>otro typo de dato esto es un error y no debe renderizarse hay, data que estamos ignorando</p>;
         })}
+      </div>
+      <div>
+        <Pagination 
+         pagination = {pagination}
+         query={query}
+         filter={filter}
+         index={index}
+         onMove={getSearch}/>
       </div>
     </div>
   );

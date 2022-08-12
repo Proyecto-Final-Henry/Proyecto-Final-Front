@@ -3,6 +3,7 @@ import {
   GET_GENRE,
   GET_GENRES,
   GET_SEARCH,
+  GET_ARTIST_SONG_SEARCH,
   CLEAN_GENRE,
   GET_ARTIST_DATA,
   GET_ARTIST_ALBUM,
@@ -15,7 +16,12 @@ import {
   GET_RANDOM_SONGS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
+<<<<<<< HEAD
   GET_ALL_USERS
+=======
+  CREATE_DB_GENRES,
+  GET_GENRE_ALBUM,
+>>>>>>> 896f05d71b21672683a44ac9ca53bd88eb166af2
 } from "../constants";
 
 const initialState = {
@@ -27,19 +33,24 @@ const initialState = {
   index: 0,
   genres: [],
   genre: {},
+  genreAlbum:[],
   artistData: {},
   artistTop: [],
   artistAlbums: [],
   artistSongs: [],
+  artistSongsSearch:[],
   albumDb: [],
-  resReviews: [],
   resReviews: {},
   albumData: {},
   albumSongs: [],
   allReviews: [],
   randomSongs: [],
   songData: {},
+<<<<<<< HEAD
   users:[]
+=======
+  genresDb: [],
+>>>>>>> 896f05d71b21672683a44ac9ca53bd88eb166af2
 };
 
 function rootReducer(state = initialState, action) {
@@ -101,10 +112,31 @@ function rootReducer(state = initialState, action) {
         artistAlbums: action.payload,
       };
     case GET_ARTIST_SONGS:
+      let valueIndex2;
+      if (action.payload.index === undefined) {
+        valueIndex2 = 0;
+      } else {
+        valueIndex2 = action.payload.index;
+      }
+      
       return {
+
         ...state,
-        artistSongs: action.payload,
+        artistSongs: action.payload.response.data,
+        pagination: {
+          total: action.payload.response.total,
+          prev: action.payload.response.prev,
+          next: action.payload.response.next,
+          limit: action.payload.response.limit,
+        },
+        index: valueIndex2,
       };
+      case GET_ARTIST_SONG_SEARCH:
+          return {  
+            ...state,
+            artistSongsSearch: action.payload,
+          };    
+        
     case GET_RES_REVIEWS:
       return {
         ...state,
@@ -140,11 +172,24 @@ function rootReducer(state = initialState, action) {
         ...state,
         songData: action.payload,
       };
+<<<<<<< HEAD
     case GET_ALL_USERS:
       return{
       ...state,
       users:action.payload
     }
+=======
+    case CREATE_DB_GENRES:
+      return {
+        ...state,
+        genresDb: action.payload,
+      };
+    case GET_GENRE_ALBUM:
+      return {
+        ...state,
+        genreAlbum: action.payload,
+      };
+>>>>>>> 896f05d71b21672683a44ac9ca53bd88eb166af2
     default:
       return state;
   };

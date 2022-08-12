@@ -28,11 +28,9 @@ export default function NavigationM(){
                     </div>
                     <Link to= "/feed" ><h5>INICIO</h5></Link>
                     <Link to="/user"><h5>PERFIL</h5></Link>
+                    <Link to="/search"><h5>BUSCAR</h5></Link>
                     <Link to="/music"><h5>MÚSICA</h5></Link>
                     <Link to="/genres"><h5>GÉNEROS</h5></Link>
-                </Nav>
-                <Nav>
-                    <Link to="/search"><h5>BUSCAR</h5></Link>
                 </Nav>
                 <Nav>
                     <Button style={{"margin-top": "6px"}} onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
