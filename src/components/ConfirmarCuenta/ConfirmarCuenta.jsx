@@ -37,7 +37,7 @@ const ConfirmarCuenta = () => {
   return (
     <div>
         <h1> Tu cuenta ha sido confirmada, comienza a disfrutar de Music App </h1>
-        <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Cambiar a plan Premium</Button>
+        <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Ingresar</Button>
     </div>
   );
 };

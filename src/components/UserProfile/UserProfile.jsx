@@ -44,10 +44,34 @@ export default function UserProfile() {
     }
   };
 
+    const handleButton = async () => {
+        const token = localStorage.getItem("token");
+        if(!token){
+            history.push("/login");
+            return;
+        }
+        const config = {
+            headers: {
+                "Content-Type" : "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        };
+          try {
+            if (window.confirm("Seras redirigido a MercadoPago")) {
+              const { data } = await axios.post(`/api/back-end/users/create_preference`, {description: "Premium", price: 1, quantity: 1}, config)
+              window.open(data.id.init_point);   // sandbox_init_point
+              history.push("/pay");
+            }
+          } catch (error) {
+           console.log(error);
+          };
+      };
+
   const handleShowImg = (e) => {
     e.preventDefault();
     setShowImg(false);
   };
+
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -76,6 +100,22 @@ export default function UserProfile() {
     history.push("/");
   };
 
+    return(
+        <div className="detail">
+            <div className="detail">
+                <div className="carta">
+                    <img src={user?.userImg} alt='userImg'></img>
+                    <h3 className="userP">{user?.name}</h3>
+                    <p className="userP">{user?.email}</p>
+                    <p className="userP">Miembro desde {user?.createdDate}</p>
+                    <p className="userP">Usuario {user?.role}</p>
+                    {user.role === "Base" ? <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Cambiar a plan Premium</Button> : null}
+                    {user.role === "Admin" ? <Button onClick={handleAdmin} variant="outline-info" type="submit" className='boton'>Panel de administrador</Button> : null}
+                    <br />
+                    <br />
+                    <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
+                </div>
+                
   return (
     <div className="detail">
       <div className="detail">

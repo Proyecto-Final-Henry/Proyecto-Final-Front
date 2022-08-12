@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 
 function MusicCard(props) {
-  console.log("props", props);
   return (
     <div className={style.musicCard}>
       <div className={style.musicCard_header}>
