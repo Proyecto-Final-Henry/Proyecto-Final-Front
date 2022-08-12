@@ -98,7 +98,7 @@ const Login = () => {
               <div className="crear">
                 <br />
                 <br />
-                  <Button onClick={() => loginGoogle()} variant="outline-success">Iniciar Sesion Google</Button>
+                  <button onClick={() => loginGoogle()} type="button" class="btn btn-success">Iniciar Sesion Google</button>
               </div>
               {/* <div className="crear">
                 <br />

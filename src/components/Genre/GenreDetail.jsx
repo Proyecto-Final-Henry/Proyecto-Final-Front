@@ -27,7 +27,7 @@ export default function GenreDetail() {
     
     }, []);
 
-    console.log(genreDb);
+    console.log(GenreData);
 
     return (
         <div>
@@ -59,20 +59,34 @@ export default function GenreDetail() {
                         </h4>
                         <br />
                         <h4>
-                            El hip hop​ o hiphop​ es una cultura originada en el sur del Bronx y Harlem, en la ciudad de Nueva York por Afroamericanos y Latinoamericanos especialmente Puertorriqueños durante la década de 1960.3​4​5​6​Si bien el término hip hop o rap se usa a menudo para referirse al estilo musical y al estilo de vida, se considera que el hip hop no solo se circunscribe al ámbito musical y por el contrario consta de cuatro principales elementos: rap (oral: recitar o cantar), turntablism o "DJing" (auditiva o musical), breaking (físico: baile) y graffiti (visual: pintura)
+                            El hip hop​ o hiphop​ es una cultura originada en el sur del Bronx y Harlem, en la ciudad de Nueva York por Afroamericanos y Latinoamericanos especialmente Puertorriqueños durante la década de 1960. ​Si bien el término hip hop o rap se usa a menudo para referirse al estilo musical y al estilo de vida, se considera que el hip hop no solo se circunscribe al ámbito musical y por el contrario consta de cuatro principales elementos: rap (oral: recitar o cantar), turntablism o "DJing" (auditiva o musical), breaking (físico: baile) y graffiti (visual: pintura)
                         </h4>
                     </div>
                     :
                     null}
 
-                {GenreData.name === "Reggaetón" ? 
+                    
+                {GenreData.name === "Folk" ? 
                     <div>
                         <h4>
-                        El reguetón4​ es un género musical5​ que derivó del reggae en español que es a su vez un subgénero del dancehall, así como elementos principalmente de la música bounce. Nació en Puerto Rico; surgió a raíz de la popularidad del reggae en español proveniente de Panamá, junto con el hip hop durante los inicios de esa época.
+                            Me olvide de este 🤡
                         </h4>
                         <br />
                         <h4>
-                        Posteriormente, el reguetón se apartó poco a poco del reggae, pero continuó usando los mismos instrumentos y ritmos musicales pero con diferentes letras y melodías. Esto se debió a que se usaban beats de reggae pero con letras y composiciones diferentes. Similar a la salsa la cual fue una expresión cultural de la juventud hispana de principios de los años 1970, el reguetón llegó a los Estados Unidos en los años 1990 y 2000 y se ha convertido en un modo de expresión para muchos jóvenes hispanos. 
+        
+                        </h4>
+                    </div>
+                    :
+                    null}
+
+                {GenreData.name === "Reggaeton" ? 
+                    <div>
+                        <h4>
+                            El reguetón4​ es un género musical5​ que derivó del reggae en español que es a su vez un subgénero del dancehall, así como elementos principalmente de la música bounce. Nació en Puerto Rico; surgió a raíz de la popularidad del reggae en español proveniente de Panamá, junto con el hip hop durante los inicios de esa época.
+                        </h4>
+                        <br />
+                        <h4>
+                            Posteriormente, el reguetón se apartó poco a poco del reggae, pero continuó usando los mismos instrumentos y ritmos musicales pero con diferentes letras y melodías. Esto se debió a que se usaban beats de reggae pero con letras y composiciones diferentes. Similar a la salsa la cual fue una expresión cultural de la juventud hispana de principios de los años 1970, el reguetón llegó a los Estados Unidos en los años 1990 y 2000 y se ha convertido en un modo de expresión para muchos jóvenes hispanos. 
                         </h4>
                     </div>
                     :
@@ -290,7 +304,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}  
-                {GenreData.name === "Música Africana" ? 
+                {GenreData.name === "Música africana" ? 
                     <div>
                          <h4>
                             El Norte de África es la cuna de la cultura mediterránea, incluyendo a Egipto y Cartago antes de ser gobernada sucesivamente por griegos, romanos y godos y convertirse posteriormente en el Magreb del mundo árabe. Como los géneros musicales del Valle del Nilo y del Cuerno de África, sus músicas porque son dos música tiene lazos con la música de Oriente Próximo.
@@ -305,7 +319,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}  
-                {GenreData.name === "Música Asiática" ? 
+                {GenreData.name === "Música asiática" ? 
                     <div>
                         <h4>
                         La música de Asia Central es tan amplia y única como las numerosas culturas y pueblos que habitan la región. Los principales tipos de instrumentos son los laúdes de dos o tres cuerdas, con los cuellos con o sin trastes; las violines de crin; las flautas, en su mayoría abiertas por ambos extremos y sopladas por los extremos o por los costados; y las arpas judías, en su mayoría de metal. Los instrumentos de percusión incluyen tambores de marco, panderetas y timbales. La polifonía instrumental se consigue principalmente con laúdes y violines.
@@ -333,7 +347,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}     
-                {GenreData.name === "Música de La India" ? 
+                {GenreData.name === "Música india" ? 
                     <div>
                         <h4>
                             La música de la India o música hindú incluye múltiples variedades de música tradicional, música pop y la música clásica de India. Incluye la música clásica indostaní y la música carnática y cuenta con una historia de varios milenios. La música clásica ligera o semiclásica incluye los siguientes géneros: thumri, dadra, ghazal, chaiti, kajri y tappa. Aunque están basados en los ragas, hay más licencia en la interpretación fuera de los límites formales de los ragas.
