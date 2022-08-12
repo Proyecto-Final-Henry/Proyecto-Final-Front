@@ -27,7 +27,7 @@ export default function GenreDetail() {
     
     }, []);
 
-    console.log(genreDb);
+    console.log(genreDb.name);
 
     return (
         <div>
@@ -60,6 +60,20 @@ export default function GenreDetail() {
                         <br />
                         <h4>
                             El hip hop​ o hiphop​ es una cultura originada en el sur del Bronx y Harlem, en la ciudad de Nueva York por Afroamericanos y Latinoamericanos especialmente Puertorriqueños durante la década de 1960.3​4​5​6​Si bien el término hip hop o rap se usa a menudo para referirse al estilo musical y al estilo de vida, se considera que el hip hop no solo se circunscribe al ámbito musical y por el contrario consta de cuatro principales elementos: rap (oral: recitar o cantar), turntablism o "DJing" (auditiva o musical), breaking (físico: baile) y graffiti (visual: pintura)
+                        </h4>
+                    </div>
+                    :
+                    null}
+
+                    
+                {GenreData.name === "Folk" ? 
+                    <div>
+                        <h4>
+                            Me olvide de este 🤡
+                        </h4>
+                        <br />
+                        <h4>
+        
                         </h4>
                     </div>
                     :
