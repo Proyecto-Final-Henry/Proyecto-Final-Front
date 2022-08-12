@@ -10,13 +10,11 @@ export default function SearchBar ({onSearch,id}){
     function handleChange(event) {
         setToFind(event.target.value);
     };
-    
 
     useEffect(()=>{
       dispatch(onSearch(toFind.trim(),null,null,id))      
     },[toFind]);
 
-    
     return(
       <div className='ete'>
         <div className={style.search}>
