@@ -2,6 +2,7 @@ import { useEffect , useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import dashboard from "../../assets/dashboard.jpg"
+import { useSelector } from "react-redux";
 
 export default function AdminPanel (){
     const history = useHistory();
@@ -14,11 +15,6 @@ export default function AdminPanel (){
             return;
         };
         const autenticarAdmin = async () => {
-            const token = localStorage.getItem("token");
-            if(!token){
-                history.push("/login");
-                return;
-            };
             const config = {
                 headers: {
                     "Content-Type" : "application/json",
@@ -28,15 +24,15 @@ export default function AdminPanel (){
             try {
                 const { data } = await axios(`/api/back-end/users/perfil`, config);
                 setUser(data);
+                if(data.role !== "Admin"){
+                    history.push("/user");
+                    return;
+                    };
             } catch (error) {
                 console.log(error.response.data.msg);
             };
         };
         autenticarAdmin();
-        // if(user.role !== "Admin"){
-        //     history.push("/user");
-        //     return;
-        //     };
         }, []);
 
     return (

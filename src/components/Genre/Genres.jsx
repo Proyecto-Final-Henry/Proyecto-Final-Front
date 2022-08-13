@@ -1,14 +1,15 @@
 import GenreCard from "./GenreCard";
 import style from "../../css/panelUser.module.css";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getGenres } from "../../redux/actions/actions_player";
 import { getAlbumsDb } from "../../redux/actions/index";
 
-function Genres(props) {    
+function Genres() {    
     let history = useHistory();
     let dispatch = useDispatch();
+    const genres = useSelector((state) => state.genres);
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -24,13 +25,13 @@ function Genres(props) {
     },[dispatch]);
 
 
-    if (props.genres.length !== 0) {
+    if (genres.length !== 0) {
         return (
             <div>
                 <h2 className={style.contentHome_title}>Géneros</h2>
                 <div className={style.genres}>
                     {
-                        props.genres && props.genres.map(genre => {
+                        genres && genres.map(genre => {
                             return (
                                 <GenreCard 
                                     key = {genre.id}

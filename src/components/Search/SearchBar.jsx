@@ -12,12 +12,10 @@ export default function SearchBar ({onSearch,id}){
     };
     const obj={artist:'', album:'', explicit:''}
     
-
     useEffect(()=>{
       dispatch(onSearch(toFind.trim(),null,null,id, obj))      
     },[toFind]);
 
-    
     return(
       <div className='ete'>
         <div className={style.search}>

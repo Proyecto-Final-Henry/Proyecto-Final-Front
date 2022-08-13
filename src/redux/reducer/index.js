@@ -17,7 +17,9 @@ import {
   GET_DB_ALBUMS,
   GET_SONG_DATA,
   ON_PAGE_CHANGED,
-  CALC_PAGES
+  CALC_PAGES,
+  CREATE_DB_GENRES,
+  GET_GENRE_ALBUM,
 } from "../constants";
 
 const initialState = {
@@ -34,6 +36,7 @@ const initialState = {
   index: 0,
   genres: [],
   genre: {},
+  genreAlbum:[],
   artistData: {},
   artistTop: [],
   artistAlbums: [],
@@ -46,6 +49,7 @@ const initialState = {
   allReviews: [],
   randomSongs: [],
   songData: {},
+  genresDb: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -184,6 +188,16 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         songData: action.payload,
+      };
+    case CREATE_DB_GENRES:
+      return {
+        ...state,
+        genresDb: action.payload,
+      };
+    case GET_GENRE_ALBUM:
+      return {
+        ...state,
+        genreAlbum: action.payload,
       };
     default:
       return state;
