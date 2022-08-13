@@ -16,12 +16,12 @@ import {
   CREATE_DB_ALBUMS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
-<<<<<<< HEAD
-  GET_ALL_USERS
-=======
+  GET_ALL_USERS,
+  ON_PAGE_CHANGED,
+  CALC_PAGES,
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
->>>>>>> 896f05d71b21672683a44ac9ca53bd88eb166af2
+  GET_RANDOM_FEED
 } from "../constants";
 
 const urlApi = "/api/back-end";
@@ -50,12 +50,23 @@ export function getUserData(id) {
       });
   };
 }
-
-export function getSearch(toFind, filter, index) {
+export  function onPageChanged(data) {
+  return {type: ON_PAGE_CHANGED, payload: data }
+}
+export function calcPages(limit){
+  return {type:CALC_PAGES, payload:limit}
+}
+export function getSearch(toFind, filter, index,id, obj) {
+  let artist, album, explicit,selected;
+  if(obj){
+    artist=obj.artist;
+    album=obj.album;
+    explicit=obj.explicit
+  }
+  (obj.explicit && obj.explicit!== 'Seleccione una opción')||(obj.album && obj.album!== 'Seleccione un album') ||(obj.artist && obj.artist!== 'Seleccione un artista')? selected=true : selected=false;
   return async function (dispatch) {
     return fetch(
-      `/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}`
-    )
+      `/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}&artist=${artist}&album=${album}&explicit=${explicit}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -65,6 +76,7 @@ export function getSearch(toFind, filter, index) {
             query: toFind,
             filter: filter,
             index: index,
+            selected:selected
           },
         });
       });
@@ -284,6 +296,19 @@ export function getAllUsers(){
         dispatch({
           type: GET_ALL_USERS,
           payload: allUsers.data,
+        });
+      });
+  };
+}
+
+export function getRandomFeed() {
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/songs/random")
+      .then((randomSongs) => {
+        dispatch({
+          type: GET_RANDOM_FEED,
+          payload: randomSongs.data,
         });
       });
   };

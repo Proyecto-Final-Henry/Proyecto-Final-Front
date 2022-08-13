@@ -1,4 +1,5 @@
 import { Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Contact from "./components/Contact/Contact";
@@ -52,9 +53,7 @@ function App() {
       </Route>
 
       <Route exact path="/confirmar/:token">
-        <NavigationB />
         <ConfirmarCuenta />
-        <Footer />
       </Route>
 
       <Route exact path="/premium">

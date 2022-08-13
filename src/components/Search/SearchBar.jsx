@@ -10,9 +10,10 @@ export default function SearchBar ({onSearch,id}){
     function handleChange(event) {
         setToFind(event.target.value);
     };
-
+    const obj={artist:'', album:'', explicit:''}
+    
     useEffect(()=>{
-      dispatch(onSearch(toFind.trim(),null,null,id))      
+      dispatch(onSearch(toFind.trim(),null,null,id, obj))      
     },[toFind]);
 
     return(

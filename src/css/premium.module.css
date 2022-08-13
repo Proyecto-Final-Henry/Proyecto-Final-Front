@@ -30,7 +30,7 @@
   margin-top: 50px  ;
   padding: 15px;
   height: fit-content;
-  color: white;
+  color: rgb(255, 255, 255);
   min-height: 0%;
   max-width: 100%;
   overflow: hidden;
@@ -44,6 +44,7 @@
 }
 
 .musicRandom{
+  background-color: white;
   display: flex;
   flex-wrap: wrap;
   padding: 50px 50px;
@@ -51,7 +52,7 @@
 }
 .musicCard{
   width: 18%;
-  border: 2px solid #1DB954;
+  border: 2px solid #dd00ff;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
@@ -75,14 +76,14 @@
   position: absolute !important;
   top:10px;
   left: 10px;
-  color:#fff;
+  color:rgb(0, 0, 0);
   background-color: transparent;
   display: none;
 }
 
 .ellipsis{
-  color: #000 !important;
-  background-color: #fff !important;
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(0, 0, 0) !important;
   border-radius: 50% !important;
   border: 1px solid #fff !important;
   padding: 5px 10px !important;
@@ -111,7 +112,7 @@
 }
 
 .musicCard h2{
-  color: #fff;
+  color:black;
   font-size: 18px;
   font-weight: 500;
   text-overflow: ellipsis;
@@ -121,7 +122,7 @@
   text-align: left;
 }
 .musicNote{
-  color: #fff;
+  color: black;
   margin-right: 10px;
 }
 
@@ -134,7 +135,7 @@
 .musicCard_footer p{
   margin: 0;
   font-size: 15px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   width: 60%;
   text-align: left;
 }

@@ -74,7 +74,7 @@ export default function UserProfile() {
   };
      
   return (
-    <div className="detail">
+    <div className="detailBac">
       <div className="detail">
         <div className="carta">
           {showImg ? (

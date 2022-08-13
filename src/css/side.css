@@ -1,0 +1,25 @@
+.side{
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 20px;
+}
+.side h5{
+    color: black;
+    text-align: start;
+}
+.can{
+    padding: 8px;
+    display: flex;
+}
+.can img{
+    height: 45px;
+    width: 45px;
+}
+.can a{
+    text-decoration: none;
+}
+.can p{
+    color: black;
+    font-size: 0.9rem;
+    padding-left: 20px;
+}
