@@ -1,41 +1,32 @@
 import { Fragment } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import { getSearch } from '../../redux/actions';
+import {useDispatch} from 'react-redux';
+
+import Button from 'react-bootstrap/Button';
+import style from '../../css/pagination.module.css'
 
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
 
-export default function Pagination (){
-    const spill = useSelector(store=>store.pagination)
-    const query= useSelector(store=>store.query)
-    const filter= useSelector(store=>store.filter)
-    const index= useSelector(store=>store.index)
-
-   
+export default function Pagination ({pagination,query,filter,index,onMove}){
+    const obj={artist:'', album:'', explicit:''}
     const dispatch= useDispatch();
-
-    
     const fetchPageNumbers = () => {
           let pages = [];        
-          const LeftSpill = spill.prev;        
-          const RightSpill = spill.next;        
+          const LeftSpill = pagination.prev;        
+          const RightSpill = pagination.next;        
           switch (true) {
-
             case (LeftSpill && RightSpill): {          
                 pages = [LEFT_PAGE,RIGHT_PAGE];
                 break;
-              }  
-            
+              }
             case (LeftSpill): {          
               pages = [LEFT_PAGE];
               break;
-            }  
-            
+            } 
             case (RightSpill): {
               pages = [RIGHT_PAGE];
               break;
             }
-            
             default:{
               pages = [];
               break;
@@ -45,31 +36,50 @@ export default function Pagination (){
     };
        
       const handleMoveLeft = evt => {
-        let page= index - spill.limit
-        dispatch(getSearch(query, filter,page))
+        let page= index - pagination.limit
+        dispatch(onMove(query, filter,page,null,obj))
       };
     
       const handleMoveRight = evt => {
-        let page= index + spill.limit
-        dispatch(getSearch(query, filter,page))        
+        let page= index + pagination.limit
+        dispatch(onMove(query, filter,page,null,obj))        
       };
 
-    if ( spill.prev===undefined && spill.next===undefined) return null;  
     const pages = fetchPageNumbers();
+    const view=[]
+    if(pagination.total>0){
+      let al;
+      if(pagination.next===undefined){
+        al= pagination.total
+      }else{
+        al=index + pagination.limit
+      }  
+      view.push(`mostrando del ${index + 1} al ${al}`)          
+    }
+    
     
     return (       
       <Fragment>
-        <div>
-          <form>
+        <div className={style.box}>
+          <div>
+            <h5>{pagination.total} Resultados</h5>
+            {view && view.map(e=>{
+              return(
+                <span><h6>{e}</h6></span>
+              )
+            })}
+          </div>
+          <div>
             {pages && pages.map((page, index) => {
               if (page === LEFT_PAGE) return (
-                  <input key={index} type="button" value="<< Previous" onClick={handleMoveLeft}></input>
+                <Button key={index} className={style.btn} variant="outline-success" onClick={handleMoveLeft}>&lt;&lt;Anterior</Button>
               );
               if (page === RIGHT_PAGE) return (
-                <input key={index} type="button" value="Next >>" onClick={handleMoveRight}></input>
+                <Button key={index} className={style.btn} variant="outline-success"  onClick={handleMoveRight}>Siguiente&gt;&gt;</Button>
               ); return ""
             }) }
-          </form>
+          </div>
+          
         </div>
       </Fragment>
     );

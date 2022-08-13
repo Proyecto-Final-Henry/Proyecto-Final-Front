@@ -1,17 +1,27 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ArtistCard from "../SearchResultCards/ArtistCard";
 import AlbumCard from "../SearchResultCards/AlbumCard";
 import TrackCard from "../SearchResultCards/TrackCard";
 import Filters from "./Filters";
 import Pagination from "./Pagination";
+import PaginationFilter from "./PaginationFilter";
 import SearchBar from '../Search/SearchBar';
+import { getSearch, calcPages,onPageChanged } from '../../redux/actions';
 import style from "../../css/resultSearch.module.css";
+import { pageLimit } from "./PaginationFilter";
 
 export default function SearchResult() {
-  const data = useSelector((store) => store.searchResult);
+  const pagination = useSelector(store=>store.pagination)
+  const query= useSelector(store=>store.query)
+  const filter= useSelector(store=>store.filter)
+  const index= useSelector(store=>store.index)
+  const searchResult = useSelector((store) => store.searchResult);
+  const currentResult = useSelector((store) => store.currentResult);
+  const selected = useSelector((store) => store.selected);
   const history = useHistory();
+  const dispatch= useDispatch();
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -23,17 +33,40 @@ export default function SearchResult() {
     };
     autenticarUsuario();
   }, []);
+  useEffect(()=>{
+    dispatch(calcPages(pageLimit));
+    const paginationData = {
+      currentPage:1,
+      pageLimit: pageLimit,
+    };
+    dispatch(onPageChanged(paginationData));    
+  },[searchResult])
 
+  let data=[]
+  let render=[]
+  if(selected){
+    data=currentResult;
+    render.push({selected:true})
+  }else{
+    data=searchResult;
+    render.push({
+      pagination : pagination,
+      query:query,
+      filter:filter,
+      index:index,
+      onMove:getSearch,
+      selected:false
+    });
+  }
   return (
     <div className={style.box}>
       <div>
-        <SearchBar/>
+        <SearchBar
+        onSearch={getSearch}
+        />
       </div>
       <div>
-        <Filters />
-      </div>
-      <div>
-        <Pagination />
+        <Filters/>
       </div>
       <div>
         {data.map((e, i) => {
@@ -75,6 +108,28 @@ export default function SearchResult() {
             );
           } else return <p>otro typo de dato esto es un error y no debe renderizarse hay, data que estamos ignorando</p>;
         })}
+      </div>
+      <div>
+        {render.map(e=>{
+          if(e.selected){
+            return(
+              <PaginationFilter/>
+            )
+          }else{
+            return(
+              <Pagination 
+              pagination = {pagination}
+              query={query}
+              filter={filter}
+              index={index}
+              onMove={getSearch}/>              
+            )
+          }
+        })
+
+        }
+        
+        
       </div>
     </div>
   );

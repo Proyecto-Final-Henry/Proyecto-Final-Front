@@ -51,7 +51,8 @@
 /* Estilos Genre Card*/
 .genreCard{
     display: flex;
-    border: 1px solid rgb(146, 146, 146);
+    border: 2px solid rgb(75, 0, 130);;
+    box-shadow: 0 5px 10px  rgb(75, 0, 130);
     background-color: rgb(90, 90, 90);
     color: #fff;
     border-radius: 8px;

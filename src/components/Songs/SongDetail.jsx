@@ -6,6 +6,7 @@ import CreateReview from "../CreateReview/CreateReview";
 import ReviewDeck from "../ReviewDeck/ReviewDeck";
 import { Tabs } from "react-bootstrap";
 import { Tab } from "bootstrap";
+import PreviewPlayer from "../PreviewPlayer/PreviewPlayer";
 
 export default function SongDetail() {
   let dispatch = useDispatch();
@@ -17,6 +18,7 @@ export default function SongDetail() {
   }, []);
 
   let songData = useSelector((state) => state.songData);
+  console.log(songData.preview);
 
   return (
     <div>
@@ -32,7 +34,13 @@ export default function SongDetail() {
       <Link to={`/album/${songData.albumId}`}>
         <p>{songData.album}</p>
       </Link>
-      <br />
+      {songData.preview && (
+        <div>
+          <h4>Avance de la canción: </h4>
+          <PreviewPlayer preview={songData.preview} />
+        </div>
+      )}
+      {/* <br /> */}
 
       <Tabs
         id="controlled-tab-example"

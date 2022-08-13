@@ -3,6 +3,7 @@ import {
   SEND_EMAIL_CONTACT,
   GET_USER_DATA,
   GET_SEARCH,
+  GET_ARTIST_SONG_SEARCH,
   GET_ARTIST_DATA,
   GET_ARTIST_ALBUM,
   GET_ARTIST_TOP,
@@ -15,9 +16,13 @@ import {
   CREATE_DB_ALBUMS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
+  ON_PAGE_CHANGED,
+  CALC_PAGES,
+  CREATE_DB_GENRES,
+  GET_GENRE_ALBUM,
 } from "../constants";
 
-const urlApi = "http://localhost:3001/api/back-end";
+const urlApi = "/api/back-end";
 
 export const sendEmailContact = (values) => {
   const url = urlApi + "/users/sendEmailContact";
@@ -36,19 +41,30 @@ export const sendEmailContact = (values) => {
 
 export function getUserData(id) {
   return async function (dispatch) {
-    return fetch("http://localhost:3001/api/back-end/users/perfil")
+    return fetch("/api/back-end/users/perfil")
       .then((response) => response.json())
       .then((json) => {
         dispatch({ type: GET_USER_DATA, payload: json });
       });
   };
 }
-
-export function getSearch(toFind, filter, index) {
+export  function onPageChanged(data) {
+  return {type: ON_PAGE_CHANGED, payload: data }
+}
+export function calcPages(limit){
+  return {type:CALC_PAGES, payload:limit}
+}
+export function getSearch(toFind, filter, index,id, obj) {
+  let artist, album, explicit,selected;
+  if(obj){
+    artist=obj.artist;
+    album=obj.album;
+    explicit=obj.explicit
+  }
+  (obj.explicit && obj.explicit!== 'Seleccione una opción')||(obj.album && obj.album!== 'Seleccione un album') ||(obj.artist && obj.artist!== 'Seleccione un artista')? selected=true : selected=false;
   return async function (dispatch) {
     return fetch(
-      `http://localhost:3001/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}`
-    )
+      `/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}&artist=${artist}&album=${album}&explicit=${explicit}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -58,7 +74,24 @@ export function getSearch(toFind, filter, index) {
             query: toFind,
             filter: filter,
             index: index,
+            selected:selected
           },
+        });
+      });
+  };
+}
+export function getArtistSongSearch(toFind,filter,index,id) {
+  return async function (dispatch) {
+    return axios(
+      `/api/back-end/search/track?query=${toFind}&limit=300`
+    )
+      .then((response) => {
+        const arr= response.data.data.filter(e=>{
+          return e.artist.idArtist===parseInt(id)
+        });
+        dispatch({
+          type: GET_ARTIST_SONG_SEARCH,          
+          payload: arr
         });
       });
   };
@@ -67,7 +100,7 @@ export function getSearch(toFind, filter, index) {
 export function getArtistData(id) {
   return async (dispatch) => {
     return axios
-      .get(`http://localhost:3001/api/back-end/artists?artist=${id}`)
+      .get(`/api/back-end/artists?artist=${id}`)
       .then((artist) => {
         dispatch({
           type: GET_ARTIST_DATA,
@@ -80,7 +113,7 @@ export function getArtistAlbum(id) {
   return async (dispatch) => {
     return axios
       .get(
-        `http://localhost:3001/api/back-end/artists/artistalbums?artist=${id}`
+        `/api/back-end/artists/artistalbums?artist=${id}`
       )
       .then((artist) => {
         dispatch({
@@ -90,16 +123,19 @@ export function getArtistAlbum(id) {
       });
   };
 }
-export function getArtistSongs(id) {
+export function getArtistSongs(id, filter, index) {
   return async (dispatch) => {
     return axios
       .get(
-        `http://localhost:3001/api/back-end/artists/artistsongs?artist=${id}`
+        `/api/back-end/artists/artistsongs?artist=${id}&index=${index}`
       )
       .then((artist) => {
         dispatch({
           type: GET_ARTIST_SONGS,
-          payload: artist.data,
+          payload: {
+            response: artist.data,
+            index: index,
+          }
         });
       });
   };
@@ -109,7 +145,7 @@ export function getArtistTop(id) {
   return async (dispatch) => {
     return axios
       .get(
-        `http://localhost:3001/api/back-end/artists/artistsongstop?artist=${id}`
+        `/api/back-end/artists/artistsongstop?artist=${id}`
       )
       .then((artist) => {
         dispatch({
@@ -124,7 +160,7 @@ export function getResReviews(apiId, type) {
   return async (dispatch) => {
     return axios
       .get(
-        `http://localhost:3001/api/back-end/reviews/resource?id=${apiId}&type=${type}`
+        `/api/back-end/reviews/resource?id=${apiId}&type=${type}`
       )
       .then((reviews) => {
         dispatch({
@@ -133,12 +169,25 @@ export function getResReviews(apiId, type) {
         });
       });
   };
-}
+};
+
+export function createGenreDb() {
+  return async (dispatch) => {
+    return axios
+      .get(`/api/back-end/genres/create`)
+      .then((genreDB) => {
+        dispatch({
+          type: CREATE_DB_GENRES,
+          payload: genreDB.data,
+        });
+      });
+  };
+};
 
 export function createAlbum() {
   return async (dispatch) => {
     return axios
-      .get(`http://localhost:3001/api/back-end/albums/create`)
+      .get(`/api/back-end/albums/create`)
       .then((albumDB) => {
         dispatch({
           type: CREATE_DB_ALBUMS,
@@ -151,7 +200,7 @@ export function createAlbum() {
 export function getAlbumsDb() {
   return async (dispatch) => {
     return axios
-      .get(`http://localhost:3001/api/back-end/albums/getall`)
+      .get(`/api/back-end/albums/getall`)
       .then((albumDB) => {
         dispatch({
           type: GET_DB_ALBUMS,
@@ -161,10 +210,23 @@ export function getAlbumsDb() {
   };
 };
 
+export function getGenreAlbum(genre) {
+  return async (dispatch) => {
+    return axios
+      .get(`/api/back-end/albums/getgenres/`+ genre)
+      .then((genreAlbumDB) => {
+        dispatch({
+          type: GET_GENRE_ALBUM,
+          payload: genreAlbumDB.data,
+        });
+      });
+   };
+};
+
 export function getAlbumData(id) {
   return async (dispatch) => {
     return axios
-      .get(`http://localhost:3001/api/back-end/albums?album=${id}`)
+      .get(`/api/back-end/albums?album=${id}`)
       .then((album) => {
         dispatch({
           type: GET_ALBUM_DATA,
@@ -177,7 +239,7 @@ export function getAlbumData(id) {
 export function getAlbumSongs(id) {
   return async (dispatch) => {
     return axios
-      .get(`http://localhost:3001/api/back-end/albums/albumsongs?album=${id}`)
+      .get(`/api/back-end/albums/albumsongs?album=${id}`)
       .then((albumSongs) => {
         dispatch({
           type: GET_ALBUM_SONGS,
@@ -189,7 +251,7 @@ export function getAlbumSongs(id) {
 
 export function getAllReviews() {
   return async (dispatch) => {
-    axios.get("http://localhost:3001/api/back-end/reviews").then((reviews) => {
+    axios.get("/api/back-end/reviews").then((reviews) => {
       dispatch({
         type: GET_ALL_REVIEWS,
         payload: reviews.data,
@@ -201,7 +263,7 @@ export function getAllReviews() {
 export function getRandomSongs() {
   return async (dispatch) => {
     axios
-      .get("http://localhost:3001/api/back-end/songs/random")
+      .get("/api/back-end/songs/random")
       .then((randomSongs) => {
         dispatch({
           type: GET_RANDOM_SONGS,
@@ -214,7 +276,7 @@ export function getRandomSongs() {
 export function getSongData(songId) {
   return async (dispatch) => {
     axios
-      .get(`http://localhost:3001/api/back-end/songs?id=${songId}`)
+      .get(`/api/back-end/songs?id=${songId}`)
       .then((songData) => {
         dispatch({
           type: GET_SONG_DATA,

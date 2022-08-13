@@ -1,12 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import style from "../../css/rev.css";
-import { Link } from 'react-router-dom';
-import PerfilRev from './PerfilRev'
+import { Link, useHistory } from 'react-router-dom';
 import "../../css/perfilrev.css"
+import Follow from "../Follow/Follow";
+import axios from "axios"
+import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
+
+  const history = useHistory()
+  
+
+  const [user, setUser] = useState({})
+
+  useEffect(() => {
+    const autenticarUsuario = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        history.push("/login");
+        return;
+      }
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      try {
+        const { data } = await axios(`/api/back-end/users/perfil`, config);
+        setUser(data);
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    };
+    autenticarUsuario();
+  }, []);
+
   return (
     <div className="reCart">
       {reviewArray ? (
@@ -16,6 +47,9 @@ export default function ReviewCard() {
               <div className="carti">
                 <div className="per">
                   <div className="peRe">
+                    {r.userId !== user.id ?
+                      <Follow followers={r.user.followers} followings={r.user.followings} id={r.userId} meId={user.id}/>:<></>
+                    }
                     <img src={r.user.userImg} alt="" />
                     <h4>{r.user.name}</h4>
                     <h5>{r.user.role}</h5>
