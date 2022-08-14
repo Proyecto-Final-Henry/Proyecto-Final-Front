@@ -20,10 +20,8 @@ import {
   GET_GENRE_ALBUM,
 } from "../constants";
 
-const urlApi = "/api/back-end";
-
 export const sendEmailContact = (values) => {
-  const url = urlApi + "/users/sendEmailContact";
+  const url = "/users/sendEmailContact";
   return async (dispatch) => {
     axios
       .post(url, values)
@@ -63,9 +61,11 @@ export function getSearch(toFind, filter, index) {
             index: index,
           },
         });
+
       });
   };
-}
+};
+
 export function getArtistSongSearch(toFind,filter,index,id) {
   return async function (dispatch) {
     return axios(

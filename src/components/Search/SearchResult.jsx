@@ -11,10 +11,10 @@ import { getSearch } from '../../redux/actions';
 import style from "../../css/resultSearch.module.css";
 
 export default function SearchResult() {
-  const pagination = useSelector(store=>store.pagination)
-  const query= useSelector(store=>store.query)
-  const filter= useSelector(store=>store.filter)
-  const index= useSelector(store=>store.index)
+  const pagination = useSelector(store=>store.pagination);
+  const query= useSelector(store=>store.query);
+  const filter= useSelector(store=>store.filter);
+  const index= useSelector(store=>store.index);
   const data = useSelector((store) => store.searchResult);
   const history = useHistory();
 
