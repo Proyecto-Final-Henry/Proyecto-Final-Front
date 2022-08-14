@@ -11,9 +11,9 @@ function Home() {
         <div className="info">
           <Info/>
         </div>
-        <div className="footer-l">
+        {/* <div className="footer-l">
           <Socket/>
-        </div>
+        </div> */}
 
       </div>
     );

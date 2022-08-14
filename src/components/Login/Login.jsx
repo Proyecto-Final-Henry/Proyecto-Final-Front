@@ -99,7 +99,7 @@ const Login = () => {
               <div className="crear">
                 <br />
                 <br />
-                  <button onClick={() => loginGoogle()} type="button" className="btn btn-success">Iniciar Sesion <img src={google} alt="google" /></button>
+                  <button onClick={() => loginGoogle()} type="button" className="btn btn-success">Iniciar Sesion <img src={google} style={{"height": "33px"}} alt="google" /></button>
               </div>
               {/* <div className="crear">
                 <br />

@@ -89,13 +89,9 @@ export default function Filters (){
                                 )
                         }
                     })
-                }                    
+                }                  
             </form>
             </div>
-        </div>
-        : 
-        null
-    }
         </div>
     );
 };
