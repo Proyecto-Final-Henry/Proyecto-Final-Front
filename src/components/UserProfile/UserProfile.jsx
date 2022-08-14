@@ -80,6 +80,8 @@ export default function UserProfile() {
           {showImg ? (
             <div>
               <img src={user.userImg} alt="userImg"></img>
+              <br />
+              <br />
               <button onClick={handleShowImg}>📸</button>
             </div>
           ) : (

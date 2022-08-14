@@ -24,10 +24,8 @@ import {
   GET_RANDOM_FEED
 } from "../constants";
 
-const urlApi = "/api/back-end";
-
 export const sendEmailContact = (values) => {
-  const url = urlApi + "/users/sendEmailContact";
+  const url = "/users/sendEmailContact";
   return async (dispatch) => {
     axios
       .post(url, values)
@@ -79,9 +77,11 @@ export function getSearch(toFind, filter, index,id, obj) {
             selected:selected
           },
         });
+
       });
   };
-}
+};
+
 export function getArtistSongSearch(toFind,filter,index,id) {
   return async function (dispatch) {
     return axios(
