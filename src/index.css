@@ -228,6 +228,7 @@ Nav h5:hover{
   width: 100%;
 }
 .fe img{
+  border-radius: 50%;
   width: 80px;
   height: 80px;
 }
