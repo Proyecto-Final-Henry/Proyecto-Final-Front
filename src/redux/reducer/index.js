@@ -16,6 +16,8 @@ import {
   GET_RANDOM_SONGS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
+  ON_PAGE_CHANGED,
+  CALC_PAGES,
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
 } from "../constants";
@@ -23,6 +25,11 @@ import {
 const initialState = {
   userData: [],
   searchResult: [],
+  searchResultFilter:[],
+  selected:false,
+  currentResult:[],
+  currentPage:1,
+  totalPages:0,
   pagination: {},
   query: "",
   filter: "",
@@ -47,6 +54,12 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case CALC_PAGES:
+      let limit = action.payload;
+      return{
+        ...state,
+        totalPages: (Math.floor(state.searchResultFilter.length /limit))+1        
+      } 
     case GET_USER_DATA:
       return {
         ...state,
@@ -67,6 +80,16 @@ function rootReducer(state = initialState, action) {
         ...state,
         genre: {},
       };
+    case ON_PAGE_CHANGED:
+      const { searchResultFilter } = state;      
+      const { currentPage, pageLimit } = action.payload;
+      const offset = currentPage===1 ? (currentPage - 1) * pageLimit: ((currentPage - 1) * pageLimit)-1;
+      const currentResult = searchResultFilter.slice(offset, offset + pageLimit);      
+      return {
+        ...state,
+        currentResult: currentResult,
+        currentPage: currentPage,         
+      };     
     case GET_SEARCH:
       console.log(action.payload)
       let response = action.payload.response;
@@ -79,6 +102,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         searchResult: response.data,
+        searchResultFilter: response.data,
         pagination: {
           total: response.total,
           prev: response.prev,
@@ -88,6 +112,7 @@ function rootReducer(state = initialState, action) {
         query: action.payload.query,
         filter: action.payload.filter,
         index: valueIndex,
+        selected:action.payload.selected
       };
     case GET_ARTIST_DATA:
       return {
