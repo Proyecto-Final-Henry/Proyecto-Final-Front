@@ -91,6 +91,7 @@ function rootReducer(state = initialState, action) {
         currentPage: currentPage,         
       };     
     case GET_SEARCH:
+      console.log(action.payload)
       let response = action.payload.response;
       let valueIndex;
       if (action.payload.index === undefined) {
@@ -135,9 +136,7 @@ function rootReducer(state = initialState, action) {
       } else {
         valueIndex2 = action.payload.index;
       }
-      
       return {
-
         ...state,
         artistSongs: action.payload.response.data,
         pagination: {

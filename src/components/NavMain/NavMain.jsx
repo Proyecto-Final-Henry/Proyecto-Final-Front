@@ -33,7 +33,7 @@ export default function NavigationM(){
                     <Link to="/genres"><h5>GÉNEROS</h5></Link>
                 </Nav>
                 <Nav>
-                    <Button style={{"margin-top": "6px"}} onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
+                    <Button style={{"marginTop": "6px"}} onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

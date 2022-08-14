@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Alerta from "../AlertaMensaje/Alerta";
 import axios from "axios";
+import google from "../../assets/google.png"
 import { useHistory } from "react-router-dom";
 import { GoogleAuthProvider , signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -98,7 +99,7 @@ const Login = () => {
               <div className="crear">
                 <br />
                 <br />
-                  <button onClick={() => loginGoogle()} type="button" class="btn btn-success">Iniciar Sesion Google</button>
+                  <button onClick={() => loginGoogle()} type="button" className="btn btn-success">Iniciar Sesion <img src={google} alt="google" /></button>
               </div>
               {/* <div className="crear">
                 <br />

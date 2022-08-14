@@ -13,10 +13,10 @@ import style from "../../css/resultSearch.module.css";
 import { pageLimit } from "./PaginationFilter";
 
 export default function SearchResult() {
-  const pagination = useSelector(store=>store.pagination)
-  const query= useSelector(store=>store.query)
-  const filter= useSelector(store=>store.filter)
-  const index= useSelector(store=>store.index)
+  const pagination = useSelector(store=>store.pagination);
+  const query= useSelector(store=>store.query);
+  const filter= useSelector(store=>store.filter);
+  const index= useSelector(store=>store.index);
   const searchResult = useSelector((store) => store.searchResult);
   const currentResult = useSelector((store) => store.currentResult);
   const selected = useSelector((store) => store.selected);
@@ -57,7 +57,7 @@ export default function SearchResult() {
       onMove:getSearch,
       selected:false
     });
-  }
+  };
   return (
     <div className={style.box}>
       <div>
