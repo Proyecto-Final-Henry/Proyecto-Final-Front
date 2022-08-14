@@ -1,4 +1,5 @@
 import { Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Contact from "./components/Contact/Contact";
@@ -22,11 +23,15 @@ import PaySuccess from "./components/Pay/PaySuccess";
 import PayError from "./components/Pay/PayError";
 import Music from "./components/Music/Music";
 import Genres from "./components/Genre/Genres";
+import {io} from 'socket.io-client'
 import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 
 function App() {
+  const genres = useSelector((state) => state.genres);
+
+
   return (
     <div className="App">
       <Route exact path="/">
@@ -48,9 +53,7 @@ function App() {
       </Route>
 
       <Route exact path="/confirmar/:token">
-        <NavigationB />
         <ConfirmarCuenta />
-        <Footer />
       </Route>
 
       <Route exact path="/premium">

@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
+import "../../css/confirmar.css"
 
 const ConfirmarCuenta = () => {
     let history = useHistory();
@@ -29,15 +30,14 @@ const ConfirmarCuenta = () => {
             setCargando(false)
         }
         confirmarCuenta()
-        setTimeout(() => {
-            history.push("/login");
-          },8000);
     },[token]);
 
   return (
-    <div>
-        <h1> Tu cuenta ha sido confirmada, comienza a disfrutar de Music App </h1>
-        <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Ingresar</Button>
+    <div className="conf">
+        <div className='confi'>
+            <h1> Tu cuenta ha sido confirmada</h1>
+            <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Ingresar</Button>
+        </div>
     </div>
   );
 };

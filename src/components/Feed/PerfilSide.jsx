@@ -31,24 +31,34 @@ export default function UserProfile (){
         }
         autenticarUsuario()
     },[])
-    const cerrarSesion = () => {
-        localStorage.removeItem("token")
-        history.push("/")
+    var rol=""
+    if(user.role==="Base"){
+        rol="Free"
     }
 
     return(
+        <div className="to">
             <div className="fe">
                 <div className="car">
                     <Link to="/user" style={{"textDecoration": "none"}}>
                         <img src={user?.userImg} alt='userImg'></img>
                         <h3>{user?.name}</h3>
                     </Link>
-                    <p>{user?.email}</p>
                     <p>Desde {user?.createdDate}</p>
-                    <p>Usuario {user?.role}</p>
-                    <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
+                    <p>Usuario {rol}</p>
                 </div>
             </div>
+            <hr />
+            <div className="bo">
+                <Link>
+                    <p>Seguidores</p>
+                    <p>Crear Resena</p>
+                    <p>Musica</p>
+
+                </Link>
+            </div>
+        </div>
+
     )
 
 }
