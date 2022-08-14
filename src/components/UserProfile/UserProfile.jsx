@@ -78,9 +78,13 @@ export default function UserProfile() {
       <div className="detail">
         <div className="carta">
           {showImg ? (
-            <div>
-              <img src={user.userImg} alt="userImg"></img>
+            <div className="ci">
+              <div className="imgPer">
+                <img src={user.userImg} alt="userImg"/>
+              </div>
+              <div className="boton">
               <button onClick={handleShowImg}>📸</button>
+              </div>
             </div>
           ) : (
             <ChangeProfileImg userId={user.id} setShowImg={setShowImg} />
