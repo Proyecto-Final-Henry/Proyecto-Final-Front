@@ -21,7 +21,6 @@ export default function AlbumDetail() {
 
   let albumData = useSelector((state) => state.albumData);
 
-  console.log("albumData", albumData);
   return (
     <div>
       {albumData ? (
