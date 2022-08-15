@@ -1,5 +1,6 @@
 import ControlledCarousel from "./Carousel";
 import Info from "./Info";
+// import Socket from "../Socket/Socket";
 
 function Home() {
     return (
@@ -10,9 +11,9 @@ function Home() {
         <div className="info">
           <Info/>
         </div>
-        <div className="footer-l">
-        </div>
-        
+        {/* <div className="footer-l">
+          <Socket/>
+        </div> */}
       </div>
     );
   };

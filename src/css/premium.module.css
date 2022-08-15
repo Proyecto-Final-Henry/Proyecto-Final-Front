@@ -12,10 +12,36 @@
     align-items: center;
     box-sizing: border-box;
     background-color:rgb(34, 34, 34);
-    border: 2px solid rgb(75, 0, 130);;
-    box-shadow: 0 5px 10px  rgb(75, 0, 130);
+    border: 2px solid rgb(11, 0, 130);
+    box-shadow: 0 5px 10px  rgb(55, 48, 130);
     overflow: hidden;
   }
+
+.albumDescDiv{
+  width: 45%;
+  margin: 37px;
+  padding: 15px;
+  height: fit-content;
+  color: white;
+  min-height: 0%;
+  max-width: fit-content;
+  overflow: hidden;
+  display: inline-block;
+  justify-content: space-evenly;
+  align-items: center;
+  box-sizing: border-box;
+  background-color:rgb(34, 34, 34);
+  border: 2px solid rgb(11, 0, 130);
+  box-shadow: 0 5px 10px  rgb(55, 48, 130);
+  overflow: hidden;
+}
+
+.recomended:hover{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  transform: scale(1.5);
+}
 
 .comparative{
     position: relative;
@@ -30,7 +56,7 @@
   margin-top: 50px  ;
   padding: 15px;
   height: fit-content;
-  color: white;
+  color: rgb(255, 255, 255);
   min-height: 0%;
   max-width: 100%;
   overflow: hidden;
@@ -39,11 +65,13 @@
   align-items: center;
   box-sizing: border-box;
   background-color:rgb(34, 34, 34);
-  border: 2px solid #1DB954;;
+  border: 2px solid rgb(11, 0, 130);
+  box-shadow: 0 5px 10px  rgb(11, 0, 130);
   overflow: hidden;
 }
 
 .musicRandom{
+  background-color: white;
   display: flex;
   flex-wrap: wrap;
   padding: 50px 50px;
@@ -51,7 +79,7 @@
 }
 .musicCard{
   width: 18%;
-  border: 2px solid #1DB954;
+  border: 2px solid #dd00ff;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
@@ -75,14 +103,14 @@
   position: absolute !important;
   top:10px;
   left: 10px;
-  color:#fff;
+  color:rgb(0, 0, 0);
   background-color: transparent;
   display: none;
 }
 
 .ellipsis{
-  color: #000 !important;
-  background-color: #fff !important;
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(0, 0, 0) !important;
   border-radius: 50% !important;
   border: 1px solid #fff !important;
   padding: 5px 10px !important;
@@ -111,7 +139,7 @@
 }
 
 .musicCard h2{
-  color: #fff;
+  color:black;
   font-size: 18px;
   font-weight: 500;
   text-overflow: ellipsis;
@@ -121,7 +149,7 @@
   text-align: left;
 }
 .musicNote{
-  color: #fff;
+  color: black;
   margin-right: 10px;
 }
 
@@ -134,7 +162,25 @@
 .musicCard_footer p{
   margin: 0;
   font-size: 15px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   width: 60%;
   text-align: left;
+}
+
+.albumDiv{
+  width: 45%;
+  margin: 30px;
+  padding: 15px;
+  height: fit-content;
+  color: white;
+  max-width: fit-content;
+  overflow: hidden;
+  display: inline-block;
+  justify-content: space-evenly;
+  align-items: center;
+  box-sizing: border-box;
+  background-color:rgb(34, 34, 34);
+  border: 2px solid rgb(11, 0, 130);
+  box-shadow: 0 5px 10px  rgb(11, 0, 130);
+  overflow: hidden;
 }

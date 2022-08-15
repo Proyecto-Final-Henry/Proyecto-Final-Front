@@ -16,12 +16,16 @@ import {
   CREATE_DB_ALBUMS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
+  GET_ALL_USERS,
+  ON_PAGE_CHANGED,
+  CALC_PAGES,
+  CREATE_DB_GENRES,
+  GET_GENRE_ALBUM,
+  GET_RANDOM_FEED
 } from "../constants";
 
-const urlApi = "/api/back-end";
-
 export const sendEmailContact = (values) => {
-  const url = urlApi + "/users/sendEmailContact";
+  const url = "/users/sendEmailContact";
   return async (dispatch) => {
     axios
       .post(url, values)
@@ -43,13 +47,27 @@ export function getUserData(id) {
         dispatch({ type: GET_USER_DATA, payload: json });
       });
   };
-}
+};
 
-export function getSearch(toFind, filter, index) {
+export  function onPageChanged(data) {
+  return {type: ON_PAGE_CHANGED, payload: data }
+};
+
+export function calcPages(limit){
+  return {type:CALC_PAGES, payload:limit}
+};
+
+export function getSearch(toFind, filter, index,id, obj) {
+  let artist, album, explicit,selected;
+  if(obj){
+    artist=obj.artist;
+    album=obj.album;
+    explicit=obj.explicit
+  }
+  (obj.explicit && obj.explicit!== 'Seleccione una opción')||(obj.album && obj.album!== 'Seleccione un album') ||(obj.artist && obj.artist!== 'Seleccione un artista')? selected=true : selected=false;
   return async function (dispatch) {
     return fetch(
-      `/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}`
-    )
+      `/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}&artist=${artist}&album=${album}&explicit=${explicit}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -59,11 +77,14 @@ export function getSearch(toFind, filter, index) {
             query: toFind,
             filter: filter,
             index: index,
+            selected:selected
           },
         });
+
       });
   };
-}
+};
+
 export function getArtistSongSearch(toFind,filter,index,id) {
   return async function (dispatch) {
     return axios(
@@ -79,7 +100,7 @@ export function getArtistSongSearch(toFind,filter,index,id) {
         });
       });
   };
-}
+};
 
 export function getArtistData(id) {
   return async (dispatch) => {
@@ -92,7 +113,8 @@ export function getArtistData(id) {
         });
       });
   };
-}
+};
+
 export function getArtistAlbum(id) {
   return async (dispatch) => {
     return axios
@@ -106,7 +128,8 @@ export function getArtistAlbum(id) {
         });
       });
   };
-}
+};
+
 export function getArtistSongs(id, filter, index) {
   return async (dispatch) => {
     return axios
@@ -123,7 +146,7 @@ export function getArtistSongs(id, filter, index) {
         });
       });
   };
-}
+};
 
 export function getArtistTop(id) {
   return async (dispatch) => {
@@ -138,7 +161,7 @@ export function getArtistTop(id) {
         });
       });
   };
-}
+};
 
 export function getResReviews(apiId, type) {
   return async (dispatch) => {
@@ -153,7 +176,20 @@ export function getResReviews(apiId, type) {
         });
       });
   };
-}
+};
+
+export function createGenreDb() {
+  return async (dispatch) => {
+    return axios
+      .get(`/api/back-end/genres/create`)
+      .then((genreDB) => {
+        dispatch({
+          type: CREATE_DB_GENRES,
+          payload: genreDB.data,
+        });
+      });
+  };
+};
 
 export function createAlbum() {
   return async (dispatch) => {
@@ -179,6 +215,19 @@ export function getAlbumsDb() {
         });
       });
   };
+};
+
+export function getGenreAlbum(genre) {
+  return async (dispatch) => {
+    return axios
+      .get(`/api/back-end/albums/getgenres/`+ genre)
+      .then((genreAlbumDB) => {
+        dispatch({
+          type: GET_GENRE_ALBUM,
+          payload: genreAlbumDB.data,
+        });
+      });
+   };
 };
 
 export function getAlbumData(id) {
@@ -216,7 +265,7 @@ export function getAllReviews() {
       });
     });
   };
-}
+};
 
 export function getRandomSongs() {
   return async (dispatch) => {
@@ -229,7 +278,7 @@ export function getRandomSongs() {
         });
       });
   };
-}
+};
 
 export function getSongData(songId) {
   return async (dispatch) => {
@@ -239,6 +288,32 @@ export function getSongData(songId) {
         dispatch({
           type: GET_SONG_DATA,
           payload: songData.data,
+        });
+      });
+  };
+};
+
+export function getAllUsers(){
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/user")
+      .then((allUsers) => {
+        dispatch({
+          type: GET_ALL_USERS,
+          payload: allUsers.data,
+        });
+      });
+  };
+}
+
+export function getRandomFeed() {
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/songs/random")
+      .then((randomSongs) => {
+        dispatch({
+          type: GET_RANDOM_FEED,
+          payload: randomSongs.data,
         });
       });
   };

@@ -1,0 +1,25 @@
+.conf{
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 6px solid transparent;
+    border-radius: 5px;
+    padding-bottom: 80px;
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+  }
+  
+.confi{
+    color: white;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 10px 10px 2px rgb(0, 0, 0);
+    border-radius: 5px;
+    background: linear-gradient(137deg,#fa42cc 15.51%,#4c9284 51.65%,#8c569c 85.09%);
+  }
+  .confi img{
+    width: 200px;
+  }

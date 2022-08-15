@@ -18,63 +18,53 @@ export default function Info (){
                 </div>
                 <div className={style.boxTopChild}>
                     <img className={style.img} src={info3} alt="info 3"/>
-                    <p>Escucha y guarda las listas mas famosas del momento</p>         
+                    <p>Escucha y guarda tus canciones favoritas</p>         
                 </div>
 
             </div>
-            <div className={style.boxBtn}>
-                <div className={style.boxBtnChild}>
-                    <div className={style.boxUl}>
-                        <ul>
-                            <li>
-                                Toda tu música favorita en un solo lugar
-                            </li>
-                            <br />
-                            <li>
-                                Encuentra nuevos éxitos y descubre canciones
-                            </li>
-                            <br />
-                            <li>
-                                Míra la actividad de tus amigos y sus gustos musicales
-                            </li>
-                            <br />
-                            <li>
-                                Comparte tus gustos y opiniones sobre la música que escuchas
-                            </li>
-                            <br />
-                            <li>
-                                Busca a traves de nuestra inmensa libreria de canciones y artistas
-                            </li>
-                        </ul>
+            <div className={style.content_box}>
+                <h3>Comenta de lo que más te gusta de tu cantante o canción favorita.</h3>
+                <p>Cientos de canciones / Recomendaciones para ti / Favoritos en un instante / Crea tu propia playlist y mucho más</p>
+                <button className={style.btn_free} ><Link to="/register"> Empieza Gratis </Link></button>
+                {/* <button><Link className={style.btn_free} to="/free"> Empieza Gratis </Link></button> */}
+                {/* <p className={style.Links} > <Link className={style.Links} to="/premium">USUARIO PREMIUM </Link> </p>  */}
+            </div>
+
+            <div className={style.content_description}>
+                <h3>¿Por qué elegir ReMusic Premium?</h3>
+                <div className={style.content_list}>
+                    <div>
+                        <div>
+                            <h3>Reseñas y comentarios</h3>
+                            <p>Escribe y descubre sobre lo que comentan de tu artista o canción favorita</p>
+                        </div>
+                        <div>
+                            <h3>Miles de canciones y más</h3>
+                            <p>Descubre cientos de canciones y artistas, más contenido extra exclusivo de ReMusic.</p>
+                        </div>
                     </div>
-                    <p className={style.Links}><Link className={style.Links} to="/free">USUARIO FREE </Link></p>          
-                </div>
-                <div className={style.boxBtnChild}>
-                    <div className={style.boxUl}>
-                        <ul>
-                            <li>
-                                Toda tu música favorita en un solo lugar
-                            </li>
-                            <br />
-                            <li>
-                                Encuentra nuevos éxitos y descubre canciones
-                            </li>
-                            <br />
-                            <li>
-                                Míra la actividad de tus amigos y sus gustos musicales
-                            </li>
-                            <br />
-                            <li>
-                                Comparte tus gustos y opiniones sobre la música que escuchas
-                            </li>
-                            <br />
-                            <li>
-                                Busca a traves de nuestra inmensa libreria de canciones y artistas
-                            </li>
-                        </ul>
+                    <div>
+                        <div>
+                            <h3>Crea tu propia playlist</h3>
+                            <p>Agrega las canciones que te gustan y crea tus propias listas de reproducción.</p>
+                        </div>
+                        <div>
+                            <h3>Música ilimitada</h3>
+                            <p>Escucha música ilimitada y disfruta de otros contenidos de audio donde sea, cuando sea.</p>
+                        </div>
                     </div>
-                    <p className={style.Links} > <Link className={style.Links} to="/premium">USUARIO PREMIUM </Link> </p>         
+                    <div>
+                        <div>
+                            <h3>Seguidores</h3>
+                            <p>Sigue la actividad de tus amigos o artistas favoritos y sus gustos musicales.</p>
+                        </div>
+                        <div>
+                            <h3>Recomendaciones para ti</h3>
+                            <p>Descubre nuevas canciones y artistas recomendados solo para ti.</p>
+                        </div>
+                    </div>
                 </div>
+                <button className={style.btn_free} ><Link to="/register"> Prueba ReMusic Premium </Link></button>
             </div>
         </div>
     );

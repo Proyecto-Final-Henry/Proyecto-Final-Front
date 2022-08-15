@@ -25,105 +25,130 @@ import Music from "./components/Music/Music";
 import Genres from "./components/Genre/Genres";
 import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
+import AdminPanel from "./components/AdminPanel/AdminPanel";
+import Team from "./components/Team/Team";
 
 function App() {
-  const genres = useSelector((state) => state.genres);
 
   return (
     <div className="App">
       <Route exact path="/">
-        <NavigationB />
-        <Home />
-        <Footer />
+        <NavigationB/>
+        <Home/>
+        <Footer/>
       </Route>
 
       <Route exact path="/login">
-        <NavigationB />
-        <Login />
-        <Footer />
+        <NavigationB/>
+        <Login/>
+        <Footer/>
       </Route>
 
       <Route exact path="/register">
-        <NavigationB />
-        <Register />
-        <Footer />
+        <NavigationB/>
+        <Register/>
+        <Footer/>
       </Route>
 
       <Route exact path="/confirmar/:token">
-        <NavigationB />
-        <ConfirmarCuenta />
-        <Footer />
+        <NavigationB/>
+        <ConfirmarCuenta/>
+        <Footer/>
       </Route>
 
       <Route exact path="/premium">
-        <NavigationB />
-        <Premium />
-        <Footer />
+        <NavigationB/>
+        <Premium/>
+        <Footer/>
       </Route>
 
       <Route exact path="/free">
-        <NavigationB />
-        <Free />
-        <Footer />
+        <NavigationB/>
+        <Free/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/team">
+        <NavigationB/>
+        <Team/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/team2">
+        <NavigationM/>
+        <Team/>
+        <Footer/>
       </Route>
 
       <Route exact path="/pay">
-        <NavigationB />
-        <Pay />
-        <Footer />
+        <NavigationB/>
+        <Pay/>
+        <Footer/>
       </Route>
 
       <Route exact path="/pay/success">
-        <NavigationB />
-        <PaySuccess />
-        <Footer />
+        <NavigationB/>
+        <PaySuccess/>
+        <Footer/>
       </Route>
 
       <Route exact path="/pay/error">
-        <NavigationB />
-        <PayError />
-        <Footer />
+        <NavigationB/>
+        <PayError/>
+        <Footer/>
       </Route>
 
       <Route exact path="/contact">
-        <NavigationB />
-        <Contact />
-        <Footer />
+        <NavigationB/>
+        <Contact/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/contact2">
+        <NavigationM/>
+        <Contact/>
+        <Footer/>
       </Route>
 
       <Route exact path="/recover">
         <NavigationB />
-        <RecoverPassword />
-        <Footer />
+        <RecoverPassword/>
+        <Footer/>
       </Route>
 
       <Route exact path="/olvide-password/:token">
-        <NavigationB />
-        <NewPassword />
-        <Footer />
+        <NavigationB/>
+        <NewPassword/>
+        <Footer/>
       </Route>
 
       <Route exact path="/feed">
-        <NavigationM />
+        <NavigationM/>
         <Feed />
-        <Footer />
+        <Footer/>
       </Route>
 
       <Route exact path="/music">
         <NavigationM />
-        <Music />
-        <Footer />
+        <Music/>
+        <Footer/>
       </Route>
 
       <Route exact path="/user">
-        <NavigationM />
-        <UserProfile />
-        <Footer />
+        <NavigationM/>
+        <UserProfile/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/admin">
+        <NavigationM/>
+        <AdminPanel/>
+        <Footer/>
       </Route>
 
       <Route exact path="/genres">
         <NavigationM/>
-        <Genres genres={genres}/>
+        <Genres/>
         <Footer/>
       </Route>
 
@@ -134,30 +159,31 @@ function App() {
       </Route>
 
       <Route exact path="/search">
-        <NavigationM />
-        <SearchResult />
-        <Footer />
+        <NavigationM/>
+        <SearchResult/>
+        <Footer/>
       </Route>
 
       <Route exact path="/artist/:id">
-        <NavigationM />
-        <ArtistDetail />
-        <Footer />
+        <NavigationM/>
+        <ArtistDetail/>
+        <Footer/>
       </Route>
 
       <Route exact path="/album/:id">
-        <NavigationM />
-        <AlbumDetail />
-        <Footer />
+        <NavigationM/>
+        <AlbumDetail/>
+        <Footer/>
       </Route>
 
       <Route exact path="/song/:id">
-        <NavigationM />
-        <SongDetail />
-        <Footer />
+        <NavigationM/>
+        <SongDetail/>
+        <Footer/>
       </Route>
+
     </div>
   );
-}
+};
 
 export default App;

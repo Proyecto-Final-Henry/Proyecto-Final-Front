@@ -1,8 +1,7 @@
 import style from "../../css/songs.module.css";
 import SongCard from "./SongCard";
+
 function Songs(props) {
-
-
     if (props.songs.length !== 0) {
         return (
             <div className={style.songs}>

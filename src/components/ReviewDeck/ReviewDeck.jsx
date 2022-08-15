@@ -17,4 +17,4 @@ export default function ReviewDeck({ apiId, type }) {
       <ResReviewCard resReviews={resReviews} />
     </div>
   );
-}
+};
