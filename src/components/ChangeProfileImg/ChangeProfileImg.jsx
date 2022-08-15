@@ -30,7 +30,7 @@ export default function ChangeProfileImg({ userId, setShowImg }) {
   const uploadImage = async (base64Img) => {
     try {
       const uploadedResponse = await axios.post(
-        "http://localhost:3001/api/back-end/users/profileImg",
+        "/api/back-end/users/profileImg",
         { data: base64Img, userId: userId }
       );
       return uploadedResponse.data;

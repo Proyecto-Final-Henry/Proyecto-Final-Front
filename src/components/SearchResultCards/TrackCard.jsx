@@ -27,7 +27,7 @@ function HorizontalResponsiveExample(props) {
       </ListGroup.Item>
     </ListGroup>
   );
-}
+};
 
 export default HorizontalResponsiveExample;
 

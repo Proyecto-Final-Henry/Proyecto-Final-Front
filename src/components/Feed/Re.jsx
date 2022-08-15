@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 export default function Re(){
     let dispatch=useDispatch()
     let random=useSelector((state)=>state.randomFeed)
-    console.log(random.length)
     if (random.length>6) {
         random.length=random.length-4
     }

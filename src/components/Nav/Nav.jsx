@@ -9,7 +9,6 @@ export default function NavigationB() {
     <nav>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='Nav'>
             <Container>
-                
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
@@ -25,7 +24,6 @@ export default function NavigationB() {
                 <Nav>
                     <Link to="/login"><h5>INGRESA</h5></Link>
                     <Link to="/register"><h5>REGISTRATE</h5></Link>
-                    
                 </Nav>
                 </Navbar.Collapse>
             </Container>

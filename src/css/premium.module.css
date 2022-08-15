@@ -12,10 +12,36 @@
     align-items: center;
     box-sizing: border-box;
     background-color:rgb(34, 34, 34);
-    border: 2px solid rgb(75, 0, 130);;
-    box-shadow: 0 5px 10px  rgb(75, 0, 130);
+    border: 2px solid rgb(11, 0, 130);
+    box-shadow: 0 5px 10px  rgb(55, 48, 130);
     overflow: hidden;
   }
+
+.albumDescDiv{
+  width: 45%;
+  margin: 37px;
+  padding: 15px;
+  height: fit-content;
+  color: white;
+  min-height: 0%;
+  max-width: fit-content;
+  overflow: hidden;
+  display: inline-block;
+  justify-content: space-evenly;
+  align-items: center;
+  box-sizing: border-box;
+  background-color:rgb(34, 34, 34);
+  border: 2px solid rgb(11, 0, 130);
+  box-shadow: 0 5px 10px  rgb(55, 48, 130);
+  overflow: hidden;
+}
+
+.recomended:hover{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  transform: scale(1.5);
+}
 
 .comparative{
     position: relative;
@@ -39,7 +65,8 @@
   align-items: center;
   box-sizing: border-box;
   background-color:rgb(34, 34, 34);
-  border: 2px solid #1DB954;;
+  border: 2px solid rgb(11, 0, 130);
+  box-shadow: 0 5px 10px  rgb(11, 0, 130);
   overflow: hidden;
 }
 
@@ -138,4 +165,22 @@
   color: rgb(0, 0, 0);
   width: 60%;
   text-align: left;
+}
+
+.albumDiv{
+  width: 45%;
+  margin: 30px;
+  padding: 15px;
+  height: fit-content;
+  color: white;
+  max-width: fit-content;
+  overflow: hidden;
+  display: inline-block;
+  justify-content: space-evenly;
+  align-items: center;
+  box-sizing: border-box;
+  background-color:rgb(34, 34, 34);
+  border: 2px solid rgb(11, 0, 130);
+  box-shadow: 0 5px 10px  rgb(11, 0, 130);
+  overflow: hidden;
 }

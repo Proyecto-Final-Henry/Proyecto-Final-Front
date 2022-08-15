@@ -4,7 +4,6 @@ import Alerta from '../AlertaMensaje/Alerta';
 import axios from 'axios';
 
 const NewPassword = () => {
-
     const [ password , setPassword ] = useState("");
     const [ repitepassword , setRepitePassword] = useState("");
     const [ passwordConfirmada , setPasswordConfirmada] = useState(false);
@@ -17,7 +16,7 @@ const NewPassword = () => {
     useEffect(() => {
         const comprobarToken = async () => {
             try {
-                const url = `http://localhost:3001/api/back-end/users/olvide-password/${token}`
+                const url = `/api/back-end/users/olvide-password/${token}`
                 await axios( url )
                 setAlerta({msg: "Coloca tu nuevo password", error: false})
                 setTokenValido(true)
