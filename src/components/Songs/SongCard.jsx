@@ -18,6 +18,6 @@ function SongCard(props) {
       </div>
     </div>
   );
-}
+};
 
 export default SongCard;

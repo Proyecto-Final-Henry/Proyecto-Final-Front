@@ -10,7 +10,6 @@ export default function GenreDetail() {
     let dispatch = useDispatch();
     let genreId = useParams().id;
 
-
     let GenreData = useSelector((state) => state.genre);
     let genreDb = useSelector((state) => state.genreAlbum);
   
@@ -32,12 +31,12 @@ export default function GenreDetail() {
 
     return (
         <div>
-            <div className={style.mainDiv}>
+            <div className={style.albumDescDiv}>
                 <h2 style={{"color": "white"}}>{GenreData.name}</h2>
                 <img src={GenreData.image} alt="imagen de género" />
             </div>
 
-            <div className={style.mainDiv}>
+            <div className={style.albumDescDiv} style={{"marginBottom": "60px"}}>
         	    {GenreData.name === "Pop" ? 
                     <div>
                         <h4>
@@ -363,10 +362,10 @@ export default function GenreDetail() {
             </div>
 
             <div>
-            {genreDb.length ? genreDb.map(g => 
-                <div className={style.mainDiv} key={g.id}>
+            {genreDb.length ? genreDb.map((g) => 
+                <div className={style.albumDiv} key={g.id}>
+                    <h2 style={{"fontSize": "larger"}}>{g.title}</h2>
                     <img src={g.image} alt="imagen de album" />
-                    <h2>{g.name}</h2>
                 </div>  )
                 : 
                 <div className={style.mainDiv}>

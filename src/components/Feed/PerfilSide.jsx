@@ -1,6 +1,5 @@
 import { useEffect , useState } from "react"
 import { Link, useHistory } from "react-router-dom"
-import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import "../../css/users.css";
 
@@ -23,18 +22,14 @@ export default function UserProfile (){
                 }
             }
             try {
-                const { data } = await axios(`http://localhost:3001/api/back-end/users/perfil`, config)
+                const { data } = await axios(`/api/back-end/users/perfil`, config)
                 setUser(data)
             } catch (error) {
                 console.log(error.response.data.msg)
             }
         }
         autenticarUsuario()
-    },[])
-    var rol=""
-    if(user.role==="Base"){
-        rol="Free"
-    }
+    },[]);
 
     return(
         <div className="to">
@@ -45,20 +40,35 @@ export default function UserProfile (){
                         <h3>{user?.name}</h3>
                     </Link>
                     <p>Desde {user?.createdDate}</p>
-                    <p>Usuario {rol}</p>
+                    <p>Usuario {user.role}</p>
                 </div>
             </div>
             <hr />
-            <div className="bo">
-                <Link>
-                    <p>Seguidores</p>
-                    <p>Crear Resena</p>
-                    <p>Musica</p>
+            {
+                user.role==="Gratuito"?
+                    <div className="bo">
+                        <p>Hazte Con Todos Los Beneficios</p>
+                        <Link to="/">
+                            PRUEBA PREMIUM AHORA
+                        </Link>
+                    </div>
+                :
+                <div>
+                    <p>Eres Premium Alto Capo</p>
+                </div>
 
+            }
+            <div className="bo">
+                <Link to="/user">
+                    <p>Seguidores</p>
+                </Link>
+                <Link to="/search">
+                    <p>Crear Reseña</p>
+                </Link>
+                <Link to="/music">
+                    <p>Musica</p>
                 </Link>
             </div>
         </div>
-
     )
-
-}
+};

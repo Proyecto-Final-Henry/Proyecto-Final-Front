@@ -13,4 +13,4 @@ export default function ArtistCard(props) {
       </div>
     </div>
   );
-}
+};

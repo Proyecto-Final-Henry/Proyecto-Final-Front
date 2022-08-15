@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import "../../css/confirmar.css"
+import Img from "../../img/mientras.png"
 
 const ConfirmarCuenta = () => {
     let history = useHistory();
@@ -28,6 +29,9 @@ const ConfirmarCuenta = () => {
                 setAlerta({msg: error.response.data.msg , error: true})
             }
             setCargando(false)
+            setTimeout(() => {
+                history.push("/user");
+              },5000);
         }
         confirmarCuenta()
     },[token]);
@@ -35,8 +39,15 @@ const ConfirmarCuenta = () => {
   return (
     <div className="conf">
         <div className='confi'>
-            <h1> Tu cuenta ha sido confirmada</h1>
+            <img src={Img} alt={Img} />
+            <h4> Tu cuenta ha sido confirmada</h4>
+                <div className="texto">
+                    <br />
+                    <p>Estamos muy felices de tenerte en el equipo de ReMusic</p>
+                </div>
+                <p>Ingresa Ahora Mismo</p>
             <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Ingresar</Button>
+
         </div>
     </div>
   );

@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import style from "../../css/rev.css";
-import { Link, useHistory } from 'react-router-dom';
-import "../../css/perfilrev.css"
+import { Link, useHistory } from "react-router-dom";
+import "../../css/perfilrev.css";
 import Follow from "../Follow/Follow";
-import axios from "axios"
+import axios from "axios";
 import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
-
-  const history = useHistory()
-  
-
-  const [user, setUser] = useState({})
+  const history = useHistory();
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -32,7 +29,7 @@ export default function ReviewCard() {
         const { data } = await axios(`/api/back-end/users/perfil`, config);
         setUser(data);
       } catch (error) {
-        console.log(error.response.data.msg);
+        console.log(error?.response.data.msg);
       }
     };
     autenticarUsuario();
@@ -58,6 +55,30 @@ export default function ReviewCard() {
                   </div>
                 </div>
                 <div className="rev">
+                  {r.artist && (
+                    <div className="revResource">
+                      <p>Artista</p>
+                      <Link to={`/artist/${r.artist.apiId}`}>
+                        <p>{`${r.artist.name}`}</p>
+                      </Link>
+                    </div>
+                  )}
+                  {r.album && (
+                    <div className="revResource">
+                      <p>Álbum</p>
+                      <Link to={`/album/${r.album.apiId}`}>
+                        <p>{`${r.album.title}`}</p>
+                      </Link>
+                    </div>
+                  )}
+                  {r.song && (
+                    <div className="revResource">
+                      <p>Canción</p>
+                      <Link to={`/album/${r.song.apiId}`}>
+                        <p>{`${r.song.name}`}</p>
+                      </Link>
+                    </div>
+                  )}
                   <div className="titulo">
                     <p>Titulo</p>
                     <p>{r.title}</p>
@@ -83,4 +104,4 @@ export default function ReviewCard() {
       )}
     </div>
   );
-};
+}
