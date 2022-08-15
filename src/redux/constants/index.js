@@ -20,7 +20,8 @@ export const CREATE_DB_ALBUMS = "CREATE_DB_ALBUMS";
 export const CREATE_DB_GENRES = "CREATE_DB_GENRES";
 export const GET_DB_ALBUMS = "GET_DB_ALBUMS";
 export const GET_SONG_DATA = "GET_SONG_DATA";
+export const GET_ALL_USERS="GET_ALL_USERS";
+export const GET_GENRE_ALBUM = "GET_GENRE_ALBUM";
 export const ON_PAGE_CHANGED ="ON_PAGE_CHANGED";
 export const CALC_PAGES="CALC_PAGES";
-export const GET_GENRE_ALBUM = "GET_GENRE_ALBUM";
-
+export const GET_RANDOM_FEED="GET_RANDOM_FEED"

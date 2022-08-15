@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Alerta from "../AlertaMensaje/Alerta";
 import axios from "axios";
+import google from "../../assets/google.png";
 import { useHistory } from "react-router-dom";
 import { GoogleAuthProvider , signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -14,9 +15,9 @@ const Login = () => {
   const history = useHistory();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if([email,password].includes("")){
-      setAlerta({msg:"Ambos campos son requeridos" , error: true})
+      setAlerta({msg:"Ambos campos son requeridos" , error: true});
       setTimeout(() => {
         setAlerta({})
       },2500)
@@ -34,16 +35,16 @@ const Login = () => {
   };
 
   const loginGoogle = async () => {
-    const provider =  new GoogleAuthProvider()
-    const { user } =  await signInWithPopup(auth, provider)
-    console.log(user)
+    const provider =  new GoogleAuthProvider();
+    const { user } =  await signInWithPopup(auth, provider);
+    console.log(user);
      try {
-      const url = `/api/back-end/users/googleLogin`
-      const { data } = await axios.post( url , { name: user.displayName, email: user.email, emailVerified: user.emailVerified , userImg: user.photoURL? user.photoURL : null})
-      localStorage.setItem("token" , data.token)
-      history.push("/feed")
+      const url = `/api/back-end/users/googleLogin`;
+      const { data } = await axios.post( url , { name: user.displayName, email: user.providerData[0].email , userImg: user.photoURL ? user.photoURL : null});
+      localStorage.setItem("token" , data.token);
+      history.push("/feed");
      } catch (error) {
-      setAlerta({msg: error.response.data.msg, error:true})
+      setAlerta({msg: error.response.data.msg, error:true});
      };
   };
   
@@ -98,7 +99,7 @@ const Login = () => {
               <div className="crear">
                 <br />
                 <br />
-                  <button onClick={() => loginGoogle()} type="button" class="btn btn-success">Iniciar Sesion Google</button>
+                  <button onClick={() => loginGoogle()} type="button" className="btn btn-success"><img src={google} style={{"height": "33px"}} alt="google" /></button>
               </div>
               {/* <div className="crear">
                 <br />
@@ -114,7 +115,6 @@ const Login = () => {
                 <Link to="/register"> Crea tu cuenta</Link>
               </div>
           </form>
-
         </div>
     </div>
     )

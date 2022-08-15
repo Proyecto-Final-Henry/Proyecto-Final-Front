@@ -11,4 +11,4 @@ export default function PreviewPlayer({ preview }) {
       width="30%"
     />
   );
-}
+};

@@ -4,27 +4,21 @@ import { useDispatch } from "react-redux";
 import { getAllReviews } from "../../redux/actions";
 
 export default function Follow(props){
-
-    let dispatch = useDispatch()
-
+    let dispatch = useDispatch();
     const mapedFollowers = props.followers.map(f => {
         return f.id
-    })
+    });
 
-
-    const hasFollower = mapedFollowers.includes(props.meId)
+    const hasFollower = mapedFollowers.includes(props.meId);
 
     const handleButton = async () => {
         if (hasFollower) {   
         await axios.get(`http://localhost:3001/api/back-end/user/unFollow/${props.meId}/${props.id}`)
     } else {
         await axios.get(`http://localhost:3001/api/back-end/user/follow/${props.meId}/${props.id}`)
-    }
+    };
     dispatch(getAllReviews())
-    }
-
-    console.log(props.meId)
-
+    };
 
     return(
         <div>
@@ -32,7 +26,6 @@ export default function Follow(props){
                 <button onClick={() => handleButton()}>Dejar de Seguir</button>:
                 <button onClick={() => handleButton()}>Seguir</button>
             }
-        
         </div>
     );
 };

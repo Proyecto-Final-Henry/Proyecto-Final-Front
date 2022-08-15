@@ -4,19 +4,16 @@ import { getSearch } from '../../redux/actions';
 import Button from 'react-bootstrap/Button';
 import style from '../../css/filters.module.css'
 
-
-
 export default function Filters (){
-
-    const [state, setState]=useState({
+    const [state, setState]= useState({
         type:'',
         query:'',
         artist:'',
         album:'',
         explicit:''
     });
-
     const queryStore= useSelector(store=>store.query);
+    const checkSearch= useSelector(store=>store.searchResult);
     const result= useSelector(store=>store.searchResult)
     const artist= [...(new Set(result.map(e=>e.artist)))]
     const album= [...(new Set(result.map(e=>e.album)))]
@@ -45,8 +42,9 @@ export default function Filters (){
     
     const selectors=["map"]
 
-    return(
-        <div className={style.box}>
+    return( 
+    <div>
+        {checkSearch.length ? <div className={style.box}>
             <div>            
             <Button className={style.btn} variant="outline-success" name='type' value='artist' onClick={eventHandler}>Artista</Button>
             <Button className={style.btn} variant="outline-success" name='type' value='album' onClick={eventHandler}>Álbum</Button>
@@ -92,9 +90,10 @@ export default function Filters (){
                                 )
                         }
                     })
-                }                    
+                }                  
             </form>
             </div>
-        </div>
-    )
+        </div> : <h1> ¡Encuentra tus canciones favoritas! </h1>}
+    </div>
+    );
 };

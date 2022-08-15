@@ -1,3 +1,14 @@
+.detailBac{
+  padding: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 6px solid transparent;
+  border-radius: 5px;
+  padding-bottom: 80px;
+  background-color: rgb(242, 242, 242);
+}
+
 .detail {
   padding: 70px;
   display: flex;
@@ -7,20 +18,21 @@
   border: 6px solid transparent;
   border-radius: 5px;
   padding-bottom: 80px;
-  background-color: rgb(34, 34, 34);
+  background-color: rgb(255, 255, 255);
 }
 .detail img {
   width: 350px;
   height: 350px;
+  border-radius: 50%;
 }
 .detail h3 {
   padding-top: 30px;
-  color: #1db954;
+  color: #d400ff;
 }
 .detail p {
   text-align: center;
   font-weight: 700;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-size: 17px;
 }
 #previewImg {

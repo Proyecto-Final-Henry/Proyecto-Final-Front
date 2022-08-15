@@ -6,7 +6,7 @@ import style from "../../css/premium.module.css";
 import { getGenreAlbum } from "../../redux/actions";
 
 export default function GenreDetail() {
-    let history = useHistory()
+    let history = useHistory();
     let dispatch = useDispatch();
     let genreId = useParams().id;
 
@@ -23,27 +23,27 @@ export default function GenreDetail() {
         };
         autenticarUsuario();
         dispatch(getGenre(genreId));
-        dispatch(getGenreAlbum(GenreData.name));
-    
     }, []);
 
-    console.log(GenreData);
+    useEffect(() => {
+        dispatch(getGenreAlbum(GenreData.name))
+    },[GenreData])
 
     return (
         <div>
-            <div className={style.mainDiv}>
+            <div className={style.albumDescDiv}>
                 <h2 style={{"color": "white"}}>{GenreData.name}</h2>
                 <img src={GenreData.image} alt="imagen de género" />
             </div>
 
-            <div className={style.mainDiv}>
+            <div className={style.albumDescDiv} style={{"marginBottom": "60px"}}>
         	    {GenreData.name === "Pop" ? 
                     <div>
                         <h4>
-                            La música pop (del inglés pop music, contracción de popular music) es un género de música popular que tuvo su origen a finales de los años 1950 como una derivación del traditional pop, en combinación con otros géneros musicales que estaban de moda en aquel momento.1
+                            La música pop (del inglés pop music, contracción de popular music) es un género de música popular que tuvo su origen a finales de los años 1950 como una derivación del traditional pop, en combinación con otros géneros musicales que estaban de moda en aquel momento.
                             Los términos música pop y música popular se usan a menudo de manera indistinta, aunque el segundo tiene un sentido más amplio al dar cabida a otros géneros distintos del pop que se consideren populares. 
                         </h4> 
-                        <br/>
+                        <br/>   
                         <h4>
                             Como género, la música pop es muy ecléctica, tomando prestado a menudo elementos de otros estilos como el urban, el dance, el rock, la música latina, el rhythm and blues o el folk. Con todo, hay elementos esenciales que definen al pop, como son las canciones de corta a media duración, escritas en un formato básico (a menudo la estructura estrofa-estribillo), así como el uso habitual de estribillos repetidos, de temas melódicos y ganchos. 
                             La instrumentación se compone habitualmente de guitarra, batería, bajo, guitarra eléctrica, teclado, sintetizador, etc.
@@ -69,11 +69,11 @@ export default function GenreDetail() {
                 {GenreData.name === "Folk" ? 
                     <div>
                         <h4>
-                            Me olvide de este 🤡
+                            Música folk es un término de origen inglés utilizado en lengua castellana generalmente para referirse a la música folclórica moderna. En algunos contextos, por influencia del sentido en lengua inglesa de la folk music, su significado se extiende a toda la música folclórica, tanto la tradicional como la más moderna basada en aquella. Los artistas de folk pueden emplear temas musicales folclóricos ya existentes haciéndoles un arreglo musical o bien tomar simplemente el estilo y crear sus propios temas originales. 
                         </h4>
                         <br />
                         <h4>
-        
+                            Es también característico de la música folk emplear instrumentos típicos de cada región, como puede ser la zampoña y la quena en varios países de América del Sur, el bombo legüero en la Argentina, el birimbao en Brasil, el banjo, la güira en la República Dominicana, el violín o la armónica en los Estados Unidos, el violín, la marimba en Guatemala, bodhrán y el tin whistle en Irlanda, la gaita en Escocia, Galicia o Asturias, el acordeón en Francia, Italia, Panamá o la música litoraleña argentina, la gralla y la dulzaina en Valencia y Cataluña, la flauta y tamboril en Zamora, la trikitixa en el País Vasco, el arpa paraguaya en Paraguay, etc.
                         </h4>
                     </div>
                     :
@@ -82,7 +82,7 @@ export default function GenreDetail() {
                 {GenreData.name === "Reggaeton" ? 
                     <div>
                         <h4>
-                            El reguetón4​ es un género musical5​ que derivó del reggae en español que es a su vez un subgénero del dancehall, así como elementos principalmente de la música bounce. Nació en Puerto Rico; surgió a raíz de la popularidad del reggae en español proveniente de Panamá, junto con el hip hop durante los inicios de esa época.
+                            El reguetón​ es un género musical​ que derivó del reggae en español que es a su vez un subgénero del dancehall, así como elementos principalmente de la música bounce. Nació en Puerto Rico; surgió a raíz de la popularidad del reggae en español proveniente de Panamá, junto con el hip hop durante los inicios de esa época.
                         </h4>
                         <br />
                         <h4>
@@ -211,11 +211,11 @@ export default function GenreDetail() {
                 {GenreData.name === "Películas/Juegos" ? 
                     <div>
                         <h4>
-                        Por música cinematográfica se entiende toda música, por lo general orquestada e instrumental, compuesta específicamente para acompañar las escenas de una película y apoyar la narración cinematográfica. Dentro de este tipo también se encuentra la llamada "música incidental". Esta música forma parte de la banda sonora de la película, típicamente abreviada como "BSO", que también puede incluir música preexistente, diálogos y efectos de sonido, y comprende una serie de piezas orquestales, instrumentales o corales llamadas señales, que están programadas para comenzar y finalizar en puntos específicos durante la película con el fin de mejorar la narración dramática y el impacto emocional de la escena en cuestión. Las partituras están escritas por uno o más compositores, bajo la guía o colaboración del director o productor de la película y generalmente son interpretadas por un conjunto de músicos, la mayoría de las cuales incluyen una orquesta o banda, solistas instrumentales y coro o vocalistas. - y grabado por un ingeniero de sonido. Las bandas sonoras originales "BSO" de las películas abarcan una enorme variedad de estilos de música, dependiendo de la naturaleza de las películas a las que acompañan. 
+                            Por música cinematográfica se entiende toda música, por lo general orquestada e instrumental, compuesta específicamente para acompañar las escenas de una película y apoyar la narración cinematográfica. Dentro de este tipo también se encuentra la llamada "música incidental". Esta música forma parte de la banda sonora de la película, típicamente abreviada como "BSO", que también puede incluir música preexistente, diálogos y efectos de sonido, y comprende una serie de piezas orquestales, instrumentales o corales llamadas señales, que están programadas para comenzar y finalizar en puntos específicos durante la película con el fin de mejorar la narración dramática y el impacto emocional de la escena en cuestión. Las partituras están escritas por uno o más compositores, bajo la guía o colaboración del director o productor de la película y generalmente son interpretadas por un conjunto de músicos, la mayoría de las cuales incluyen una orquesta o banda, solistas instrumentales y coro o vocalistas. - y grabado por un ingeniero de sonido. Las bandas sonoras originales "BSO" de las películas abarcan una enorme variedad de estilos de música, dependiendo de la naturaleza de las películas a las que acompañan. 
                         </h4>
                         <br />
                         <h4>
-                        La música de videojuegos, en particular desde comienzos del siglo XX, es considerada como un género musical por derecho propio, principalmente por tratarse en su mayor parte de música programada, a diferencia de la música grabada en estudio o interpretada en directo. Las canciones casi siempre tienen secciones principales o «secciones estrofa» consistentes en una Progresión de cuatro o más acordes (parecido a buena parte del J-Pop y del pop occidental de los años 1980), frente a las progresiones de dos acordes presentes en la mayoría de las canciones pop occidentales. El «estribillo» de las canciones también contienen a menudo cuatro o más acordes diferentes en sus progresiones. En general, habría un mayor número de secciones en una canción de este género que en una canción pop parecida, pues esto ayuda a reducir el aspecto repetitivo de la música, al reproducirse normalmente como un bucle continuo. Ademas, las canciones presentan una fuerte sincronización entre instrumentos, de forma que sería difícil de tocar para un humano.
+                            La música de videojuegos, en particular desde comienzos del siglo XX, es considerada como un género musical por derecho propio, principalmente por tratarse en su mayor parte de música programada, a diferencia de la música grabada en estudio o interpretada en directo. Las canciones casi siempre tienen secciones principales o «secciones estrofa» consistentes en una Progresión de cuatro o más acordes (parecido a buena parte del J-Pop y del pop occidental de los años 1980), frente a las progresiones de dos acordes presentes en la mayoría de las canciones pop occidentales. El «estribillo» de las canciones también contienen a menudo cuatro o más acordes diferentes en sus progresiones. En general, habría un mayor número de secciones en una canción de este género que en una canción pop parecida, pues esto ayuda a reducir el aspecto repetitivo de la música, al reproducirse normalmente como un bucle continuo. Ademas, las canciones presentan una fuerte sincronización entre instrumentos, de forma que sería difícil de tocar para un humano.
                         </h4>
                     </div>
                     :
@@ -280,7 +280,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null} 
-                {GenreData.name === "Infantil" ? 
+                {GenreData.name === "Niños" ? 
                     <div>
                         <h4>
                             Una canción infantil es aquella canción realizada con algún propósito para los niños pequeños y bebés. La letra suele ser muy sencilla y repetitiva, para su fácil comprensión y memorización. Además de la diversión que pueden pasar, es como los padres introducen de buena manera a sus hijos en el mundo de la música. Tradicionalmente, las canciones infantiles se transmiten de generación en generación y forman parte de la cultura popular, aunque en las últimas décadas han surgido numerosos artistas especializados en producir música y espectáculos audiovisuales dirigidos al público infantil.
@@ -362,13 +362,16 @@ export default function GenreDetail() {
             </div>
 
             <div>
-            {genreDb.length ? genreDb.map(g => 
-                <div className={style.mainDiv} key={g.id}>
+            {genreDb.length ? genreDb.map((g) => 
+                <div className={style.albumDiv} key={g.id}>
+                    <h2 style={{"fontSize": "larger"}}>{g.title}</h2>
                     <img src={g.image} alt="imagen de album" />
-                    <h2>{g.name}</h2>
                 </div>  )
                 : 
-                null}
+                <div className={style.mainDiv}>
+                    ¡Recomiendanos tu album favorito de {GenreData.name} para mostrar!
+                </div>
+                }
             </div>
         </div>
     )

@@ -74,12 +74,14 @@ export default function UserProfile() {
   };
      
   return (
-    <div className="detail">
+    <div className="detailBac">
       <div className="detail">
         <div className="carta">
           {showImg ? (
             <div>
               <img src={user.userImg} alt="userImg"></img>
+              <br />
+              <br />
               <button onClick={handleShowImg}>📸</button>
             </div>
           ) : (
@@ -89,7 +91,7 @@ export default function UserProfile() {
           <p className="userP">{user?.email}</p>
           <p className="userP">Miembro desde {user?.createdDate}</p>
           <p className="userP">Usuario {user?.role}</p>
-          {user.role === "Base" ? (
+          {user.role === "Gratuito" ? (
             <Button
               onClick={handleButton}
               variant="outline-success"

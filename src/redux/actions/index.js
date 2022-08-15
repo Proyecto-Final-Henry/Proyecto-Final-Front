@@ -16,16 +16,16 @@ import {
   CREATE_DB_ALBUMS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
+  GET_ALL_USERS,
   ON_PAGE_CHANGED,
   CALC_PAGES,
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
+  GET_RANDOM_FEED
 } from "../constants";
 
-const urlApi = "/api/back-end";
-
 export const sendEmailContact = (values) => {
-  const url = urlApi + "/users/sendEmailContact";
+  const url = "/users/sendEmailContact";
   return async (dispatch) => {
     axios
       .post(url, values)
@@ -77,9 +77,11 @@ export function getSearch(toFind, filter, index,id, obj) {
             selected:selected
           },
         });
+
       });
   };
-}
+};
+
 export function getArtistSongSearch(toFind,filter,index,id) {
   return async function (dispatch) {
     return axios(
@@ -281,6 +283,32 @@ export function getSongData(songId) {
         dispatch({
           type: GET_SONG_DATA,
           payload: songData.data,
+        });
+      });
+  };
+}
+
+export function getAllUsers(){
+  return async (dispatch) => {
+    axios
+      .get("http://localhost:3001/api/back-end/user")
+      .then((allUsers) => {
+        dispatch({
+          type: GET_ALL_USERS,
+          payload: allUsers.data,
+        });
+      });
+  };
+}
+
+export function getRandomFeed() {
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/songs/random")
+      .then((randomSongs) => {
+        dispatch({
+          type: GET_RANDOM_FEED,
+          payload: randomSongs.data,
         });
       });
   };

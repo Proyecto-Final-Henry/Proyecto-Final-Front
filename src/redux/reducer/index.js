@@ -16,10 +16,12 @@ import {
   GET_RANDOM_SONGS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
+  GET_ALL_USERS,
   ON_PAGE_CHANGED,
   CALC_PAGES,
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
+  GET_RANDOM_FEED
 } from "../constants";
 
 const initialState = {
@@ -48,7 +50,9 @@ const initialState = {
   albumSongs: [],
   allReviews: [],
   randomSongs: [],
+  randomFeed:[],
   songData: {},
+  users:[],
   genresDb: [],
 };
 
@@ -91,6 +95,7 @@ function rootReducer(state = initialState, action) {
         currentPage: currentPage,         
       };     
     case GET_SEARCH:
+      console.log(action.payload)
       let response = action.payload.response;
       let valueIndex;
       if (action.payload.index === undefined) {
@@ -135,9 +140,7 @@ function rootReducer(state = initialState, action) {
       } else {
         valueIndex2 = action.payload.index;
       }
-      
       return {
-
         ...state,
         artistSongs: action.payload.response.data,
         pagination: {
@@ -189,6 +192,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         songData: action.payload,
       };
+    case GET_ALL_USERS:
+      return{
+      ...state,
+      users:action.payload
+    }
     case CREATE_DB_GENRES:
       return {
         ...state,
@@ -199,8 +207,14 @@ function rootReducer(state = initialState, action) {
         ...state,
         genreAlbum: action.payload,
       };
+      case GET_RANDOM_FEED:
+        return {
+          ...state,
+          randomFeed: action.payload,
+        };
     default:
       return state;
   };
 };
+
 export default rootReducer;
