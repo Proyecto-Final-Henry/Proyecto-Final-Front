@@ -23,7 +23,7 @@ function GenreCard(props) {
 
 
     return (
-        <div>
+        <div className="gen">
             {
                 props.id ? 
                 <Link to={"/genres/" + props.id} style={{"textDecoration":"none"}}>

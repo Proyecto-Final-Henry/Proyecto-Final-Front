@@ -117,14 +117,13 @@ Nav h5:hover{
 }
 
 .form{
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border-radius: 5px;
+  background-color: #1b2831;
+  color: rgb(255, 255, 255);
+  border-radius: 20px;
   font-size: 1rem;
   margin: 0 auto;
   width: 500px;
   padding: 35px;
-  border: 6px solid transparent;
 }
 .form label{
   padding: 10px;
@@ -132,6 +131,13 @@ Nav h5:hover{
 .form input, textarea{
   outline: none;
 
+}
+.form input{
+  border-radius: 10px;
+}
+.form textarea{
+  border-radius: 10px;
+  width: 60%;
 }
 
 .field{
@@ -151,8 +157,25 @@ Nav h5:hover{
   height: 60px;
   font-size: 17px;
 }
+.ini button{
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+  border-radius: 10px;
+  width: 65%;
+  height: 60px;
+}
 
-
+.go button{
+  background: white;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+.con button{
+  color: white;
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+  border-radius: 10px;
+}
 @media(max-width:600px){
   .footer-links{
     min-height: 37vh;
@@ -223,9 +246,8 @@ Nav h5:hover{
   padding: 10px;
   flex-direction: column;
   align-items: center;
-  border: 6px solid transparent;
   border-radius: 20px;
-  background-color: rgb(255, 255, 255);
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
 }
 .car{
   width: 100%;
@@ -237,12 +259,12 @@ Nav h5:hover{
 }
 .fe h3{
   padding-top: 30px;
-  color: #ff0000;
+  color: #ffffff;
 }
 .fe p{
   text-align: center;
   font-weight: 500;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 15px;
 }
 .list-group-item{
@@ -252,6 +274,20 @@ Nav h5:hover{
 .list-group-item img{
   width: 100px;
   height: 100px;
+}
+.bo p{
+  text-align: center;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+}
+.bo a{
+  font-weight: 500;
+  text-decoration: none;
+  color: #00ffa6;
+}
+.bo a:hover{
+  color: #000000;
 }
 
 /*Detalle Artista*/
@@ -344,6 +380,9 @@ Nav h5:hover{
 }
 .confir h1{
   color: white;
+}
+.cen h1{
+  color: #f73aa8;
 }
 
 /* Estilos Nav */
