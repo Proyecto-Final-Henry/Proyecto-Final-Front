@@ -32,9 +32,9 @@ export default function NavigationM(){
                         <Link to="/music"><h5>MÚSICA</h5></Link>
                         <Link to="/genres"><h5>GÉNEROS</h5></Link>
                     </Nav>
-                    <Nav>
-                        <Button style={{"margin-top": "6px"}} onClick={cerrarSesion} variant="outline-danger" type="submit" className='boton'>Cerrar Sesión</Button>
-                    </Nav>
+                    <Nav className='nav_btn_registro'>
+                        <Link to="/register"><h5 className="btn_registrate">Cerrar Sesion</h5></Link>     
+                    </Nav>   
                     </Navbar.Collapse>
                 </Container>
          </Navbar>
