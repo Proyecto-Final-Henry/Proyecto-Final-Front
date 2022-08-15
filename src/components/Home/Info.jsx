@@ -47,7 +47,7 @@ export default function Info (){
                             </li>
                         </ul>
                     </div>
-                    <p className={style.Links}><Link className={style.Links} to="/free"> PRUEBA LA APP HOY MISMO </Link></p>          
+                    <p className={style.Links}><Link className={style.Links} to="/free"> USUARIO GRATUITO </Link></p>          
                 </div>
                 <div className={style.boxBtnChild}>
                     <div className={style.boxUl}>
