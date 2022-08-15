@@ -28,8 +28,6 @@ import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 
 function App() {
-  const genres = useSelector((state) => state.genres);
-
 
   return (
     <div className="App">
@@ -167,6 +165,6 @@ function App() {
 
     </div>
   );
-}
+};
 
 export default App;

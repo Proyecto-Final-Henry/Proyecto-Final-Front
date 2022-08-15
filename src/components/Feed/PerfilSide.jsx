@@ -45,7 +45,7 @@ export default function UserProfile (){
             </div>
             <hr />
             {
-                user.role==="Base"?
+                user.role==="Gratuito"?
                     <div className="bo">
                         <p>Hazte Con Todos Los Beneficios</p>
                         <Link to="/">

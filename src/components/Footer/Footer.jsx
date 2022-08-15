@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import style from "../../css/footer.module.css";
 
 export default function Footer(){
+    const token = localStorage.getItem("token")
+
     return(
         <div className={style.footer}>
             <div className={style.footer_item}>
@@ -30,20 +32,24 @@ export default function Footer(){
                 <h5>Hecho con <i className="fa-solid fa-heart"></i> para el mundo</h5>
             </div>
             <div className={style.footer_item}>
-                <h4>Planes</h4>
-                <div>
-                    <div><i className="fa-solid fa-headphones-simple"></i></div>
-                    <div className={style.footer_content}>
-                        <p><Link to="/premium">Free</Link></p>
-                        <p><Link to="/premium">Premium</Link></p>
-                        <p><Link to="/register">Registro</Link></p>
-                    </div>
-                </div>
+                {!token ? 
+                    <div>
+                        <h4>Planes</h4>
+                            <div><i className="fa-solid fa-headphones-simple"></i></div>
+                                <div className={style.footer_content}>
+                                    <p><Link to="/premium">Free</Link></p>
+                                    <p><Link to="/premium">Premium</Link></p>
+                                    <p><Link to="/register">Registro</Link></p>
+                                </div>
+                        </div> 
+                            : 
+                            null
+                            }
                 <div className={style.footer_social}>
-                    <span><i className="fa-brands fa-facebook"></i></span>
-                    <span><i className="fa-brands fa-github"></i></span>
-                    <span><i className="fa-brands fa-linkedin"></i></span>
-                    <span><i className="fa-brands fa-spotify"></i></span>
+                    <span className={style.footer_icons}><i className="fa-brands fa-facebook"></i></span>
+                    <span className={style.footer_icons}><i className="fa-brands fa-github"></i></span>
+                    <span className={style.footer_icons}><i className="fa-brands fa-linkedin"></i></span>
+                    <span className={style.footer_icons}><i className="fa-brands fa-spotify"></i></span>
                 </div> 
             </div>
 
