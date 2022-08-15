@@ -1,6 +1,5 @@
 import { useEffect , useState } from "react"
 import { Link, useHistory } from "react-router-dom"
-import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import "../../css/users.css";
 
@@ -45,6 +44,20 @@ export default function UserProfile (){
                 </div>
             </div>
             <hr />
+            {
+                user.role==="Base"?
+                    <div className="bo">
+                        <p>Hazte Con Todos Los Beneficios</p>
+                        <Link to="/">
+                            PRUEBA PREMIUM AHORA
+                        </Link>
+                    </div>
+                :
+                <div>
+                    <p>Eres Premium Alto Capo</p>
+                </div>
+
+            }
             <div className="bo">
                 <Link to="/user">
                     <p>Seguidores</p>

@@ -26,7 +26,6 @@
   border-radius: 50%;
 }
 .detail h3 {
-  padding-top: 30px;
   color: #d400ff;
 }
 .detail p {
@@ -38,4 +37,11 @@
 #previewImg {
   max-width: 300px;
   height: auto;
+}
+.ci button{
+  text-align: center;
+  align-items: center;
+}
+.ci{
+  align-items: center;
 }
