@@ -1,10 +1,10 @@
 .side{
-    background-color: rgb(255, 255, 255);
+    background-color: #1b2831;
     padding: 15px;
     border-radius: 20px;
 }
 .side h5{
-    color: #fa42cc;
+    color: #ffffff;
     text-align: start;
     font-weight: 500;
 }
@@ -21,7 +21,7 @@
     text-decoration: none;
 }
 .can p{
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 0.9rem;
     padding-left: 20px;
 }
