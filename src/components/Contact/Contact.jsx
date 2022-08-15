@@ -53,8 +53,8 @@ function Contact() {
             if(error.name) return alert(error.name);
             if(error.email) return alert(error.email);
             if(error.message) return alert(error.message);
-        }
-    }
+        };
+    };
     return (
       <div>
         <div className={style.mainDiv}>
@@ -95,7 +95,6 @@ function Contact() {
                         <button type="submit" className={style.btn_send}>Enviar Mensaje</button>
                     </div>
                 </form>
-
                 </div>
             </div>
         </div>
