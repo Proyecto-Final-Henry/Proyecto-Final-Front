@@ -25,7 +25,7 @@ export default function Info (){
             <div className={style.content_box}>
                 <h3>Comenta de lo que más te gusta de tu cantante o canción favorita.</h3>
                 <p>Cientos de canciones / Recomendaciones para ti / Favoritos en un instante / Crea tu propia playlist y mucho más</p>
-                <button className={style.btn_free} ><Link to="/login"> Empieza Gratis </Link></button>
+                <button className={style.btn_free} ><Link to="/register"> Empieza Gratis </Link></button>
                 {/* <button><Link className={style.btn_free} to="/free"> Empieza Gratis </Link></button> */}
                 {/* <p className={style.Links} > <Link className={style.Links} to="/premium">USUARIO PREMIUM </Link> </p>  */}
             </div>
@@ -64,7 +64,7 @@ export default function Info (){
                         </div>
                     </div>
                 </div>
-                <button className={style.btn_free} ><Link to="/register"> Regístrate </Link></button>
+                <button className={style.btn_free} ><Link to="/register"> Prueba ReMusic Premium </Link></button>
             </div>
         </div>
     );

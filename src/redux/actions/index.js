@@ -291,7 +291,7 @@ export function getSongData(songId) {
 export function getAllUsers(){
   return async (dispatch) => {
     axios
-      .get("http://localhost:3001/api/back-end/user")
+      .get("/api/back-end/user")
       .then((allUsers) => {
         dispatch({
           type: GET_ALL_USERS,
