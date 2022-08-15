@@ -5,7 +5,7 @@ import SearchBar from "../Search/SearchBar";
 
 
 export default function ArtistSongsSearch({artistId}) {
-    const index= useSelector(store=>store.index)  
+    const index= useSelector(store=>store.index);
     let artistSongs = useSelector((state) => state.artistSongsSearch);
   
     return (
@@ -20,4 +20,4 @@ export default function ArtistSongsSearch({artistId}) {
         /> 
       </div>
     );
-  }
+  };

@@ -2,7 +2,6 @@ import { useEffect , useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import dashboard from "../../assets/dashboard.jpg"
-import { useSelector } from "react-redux";
 
 export default function AdminPanel (){
     const history = useHistory();

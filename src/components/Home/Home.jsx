@@ -14,7 +14,6 @@ function Home() {
         {/* <div className="footer-l">
           <Socket/>
         </div> */}
-
       </div>
     );
   };

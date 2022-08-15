@@ -22,11 +22,11 @@ export default function SongDetail() {
   return (
     <div>
       <div className="ti">
-        <h1>{songData.title}</h1>
+        <h1 style={{"marginTop": "15px"}}>{songData.title}</h1>
         <img src={songData.img} alt={songData.album} />
       </div>
       <h4>Duración:</h4>
-      <p>{(parseInt(songData.duration) / 60).toFixed(2)}</p>
+      <p>{(parseInt(songData.duration) / 60).toFixed(2)} minutos</p>
       <h4>Artista:</h4>
       <Link to={`/artist/${songData.artistId}`}>
         <p>{songData.artist}</p>
@@ -38,7 +38,7 @@ export default function SongDetail() {
       {songData.preview && (
         <div>
           <h4>Avance de la canción: </h4>
-          <PreviewPlayer preview={songData.preview} />
+          <PreviewPlayer preview={songData.preview}/>
         </div>
       )}
       {/* <br /> */}

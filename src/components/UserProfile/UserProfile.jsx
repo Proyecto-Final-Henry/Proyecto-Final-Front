@@ -89,7 +89,7 @@ export default function UserProfile() {
           <p className="userP">{user?.email}</p>
           <p className="userP">Miembro desde {user?.createdDate}</p>
           <p className="userP">Usuario {user?.role}</p>
-          {user.role === "Base" ? (
+          {user.role === "Gratuito" ? (
             <Button
               onClick={handleButton}
               variant="outline-success"

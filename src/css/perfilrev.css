@@ -5,6 +5,8 @@
     justify-content: space-around;
     align-items: center;
     background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
   .peRe img{
     width: 50px;

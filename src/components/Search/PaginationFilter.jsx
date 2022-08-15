@@ -6,9 +6,6 @@ import style from '../../css/pagination.module.css'
 
 export const pageLimit =10;
 
-
-
-
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
 

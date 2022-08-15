@@ -110,14 +110,15 @@ export default function SearchResult() {
         })}
       </div>
       <div>
-        {render.map(e=>{
+        {render.map((e, i)=>{
           if(e.selected){
             return(
               <PaginationFilter/>
             )
           }else{
             return(
-              <Pagination 
+              <Pagination
+              key={i}
               pagination = {pagination}
               query={query}
               filter={filter}
