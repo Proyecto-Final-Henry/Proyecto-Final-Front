@@ -27,6 +27,7 @@ import {io} from 'socket.io-client'
 import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import OtherUserPerfil from "./components/UserProfile/OtherUserProfile"
 
 function App() {
   const genres = useSelector((state) => state.genres);
@@ -162,6 +163,10 @@ function App() {
         <NavigationM/>
         <SongDetail/>
         <Footer />
+      </Route>
+
+      <Route exact path="/users/:id">
+        <OtherUserPerfil />
       </Route>
     </div>
   );

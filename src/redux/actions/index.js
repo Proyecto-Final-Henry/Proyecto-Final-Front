@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import axios from "axios";
 import {
   SEND_EMAIL_CONTACT,
@@ -21,7 +22,8 @@ import {
   CALC_PAGES,
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
-  GET_RANDOM_FEED
+  GET_RANDOM_FEED,
+  GET_OTHER_USER_DATA
 } from "../constants";
 
 export const sendEmailContact = (values) => {
@@ -312,4 +314,16 @@ export function getRandomFeed() {
         });
       });
   };
+}
+
+export function getOtherUser(id) {
+  return async(dispatch) => {
+    axios.get(`/api/back-end/user/${id}`)
+    .then((user) => {
+      dispatch({
+        type: GET_OTHER_USER_DATA,
+        payload: user.data
+      })
+    })
+  }
 }
