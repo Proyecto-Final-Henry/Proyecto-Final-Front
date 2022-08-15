@@ -26,6 +26,7 @@ import Genres from "./components/Genre/Genres";
 import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import Team from "./components/Team/Team";
 
 function App() {
 
@@ -67,6 +68,18 @@ function App() {
         <Footer/>
       </Route>
 
+      <Route exact path="/team">
+        <NavigationB/>
+        <Team/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/team2">
+        <NavigationM/>
+        <Team/>
+        <Footer/>
+      </Route>
+
       <Route exact path="/pay">
         <NavigationB/>
         <Pay/>
@@ -87,6 +100,12 @@ function App() {
 
       <Route exact path="/contact">
         <NavigationB/>
+        <Contact/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/contact2">
+        <NavigationM/>
         <Contact/>
         <Footer/>
       </Route>
