@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useState, useEffect} from 'react';
 import { getSearch } from '../../redux/actions';
 import Button from 'react-bootstrap/Button';
-import style from '../../css/filters.module.css'
+import style from '../../css/filters.module.css';
 
 export default function Filters (){
     const [state, setState]= useState({
@@ -15,8 +15,8 @@ export default function Filters (){
     const queryStore= useSelector(store=>store.query);
     const checkSearch= useSelector(store=>store.searchResult);
     const result= useSelector(store=>store.searchResult)
-    const artist= [...(new Set(result.map(e=>e.artist)))]
-    const album= [...(new Set(result.map(e=>e.album)))]
+    const artist= [...(new Set(result.map(e=>e.artist)))];
+    const album= [...(new Set(result.map(e=>e.album)))];
 
     const eventHandler = (e)=>{
         setState({...state,[e.target.name]: e.target.value, query:queryStore});

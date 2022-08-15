@@ -11,7 +11,7 @@ function Premium() {
     // useEffect(() => {
     //   const traerData = async () => {
     //     try {
-    //       const response  = await axios("http://localhost:3001/api/back-end/users/feedback")
+    //       const response  = await axios("/api/back-end/users/feedback")
     //       setData(response)
     //     } catch (error) {
     //       console.log(error)
@@ -61,6 +61,8 @@ function Premium() {
         </div>
         <div>
           <button class="btn btn-outline-success" onClick={handleButton}>Pasate al plan Premium</button>
+          <br />
+          <br />
         </div>
       </div>
     );

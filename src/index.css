@@ -114,14 +114,13 @@ Nav h5:hover{
 }
 
 .form{
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border-radius: 5px;
+  background-color: #1b2831;
+  color: rgb(255, 255, 255);
+  border-radius: 20px;
   font-size: 1rem;
   margin: 0 auto;
   width: 500px;
   padding: 35px;
-  border: 6px solid transparent;
 }
 .form label{
   padding: 10px;
@@ -129,6 +128,13 @@ Nav h5:hover{
 .form input, textarea{
   outline: none;
 
+}
+.form input{
+  border-radius: 10px;
+}
+.form textarea{
+  border-radius: 10px;
+  width: 60%;
 }
 
 .field{
@@ -148,8 +154,25 @@ Nav h5:hover{
   height: 60px;
   font-size: 17px;
 }
+.ini button{
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+  border-radius: 10px;
+  width: 65%;
+  height: 60px;
+}
 
-
+.go button{
+  background: white;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+.con button{
+  color: white;
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+  border-radius: 10px;
+}
 @media(max-width:600px){
   .footer-links{
     min-height: 37vh;
