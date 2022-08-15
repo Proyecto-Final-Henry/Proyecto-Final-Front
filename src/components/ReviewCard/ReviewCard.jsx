@@ -35,6 +35,7 @@ export default function ReviewCard() {
     autenticarUsuario();
   }, []);
 
+  console.log(reviewArray)
   return (
     <div className="reCart">
       {reviewArray ? (
