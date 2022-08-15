@@ -98,7 +98,9 @@ const Register = () => {
             <div className="crear">
                 <br />
                 <br />
-          <Button id="register" variant="outline-success" type="submit">Registro</Button>
+                <div className="ini">
+                  <Button id="register" type="submit" className="ini">Registrate</Button>
+                </div>
           </div>
           <br />
           <div>
