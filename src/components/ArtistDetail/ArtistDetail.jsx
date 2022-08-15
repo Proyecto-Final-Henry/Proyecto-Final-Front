@@ -25,7 +25,7 @@ export default function ArtistDetail() {
   let artistData = useSelector((state) => state.artistData);
 
   return (
-    <div>
+    <div style={{"backgroundColor": "pink"}}>
       <div className={style.artistDetail_header}>
         <div>
           <img src={artistData.image} alt={artistData.name} />

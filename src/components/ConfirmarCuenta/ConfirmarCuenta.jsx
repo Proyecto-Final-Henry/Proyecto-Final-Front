@@ -28,10 +28,7 @@ const ConfirmarCuenta = () => {
                 setAlerta({msg: error.response.data.msg , error: true})
             }
             setCargando(false)
-            setTimeout(() => {
-                history.push("/user");
-              },5000);
-        }
+        };
         confirmarCuenta()
         setTimeout(() => {
             history.push("/login");

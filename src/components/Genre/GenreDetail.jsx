@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { getGenre } from "../../redux/actions/actions_player";
 import style from "../../css/premium.module.css";
@@ -363,11 +363,13 @@ export default function GenreDetail() {
 
             <div>
             {genreDb.length ? genreDb.map((g) => 
-                <div className={style.albumDiv} key={g.id}>
-                    <h2 style={{"fontSize": "larger"}}>{g.title}</h2>
-                    <img src={g.image} alt="imagen de album" />
-                </div>  )
-                : 
+                <Link to={"/album/" + g.id}>
+                    <div className={style.albumDiv} key={g.id}>
+                        <h2 style={{"fontSize": "larger"}}>{g.title}</h2>
+                        <img src={g.image} alt="imagen de album" />
+                    </div>
+                </Link>)
+                    : 
                 <div className={style.mainDiv}>
                     ¡Recomiendanos tu album favorito de {GenreData.name} para mostrar!
                 </div>

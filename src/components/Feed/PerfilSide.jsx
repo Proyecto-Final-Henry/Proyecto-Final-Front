@@ -58,6 +58,7 @@ export default function UserProfile (){
                 </div>
 
             }
+            <br />
             <div className="bo">
                 <Link to="/user">
                     <p>Seguidores</p>

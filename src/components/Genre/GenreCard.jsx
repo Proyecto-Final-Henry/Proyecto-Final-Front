@@ -21,7 +21,6 @@ function GenreCard(props) {
         autenticarUsuario();
     }, [GenreCard]);
 
-
     return (
         <div className="gen">
             {

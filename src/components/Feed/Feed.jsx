@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -11,6 +11,7 @@ import { getGenres } from "../../redux/actions/actions_player";
 export default function Feed(){
     const history = useHistory();
     let dispatch = useDispatch();
+    const albumCheck = useSelector((state) => state.albumDb);
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -24,7 +25,9 @@ export default function Feed(){
         dispatch(getAllReviews());
         dispatch(getRandomSongs());
         dispatch(getGenres());
-        dispatch(createAlbum());
+        if (!albumCheck.length) {
+            dispatch(createAlbum());
+        }
         dispatch(createGenreDb());
     },[dispatch]);
     
