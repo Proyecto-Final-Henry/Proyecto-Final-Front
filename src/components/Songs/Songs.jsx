@@ -1,12 +1,10 @@
 import style from "../../css/songs.module.css";
 import SongCard from "./SongCard";
+
 function Songs(props) {
-
-
     if (props.songs.length !== 0) {
         return (
             <div className={style.songs}>
-                
                     {
                         props.songs && props.songs.map( (song,index) => {
                             return (
@@ -24,14 +22,13 @@ function Songs(props) {
                             )
                         })
                     }
-                
             </div>
         );
     }else{
         return (
             <div>No hay canciones</div>
         )
-    }
-}
+    };
+};
 
 export default Songs;

@@ -29,6 +29,9 @@ const ConfirmarCuenta = () => {
                 setAlerta({msg: error.response.data.msg , error: true})
             }
             setCargando(false)
+            setTimeout(() => {
+                history.push("/user");
+              },5000);
         }
         confirmarCuenta()
     },[token]);
@@ -44,6 +47,7 @@ const ConfirmarCuenta = () => {
                 </div>
                 <p>Ingresa Ahora Mismo</p>
             <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Ingresar</Button>
+
         </div>
     </div>
   );

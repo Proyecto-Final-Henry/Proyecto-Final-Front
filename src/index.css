@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgb(242, 242, 242);
+  background-color: #fff;
   background-size:auto;
   min-height: 100vh;
 }
@@ -61,11 +61,11 @@ Nav h5:hover{
 }
 
 /*imgCa*/
-.caru{
+/* .caru{
   padding-top: 20px;
-}
+} */
 .img1{
-  width:98%;
+  width:100%;
   height: 650px;
 }
 
@@ -354,4 +354,47 @@ Nav h5:hover{
 }
 .confir h1{
   color: white;
+}
+
+/* Estilos Nav */
+.nav_remusic{
+  /* background: linear-gradient(101.38deg,#fa42cc,#fff 150.71%); */
+  /* background: radial-gradient(circle at left 50%,#733a84,#fa42cc); */
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+  color: #fff;
+}
+.nav_remusic h5{
+  color: #fff !important;
+}
+Nav{
+  box-shadow: none;
+}
+.nav_btn_registro{
+  display: flex;
+  align-items: center;
+  
+}
+.btn_registrate{
+  background-color: #6457a6; 
+  border-radius: 8px;
+  padding: 5px 15px 10px 15px;
+}
+.btn_registrate:hover{
+  background-color: #5c46be; 
+}
+
+.carousel-indicators button{
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+}
+
+.carousel-indicators [data-bs-target]{
+  background-color: #fff !important;
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.carousel-indicators button.active{
+  background-color: #f73aa8 !important;
 }

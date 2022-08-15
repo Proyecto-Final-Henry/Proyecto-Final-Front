@@ -9,6 +9,6 @@ function AlbumCard(props) {
       <h2>{props.title}</h2>
     </div>
   );
-}
+};
 
 export default AlbumCard;
