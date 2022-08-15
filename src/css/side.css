@@ -4,8 +4,9 @@
     border-radius: 20px;
 }
 .side h5{
-    color: black;
+    color: #fa42cc;
     text-align: start;
+    font-weight: 500;
 }
 .can{
     padding: 8px;
@@ -16,6 +17,7 @@
     width: 45px;
 }
 .can a{
+    font-weight: 500;
     text-decoration: none;
 }
 .can p{

@@ -11,7 +11,7 @@ export default function ArtistTop({ artistId }) {
   }, []);
 
   let artistTop = useSelector((state) => state.artistTop);
-
+  console.log(artistTop)
   return (
     <div className="topSongs">
       <h2>Canciones del momento:</h2>
