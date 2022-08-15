@@ -131,7 +131,7 @@ export default function GenreDetail() {
                     :
                     null}
 
-                {GenreData.name === "Alternativo" ? 
+                {GenreData.name === "Alternativo" || GenreData.name === "Alternative" ? 
                     <div>
                         <h4>
                             La música alternativa es un término que engloba a todos los tipos de música que se contraponen a los modelos oficiales comúnmente aceptados.​ Este tipo de música no cuenta con rasgos diferenciadores que la conviertan en un estilo musical único y reconocible, sino que agrupa gran número de géneros musicales que se alejan de la música comercial o industrial y que tienen cada uno sus características propias.
@@ -183,7 +183,7 @@ export default function GenreDetail() {
                     :
                     null}
 
-                {GenreData.name === "Clásica" ? 
+                {GenreData.name === "Clásica" || GenreData.name === "Classical"  ? 
                     <div>
                         <h4>
                             La música clásica (también llamada música académica) es la corriente musical que se basa principalmente en la música producida o derivada de las tradiciones de la música litúrgica y secular de Occidente, principalmente Europa Occidental, y que posee un referente de transmisión fundamentalmente de tipo escrito, lo cual le da un sentido y carácter riguroso para su reproducción o interpretación. Aunque de forma amplia abarca un periodo de tiempo que va aproximadamente del siglo xi a la actualidad, es frecuente que se restrinja su uso para referirse a la Música Académica anterior al siglo xx, aunque en esencia y a pesar de que la música clásica propia del siglo xx posee estilísticamente diferencias substanciales con la producida en siglos anteriores, es esta considerada el resultado del mismo proceso evolutivo experimentado anteriormente.
@@ -208,7 +208,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}
-                {GenreData.name === "Películas/Juegos" ? 
+                {GenreData.name === "Películas/Juegos" || GenreData.name === "Films/Games" ? 
                     <div>
                         <h4>
                             Por música cinematográfica se entiende toda música, por lo general orquestada e instrumental, compuesta específicamente para acompañar las escenas de una película y apoyar la narración cinematográfica. Dentro de este tipo también se encuentra la llamada "música incidental". Esta música forma parte de la banda sonora de la película, típicamente abreviada como "BSO", que también puede incluir música preexistente, diálogos y efectos de sonido, y comprende una serie de piezas orquestales, instrumentales o corales llamadas señales, que están programadas para comenzar y finalizar en puntos específicos durante la película con el fin de mejorar la narración dramática y el impacto emocional de la escena en cuestión. Las partituras están escritas por uno o más compositores, bajo la guía o colaboración del director o productor de la película y generalmente son interpretadas por un conjunto de músicos, la mayoría de las cuales incluyen una orquesta o banda, solistas instrumentales y coro o vocalistas. - y grabado por un ingeniero de sonido. Las bandas sonoras originales "BSO" de las películas abarcan una enorme variedad de estilos de música, dependiendo de la naturaleza de las películas a las que acompañan. 
@@ -232,7 +232,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}   
-                {GenreData.name === "Romantica" ? 
+                {GenreData.name === "Romantica" || GenreData.name === "Romantica" ? 
                     <div>
                         <h4>
                             En la música, el Romanticismo fue un período que transcurrió, aproximadamente, entre los años 1810 y la primera década del siglo XX, y suele englobar toda la música escrita de acuerdo a las normas y formas de dicho período. El Romanticismo musical es un período de la música académica que fue precedido por el Clasicismo y seguido por el Impresionismo. Está relacionado, por supuesto, con el Romanticismo en otras disciplinas: la corriente de cambios en Literatura, Bellas Artes y Filosofía, aunque suele haber ligeras diferencias temporales dado que, el Romanticismo en aquellas Artes y en la Filosofía, se suele reconocer entre los años 1780 y 1840. El Romanticismo como movimiento global en las Artes y la Filosofía tiene como precepto que la verdad no podía ser deducida a partir de axiomas y que, en el mundo, había realidades inevitables que solo se podían captar mediante la emoción, el sentimiento y la intuición. La música del Romanticismo intentaba expresar estas emociones hacia una persona u objeto al cual quiere o aprecia.
@@ -280,7 +280,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null} 
-                {GenreData.name === "Niños" ? 
+                {GenreData.name === "Niños" || GenreData.name === "Kids" ? 
                     <div>
                         <h4>
                             Una canción infantil es aquella canción realizada con algún propósito para los niños pequeños y bebés. La letra suele ser muy sencilla y repetitiva, para su fácil comprensión y memorización. Además de la diversión que pueden pasar, es como los padres introducen de buena manera a sus hijos en el mundo de la música. Tradicionalmente, las canciones infantiles se transmiten de generación en generación y forman parte de la cultura popular, aunque en las últimas décadas han surgido numerosos artistas especializados en producir música y espectáculos audiovisuales dirigidos al público infantil.
@@ -292,7 +292,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}  
-                {GenreData.name === "Latino" ? 
+                {GenreData.name === "Latino" || GenreData.name === "Latin Music" ? 
                     <div>
                         <h4>
                             La música de América Latina (también, música latina) comprende géneros autóctonos de la región como el bolero, la salsa, la bossa nova, la música tropical, el merengue o la bachata, entre otros, y también los géneros que derivan de estilos más internacionales como el pop latino, el reguetón, el trap, el rock y el jazz latino. En su forma más generalizada, la música Latina es interpretada en español.
@@ -304,7 +304,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}  
-                {GenreData.name === "Música africana" ? 
+                {GenreData.name === "Música africana" || GenreData.name === "African Music" ? 
                     <div>
                          <h4>
                             El Norte de África es la cuna de la cultura mediterránea, incluyendo a Egipto y Cartago antes de ser gobernada sucesivamente por griegos, romanos y godos y convertirse posteriormente en el Magreb del mundo árabe. Como los géneros musicales del Valle del Nilo y del Cuerno de África, sus músicas porque son dos música tiene lazos con la música de Oriente Próximo.
@@ -319,7 +319,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}  
-                {GenreData.name === "Música asiática" ? 
+                {GenreData.name === "Música asiática" || GenreData.name === "Asian Music" ? 
                     <div>
                         <h4>
                         La música de Asia Central es tan amplia y única como las numerosas culturas y pueblos que habitan la región. Los principales tipos de instrumentos son los laúdes de dos o tres cuerdas, con los cuellos con o sin trastes; las violines de crin; las flautas, en su mayoría abiertas por ambos extremos y sopladas por los extremos o por los costados; y las arpas judías, en su mayoría de metal. Los instrumentos de percusión incluyen tambores de marco, panderetas y timbales. La polifonía instrumental se consigue principalmente con laúdes y violines.
@@ -335,7 +335,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}  
-                {GenreData.name === "Música Brasileña" ? 
+                {GenreData.name === "Música Brasileña" || GenreData.name === "Brazilian Music" ? 
                     <div>
                         <h4>
                             La música de Brasil es un viejo reflejo de la diversidad cultural de este país, con influencias Africanas, Indígenas, Lusas y otras Europeas. La samba y la bossa nova, son los géneros más conocidos. Aun así, hay varios géneros paradigmáticos que identifican la música brasileña. Como todas las expresiones de la cultura brasileña, la música de Brasil es una mezcla de muy diversas influencias, gestando a lo largo de su historia una gran variedad de ritmos regionales. Tradiciones musicales de Europa, ritmos africanos y estilos indígenas se han hibridado desde la época de la colonia para conformar un panorama de sonidos único en el mundo.
@@ -347,7 +347,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}     
-                {GenreData.name === "Música india" ? 
+                {GenreData.name === "Música india" || GenreData.name === "Indian Music" ? 
                     <div>
                         <h4>
                             La música de la India o música hindú incluye múltiples variedades de música tradicional, música pop y la música clásica de India. Incluye la música clásica indostaní y la música carnática y cuenta con una historia de varios milenios. La música clásica ligera o semiclásica incluye los siguientes géneros: thumri, dadra, ghazal, chaiti, kajri y tappa. Aunque están basados en los ragas, hay más licencia en la interpretación fuera de los límites formales de los ragas.
@@ -358,7 +358,55 @@ export default function GenreDetail() {
                         </h4>
                     </div>
                     :
-                    null}                                                     
+                    null}
+                {GenreData.name === "Christian" ? 
+                    <div>
+                        <h4>
+                            La música cristiana es la música creada y ejecutada como expresión del cristianismo. Esa expresión abarca una gran diversidad de estilos musicales que contienen letras con mensajes bíblicos o que involucran diferentes tipos de oración (de adoración, de acción de gracias, de petición), y cuya motivación principal es la fe cristiana. La música cristiana es de origen judío:​ la liturgia musical de la sinagoga, en particular el canto psalmódico de los judíos como unidad poética musical, fue un legado transmitido del Israel antiguo al cristianismo primitivo,2​ como forma de manifestar tanto a nivel personal como comunitario las creencias religiosas y la fe en Dios.
+                        </h4>
+                        <br />
+                        <h4>
+                            La definición y el objetivo de música cristiana varían en función de la denominación cristiana que la promueva. Se considera una herramienta útil, tanto para evangelizar al creyente,​ como para tratar aspectos de la vida que ha de llevar un cristiano.
+                        </h4>
+                    </div>
+                    :
+                    null}  
+                {GenreData.name === "Country" ? 
+                    <div>
+                        <h4>
+                            El country (también llamado country & western, música country o música campirana) es un género musical surgido en los años 1920 en las regiones rurales del Sur de Estados Unidos y en las Marítimas de Canadá y Australia. En sus orígenes, combinó la música folclórica de algunos países europeos de inmigrantes, principalmente Irlanda, con otras formas musicales, como el blues, el bluegrass y la música espiritual y religiosa, como el góspel. El término country comenzó a utilizarse en los años 1950, en detrimento del término hillbilly, que era como se le conocía hasta entonces, y su uso terminó de consolidarse en los años 1970.
+                        </h4>
+                        <br />
+                        <h4>
+                            El country tradicional, se tocaba esencialmente con instrumentos de cuerda, como la guitarra, el banjo, el violín sencillo (fiddle) y el contrabajo, aunque también intervenían frecuentemente el acordeón (de influencia francesa para la música cajún), y la armónica. En el country moderno se utilizan sobre todo los instrumentos electrónicos, como la guitarra eléctrica, el bajo eléctrico, los teclados, el dobro, o la steel guitar.
+                        </h4>
+                    </div>
+                    :
+                    null} 
+                {GenreData.name === "Salsa" ? 
+                    <div>
+                        <h4>
+                            La salsa es un género musical bailable resultante de la síntesis del son cubano y otros géneros de música caribeña y estadounidenses como el jazz y el blues. La salsa se consolidó como un éxito comercial por músicos de origen puertorriqueño en Nueva York en la década de 1960, y por la labor de quien fue su principal armador, el dominicano Johnny Pacheco,3​ si bien sus raíces se remontan a décadas anteriores en países de la cuenca del Caribe. La salsa finalmente se extendió a lo largo de Latinoamérica, dando lugar a escenas regionales como la puertorriqueña, panameña, venezolana, cubana, dominicana, colombiana,5​ ecuatoriana y de otros países de la región. La salsa abarca varios estilos como la salsa dura, la salsa romántica y la timba.
+                        </h4>
+                        <br />
+                        <h4>
+                            La salsa presenta las siguientes características: <br/> Ritmo: Utiliza como base la clave de son, el patrón rítmico del son cubano, que puede ser 2-3 o 3-2. <br/> Melodía: En muchos casos las melodías usadas en la salsa se corresponden con las empleadas tradicionalmente en el son montuno aunque puede asimilarse también a otros géneros de la música cubana y caribeña tradicional, inclusive melodías de la música popular latinoamericana. <br/> Armonía: Se corresponde con la utilizada en la música occidental. <br /> Instrumentación: Usa instrumentos de percusión cubanos popularizados desde los años 1920 como pailas o timbales, bongó, güiro cubano, cencerro, dos maracas y conga. Arsenio Rodríguez se presentó como el primer músico en incorporar la conga o tambó a las orquestas de baile.
+                        </h4>
+                    </div>
+                    :
+                    null} 
+                {GenreData.name === "Traditional Mexico" ? 
+                    <div>
+                        <h4>
+                            La música en México es rica en variedad de géneros, ritmos y temas. Es fruto del mestizaje entre las tradiciones europea y americana, pero tiene profundas raíces de lo prehispánico y africano que, aunque poco reconocida en otros ámbitos culturales, es en la música donde adquiere mayor relevancia. El mariachi, organización musical que identifica actualmente a México, es una forma de expresión artística que unifica a través de sus sonidos al país y a sus habitantes. Las emociones y sentimientos que se muestran en una serenata o fiesta popular, está presente en todos los eventos sociales.
+                        </h4>
+                        <br />
+                        <h4>
+                            Con el inicio de la segunda mitad del siglo XX México, gracias a las políticas de apertura hacia los prófugos de los diferentes conflictos armados internacionales o nacionales en otros países, acogió en exilio a varios compositores extranjeros que se radicaron en el país después de 1940 (véase sobre todo exilio español en México). Entre ellos figuran de manera prominente Rodolfo Halffter, de origen español, a quien se debe la formalización de la enseñanza de la música serial en el Conservatorio Nacional de Música (México), Gerhart Muench, pianista y compositor alemán que ejerció una influencia serial entre los nuevos compositores mexicanos; Julián Orbón, cubano español que enseña en el Taller de Composición que funda Carlos Chávez y Conlon Nancarrow, estadounidense nacionalizado mexicano, que recurre al piano mecánico para hacer aportes originales en relación con el tiempo en música, como sus desarrollos en la polirritmia, en la polimétrica y en la politemporalidad.
+                        </h4>
+                    </div>
+                    :
+                    null}                                                                                                                                             
             </div>
 
             <div>

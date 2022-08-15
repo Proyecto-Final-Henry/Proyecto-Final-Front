@@ -1,14 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getArtistTop } from "../../redux/actions";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function ArtistTop({ artistId }) {
   let dispatch = useDispatch();
+  let history = useHistory();
 
   useEffect(() => {
     dispatch(getArtistTop(artistId));
   }, []);
+
+  useEffect(() => {
+    const autenticarUsuario = async () => {
+        const token = localStorage.getItem("token")
+        if(!token){
+            history.push("/login")
+            return
+        }
+    };
+    autenticarUsuario()
+  },[]);
 
   let artistTop = useSelector((state) => state.artistTop);
   console.log(artistTop)

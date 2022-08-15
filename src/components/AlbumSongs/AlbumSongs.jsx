@@ -1,10 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getAlbumSongs, getAlbumData } from "../../redux/actions";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function AlbumSongs({ albumId }) {
   let dispatch = useDispatch();
+  let history = useHistory();
+
+  useEffect(() => {
+    const autenticarUsuario = async () => {
+        const token = localStorage.getItem("token")
+        if(!token){
+            history.push("/login")
+            return
+        }
+    };
+    autenticarUsuario()
+  },[]);
 
   useEffect(() => {
     dispatch(getAlbumSongs(albumId));

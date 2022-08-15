@@ -22,7 +22,7 @@ export default function UserProfile() {
       if(!token){
           history.push("/login");
           return;
-      }
+      };
       const config = {
           headers: {
               "Content-Type" : "application/json",

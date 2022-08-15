@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getArtistData } from "../../redux/actions";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CreateReview from "../CreateReview/CreateReview";
 import ArtistTop from "../ArtistTop/ArtistTop";
@@ -18,6 +18,19 @@ export default function ArtistDetail() {
   let dispatch = useDispatch();
   let artistId = useParams().id;
   const [key, setKey] = useState('top');
+  let history = useHistory();
+
+  useEffect(() => {
+    const autenticarUsuario = async () => {
+        const token = localStorage.getItem("token")
+        if(!token){
+            history.push("/login")
+            return
+        }
+    };
+    autenticarUsuario()
+  },[]);
+
   useEffect(() => {
     dispatch(getArtistData(artistId));
   }, []);

@@ -21,7 +21,7 @@ export default function Feed(){
                 return
             }
         };
-         autenticarUsuario();
+        autenticarUsuario();
         dispatch(getAllReviews());
         dispatch(getRandomSongs());
         dispatch(getGenres());
