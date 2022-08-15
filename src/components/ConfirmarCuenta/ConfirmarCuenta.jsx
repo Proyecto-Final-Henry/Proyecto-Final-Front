@@ -28,6 +28,9 @@ const ConfirmarCuenta = () => {
                 setAlerta({msg: error.response.data.msg , error: true})
             }
             setCargando(false)
+            setTimeout(() => {
+                history.push("/user");
+              },5000);
         }
         confirmarCuenta()
     },[token]);
@@ -35,8 +38,9 @@ const ConfirmarCuenta = () => {
   return (
     <div className="conf">
         <div className='confi'>
-            <h1> Tu cuenta ha sido confirmada</h1>
-            <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Ingresar</Button>
+            <h1> Tu cuenta ha sido confirmada con exito</h1>
+            <br />
+            <Button onClick={handleButton} variant="outline-success" type="submit" className='boton' style={{"fontSize":"larger"}}>Ingresar</Button>
         </div>
     </div>
   );

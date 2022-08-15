@@ -34,7 +34,6 @@ export default function Feed(){
                 <Per/>
             </div>
             <div className="cen">
-                <h1>REVIEWS</h1>
                 <ReviewCard/>
             </div>
             <div className="ult">

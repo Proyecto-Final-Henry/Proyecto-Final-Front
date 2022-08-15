@@ -9,11 +9,8 @@ import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
-
-  const history = useHistory()
-  
-
-  const [user, setUser] = useState({})
+  const history = useHistory();
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -32,7 +29,7 @@ export default function ReviewCard() {
         const { data } = await axios(`/api/back-end/users/perfil`, config);
         setUser(data);
       } catch (error) {
-        console.log(error.response.data.msg);
+        console.log(error?.response.data.msg);
       }
     };
     autenticarUsuario();

@@ -28,7 +28,7 @@ export default function CreateReview({ apiId, type, name }) {
       };
       try {
         const { data } = await axios(
-          `http://localhost:3001/api/back-end/users/perfil`,
+          `/api/back-end/users/perfil`,
           config
         );
         setUser(data);
@@ -43,7 +43,7 @@ export default function CreateReview({ apiId, type, name }) {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3001/api/back-end/reviews/create", {
+      await axios.post("/api/back-end/reviews/create", {
         apiId,
         type,
         name,
@@ -53,9 +53,9 @@ export default function CreateReview({ apiId, type, name }) {
         userId: user.id,
       });
     } catch (err) {
-      throw new Error("No pudimos crear tu review");
+      throw new Error("No pudimos crear tu reseña");
     }
-    alert('Review Creada')
+    alert('Reseña creada existosamente')
     history.push("/feed")
   };
 

@@ -1,7 +1,7 @@
 import ComparativoPremium from "../../assets/comparativa.png";
 import style from "../../css/premium.module.css";
 import { useHistory } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 
 function Premium() {
     let history = useHistory();
@@ -34,7 +34,7 @@ function Premium() {
       };
         try {
           if (window.confirm("Seras redirigido a MercadoPago")) {
-            const { data } = await axios.post(`http://localhost:3001/api/back-end/users/create_preference`, {description: "Premium", price: 1, quantity: 1}, config)
+            const { data } = await axios.post(`/api/back-end/users/create_preference`, {description: "Premium", price: 1, quantity: 1}, config)
             window.open(data.id.init_point);   // // sandbox_init_point
             history.push("/pay");
           }
@@ -55,11 +55,10 @@ function Premium() {
             <h3>Ve quien te sigue</h3>
             <h3>Recompensas exclusivas</h3>
         </div>
-<br />
+        <br />
         <div className={style.comparative}>
           <img src={ComparativoPremium} alt="Premium vs Free" />
         </div>
-      
         <div>
           <button class="btn btn-outline-success" onClick={handleButton}>Pasate al plan Premium</button>
         </div>

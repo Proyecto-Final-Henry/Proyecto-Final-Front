@@ -4,9 +4,6 @@ import { getArtistSongs} from "../../redux/actions";
 import Songs from "../Songs/Songs";
 import Pagination from "../Search/Pagination";
 
-
-
-
 export default function ArtistSongs({artistId}) {
     let dispatch = useDispatch();
   
@@ -14,15 +11,13 @@ export default function ArtistSongs({artistId}) {
       dispatch(getArtistSongs(artistId));
     }, []);
 
-    const pagination = useSelector(store=>store.pagination)
-    const filter= useSelector(store=>store.filter)
-    const index= useSelector(store=>store.index)  
+    const pagination = useSelector(store=>store.pagination);
+    const filter= useSelector(store=>store.filter);
+    const index= useSelector(store=>store.index)  ;
     let artistSongs = useSelector((state) => state.artistSongs);
   
     return (
       <div className="topSongs">
-        
-                
         <Songs 
           songs={artistSongs}
           index={index}
@@ -36,4 +31,4 @@ export default function ArtistSongs({artistId}) {
         />
       </div>
     );
-  }
+  };
