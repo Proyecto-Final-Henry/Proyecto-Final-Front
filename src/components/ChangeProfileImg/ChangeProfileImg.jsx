@@ -39,6 +39,14 @@ export default function ChangeProfileImg({ userId, setShowImg }) {
 
   return (
     <div>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          setShowImg(true);
+        }}
+      >
+        x
+      </button>
       <h3>Elige una imagen de perfil</h3>
       {previewSource && (
         <img src={previewSource} alt="perfil" id="previewImg" />
