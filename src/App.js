@@ -184,7 +184,9 @@ function App() {
       </Route>
 
       <Route exact path="/users/:id">
+        <NavigationM/>
         <OtherUserPerfil />
+        <Footer/>
       </Route>
     </div>
   );
