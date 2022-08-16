@@ -26,6 +26,7 @@ import Genres from "./components/Genre/Genres";
 import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import OtherUserPerfil from "./components/UserProfile/OtherUserProfile"
 import Team from "./components/Team/Team";
 import PremiumIn from "./components/Premium/PremiumIn";
 import ContactIn from "./components/Contact/ContactIn";
@@ -191,6 +192,11 @@ function App() {
         <Footer/>
       </Route>
 
+      <Route exact path="/users/:id">
+        <NavigationM/>
+        <OtherUserPerfil />
+        <Footer/>
+      </Route>
     </div>
   );
 };

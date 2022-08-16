@@ -44,17 +44,12 @@ export default function ReviewCard() {
               <div className="carti">
                 <div className="per">
                   <div className="peRe">
-                    {r.userId !== user.id ? (
-                      <Follow
-                        followers={r.user.followers}
-                        followings={r.user.followings}
-                        id={r.userId}
-                        meId={user.id}
-                      />
-                    ) : (
-                      <></>
-                    )}
+                    {r.userId !== user.id ?
+                      <Follow followers={r.user.followers} followings={r.user.followings} id={r.userId} meId={user.id}/>:<></>
+                    }
+                    <Link to={`/users/${r.user.id}`}>
                     <img src={r.user.userImg} alt="" />
+                    </Link>
                     <h4>{r.user.name}</h4>
                     <h5>{r.user.role}</h5>
                   </div>

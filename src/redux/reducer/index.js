@@ -21,7 +21,8 @@ import {
   CALC_PAGES,
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
-  GET_RANDOM_FEED
+  GET_RANDOM_FEED,
+  GET_OTHER_USER_DATA
 } from "../constants";
 
 const initialState = {
@@ -54,6 +55,7 @@ const initialState = {
   songData: {},
   users:[],
   genresDb: [],
+  otherUser: {},
 };
 
 function rootReducer(state = initialState, action) {
@@ -211,6 +213,11 @@ function rootReducer(state = initialState, action) {
           ...state,
           randomFeed: action.payload,
         };
+    case GET_OTHER_USER_DATA:
+      return {
+        ...state,
+        otherUser: action.payload,
+      }
     default:
       return state;
   };
