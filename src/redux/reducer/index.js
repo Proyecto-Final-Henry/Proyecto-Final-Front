@@ -95,7 +95,6 @@ function rootReducer(state = initialState, action) {
         currentPage: currentPage,         
       };     
     case GET_SEARCH:
-      console.log(action.payload)
       let response = action.payload.response;
       let valueIndex;
       if (action.payload.index === undefined) {
