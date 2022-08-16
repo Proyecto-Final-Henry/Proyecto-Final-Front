@@ -184,3 +184,95 @@
   box-shadow: 0 5px 10px  rgb(11, 0, 130);
   overflow: hidden;
 }
+
+
+.plan{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #273b49;
+}
+
+.plan h2{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #703183;
+}
+
+.plan_card{
+  border: 1px solid red;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  border-radius: 12px;
+  color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 6px #ccc;
+  align-items: center;
+}
+
+.plan_free{
+  background: linear-gradient(137deg,#a564b9 15.51%,#703183 51.65%,#9663a5 85.09%);
+  margin-bottom: 40px;
+}
+.plan_premium{
+  background: linear-gradient(137deg,#ec3da3 15.51%,#b1086a 51.65%,#f343aa 85.09%);
+  margin-bottom: 40px;
+}
+.plan_description{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: flex-start;
+}
+
+.plan_description>span{
+  margin-bottom: 6px;
+}
+
+.plan_price{
+  font-size: 30px;
+  font-weight: 400;
+}
+.plan_price>span{
+  font-size: 15px;
+}
+.plan_footer{
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.btn_free{
+  background-color: #e30086;
+  border: 1px solid #e30086;
+  border-radius: 8px;
+  padding: 5px 30px;
+  box-shadow: 2px 2px 4px #ccc;
+  font-weight: 600;
+  width: 250px;
+  color: #fff;
+}
+.btn_free a{
+  color: #fff;
+  text-decoration: none;
+}
+.btn_free a:hover{
+  color: #fff;
+}
+
+.btn_free:hover{
+  background-color: #fa42cc;
+  border: 1px solid #fa42cc;
+}
+
+.btn_premium{
+  background-color: #703183;
+  border: 1px solid #703183;
+}
+
+
+.btn_premium:hover{
+  background-color: #a142be;
+  border: 1px solid #a142be;
+}
