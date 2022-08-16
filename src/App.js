@@ -27,6 +27,9 @@ import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import Team from "./components/Team/Team";
+import PremiumIn from "./components/Premium/PremiumIn";
+import ContactIn from "./components/Contact/ContactIn";
+import TeamIn from "./components/Team/TeamIn";
 
 function App() {
 
@@ -62,6 +65,12 @@ function App() {
         <Footer/>
       </Route>
 
+      <Route exact path="/premium2">
+        <NavigationM/>
+        <PremiumIn/>
+        <Footer/>
+      </Route>
+      
       <Route exact path="/free">
         <NavigationB/>
         <Free/>
@@ -76,7 +85,7 @@ function App() {
 
       <Route exact path="/team2">
         <NavigationM/>
-        <Team/>
+        <TeamIn/>
         <Footer/>
       </Route>
 
@@ -106,7 +115,7 @@ function App() {
 
       <Route exact path="/contact2">
         <NavigationM/>
-        <Contact/>
+        <ContactIn/>
         <Footer/>
       </Route>
 

@@ -25,8 +25,8 @@ export default function Footer(){
                 <div>
                     <div><i className="fa-solid fa-people-group"></i></div>
                     <div className={style.footer_content}>
-                        {token ? <p><Link to="/contact">El equipo</Link></p> : <p><Link to="/team">El equipo</Link></p>}
-                        {token ? <p><Link to="/contact">Contacto</Link></p> : <p><Link to="/contact">Contacto</Link></p>}
+                        {token ? <p><Link to="/team2">El equipo</Link></p> : <p><Link to="/team">El equipo</Link></p>}
+                        {token ? <p><Link to="/contact2">Contacto</Link></p> : <p><Link to="/contact">Contacto</Link></p>}
                     </div>
                 </div> 
                 <h5>Hecho con <i className="fa-solid fa-heart"></i> para el mundo</h5>
@@ -37,7 +37,7 @@ export default function Footer(){
                         <h4>Planes</h4>
                             <div><i className="fa-solid fa-headphones-simple"></i></div>
                                 <div className={style.footer_content}>
-                                    <p><Link to="/premium">Free</Link></p>
+                                    <p><Link to="/free">Free</Link></p>
                                     <p><Link to="/premium">Premium</Link></p>
                                     <p><Link to="/register">Registro</Link></p>
                                 </div>

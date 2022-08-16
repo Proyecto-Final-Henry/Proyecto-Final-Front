@@ -47,13 +47,16 @@ export function getUserData(id) {
         dispatch({ type: GET_USER_DATA, payload: json });
       });
   };
-}
+};
+
 export  function onPageChanged(data) {
   return {type: ON_PAGE_CHANGED, payload: data }
-}
+};
+
 export function calcPages(limit){
   return {type:CALC_PAGES, payload:limit}
-}
+};
+
 export function getSearch(toFind, filter, index,id, obj) {
   let artist, album, explicit,selected;
   if(obj){
@@ -94,7 +97,7 @@ export function getArtistSongSearch(toFind,filter,index,id) {
         });
       });
   };
-}
+};
 
 export function getArtistData(id) {
   return async (dispatch) => {
@@ -107,7 +110,8 @@ export function getArtistData(id) {
         });
       });
   };
-}
+};
+
 export function getArtistAlbum(id) {
   return async (dispatch) => {
     return axios
@@ -121,7 +125,8 @@ export function getArtistAlbum(id) {
         });
       });
   };
-}
+};
+
 export function getArtistSongs(id, filter, index) {
   return async (dispatch) => {
     return axios
@@ -138,7 +143,7 @@ export function getArtistSongs(id, filter, index) {
         });
       });
   };
-}
+};
 
 export function getArtistTop(id) {
   return async (dispatch) => {
@@ -153,7 +158,7 @@ export function getArtistTop(id) {
         });
       });
   };
-}
+};
 
 export function getResReviews(apiId, type) {
   return async (dispatch) => {
@@ -257,7 +262,7 @@ export function getAllReviews() {
       });
     });
   };
-}
+};
 
 export function getRandomSongs() {
   return async (dispatch) => {
@@ -270,7 +275,7 @@ export function getRandomSongs() {
         });
       });
   };
-}
+};
 
 export function getSongData(songId) {
   return async (dispatch) => {
@@ -283,7 +288,7 @@ export function getSongData(songId) {
         });
       });
   };
-}
+};
 
 export function getAllUsers(){
   return async (dispatch) => {

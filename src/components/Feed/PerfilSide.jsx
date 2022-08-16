@@ -48,7 +48,7 @@ export default function UserProfile (){
                 user.role==="Gratuito"?
                     <div className="bo">
                         <p>Hazte Con Todos Los Beneficios</p>
-                        <Link to="/">
+                        <Link to="/premium2">
                             PRUEBA PREMIUM AHORA
                         </Link>
                     </div>
@@ -58,6 +58,7 @@ export default function UserProfile (){
                 </div>
 
             }
+            <br />
             <div className="bo">
                 <Link to="/user">
                     <p>Seguidores</p>
