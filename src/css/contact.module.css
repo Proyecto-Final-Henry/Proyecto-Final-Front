@@ -11,7 +11,7 @@
     justify-content: space-evenly;
     align-items: center;
     box-sizing: border-box;
-    background-color: #d558ff;;
+    background-color: pink;
     border-radius: 20px;
     overflow: hidden;
     border: 2px solid black;
@@ -47,11 +47,11 @@ form{
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-};
+}
 
 .form_input{
     width: 500px;
-};
+}
 
 .form_input input{
     width: 100%;
@@ -60,14 +60,14 @@ form{
     padding: 4px 12px;
     font-size: 15px;
     color: rgba(8,34,78,.9);
-};
+}
 
 form p{
     margin-bottom: 10px;
     font-size: 12px;
     text-align: left;
     color: red;
-};
+}
 
 .btn_send{
     border: 1px solid #023880;
@@ -79,7 +79,7 @@ form p{
     color: #fff;
     cursor: pointer;
     
-};
+}
 
 textarea{
     width: 100%;
@@ -88,4 +88,4 @@ textarea{
     padding: 4px 12px;
     font-size: 15px;
     color: rgba(8,34,78,.9);
-};
+}

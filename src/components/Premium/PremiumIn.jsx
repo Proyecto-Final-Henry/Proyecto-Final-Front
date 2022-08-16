@@ -33,7 +33,7 @@ function PremiumIn() {
         try {
           if (window.confirm("Seras redirigido a MercadoPago")) {
             const { data } = await axios.post(`/api/back-end/users/create_preference`, {description: "Premium", price: 1, quantity: 1}, config)
-            window.open(data.id.init_point);   // // sandbox_init_point
+            window.open(data.id.sandbox_init_point);   // sandbox_init_point / init_point
             history.push("/pay");
           }
         } catch (error) {
@@ -43,6 +43,7 @@ function PremiumIn() {
 
     return (
       <div>
+        <br />
         <div className={style.mainDiv}>
            <h1>Beneficios de Usuarios Premium</h1>          
         </div>
