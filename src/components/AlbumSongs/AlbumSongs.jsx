@@ -38,7 +38,7 @@ export default function AlbumSongs({ albumId }) {
             <Link to={`/song/${s.id}`}>
               <p>{s.title}</p>
             </Link>
-            <p>duración: {(parseInt(s.duration) / 60).toFixed(2)}</p>
+            <p>Duración: {(parseInt(s.duration) / 60).toFixed(2)} minutos</p>
           </div>
         );
       })}
