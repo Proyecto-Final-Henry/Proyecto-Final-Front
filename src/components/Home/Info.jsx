@@ -64,7 +64,7 @@ export default function Info (){
                         </div>
                     </div>
                 </div>
-                <button className={style.btn_free} ><Link to="/register"> Prueba ReMusic Premium </Link></button>
+                <button className={style.btn_free} ><Link to="/premium"> Prueba ReMusic Premium </Link></button>
             </div>
         </div>
     );

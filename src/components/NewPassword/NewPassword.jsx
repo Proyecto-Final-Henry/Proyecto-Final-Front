@@ -47,7 +47,7 @@ const NewPassword = () => {
         };
 
         try {
-            const url = `http://localhost:3001/api/back-end/users/olvide-password/${token}`
+            const url = `/api/back-end/users/olvide-password/${token}`
             const { data } = await axios.post( url , { password })
             setAlerta({msg: data.msg , error: false})
             setPasswordConfirmada(true)

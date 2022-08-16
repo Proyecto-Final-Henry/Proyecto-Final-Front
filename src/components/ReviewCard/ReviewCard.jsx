@@ -99,7 +99,6 @@ export default function ReviewCard() {
         <div className={style.revDiv}>
           <h2>¡Aún no hay reseñas!</h2>
           <h3>Se el primero en crear una!</h3>
-          <Link to="/music">Descubre tu nueva canción favorita</Link>
         </div>
       )}
     </div>

@@ -9,7 +9,6 @@ import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
 export default function UserProfile() {
   //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params
   const history = useHistory();
-
   const [user, setUser] = useState({});
   const [showImg, setShowImg] = useState(true);
 
@@ -22,7 +21,7 @@ export default function UserProfile() {
       if(!token){
           history.push("/login");
           return;
-      }
+      };
       const config = {
           headers: {
               "Content-Type" : "application/json",
@@ -32,7 +31,7 @@ export default function UserProfile() {
         try {
           if (window.confirm("Seras redirigido a MercadoPago")) {
             const { data } = await axios.post(`/api/back-end/users/create_preference`, {description: "Premium", price: 1, quantity: 1}, config)
-            window.open(data.id.init_point);   // sandbox_init_point
+            window.open(data.id.sandbox_init_point);   // sandbox_init_point
             history.push("/pay");
           }
         } catch (error) {

@@ -43,7 +43,7 @@ const RecoverPassword = () => {
                         className="field"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
-                        placeholder="Enter Email"/>
+                        placeholder="Ingrese su correo..."/>
                     </div> 
                     <div className="crear">
                         <br />
