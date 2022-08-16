@@ -56,19 +56,17 @@ function Contact() {
         };
     };
     return (
-      <div>
-        <div className={style.mainDiv}>
-           <h1>Información de contacto</h1>          
-            <br />
-            <br />
-            <h3>Nos interesa saber tu experciencia en nuestra página</h3>
-            <h3>Si tuviste algún inconveniente o queres contarnos tu opnion sobre tu página, no dudes en mandarnos un mensaje!</h3>
-            <h4>En Music App, valoramos sobre todas las cosas la experiencia de nuestros usuarios. Cuentanos como te sientes al usar nuestra página o que ideas tiernes para mejorarla.</h4>
-            <h4>¡Leeremos todas las propuetas y las tendremos en cuenta!</h4>
+      <div className={style.form_contact}>
+        <div className={style.contact}>
+           <h2>Información de contacto</h2>          
+            <p>Nos interesa saber tu experiencia en nuestra página</p>
+            <p>Si tuviste algún inconveniente o queres contarnos tu opinión sobre tu página, no dudes en mandarnos un mensaje!</p>
+            <p>En Music App, valoramos sobre todas las cosas la experiencia de nuestros usuarios. Cuentanos como te sientes al usar nuestra página o que ideas tienes para mejorarla.</p>
+            <p><b>¡Leeremos todas las propuetas y las tendremos en cuenta!</b></p>
         </div>
 
         <div className="created">
-            <div className="cre">
+            <div>
                 <form onSubmit={onSubmit} className="form">
                         <h4>Contactanos Aqui</h4>
                         <input 

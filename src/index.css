@@ -115,6 +115,9 @@ Nav h5:hover{
   padding-top: 40px;
   padding-bottom: 30px;
 }
+.created{
+  margin-bottom: 40px;
+}
 
 .form{
   background-color: #1b2831;
@@ -174,7 +177,9 @@ Nav h5:hover{
 .con button{
   color: white;
   background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
-  border-radius: 10px;
+  border-radius: 6px;
+  padding: 5px 10px;
+  border: 1px solid #a64ac2;
 }
 @media(max-width:600px){
   .footer-links{
@@ -193,6 +198,8 @@ Nav h5:hover{
   align-items: center;
 }
 }
+
+
 
 /*sea*/
 .pagi{

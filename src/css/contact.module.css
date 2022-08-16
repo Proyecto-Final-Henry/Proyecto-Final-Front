@@ -1,3 +1,28 @@
+.contact{
+    padding: 20px 30px;
+}
+.contact h2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.contact p{
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.form_contact input{
+    width: 300px;
+    padding: 5px 10px;
+}
+.form_contact textarea{
+    width: 300px;
+    padding: 5px 10px;
+}
+
+.form_contact button{
+    background-color: green !important;
+}
 .mainDiv{
     width: 65%;
     margin-top: 50px;
@@ -69,9 +94,9 @@ form p{
     color: red;
 }
 
-.btn_send{
+button.btn_send{
     border: 1px solid #023880;
-    background-color: #023880;
+    background-color: #023880 ;
     border-radius: 6px;
     padding: 8px 50px;
     margin-top: 10px;
@@ -88,4 +113,4 @@ textarea{
     padding: 4px 12px;
     font-size: 15px;
     color: rgba(8,34,78,.9);
-}
+};
