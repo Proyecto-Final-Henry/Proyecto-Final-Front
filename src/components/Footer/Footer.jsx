@@ -37,7 +37,7 @@ export default function Footer(){
                         <h4>Planes</h4>
                             <div><i className="fa-solid fa-headphones-simple"></i></div>
                                 <div className={style.footer_content}>
-                                    <p><Link to="/premium">Free</Link></p>
+                                    <p><Link to="/free">Free</Link></p>
                                     <p><Link to="/premium">Premium</Link></p>
                                     <p><Link to="/register">Registro</Link></p>
                                 </div>
