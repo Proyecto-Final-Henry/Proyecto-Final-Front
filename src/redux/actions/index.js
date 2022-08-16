@@ -66,21 +66,18 @@ export function getSearch(toFind, filter, index,id, obj) {
   }
   (obj.explicit && obj.explicit!== 'Seleccione una opción')||(obj.album && obj.album!== 'Seleccione un album') ||(obj.artist && obj.artist!== 'Seleccione un artista')? selected=true : selected=false;
   return async function (dispatch) {
-    return fetch(
-      `/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}&artist=${artist}&album=${album}&explicit=${explicit}`)
-      .then((response) => response.json())
-      .then((json) => {
+    return axios(`/api/back-end/search?query=${toFind}&filter=${filter}&index=${index}&artist=${artist}&album=${album}&explicit=${explicit}`)
+      .then((response) => {
         dispatch({
           type: GET_SEARCH,
           payload: {
-            response: json,
+            response: response.data,
             query: toFind,
             filter: filter,
             index: index,
             selected:selected
           },
         });
-
       });
   };
 };
