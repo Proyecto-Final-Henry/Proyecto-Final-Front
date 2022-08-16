@@ -54,10 +54,13 @@ Nav h5:hover{
   color: #032c61;
   transition: all .3s ease-in-out;
 }
+.logo{
+  display: flex;
+
+}
 
 .logo img{
-  height: 75px;
-
+  height: 35px; 
 }
 
 /*imgCa*/
@@ -424,3 +427,5 @@ Nav{
 .carousel-indicators button.active{
   background-color: #f73aa8 !important;
 }
+
+
