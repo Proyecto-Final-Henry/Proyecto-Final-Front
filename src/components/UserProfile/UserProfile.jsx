@@ -9,7 +9,6 @@ import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
 export default function UserProfile() {
   //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params
   const history = useHistory();
-
   const [user, setUser] = useState({});
   const [showImg, setShowImg] = useState(true);
 
