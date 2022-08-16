@@ -90,6 +90,8 @@ export default function UserProfile() {
           <p className="userP">{user?.email}</p>
           <p className="userP">Miembro desde {user?.createdDate}</p>
           <p className="userP">Usuario {user?.role}</p>
+          <p className="userP">Seguidores: {user?.followers?.length}</p>
+          <p className="userP">Seguidos: {user?.following?.length}</p>
           {user.role === "Gratuito" ? (
             <Button
               onClick={handleButton}
