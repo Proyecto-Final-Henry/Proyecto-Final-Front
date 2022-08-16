@@ -41,6 +41,7 @@ const Register = () => {
     };
 
     setAlerta({})
+    
     try {
       const url = `/api/back-end/users/register`
       await axios.post(url, { name, password , email })
