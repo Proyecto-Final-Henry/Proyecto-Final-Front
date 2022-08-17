@@ -1,11 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import style from "../../css/songs.module.css";
 
 export default function CreateReview({ apiId, type, name }) {
   const [review, setReview] = useState({
     title: "",
     score: 0,
+    description: "",
+  });
+
+  const [error, setError] = useState({
+    title: "",
     description: "",
   });
 
@@ -42,60 +48,99 @@ export default function CreateReview({ apiId, type, name }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      await axios.post("/api/back-end/reviews/create", {
-        apiId,
-        type,
-        name,
-        title: review.title,
-        score: review.score,
-        description: review.description,
-        userId: user.id,
-      });
-    } catch (err) {
-      throw new Error("No pudimos crear tu reseña");
+    if(Object.entries(error).length === 0){
+      try {
+        await axios.post("/api/back-end/reviews/create", {
+          apiId,
+          type,
+          name,
+          title: review.title,
+          score: review.score,
+          description: review.description,
+          userId: user.id,
+        });
+      } catch (err) {
+        throw new Error("No pudimos crear tu reseña");
+      }
+      alert('Reseña creada existosamente');
+      history.push("/feed");
+    }else{
+        if(review.title === '') return alert('Ingrese un titulo de reseña');
+        if(error.title) return alert(error.title);
+        if(error.description) return alert(error.description);
     }
-    alert('Reseña creada existosamente')
-    history.push("/feed")
+
   };
 
   const handleChange = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setReview({
       ...review,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
+    setError(
+      validateInput({...review, [e.target.name]:e.target.value})
+    );
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className={style.createReview}>
       <h3>Crear reseña</h3>
-      <input
-        id="reviewTitle"
-        type="text"
-        placeholder="Título"
-        name="title"
-        onChange={handleChange}
-      />
-      <label>Calificación</label>
-      <input
-        type="range"
-        id="reviewScore"
-        name="score"
-        min="0"
-        max="5"
-        step="1"
-        onChange={handleChange}
-      />
-      <textarea
-        name="description"
-        id="reviewText"
-        placeholder="¡Tu reseña!"
-        rows="4"
-        columns="50"
-        onChange={handleChange}
-      />
-      <input type="submit" value="Crear reseña" />
-    </form>
+      <form onSubmit={handleSubmit} >
+        
+        <input
+          id="reviewTitle"
+          type="text"
+          placeholder="Título"
+          name="title"
+          onChange={handleChange}
+        />
+        <p className={style.danger}>{error.title}</p>
+        <div className={style.score}>
+          <p>Calificación:</p>
+          {/* <input
+            type="range"
+            id="reviewScore"
+            name="score"
+            min="0"
+            max="5"
+            step="1"
+            onChange={handleChange}
+          /> */}
+          <div className={style.selectedScore}>
+            <input key={'radio1'} id="radio1" type="radio" name="score" value={5}  onChange={handleChange}/> <label htmlFor="radio1">★</label>
+            <input key={'radio2'} id="radio2" type="radio" name="score" value={4}  onChange={handleChange}/> <label htmlFor="radio2">★</label>
+            <input key={'radio3'} id="radio3" type="radio" name="score" value={3}  onChange={handleChange}/> <label htmlFor="radio3">★</label>
+            <input key={'radio4'} id="radio4" type="radio" name="score" value={2}  onChange={handleChange}/> <label htmlFor="radio4">★</label>
+            <input key={'radio5'} id="radio5" type="radio" name="score" value={1}  onChange={handleChange}/> <label htmlFor="radio5">★</label>
+          </div>
+
+        </div>
+        
+        <textarea
+          name="description"
+          id="reviewText"
+          placeholder="¡Tu reseña!"
+          rows="4"
+          columns="50"
+          onChange={handleChange}
+        />
+        <p className={style.danger}>{error.description}</p>
+        <input type="submit" value="Crear reseña" className={style.btn_createReview}/>
+      </form>
+    </div>
   );
+}
+
+
+export function validateInput (input){
+  let error = {}
+  if(input.title.length === 0){
+    error.title = '* Título de reseña es requerido';
+  }
+
+  if(input.description.length === 0){
+    error.description = '* Descripción de reseña es requerida';
+  }
+  return error;
 }

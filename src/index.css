@@ -436,3 +436,20 @@ Nav{
 }
 
 
+ul.nav.nav-tabs {
+  justify-content: center;
+}
+
+ul.nav.nav-tabs .nav-item button{
+  width: 200px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #000;
+}
+ul.nav.nav-tabs .nav-item button.active{
+  color: #a64ac2;
+}
+
+.tab-content{
+  padding: 30px;
+}

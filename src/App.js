@@ -29,7 +29,7 @@ import Team from "./components/Team/Team";
 import PremiumIn from "./components/Premium/PremiumIn";
 import ContactIn from "./components/Contact/ContactIn";
 import TeamIn from "./components/Team/TeamIn";
-import OtherUserProfile from "./components/UserProfile/OtherUser";
+import OtherUserProfile from "./components/UserProfile/OtherUserProfile";
 
 function App() {
   return (
