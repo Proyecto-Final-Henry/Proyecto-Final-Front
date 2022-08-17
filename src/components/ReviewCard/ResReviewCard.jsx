@@ -7,9 +7,10 @@ export default function ResReviewCard({ resReviews }) {
       {resReviews.reviews ? (
         resReviews.reviews.map((r) => {
           return (
+            
             <div key={r.reviewId}>
               <div className="peRe">
-                <img src={r.user.userImg} alt="" />
+                <img src={r.userImg} alt="" />
                 <h4>{r.user}</h4>
                 <h5>{r.userRole}</h5>
               </div>
@@ -30,7 +31,7 @@ export default function ResReviewCard({ resReviews }) {
           );
         })
       ) : (
-        <div className={style.revDiv}>
+        <div className='revDiv'>
           <h4>¡Aún no hay reseñas!</h4>
           <h4>Se el primero en crear una!</h4>
           <Link to="/music">Descubre tu nueva canción favorita</Link>
