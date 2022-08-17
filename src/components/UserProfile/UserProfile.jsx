@@ -1,6 +1,6 @@
 //import {useSelector} from 'react-redux'; // descomentar cuando este llegando la data
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import "../../css/users.css";
@@ -76,6 +76,7 @@ export default function UserProfile() {
   };
      
   return (
+    <div>
     <div className="detailBac">
       <div className="detail">
         <div className="carta">
@@ -94,7 +95,7 @@ export default function UserProfile() {
             </div>
           ) : (
             <ChangeProfileImg userId={user.id} setShowImg={setShowImg} />
-          )}
+            )}
           {console.log(user)}
           <h3 className="userP">{user?.name}</h3>
           <p className="userP">{user?.email}</p>
@@ -104,7 +105,7 @@ export default function UserProfile() {
           <p className="userP">Seguidos: {user?.following?.length}</p>
           {user.role === "Gratuito" ? (
             <Button
-              onClick={handleButton}
+            onClick={handleButton}
               variant="outline-success"
               type="submit"
               className="boton"
@@ -135,5 +136,28 @@ export default function UserProfile() {
         </div>
       </div>
     </div>
+    <div>
+      <h3>Seguidores:</h3>
+      {user.followers?.length > 0 ? 
+      user.followers?.map(f => {
+        return <div>
+        <Link to={`/users/${f.id}`}><img src={f.userImg} alt="userImg"></img>
+       <p>{f.name}</p></Link>
+       </div>
+      }): <p>Todavia no tienes seguidores</p>
+}
+    </div>
+    <div>
+      <h3>Seguidos:</h3>
+    {user.following?.length > 0 ? 
+      user.following?.map(f => {
+        return <div>
+        <Link to={`/users/${f.id}`}><img src={f.userImg} alt="userImg"></img>
+        <p>{f.name}</p></Link>
+        </div>
+      }): <p>Todavia no sigues a nadie</p>
+}
+    </div>
+  </div>
   );
 }
