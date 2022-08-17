@@ -53,7 +53,7 @@ export const sendEmailContact = (values) => {
 
 export const getUserData = (id) => async (dispatch) => {
   try {
-    const respuesta = await axios(`http://localhost:3001/api/back-end/user/${id}`);
+    const respuesta = await axios(`/api/back-end/user/${id}`);
     if(respuesta?.data){
       return dispatch({ type: GET_USER_DATA, payload: respuesta.data });
     }

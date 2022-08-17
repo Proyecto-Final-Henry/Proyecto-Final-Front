@@ -195,10 +195,10 @@ function App() {
         <Footer/>
       </Route>
 
-      <Route exact path="/mauri/chat">
+      <Route exact path="/chat">
         <NavigationM />
         <Chat/>
-        <Footer />
+        <Footer/>
       </Route>
     </div>
   );
