@@ -4,7 +4,8 @@ import style from "../../css/rev.css";
 import { Link, useHistory } from "react-router-dom";
 import "../../css/perfilrev.css";
 import Follow from "../Follow/Follow";
-import axios from "axios";
+import DeleteReview from "../DeleteReview/DeleteReview"
+import axios from "axios"
 import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function ReviewCard() {
@@ -45,7 +46,7 @@ export default function ReviewCard() {
                 <div className="per">
                   <div className="peRe">
                     {r.userId !== user.id ?
-                      <Follow followers={r.user.followers} followings={r.user.followings} id={r.userId} meId={user.id}/>:<></>
+                      <Follow followers={r.user.followers} followings={r.user.followings} id={r.userId} meId={user.id}/>:<DeleteReview id={r.id}/>
                     }
                     <Link to={`/users/${r.user.id}`}>
                     <img src={r.user.userImg} alt="" />
