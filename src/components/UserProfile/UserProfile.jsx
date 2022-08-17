@@ -39,12 +39,6 @@ export default function UserProfile() {
         } catch (error) {
           console.log(error);
         };
-        autenticarUsuario();
-    },[])
-
-    const cerrarSesion = () => {
-        localStorage.removeItem("token");
-        history.push("/");
     };
 
   const handleShowImg = (e) => {
@@ -75,6 +69,7 @@ export default function UserProfile() {
     };
     autenticarUsuario();
   }, [showImg]);
+
   const cerrarSesion = () => {
     localStorage.removeItem("token");
     history.push("/");

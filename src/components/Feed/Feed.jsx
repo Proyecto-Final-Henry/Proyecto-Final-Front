@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Re from './Re';
-import { createAlbum, createGenreDb, getAllReviews } from "../../redux/actions";
+import { createAlbum, createGenreDb, getAllReviews, getUserData } from "../../redux/actions";
 import { getRandomSongs } from "../../redux/actions";
 import { getGenres } from "../../redux/actions/actions_player";
 import axios from "axios";

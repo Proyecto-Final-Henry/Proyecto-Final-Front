@@ -14,6 +14,9 @@ import {
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
   GET_RANDOM_SONGS,
+  GET_TOP_SONGS,
+  GET_RANDOM_ARTISTS,
+  GET_TOP_ARTISTS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
   GET_ALL_USERS,
@@ -51,6 +54,9 @@ const initialState = {
   albumSongs: [],
   allReviews: [],
   randomSongs: [],
+  randomArtists: [],
+  topSongs: [],
+  topArtists: [],
   randomFeed:[],
   songData: {},
   users:[],
@@ -188,6 +194,21 @@ function rootReducer(state = initialState, action) {
         ...state,
         randomSongs: action.payload,
       };
+    case GET_TOP_SONGS:
+      return {
+        ...state,
+        topSongs: action.payload,
+      };
+    case GET_RANDOM_ARTISTS:
+      return {
+        ...state,
+        randomArtists: action.payload,
+      };
+    case GET_TOP_ARTISTS:
+      return {
+        ...state,
+        topArtists: action.payload,
+      };                  
     case GET_SONG_DATA:
       return {
         ...state,
