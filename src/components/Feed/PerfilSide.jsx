@@ -2,6 +2,7 @@ import { useEffect , useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import axios from "axios";
 import "../../css/users.css";
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function UserProfile (){
     //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params 
@@ -36,8 +37,15 @@ export default function UserProfile (){
             <div className="fe">
                 <div className="car">
                     <Link to="/user" style={{"textDecoration": "none"}}>
-                        <img src={user?.userImg} alt='userImg'></img>
-                        <h3>{user?.name}</h3>
+                        {
+                            user.userImg?
+                                <div className="pri">
+                                    <img src={user?.userImg} alt='userImg'></img>
+                                    <h3>{user?.name}</h3>
+                                </div>
+                                :
+                                <Spinner animation="border" variant="light" />
+                        }
                     </Link>
                     <p>Desde {user?.createdDate}</p>
                     <p>Usuario {user.role}</p>
@@ -58,18 +66,6 @@ export default function UserProfile (){
                 </div>
 
             }
-            <br />
-            <div className="bo">
-                <Link to="/user">
-                    <p>Seguidores</p>
-                </Link>
-                <Link to="/search">
-                    <p>Crear Reseña</p>
-                </Link>
-                <Link to="/music">
-                    <p>Musica</p>
-                </Link>
-            </div>
         </div>
     )
 };

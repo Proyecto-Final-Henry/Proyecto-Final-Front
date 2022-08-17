@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getArtistTop } from "../../redux/actions";
 import { useEffect } from "react";
+import { BsStopwatchFill } from "react-icons/bs";
 import { Link, useHistory } from "react-router-dom";
 
 export default function ArtistTop({ artistId }) {
@@ -29,18 +30,24 @@ export default function ArtistTop({ artistId }) {
       <h2>Canciones del momento:</h2>
       {artistTop.map((s) => {
         return (
-          <div className="ArtistTo">
             <div id={s.id} key={s.id} className="ArtistTo" style={{"backgroundColor": "black"}}>
-              <img src={s.album.imageAlbum} alt={s.album.titleAlbum} />
-              <Link to={`/song/${s.id}`}>
-                <p>{s.title}</p>
-              </Link>
-              <p>Álbum:</p>
-              <Link to={`/album/${s.album.idAlbum}`}>
-                <p >{s.album.titleAlbum}</p>
-              </Link>
+              <div>
+                <img src={s.album.imageAlbum} alt={s.album.titleAlbum} />
+              </div>
+              <div>
+                <Link to={`/song/${s.id}`}>
+                  <p>{s.title}</p>
+                </Link>
+              </div>
+              <div>
+                <p>Álbum:</p>
+              </div>
+              <div>
+                <Link to={`/album/${s.album.idAlbum}`}>
+                  <p >{s.album.titleAlbum}</p>
+                </Link>
+              </div>
             </div>
-          </div>
         );
       })}
     </div>

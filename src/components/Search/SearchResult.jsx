@@ -59,7 +59,7 @@ export default function SearchResult() {
     });
   };
   return (
-    <div className={style.box}>
+    <div className="t">
       <div>
         <SearchBar
         onSearch={getSearch}
