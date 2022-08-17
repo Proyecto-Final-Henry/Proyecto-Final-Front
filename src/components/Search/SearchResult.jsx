@@ -110,27 +110,24 @@ export default function SearchResult() {
         })}
       </div>
       <div>
-        {render.map((e, i)=>{
-          if(e.selected){
-            return(
-              <PaginationFilter/>
-            )
-          }else{
-            return(
-              <Pagination
-              key={i}
-              pagination = {pagination}
-              query={query}
-              filter={filter}
-              index={index}
-              onMove={getSearch}/>              
-            )
-          }
-        })
-
+          {render.map((e, i)=>{
+            if(e.selected){
+              return(
+                <PaginationFilter/>
+              )
+            }else{
+              return(
+                <Pagination
+                key={i}
+                pagination = {pagination}
+                query={query}
+                filter={filter}
+                index={index}
+                onMove={getSearch}/>              
+              )
+            }
+          })
         }
-        
-        
       </div>
     </div>
   );
