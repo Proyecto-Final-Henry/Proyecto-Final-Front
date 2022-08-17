@@ -53,9 +53,7 @@ function App() {
       </Route>
 
       <Route exact path="/confirmar/:token">
-        <NavigationB/>
         <ConfirmarCuenta/>
-        <Footer/>
       </Route>
 
       <Route exact path="/premium">

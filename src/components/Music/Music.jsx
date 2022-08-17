@@ -30,7 +30,7 @@ export default function Music() {
     };
 
     return (
-        <div style={{"backgroundColor":"white"}}>
+        <div className="t">
           {random ? <Button
               style={{"marginTop": "25px"}}
               onClick={handleSongs}

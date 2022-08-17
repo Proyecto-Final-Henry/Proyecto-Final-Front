@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 import "../../css/users.css";
 import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function UserProfile() {
   //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params
@@ -78,8 +79,14 @@ export default function UserProfile() {
         <div className="carta">
           {showImg ? (
             <div>
-              <img src={user.userImg} alt="userImg"></img>
-              <br />
+                        {
+                            user.userImg?
+                                <div className="pri">
+                                    <img src={user?.userImg} alt='userImg'></img>
+                                </div>
+                                :
+                                <Spinner animation="border" variant="dark" />
+                        }
               <br />
               <button onClick={handleShowImg}>📸</button>
             </div>

@@ -1,5 +1,5 @@
 .side{
-    background-color: #e30086;;
+    background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
     padding: 15px;
     border-radius: 20px;
 }
