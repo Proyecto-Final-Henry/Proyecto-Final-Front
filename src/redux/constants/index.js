@@ -15,10 +15,15 @@ export const GET_RES_REVIEWS = "GET_RES_REVIEWS"; //resource reviews (artist, al
 export const GET_ALBUM_DATA = "GET_ALBUM_DATA";
 export const GET_ALBUM_SONGS = "GET_ALBUM_SONGS";
 export const GET_ALL_REVIEWS = "GET_ALL_REVIEWS";
+// Actions de la DB ---------------------------------
 export const GET_RANDOM_SONGS = "GET_RANDOM_SONGS";
+export const GET_TOP_SONGS = "GET_RANDOM_SONGS";
+export const GET_RANDOM_ARTISTS = "GET_RANDOM_SONGS";
+export const GET_TOP_ARTISTS = "GET_RANDOM_SONGS";
 export const CREATE_DB_ALBUMS = "CREATE_DB_ALBUMS";
 export const CREATE_DB_GENRES = "CREATE_DB_GENRES";
 export const GET_DB_ALBUMS = "GET_DB_ALBUMS";
+//---------------------------------------------------
 export const GET_SONG_DATA = "GET_SONG_DATA";
 export const GET_ALL_USERS="GET_ALL_USERS";
 export const GET_GENRE_ALBUM = "GET_GENRE_ALBUM";
