@@ -13,7 +13,6 @@ export default function Filters (){
         explicit:''
     });
     const queryStore= useSelector(store=>store.query);
-    const checkSearch= useSelector(store=>store.searchResult);
     const result= useSelector(store=>store.searchResult)
     const artist= [...(new Set(result.map(e=>e.artist)))];
     const album= [...(new Set(result.map(e=>e.album)))];
@@ -44,7 +43,7 @@ export default function Filters (){
 
     return( 
     <div>
-        {checkSearch.length ? <div className={style.box}>
+        {result.length || queryStore.length ? (<div className={style.box}>
             <div>            
             <Button className={style.btn} variant="outline-success" name='type' value='artist' onClick={eventHandler}>Artista</Button>
             <Button className={style.btn} variant="outline-success" name='type' value='album' onClick={eventHandler}>Álbum</Button>
@@ -87,13 +86,13 @@ export default function Filters (){
                                         <option value={false}>no explícito</option>                      
                                     </select>
                                 </div>
-                                )
+                            )
                         }
                     })
                 }                  
             </form>
             </div>
-        </div> : <h1> ¡Encuentra tus canciones favoritas! </h1>}
+        </div>) : (<h1> ¡Encuentra tus canciones favoritas! </h1>)}
     </div>
     );
 };

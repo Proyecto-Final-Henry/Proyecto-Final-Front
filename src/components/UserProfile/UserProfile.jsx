@@ -86,6 +86,7 @@ export default function UserProfile() {
           ) : (
             <ChangeProfileImg userId={user.id} setShowImg={setShowImg} />
           )}
+          {console.log(user)}
           <h3 className="userP">{user?.name}</h3>
           <p className="userP">{user?.email}</p>
           <p className="userP">Miembro desde {user?.createdDate}</p>

@@ -34,7 +34,6 @@ export default function ResReviewCard({ resReviews }) {
         <div className='revDiv'>
           <h4>¡Aún no hay reseñas!</h4>
           <h4>Se el primero en crear una!</h4>
-          <Link to="/music">Descubre tu nueva canción favorita</Link>
         </div>
       )}
     </div>
