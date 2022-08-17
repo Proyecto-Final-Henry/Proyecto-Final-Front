@@ -1,13 +1,19 @@
-import { useEffect , useState } from "react"
+import { useEffect , useRef, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import axios from "axios"
 import "../../css/users.css"
+// import {io} from "socket.io-client"
+
+// export const socket = io("http://localhost:3001")
+
+
 export default function UserProfile (){
     //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params 
     const history = useHistory()
 
     const [ user , setUser ] = useState({})
+
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -30,8 +36,10 @@ export default function UserProfile (){
             }
         }
         autenticarUsuario()
+
     },[])
-    const cerrarSesion = () => {
+
+      const cerrarSesion = () => {
         localStorage.removeItem("token")
         history.push("/")
     }

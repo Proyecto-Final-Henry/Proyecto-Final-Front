@@ -26,8 +26,16 @@ import Genres from "./components/Genre/Genres";
 import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import Chat from "./components/Chat/Chat";
+// import io from "socket.io-client"
+
+// export const socket = io("http://localhost:3001")
+
+
+
 
 function App() {
+
   const genres = useSelector((state) => state.genres);
 
   return (
@@ -161,6 +169,12 @@ function App() {
       <Route exact path="/song/:id">
         <NavigationM />
         <SongDetail />
+        <Footer />
+      </Route>
+
+      <Route exact path="/mauri/chat">
+        <NavigationM />
+        <Chat/>
         <Footer />
       </Route>
     </div>

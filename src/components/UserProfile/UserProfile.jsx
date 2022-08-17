@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import "../../css/users.css";
+import { useDispatch } from "react-redux";
 
 export default function UserProfile (){
     //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params 
@@ -60,6 +61,7 @@ export default function UserProfile (){
         };
         autenticarUsuario();
     },[])
+
     const cerrarSesion = () => {
         localStorage.removeItem("token");
         history.push("/");

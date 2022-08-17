@@ -44,7 +44,7 @@ const Login = () => {
     console.log(user)
      try {
       const url = `http://localhost:3001/api/back-end/users/googleLogin`
-      const { data } = await axios.post( url , { name: user.displayName, email: user.email, emailVerified: user.emailVerified , userImg: user.photoURL? user.photoURL : null})
+      const { data } = await axios.post( url , { name: user.displayName, email: user.providerData[0].email , userImg: user.photoURL? user.photoURL : null})
       localStorage.setItem("token" , data.token)
       history.push("/feed")
      } catch (error) {
