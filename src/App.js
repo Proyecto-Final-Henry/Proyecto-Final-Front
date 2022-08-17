@@ -1,5 +1,4 @@
 import { Route } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Contact from "./components/Contact/Contact";
@@ -26,14 +25,13 @@ import Genres from "./components/Genre/Genres";
 import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
-import OtherUserPerfil from "./components/UserProfile/OtherUserProfile"
 import Team from "./components/Team/Team";
 import PremiumIn from "./components/Premium/PremiumIn";
 import ContactIn from "./components/Contact/ContactIn";
 import TeamIn from "./components/Team/TeamIn";
+import OtherUserProfile from "./components/UserProfile/OtherUserProfile";
 
 function App() {
-
   return (
     <div className="App">
       <Route exact path="/">
@@ -192,7 +190,7 @@ function App() {
 
       <Route exact path="/users/:id">
         <NavigationM/>
-        <OtherUserPerfil />
+        <OtherUserProfile/>
         <Footer/>
       </Route>
     </div>

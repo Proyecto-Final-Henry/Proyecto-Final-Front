@@ -3,21 +3,17 @@ import { useEffect, useState } from "react";
 import axios from "axios"
 import { useHistory, useParams } from "react-router-dom";
 import "../../css/users.css";
-import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getOtherUser } from '../../redux/actions/index';
 import Follow from "../Follow/Follow";
 
-
-
-
-export default function UserProfile() {
+export default function OtherUserProfile() {
     //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params
     const user = useSelector(state => state.otherUser)
   const history = useHistory();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [meUser, setMeUser] = useState({})
 
@@ -47,10 +43,8 @@ export default function UserProfile() {
     dispatch(getOtherUser(id))
   }, [dispatch]);
 
-
-      
       return (
-          <div className="detailBac">
+        <div className="detailBac">
               <div className="detail">
         <div className="carta">
             <div>
@@ -62,8 +56,8 @@ export default function UserProfile() {
           <p className="userP">{user?.email}</p>
           <p className="userP">Miembro desde {user?.createdDate}</p>
           <p className="userP">Usuario {user?.role}</p>
-          <p >Seguidores: {user?.followers?.length}</p>
-          <p >Seguidos: {user?.following?.length}</p>
+          <p>Seguidores: {user?.followers?.length}</p>
+          <p>Seguidos: {user?.following?.length}</p>
         <Follow followers={user.followers} followings={user.followings} id={user.userId ? user.userId : user.id} meId={meUser.id} />
         </div>
       </div>
