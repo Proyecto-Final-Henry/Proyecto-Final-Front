@@ -1,5 +1,4 @@
 import { Route } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Contact from "./components/Contact/Contact";
@@ -27,118 +26,136 @@ import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import Chat from "./components/Chat/Chat";
-// import io from "socket.io-client"
-
-// export const socket = io("http://localhost:3001")
-
-
-
+import Team from "./components/Team/Team";
+import PremiumIn from "./components/Premium/PremiumIn";
+import ContactIn from "./components/Contact/ContactIn";
+import TeamIn from "./components/Team/TeamIn";
+import OtherUserProfile from "./components/UserProfile/OtherUserProfile";
 
 function App() {
-
-  const genres = useSelector((state) => state.genres);
-
   return (
     <div className="App">
       <Route exact path="/">
-        <NavigationB />
-        <Home />
-        <Footer />
+        <NavigationB/>
+        <Home/>
+        <Footer/>
       </Route>
 
       <Route exact path="/login">
-        <NavigationB />
-        <Login />
-        <Footer />
+        <NavigationB/>
+        <Login/>
+        <Footer/>
       </Route>
 
       <Route exact path="/register">
-        <NavigationB />
-        <Register />
-        <Footer />
+        <NavigationB/>
+        <Register/>
+        <Footer/>
       </Route>
 
       <Route exact path="/confirmar/:token">
-        <NavigationB />
-        <ConfirmarCuenta />
-        <Footer />
+        <ConfirmarCuenta/>
       </Route>
 
       <Route exact path="/premium">
-        <NavigationB />
-        <Premium />
-        <Footer />
+        <NavigationB/>
+        <Premium/>
+        <Footer/>
       </Route>
 
+      <Route exact path="/premium2">
+        <NavigationM/>
+        <PremiumIn/>
+        <Footer/>
+      </Route>
+      
       <Route exact path="/free">
-        <NavigationB />
-        <Free />
-        <Footer />
+        <NavigationB/>
+        <Free/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/team">
+        <NavigationB/>
+        <Team/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/team2">
+        <NavigationM/>
+        <TeamIn/>
+        <Footer/>
       </Route>
 
       <Route exact path="/pay">
-        <NavigationB />
-        <Pay />
-        <Footer />
+        <NavigationB/>
+        <Pay/>
+        <Footer/>
       </Route>
 
       <Route exact path="/pay/success">
-        <NavigationB />
-        <PaySuccess />
-        <Footer />
+        <NavigationB/>
+        <PaySuccess/>
+        <Footer/>
       </Route>
 
       <Route exact path="/pay/error">
-        <NavigationB />
-        <PayError />
-        <Footer />
+        <NavigationB/>
+        <PayError/>
+        <Footer/>
       </Route>
 
       <Route exact path="/contact">
-        <NavigationB />
-        <Contact />
-        <Footer />
+        <NavigationB/>
+        <Contact/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/contact2">
+        <NavigationM/>
+        <ContactIn/>
+        <Footer/>
       </Route>
 
       <Route exact path="/recover">
         <NavigationB />
-        <RecoverPassword />
-        <Footer />
+        <RecoverPassword/>
+        <Footer/>
       </Route>
 
       <Route exact path="/olvide-password/:token">
-        <NavigationB />
-        <NewPassword />
-        <Footer />
+        <NavigationB/>
+        <NewPassword/>
+        <Footer/>
       </Route>
 
       <Route exact path="/feed">
-        <NavigationM />
+        <NavigationM/>
         <Feed />
-        <Footer />
+        <Footer/>
       </Route>
 
       <Route exact path="/music">
         <NavigationM />
-        <Music />
-        <Footer />
+        <Music/>
+        <Footer/>
       </Route>
 
       <Route exact path="/user">
-        <NavigationM />
-        <UserProfile />
-        <Footer />
+        <NavigationM/>
+        <UserProfile/>
+        <Footer/>
       </Route>
 
       <Route exact path="/admin">
-        <NavigationM />
+        <NavigationM/>
         <AdminPanel/>
-        <Footer />
+        <Footer/>
       </Route>
 
       <Route exact path="/genres">
         <NavigationM/>
-        <Genres genres={genres}/>
+        <Genres/>
         <Footer/>
       </Route>
 
@@ -149,27 +166,33 @@ function App() {
       </Route>
 
       <Route exact path="/search">
-        <NavigationM />
-        <SearchResult />
-        <Footer />
+        <NavigationM/>
+        <SearchResult/>
+        <Footer/>
       </Route>
 
       <Route exact path="/artist/:id">
-        <NavigationM />
-        <ArtistDetail />
-        <Footer />
+        <NavigationM/>
+        <ArtistDetail/>
+        <Footer/>
       </Route>
 
       <Route exact path="/album/:id">
-        <NavigationM />
-        <AlbumDetail />
-        <Footer />
+        <NavigationM/>
+        <AlbumDetail/>
+        <Footer/>
       </Route>
 
       <Route exact path="/song/:id">
-        <NavigationM />
-        <SongDetail />
-        <Footer />
+        <NavigationM/>
+        <SongDetail/>
+        <Footer/>
+      </Route>
+
+      <Route exact path="/users/:id">
+        <NavigationM/>
+        <OtherUserProfile/>
+        <Footer/>
       </Route>
 
       <Route exact path="/mauri/chat">
@@ -179,6 +202,6 @@ function App() {
       </Route>
     </div>
   );
-}
+};
 
 export default App;

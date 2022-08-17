@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getAlbumData } from "../../redux/actions";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CreateReview from "../CreateReview/CreateReview";
 import AlbumSongs from "../AlbumSongs/AlbumSongs";
@@ -15,13 +15,25 @@ export default function AlbumDetail() {
   let dispatch = useDispatch();
   let albumId = useParams().id;
   const [key, setKey] = useState("top");
+  let history = useHistory();
+
+  useEffect(() => {
+    const autenticarUsuario = async () => {
+        const token = localStorage.getItem("token")
+        if(!token){
+            history.push("/login")
+            return
+        }
+    };
+    autenticarUsuario()
+  },[]);
+  
   useEffect(() => {
     dispatch(getAlbumData(albumId));
   }, []);
 
   let albumData = useSelector((state) => state.albumData);
 
-  console.log("albumData", albumData);
   return (
     <div>
       {albumData ? (
@@ -77,4 +89,4 @@ export default function AlbumDetail() {
       )}
     </div>
   );
-}
+};

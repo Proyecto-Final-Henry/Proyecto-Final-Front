@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: black;
+  background-color: #fff;
   background-size:auto;
   min-height: 100vh;
 }
@@ -25,6 +25,9 @@ code {
 }
 
 /*Nav*/
+.bg-dark{
+  background-color: white;
+}
 Nav{
   width: 100%;
   height: 10%;
@@ -34,7 +37,7 @@ Nav{
   justify-content: space-around;
   align-items: center;
   background-color:rgb(255, 255, 255);
-  box-shadow: 0 5px 10px 	#F7567C
+  box-shadow: 0 5px 10px 	#032c61
 } 
 Nav a{
   text-decoration: none;
@@ -43,38 +46,41 @@ Nav a{
   margin-right: 18px;
 }
 Nav a h5{
-  color: #F7567C;
+  color: rgb(255, 255, 255);
   padding: 10px;
   padding-left: 10px;
 }
 Nav h5:hover{
-  color: white;
+  color: #032c61;
   transition: all .3s ease-in-out;
+}
+.logo{
+  display: flex;
+
 }
 
 .logo img{
-  height: 60px;
-
+  height: 35px; 
 }
 
 /*imgCa*/
-.caru{
+/* .caru{
   padding-top: 20px;
-}
+} */
 .img1{
-  width:98%;
+  width:100%;
   height: 650px;
 }
 
 /*footer*/
 .footer-links{
-  margin-top: 20px;
-  background: rgb(34, 34, 34);
-  color: white;
+  margin-top: 50px;
+  background: rgb(255, 255, 255);
+  color: #000000;
   font-size: 14px;
   padding: 35px 0;
   width: 100%;
-  height: 100%;
+  min-height: 34vh;
 }
 .footer-container ul li a{
   color: white;
@@ -109,16 +115,18 @@ Nav h5:hover{
   padding-top: 40px;
   padding-bottom: 30px;
 }
+.created{
+  margin-bottom: 40px;
+}
 
 .form{
-  background-color: rgb(34, 34, 34);
+  background-color: #1b2831;
   color: rgb(255, 255, 255);
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 1rem;
   margin: 0 auto;
   width: 500px;
   padding: 35px;
-  border: 6px solid transparent;
 }
 .form label{
   padding: 10px;
@@ -126,6 +134,13 @@ Nav h5:hover{
 .form input, textarea{
   outline: none;
 
+}
+.form input{
+  border-radius: 10px;
+}
+.form textarea{
+  border-radius: 10px;
+  width: 60%;
 }
 
 .field{
@@ -145,9 +160,31 @@ Nav h5:hover{
   height: 60px;
   font-size: 17px;
 }
+.ini button{
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+  border-radius: 10px;
+  width: 65%;
+  height: 60px;
+}
 
-
+.go button{
+  background: white;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+.con button{
+  color: white;
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+  border-radius: 6px;
+  padding: 5px 10px;
+  border: 1px solid #a64ac2;
+}
 @media(max-width:600px){
+  .footer-links{
+    min-height: 37vh;
+  }
   
 .creadores ul{
   padding: 20px;
@@ -161,6 +198,8 @@ Nav h5:hover{
   align-items: center;
 }
 }
+
+
 
 /*sea*/
 .pagi{
@@ -193,12 +232,14 @@ Nav h5:hover{
 
 .re{
   text-align: right;
+  color: black;
 }
 
 .todo{
-  padding: 20px;
+  margin-top: 25px;
+  padding: 5px;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: 18% 62% 20%;
   width: 100%;
 }
 
@@ -207,27 +248,25 @@ Nav h5:hover{
 }
 
 /*FeedPer*/
-.fe{
+.to{
   width: 100%;
   padding: 10px;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 1px 10px 10px 2px black;
-  border: 6px solid transparent;
-  border-radius: 5px;
-  background-color: rgb(34, 34, 34);
+  border-radius: 20px;
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
 }
 .car{
   width: 100%;
 }
 .fe img{
-  width: 100px;
-  height: 100px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
 }
 .fe h3{
   padding-top: 30px;
-  color: #1DB954;
+  color: #ffffff;
 }
 .fe p{
   text-align: center;
@@ -243,8 +282,27 @@ Nav h5:hover{
   width: 100px;
   height: 100px;
 }
+.bo p{
+  text-align: center;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+}
+.bo a{
+  font-weight: 500;
+  text-decoration: none;
+  color: #00ffa6;
+}
+.bo a:hover{
+  color: #000000;
+}
 
 /*Detalle Artista*/
+.topSongs{
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
 .ArtistT{
   width: 100%;
   height: 10%;
@@ -274,10 +332,10 @@ Nav h5:hover{
 }
 .ArtistTo{
   width: 100%;
-  height: 10%;
-  min-height: 10%;
-  max-width: 100%;
-  display: flex;
+  height: 100%;
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
   justify-content: space-around;
   align-items: center;
   padding: 10px;
@@ -322,9 +380,7 @@ Nav h5:hover{
   color: white;
   font-size: large;
 }
-.er{
-  width: 60%;
-}
+
 .cen h1{
   color: white;
 }
@@ -336,4 +392,73 @@ Nav h5:hover{
 }
 .confir h1{
   color: white;
+}
+.cen h1{
+  color: #f73aa8;
+}
+
+/* Estilos Nav */
+.nav_remusic{
+  /* background: linear-gradient(101.38deg,#fa42cc,#fff 150.71%); */
+  /* background: radial-gradient(circle at left 50%,#733a84,#fa42cc); */
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+  color: #fff;
+}
+.nav_remusic h5{
+  color: #fff !important;
+}
+Nav{
+  box-shadow: none;
+}
+.nav_btn_registro{
+  display: flex;
+  align-items: center;
+  
+}
+.btn_registrate{
+  background-color: #6457a6; 
+  border-radius: 8px;
+  padding: 5px 15px 10px 15px;
+}
+.btn_registrate:hover{
+  background-color: #5c46be; 
+}
+
+.carousel-indicators button{
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+}
+
+.carousel-indicators [data-bs-target]{
+  background-color: #fff !important;
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.carousel-indicators button.active{
+  background-color: #f73aa8 !important;
+}
+
+.t{
+  min-height: 100vh;
+ }
+
+ul.nav.nav-tabs {
+  justify-content: center;
+}
+
+ul.nav.nav-tabs .nav-item button{
+  width: 200px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #000;
+}
+
+ul.nav.nav-tabs .nav-item button.active{
+  color: #a64ac2;
+}
+
+.tab-content{
+  padding: 30px;
 }

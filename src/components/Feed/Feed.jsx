@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Re from './Re';
-import { createAlbum, getAllReviews, getUserData } from "../../redux/actions";
+import { createAlbum, createGenreDb, getAllReviews } from "../../redux/actions";
 import { getRandomSongs } from "../../redux/actions";
 import { getGenres } from "../../redux/actions/actions_player";
 import axios from "axios";
@@ -14,6 +13,7 @@ import axios from "axios";
 export default function Feed(){
     const history = useHistory();
     let dispatch = useDispatch();
+    const albumCheck = useSelector((state) => state.albumDb);
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -38,21 +38,21 @@ export default function Feed(){
         autenticarUsuario();
         dispatch(getAllReviews());
         dispatch(getRandomSongs());
-        dispatch(getRandomSongs());
         dispatch(getGenres());
-        dispatch(createAlbum());
+        if (!albumCheck.length) {
+            dispatch(createAlbum());
+        }
+        dispatch(createGenreDb());
     },[dispatch]);
 
-
     const reviews = useSelector(state => state.allReviews);
-    
+
     return(
         <div className="todo">
             <div className="er">
                 <Per />
             </div>
             <div className="cen">
-                <h1>REVIEWS</h1>
                 <ReviewCard/>
             </div>
             <div className="ult">

@@ -13,8 +13,33 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(246, 246, 246);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 .descri{
     padding: 20px;
+}
+.rev p{
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.revDiv h4{
+    font-size: 18px
+}
+
+.revDiv a{
+    text-decoration: none;
+    border: 1px solid #a77ab4;
+    background-color: #a77ab4;
+    color: #fff;
+    border-radius: 6px;
+    padding: 4px 12px ;
+}
+
+.revDiv a:hover{
+    border: 1px solid #c39ace;
+    background-color: #c39ace;
+    color: #fff;
 }

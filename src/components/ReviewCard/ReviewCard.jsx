@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import style from "../../css/rev.css";
-import { Link } from 'react-router-dom';
-import "../../css/perfilrev.css"
+import { Link, useHistory } from "react-router-dom";
+import "../../css/perfilrev.css";
+import Follow from "../Follow/Follow";
+import DeleteReview from "../DeleteReview/DeleteReview"
+import axios from "axios"
+import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
+  const history = useHistory();
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const autenticarUsuario = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        history.push("/login");
+        return;
+      }
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      try {
+        const { data } = await axios(`/api/back-end/users/perfil`, config);
+        setUser(data);
+      } catch (error) {
+        console.log(error?.response.data.msg);
+      }
+    };
+    autenticarUsuario();
+  }, []);
+
   return (
     <div className="reCart">
       {reviewArray ? (
@@ -15,12 +45,41 @@ export default function ReviewCard() {
               <div className="carti">
                 <div className="per">
                   <div className="peRe">
+                    {r.userId !== user.id ?
+                      <Follow followers={r.user.followers} followings={r.user.followings} id={r.userId} meId={user.id}/>:<DeleteReview id={r.id}/>
+                    }
+                    <Link to={`/users/${r.user.id}`}>
                     <img src={r.user.userImg} alt="" />
+                    </Link>
                     <h4>{r.user.name}</h4>
                     <h5>{r.user.role}</h5>
                   </div>
                 </div>
                 <div className="rev">
+                  {r.artist && (
+                    <div className="revResource">
+                      <p>Artista</p>
+                      <Link to={`/artist/${r.artist.apiId}`}>
+                        <p>{`${r.artist.name}`}</p>
+                      </Link>
+                    </div>
+                  )}
+                  {r.album && (
+                    <div className="revResource">
+                      <p>Álbum</p>
+                      <Link to={`/album/${r.album.apiId}`}>
+                        <p>{`${r.album.title}`}</p>
+                      </Link>
+                    </div>
+                  )}
+                  {r.song && (
+                    <div className="revResource">
+                      <p>Canción</p>
+                      <Link to={`/album/${r.song.apiId}`}>
+                        <p>{`${r.song.name}`}</p>
+                      </Link>
+                    </div>
+                  )}
                   <div className="titulo">
                     <p>Titulo</p>
                     <p>{r.title}</p>
@@ -41,9 +100,8 @@ export default function ReviewCard() {
         <div className={style.revDiv}>
           <h2>¡Aún no hay reseñas!</h2>
           <h3>Se el primero en crear una!</h3>
-          <Link to="/music">Descubre tu nueva canción favorita</Link>
         </div>
       )}
     </div>
   );
-};
+}

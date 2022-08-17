@@ -1,8 +1,9 @@
 import React, { useEffect , useState } from 'react';
-import {useParams} from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
+import "../../css/confirmar.css";
+import Img from "../../img/mientras.png";
 
 const ConfirmarCuenta = () => {
     let history = useHistory();
@@ -27,17 +28,26 @@ const ConfirmarCuenta = () => {
                 setAlerta({msg: error.response.data.msg , error: true})
             }
             setCargando(false)
-        }
+        };
         confirmarCuenta()
         setTimeout(() => {
             history.push("/login");
-          },8000);
+          },8000)
     },[token]);
 
   return (
-    <div>
-        <h1> Tu cuenta ha sido confirmada, comienza a disfrutar de Music App </h1>
-        <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Cambiar a plan Premium</Button>
+    <div className="conf">
+        <div className='confi'>
+            <img src={Img} alt={Img} />
+            <h4> Tu cuenta ha sido confirmada</h4>
+                <div className="texto">
+                    <br />
+                    <p>Estamos muy felices de tenerte en el equipo de ReMusic</p>
+                </div>
+                <p>Ingresa Ahora Mismo</p>
+            <Button onClick={handleButton} variant="outline-success" type="submit" className='boton'>Ingresar</Button>
+
+        </div>
     </div>
   );
 };

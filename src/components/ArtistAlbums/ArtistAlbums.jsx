@@ -17,4 +17,4 @@ export default function ArtistAlbums({ artistId }) {
       <Albums albums={artistAlbums} />
     </div>
   );
-}
+};

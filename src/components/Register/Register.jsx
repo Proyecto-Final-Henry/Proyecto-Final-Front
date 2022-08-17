@@ -41,9 +41,11 @@ const Register = () => {
     };
 
     setAlerta({})
+    
     try {
-      const url = `http://localhost:3001/api/back-end/users/register`
+      const url = `/api/back-end/users/register`
       await axios.post(url, { name, password , email })
+      document.getElementById("register").disabled = true;
       setAlerta({msg: "Creado correctamente, revisa tu email" , error: false})
       setTimeout(() => {
         history.push("/");
@@ -97,7 +99,9 @@ const Register = () => {
             <div className="crear">
                 <br />
                 <br />
-          <Button variant="outline-success" type="submit">Registro</Button>
+                <div className="ini">
+                  <Button id="register" type="submit" className="ini">Registrate</Button>
+                </div>
           </div>
           <br />
           <div>

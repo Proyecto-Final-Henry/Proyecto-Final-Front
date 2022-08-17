@@ -4,14 +4,17 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(34, 34, 34);
+    background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
   .peRe img{
     width: 50px;
     height: 50px;
+    border-radius: 50%;
   }
   .peRe h4{
-    color: #1DB954;
+    color: #00ffa6;
   }
   .peRe h5{
     font-size:medium;

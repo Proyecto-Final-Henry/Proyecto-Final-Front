@@ -18,7 +18,7 @@ const RecoverPassword = () => {
         };
 
         try {
-            const url = `http://localhost:3001/api/back-end/users/olvide-password`
+            const url = `/api/back-end/users/olvide-password`
             const { data } = await axios.post( url , {email})
             setAlerta({msg: data.msg})
         } catch (error) {
@@ -28,33 +28,32 @@ const RecoverPassword = () => {
 
     const { msg } = alerta;
 
-return(
- <div className="created">
-        <div className="cre">
-        {msg && <Alerta alerta={alerta} />}
-          <form onSubmit={handleSubmit} className="form">
-              <h1>Recupera tu contraseña</h1>
-              <div>
-                  <br />
-                  <label>Correo:</label>
-                  <br />
-                  <input 
-                  type="email" 
-                  className="field"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="Enter Email"/>
-              </div> 
-              <div className="crear">
-                <br />
-                <br />
-                    <input type="submit" class="btn btn-outline-success" value= "Recuperar "/>
-              </div>
-          </form>
-        </div>
-    </div>
-    );
+    return(
+        <div className="created">
+                <div className="cre">
+                {msg && <Alerta alerta={alerta} />}
+                <form onSubmit={handleSubmit} className="form">
+                    <h1>Recupera tu contraseña</h1>
+                    <div>
+                        <br />
+                        <label>Correo:</label>
+                        <br />
+                        <input 
+                        type="email" 
+                        className="field"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        placeholder="Ingrese su correo..."/>
+                    </div> 
+                    <div className="crear">
+                        <br />
+                        <br />
+                            <input type="submit" class="btn btn-outline-success" value= "Recuperar "/>
+                    </div>
+                </form>
+                </div>
+            </div>
+            );
 };
-
 
 export default RecoverPassword;

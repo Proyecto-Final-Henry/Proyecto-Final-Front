@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 
 function MusicCard(props) {
-  console.log("props", props);
   return (
     <div className={style.musicCard}>
       <div className={style.musicCard_header}>
@@ -20,17 +19,25 @@ function MusicCard(props) {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href={"/song/" + props.id}>
-              Ir a canción
+            <Dropdown.Item>
+              <Link to={"/song/" + props.id}>
+                Ir a canción
+              </Link>
             </Dropdown.Item>
-            <Dropdown.Item href={"/artist/" + props.artistId}>
-              Ir al artista
+            <Dropdown.Item>
+              <Link to={"/artist/" + props.artistId}>
+                Ir al artista                
+              </Link>
             </Dropdown.Item>
-            <Dropdown.Item href={"/album/" + props.albumId}>
-              Ir al álbum
-            </Dropdown.Item>
-            <Dropdown.Item href="#/addplaylist">
-              Agregar a playlist
+            <Dropdown.Item >
+              <Link to={"/album/" + props.albumId}>
+                Ir al álbum
+              </Link>
+            </Dropdown.Item> 
+            <Dropdown.Item>
+              <Link to={"#/addplaylist"}>
+                Agregar a playlist
+              </Link>
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
@@ -43,7 +50,7 @@ function MusicCard(props) {
       </div>
       <div className={style.musicCard_footer}>
         <p>{props.artist}</p>
-        <Link to={"/artist/"}>
+        <Link to={"/song/" + props.id}>
           <Button variant="outline-success" type="submit">
             Reseñas
           </Button>

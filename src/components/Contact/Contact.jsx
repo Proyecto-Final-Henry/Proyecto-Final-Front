@@ -53,56 +53,49 @@ function Contact() {
             if(error.name) return alert(error.name);
             if(error.email) return alert(error.email);
             if(error.message) return alert(error.message);
-        }
-    }
+        };
+    };
     return (
-      <div>
-        <div className={style.mainDiv}>
-           <h1>Información de contacto</h1>          
+      <div className={style.form_contact}>
+        <div className={style.contact}>
+           <h2>Información de contacto</h2>          
+            <p>Nos interesa saber tu experiencia en nuestra página</p>
+            <p>Si tuviste algún inconveniente o queres contarnos tu opinión sobre tu página, no dudes en mandarnos un mensaje!</p>
+            <p>En Music App, valoramos sobre todas las cosas la experiencia de nuestros usuarios. Cuentanos como te sientes al usar nuestra página o que ideas tienes para mejorarla.</p>
+            <p><b>¡Leeremos todas las propuetas y las tendremos en cuenta!</b></p>
         </div>
 
-        <div className={style.mainDiv}>
-            <h3>Nos interesa saber tu experciencia en nuestra página</h3>
-            <h3>Si tuviste algún inconveniente o queres contarnos tu opnion sobre tu página, no dudes en mandarnos un mensaje!</h3>
-            <h4>En Music App, valoramos sobre todas las cosas la experiencia de nuestros usuarios. Cuentanos como te sientes al usar nuestra página o que ideas tiernes para mejorarla.</h4>
-            <h4>¡Leeremos todas las propuetas y las tendremos en cuenta!</h4>
+        <div className="created">
+            <div>
+                <form onSubmit={onSubmit} className="form">
+                        <h4>Contactanos Aqui</h4>
+                        <input 
+                            type="text" 
+                            name='name'
+                            value={input.name}
+                            placeholder='Ingresar nombre' 
+                            onChange={onInputChange} className={error.name && style.danger}/>
+                        <p className={style.danger}>{error.name}</p>
+                    
+                        <input 
+                            type="email" 
+                            name='email'
+                            value={input.email}
+                            placeholder='Ingresar email' 
+                            onChange={onInputChange} className={error.email && style.danger}/>
+                        <p className={style.danger}>{error.email}</p>
+
+
+                        <textarea rows="3" placeholder='Escriba aqui su mensaje' name='message' value={input.message} onChange={onInputChange} className={error.message && style.danger}>
+                        </textarea>
+                        <p className={style.danger}>{error.message}</p>
+                    <div className="con">
+                        <button type="submit" className={style.btn_send}>Enviar Mensaje</button>
+                    </div>
+                </form>
+                </div>
+            </div>
         </div>
-
-        <h1 className={style.form_tittle}>Formulario de Contacto</h1>
-
-        <form onSubmit={onSubmit}>
-                <div className={style.form_input}>
-                    <input 
-                        type="text" 
-                        name='name'
-                        value={input.name}
-                        placeholder='Ingresar nombre' 
-                        onChange={onInputChange} className={error.name && style.danger}/>
-                    <p className={style.danger}>{error.name}</p>
-                </div>
-                
-                <div className={style.form_input}>
-                    <input 
-                        type="email" 
-                        name='email'
-                        value={input.email}
-                        placeholder='Ingresar email' 
-                        onChange={onInputChange} className={error.email && style.danger}/>
-                    <p className={style.danger}>{error.email}</p>
-                </div>
-
-
-
-                <div className={style.form_input}>
-                    <textarea rows="3" placeholder='Escriba aqui su mensaje' name='message' value={input.message} onChange={onInputChange} className={error.message && style.danger}>
-                    </textarea>
-                    <p className={style.danger}>{error.message}</p>
-                </div>
-
-                <button type="submit" className={style.btn_send}>Enviar Mensaje</button>
-            </form>
-
-      </div>
     );
   };
 
