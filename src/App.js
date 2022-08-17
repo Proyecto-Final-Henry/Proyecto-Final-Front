@@ -25,6 +25,7 @@ import Genres from "./components/Genre/Genres";
 import GenreDetail from "./components/Genre/GenreDetail";
 import SongDetail from "./components/Songs/SongDetail";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import Chat from "./components/Chat/Chat";
 import Team from "./components/Team/Team";
 import PremiumIn from "./components/Premium/PremiumIn";
 import ContactIn from "./components/Contact/ContactIn";
@@ -192,6 +193,12 @@ function App() {
         <NavigationM/>
         <OtherUserProfile/>
         <Footer/>
+      </Route>
+
+      <Route exact path="/mauri/chat">
+        <NavigationM />
+        <Chat/>
+        <Footer />
       </Route>
     </div>
   );

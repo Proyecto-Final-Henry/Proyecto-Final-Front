@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import "../../css/users.css";
+import { useDispatch } from "react-redux";
 import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -38,6 +39,12 @@ export default function UserProfile() {
         } catch (error) {
           console.log(error);
         };
+        autenticarUsuario();
+    },[])
+
+    const cerrarSesion = () => {
+        localStorage.removeItem("token");
+        history.push("/");
     };
 
   const handleShowImg = (e) => {
