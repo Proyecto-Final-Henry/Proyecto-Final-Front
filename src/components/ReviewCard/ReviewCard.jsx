@@ -69,9 +69,6 @@ export default function ReviewCard() {
                     <h5>{r.user.role}</h5>
                     {r.userId !== user.id ?
                       <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>}
-                    ) : (
-                      null
-                    )}
                   </div>
                 </div>
                 <div className="rev">
