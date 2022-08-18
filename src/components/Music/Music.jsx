@@ -16,7 +16,6 @@ export default function Music() {
     let topArtists = useSelector((state) => state.topArtists);
     let randomSongs = useSelector((state) => state.randomSongs);
 
-
     console.log("randomSongs", randomSongs);
     console.log("randomArtist", randomArtists);
     console.log("topArtist", topArtists);
