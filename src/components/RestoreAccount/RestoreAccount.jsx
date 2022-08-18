@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import Modal from "../Modal/Modal";
+import { useModal } from "../Modal/useModal";
 
 export default function RestoreAccount() {
   const history = useHistory();
   const [user, setUser] = useState({});
+  const [message, setMessage] = useState("");
+  const [isOpenAlert, openAlert, closeAlert] = useModal(false);
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -46,11 +50,11 @@ export default function RestoreAccount() {
       userId: user.id,
     });
     if (response.status === 410) {
-      alert(response.data.Gone);
-      return cerrarSesion();
+      setMessage(response.data.Gone);
+      return openAlert();
     } else if (response.status === 202) {
-      alert(`${response.data.Accepted}. Vuelve a iniciar sesión`);
-      return cerrarSesion();
+      setMessage(`${response.data.Accepted}. Vuelve a iniciar sesión`);
+      return openAlert();
     } else {
       return cerrarSesion();
     }
@@ -58,11 +62,16 @@ export default function RestoreAccount() {
 
   return (
     <div>
-      <p>{`¡Hola de nuevo, ${user.name}!`}</p>
-      <p>¿Quieres restaurar tu cuenta?</p>
-      <p>Todas tus reseñas e interacciones siguen aquí</p>
-      <button onClick={cerrarSesion}>Cancelar</button>
-      <button onClick={handleRestore}>Aceptar</button>
+      <Modal isOpen={isOpenAlert} onClose={cerrarSesion}>
+        <h4>{message}</h4>
+      </Modal>
+      <div>
+        <p>{`¡Hola de nuevo, ${user.name}!`}</p>
+        <p>¿Quieres restaurar tu cuenta?</p>
+        <p>Todas tus reseñas e interacciones siguen aquí</p>
+        <button onClick={cerrarSesion}>Cancelar</button>
+        <button onClick={handleRestore}>Aceptar</button>
+      </div>
     </div>
   );
 }
