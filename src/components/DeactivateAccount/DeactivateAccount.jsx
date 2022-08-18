@@ -14,6 +14,11 @@ export default function DeactivateAccount() {
         history.push("/login");
         return;
       }
+      const active = localStorage.getItem("active");
+      if (active === "false") {
+        history.push("/user/restore");
+        return;
+      }
       const config = {
         headers: {
           "Content-Type": "application/json",
@@ -22,6 +27,9 @@ export default function DeactivateAccount() {
       };
       try {
         const { data } = await axios(`/api/back-end/users/perfil`, config);
+        if (!data.active) {
+          return history.push("/user/restore");
+        }
         setUser(data);
       } catch (error) {
         console.log(error.response.data.msg);
@@ -32,6 +40,7 @@ export default function DeactivateAccount() {
 
   const cerrarSesion = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("active");
     history.push("/");
   };
 

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ArtistCard from "../SearchResultCards/ArtistCard";
 import AlbumCard from "../SearchResultCards/AlbumCard";
@@ -7,22 +7,22 @@ import TrackCard from "../SearchResultCards/TrackCard";
 import Filters from "./Filters";
 import Pagination from "./Pagination";
 import PaginationFilter from "./PaginationFilter";
-import SearchBar from '../Search/SearchBar';
-import { getSearch, calcPages,onPageChanged } from '../../redux/actions';
+import SearchBar from "../Search/SearchBar";
+import { getSearch, calcPages, onPageChanged } from "../../redux/actions";
 import style from "../../css/resultSearch.module.css";
 import { pageLimit } from "./PaginationFilter";
 import UserCard from "../SearchResultCards/UserCard";
 
 export default function SearchResult() {
-  const pagination = useSelector(store=>store.pagination);
-  const query= useSelector(store=>store.query);
-  const filter= useSelector(store=>store.filter);
-  const index= useSelector(store=>store.index);
+  const pagination = useSelector((store) => store.pagination);
+  const query = useSelector((store) => store.query);
+  const filter = useSelector((store) => store.filter);
+  const index = useSelector((store) => store.index);
   const searchResult = useSelector((store) => store.searchResult);
   const currentResult = useSelector((store) => store.currentResult);
   const selected = useSelector((store) => store.selected);
   const history = useHistory();
-  const dispatch= useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -31,43 +31,46 @@ export default function SearchResult() {
         history.push("/login");
         return;
       }
+      const active = localStorage.getItem("active");
+      if (active === "false") {
+        history.push("/user/restore");
+        return;
+      }
     };
     autenticarUsuario();
   }, []);
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(calcPages(pageLimit));
     const paginationData = {
-      currentPage:1,
+      currentPage: 1,
       pageLimit: pageLimit,
     };
-    dispatch(onPageChanged(paginationData));    
-  },[searchResult])
+    dispatch(onPageChanged(paginationData));
+  }, [searchResult]);
 
-  let data=[]
-  let render=[]
-  if(selected){
-    data=currentResult;
-    render.push({selected:true})
-  }else{
-    data=searchResult;
+  let data = [];
+  let render = [];
+  if (selected) {
+    data = currentResult;
+    render.push({ selected: true });
+  } else {
+    data = searchResult;
     render.push({
-      pagination : pagination,
-      query:query,
-      filter:filter,
-      index:index,
-      onMove:getSearch,
-      selected:false
+      pagination: pagination,
+      query: query,
+      filter: filter,
+      index: index,
+      onMove: getSearch,
+      selected: false,
     });
-  };
+  }
   return (
     <div className="t">
       <div>
-        <SearchBar
-        onSearch={getSearch}
-        />
+        <SearchBar onSearch={getSearch} />
       </div>
       <div>
-        <Filters/>
+        <Filters />
       </div>
       <div>
         {data.map((e, i) => {
@@ -107,39 +110,35 @@ export default function SearchResult() {
                 type={e.type}
               />
             );
-          } else if(e.type === "user"){
-            return(
-              <UserCard
-                key={i}
-                id={e.id}
-                name={e.name}
-                img={e.userImg}
-              />
+          } else if (e.type === "user") {
+            return <UserCard key={i} id={e.id} name={e.name} img={e.userImg} />;
+          } else
+            return (
+              <p key={i}>
+                otro typo de dato esto es un error y no debe renderizarse hay,
+                data que estamos ignorando
+              </p>
             );
-          }else return <p key={i}>otro typo de dato esto es un error y no debe renderizarse hay, data que estamos ignorando</p>;
         })}
       </div>
       <div>
-          {render.map((e, i)=>{
-            if(e.selected){
-              return(
-                <PaginationFilter
-                key={i}/>
-              )
-            }else{
-              return(
-                <Pagination
+        {render.map((e, i) => {
+          if (e.selected) {
+            return <PaginationFilter key={i} />;
+          } else {
+            return (
+              <Pagination
                 key={i}
-                pagination = {pagination}
+                pagination={pagination}
                 query={query}
                 filter={filter}
                 index={index}
-                onMove={getSearch}/>              
-              )
-            }
-          })
-        }
+                onMove={getSearch}
+              />
+            );
+          }
+        })}
       </div>
     </div>
   );
-};
+}

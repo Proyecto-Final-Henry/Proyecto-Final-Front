@@ -57,6 +57,11 @@ export default function UserProfile() {
         history.push("/login");
         return;
       }
+      const active = localStorage.getItem("active");
+      if (active === "false") {
+        history.push("/user/restore");
+        return;
+      }
       const config = {
         headers: {
           "Content-Type": "application/json",
@@ -78,6 +83,7 @@ export default function UserProfile() {
 
   const cerrarSesion = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("active");
     history.push("/");
   };
 
