@@ -90,7 +90,7 @@ const ChatBox = ({chat , currentUser, setEnviarMensaje, recibirMensaje }) => {
                             <img src={userData?.userImg} alt="" className='followerImage' style={{width: '50px' , height: '50px'}}/>
                             <div className="name" style={{fontSize: '0.8rem'}}>
                                 <span>{userData?.name}</span>
-                                <span> Online</span>
+                                <span> Online </span>
                             </div>
                         </div>
                     </div>

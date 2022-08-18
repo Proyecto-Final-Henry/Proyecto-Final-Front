@@ -195,6 +195,7 @@ function rootReducer(state = initialState, action) {
         randomSongs: action.payload,
       };
     case GET_TOP_SONGS:
+      console.log(action.payload)
       return {
         ...state,
         topSongs: action.payload,

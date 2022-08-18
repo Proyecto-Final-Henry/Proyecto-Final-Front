@@ -14,6 +14,9 @@ import {
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
   GET_RANDOM_SONGS,
+  GET_TOP_SONGS,
+  GET_RANDOM_ARTISTS,
+  GET_TOP_ARTISTS,
   CREATE_DB_ALBUMS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
@@ -285,6 +288,45 @@ export function getRandomSongs() {
         dispatch({
           type: GET_RANDOM_SONGS,
           payload: randomSongs.data,
+        });
+      });
+  };
+};
+
+export function getTopSongs() {
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/songs/topdb")
+      .then((topSongs) => {
+        dispatch({
+          type: GET_TOP_SONGS,
+          payload: topSongs.data,
+        });
+      });
+  };
+};
+
+export function getRandomArtists() {
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/artists/create")
+      .then((randomArtists) => {
+        dispatch({
+          type: GET_RANDOM_ARTISTS,
+          payload: randomArtists.data,
+        });
+      });
+  };
+};
+
+export function getTopArtists() {
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/artists/createtop")
+      .then((topArtists) => {
+        dispatch({
+          type: GET_TOP_ARTISTS,
+          payload: topArtists.data,
         });
       });
   };
