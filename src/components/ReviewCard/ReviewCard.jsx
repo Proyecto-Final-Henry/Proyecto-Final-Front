@@ -7,6 +7,7 @@ import Follow from "../Follow/Follow";
 import DeleteReview from "../DeleteReview/DeleteReview"
 import axios from "axios"
 import { propTypes } from "react-bootstrap/esm/Image";
+import LikesReview from "../LikesReview/LikesReview";
 
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
@@ -36,6 +37,7 @@ export default function ReviewCard() {
     autenticarUsuario();
   }, []);
 
+  console.log(reviewArray)
   return (
     <div className="reCart">
       {reviewArray ? (
@@ -53,6 +55,8 @@ export default function ReviewCard() {
                     </Link>
                     <h4>{r.user.name}</h4>
                     <h5>{r.user.role}</h5>
+                    {r.userId !== user.id ?
+                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<></>}
                   </div>
                 </div>
                 <div className="rev">
