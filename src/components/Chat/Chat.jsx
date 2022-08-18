@@ -8,7 +8,6 @@ import {io} from "socket.io-client"
 import User from './User';
 import { useSelector } from 'react-redux';
 
-
 const Chat = () => {
     const history = useHistory()
     const socket = useRef()
@@ -52,6 +51,9 @@ const Chat = () => {
                 console.log(error.response.data.msg);
             };
         };
+        // if (!users.length) {
+        //     dispatch()
+        // }
          autenticarUsuario()
      },[])
 
@@ -127,7 +129,7 @@ const Chat = () => {
             <div className="Chat-container">
                 <div className='Chat-list'>
                 <h2>Usuarios</h2> 
-                    {users && users?.map(u => (u.name !== user.name)? (
+                    {users && users?.map(u => (u.id !== user.id)? (
                         (
                             <div key={u.id} onClick={() => iniciarChat(u)}>
                                 <User user={u}/>

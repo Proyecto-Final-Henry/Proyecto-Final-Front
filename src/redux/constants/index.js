@@ -17,9 +17,9 @@ export const GET_ALBUM_SONGS = "GET_ALBUM_SONGS";
 export const GET_ALL_REVIEWS = "GET_ALL_REVIEWS";
 // Actions de la DB ---------------------------------
 export const GET_RANDOM_SONGS = "GET_RANDOM_SONGS";
-export const GET_TOP_SONGS = "GET_RANDOM_SONGS";
-export const GET_RANDOM_ARTISTS = "GET_RANDOM_SONGS";
-export const GET_TOP_ARTISTS = "GET_RANDOM_SONGS";
+export const GET_TOP_SONGS = "GET_TOP_SONGS";
+export const GET_RANDOM_ARTISTS = "GET_RANDOM_ARTISTS";
+export const GET_TOP_ARTISTS = "GET_TOP_ARTISTS";
 export const CREATE_DB_ALBUMS = "CREATE_DB_ALBUMS";
 export const CREATE_DB_GENRES = "CREATE_DB_GENRES";
 export const GET_DB_ALBUMS = "GET_DB_ALBUMS";
