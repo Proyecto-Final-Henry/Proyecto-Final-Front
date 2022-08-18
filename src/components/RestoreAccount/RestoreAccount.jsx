@@ -13,6 +13,11 @@ export default function RestoreAccount() {
         history.push("/login");
         return;
       }
+      const active = localStorage.getItem("active");
+      if (active !== "false") {
+        history.push("/feed");
+        return;
+      }
       const config = {
         headers: {
           "Content-Type": "application/json",
@@ -21,9 +26,6 @@ export default function RestoreAccount() {
       };
       try {
         const { data } = await axios(`/api/back-end/users/perfil`, config);
-        if (data.active) {
-          return history.push("/feed");
-        }
         setUser(data);
       } catch (error) {
         console.log(error.response.data.msg);
@@ -34,6 +36,7 @@ export default function RestoreAccount() {
 
   const cerrarSesion = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("active");
     history.push("/");
   };
 
@@ -44,12 +47,12 @@ export default function RestoreAccount() {
     });
     if (response.status === 410) {
       alert(response.data.Gone);
-      return history.push("/");
+      return cerrarSesion();
     } else if (response.status === 202) {
-      alert(response.data.Accepted);
-      return history.push("/feed");
+      alert(`${response.data.Accepted}. Vuelve a iniciar sesión`);
+      return cerrarSesion();
     } else {
-      return history.push("/");
+      return cerrarSesion();
     }
   };
 
