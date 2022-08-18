@@ -25,7 +25,8 @@ import {
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
   GET_RANDOM_FEED,
-  GET_OTHER_USER_DATA
+  GET_OTHER_USER_DATA,
+  GET_USER_SEARCH
 } from "../constants";
 
 const initialState = {
@@ -124,6 +125,12 @@ function rootReducer(state = initialState, action) {
         filter: action.payload.filter,
         index: valueIndex,
         selected:action.payload.selected
+      };
+    case GET_USER_SEARCH:
+      return {
+        ...state,
+        searchResult: action.payload,
+        pagination: {},
       };
     case GET_ARTIST_DATA:
       return {
