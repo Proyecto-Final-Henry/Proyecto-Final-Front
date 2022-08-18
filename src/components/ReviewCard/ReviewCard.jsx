@@ -62,7 +62,7 @@ export default function ReviewCard() {
                     ) : (
                       <DeleteReview id={r.id} />
                     )}
-                    <Link to={`/users/${r.user.id}`}>
+                    <Link to={user.id === r.user.id ? "/user" : `/users/${r.user.id}`}>
                       <img src={r.user.userImg} alt="" />
                     </Link>
                     <h4>{r.user.name}</h4>
