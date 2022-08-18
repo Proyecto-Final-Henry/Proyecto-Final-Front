@@ -62,16 +62,13 @@ export default function ReviewCard() {
                     ) : (
                       <DeleteReview id={r.id} />
                     )}
-                    <Link to={`/users/${r.user.id}`}>
+                    <Link to={user.id === r.user.id ? "/user" : `/users/${r.user.id}`}>
                       <img src={r.user.userImg} alt="" />
                     </Link>
                     <h4>{r.user.name}</h4>
                     <h5>{r.user.role}</h5>
                     {r.userId !== user.id ?
                       <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>}
-                    ) : (
-                      null
-                    )}
                   </div>
                 </div>
                 <div className="rev">
@@ -94,7 +91,7 @@ export default function ReviewCard() {
                   {r.song && (
                     <div className="revResource">
                       <p>Canción</p>
-                      <Link to={`/songs/${r.song.apiId}`}>
+                      <Link to={`/song/${r.song.apiId}`}>
                         <p>{`${r.song.title}`}</p>
                       </Link>
                     </div>
