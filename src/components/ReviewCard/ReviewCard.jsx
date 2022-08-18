@@ -91,7 +91,7 @@ export default function ReviewCard() {
                   {r.song && (
                     <div className="revResource">
                       <p>Canción</p>
-                      <Link to={`/songs/${r.song.apiId}`}>
+                      <Link to={`/song/${r.song.apiId}`}>
                         <p>{`${r.song.title}`}</p>
                       </Link>
                     </div>
