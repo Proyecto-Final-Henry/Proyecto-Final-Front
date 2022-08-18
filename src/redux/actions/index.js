@@ -23,7 +23,8 @@ import {
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
   GET_RANDOM_FEED,
-  GET_OTHER_USER_DATA
+  GET_OTHER_USER_DATA,
+  GET_USER_SEARCH
 } from "../constants";
 
 export const sendEmailContact = (values) => {
@@ -111,6 +112,18 @@ export function getArtistSongSearch(toFind,filter,index,id) {
       });
   };
 };
+
+export function getUserSearch(query) {
+  return async (dispatch) => {
+    return axios (`/api/back-end/user/search?query=${query}`)
+      .then((response)=>{
+        dispatch({
+          type:GET_USER_SEARCH,
+          payload: response.data,
+        })
+      })
+  }
+}
 
 export function getArtistData(id) {
   return async (dispatch) => {

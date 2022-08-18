@@ -1,9 +1,14 @@
 import axios from "axios";
+import Modal from "../Modal/Modal";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import style from "../../css/songs.module.css";
+import { useModal } from "../Modal/useModal";
 
 export default function CreateReview({ apiId, type, name }) {
+
+  const [isOpenAlert, openAlert, closeAlert] = useModal(false);
+
   const [review, setReview] = useState({
     title: "",
     score: 0,
@@ -62,8 +67,9 @@ export default function CreateReview({ apiId, type, name }) {
       } catch (err) {
         throw new Error("No pudimos crear tu reseña");
       }
-      alert('Reseña creada existosamente');
-      history.push("/feed");
+      //alert('Reseña creada existosamente');
+      openAlert()
+      //history.push("/feed");
     }else{
         if(review.title === '') return alert('Ingrese un titulo de reseña');
         if(error.title) return alert(error.title);
@@ -83,7 +89,15 @@ export default function CreateReview({ apiId, type, name }) {
     );
   };
 
+  const onCloseRedirect = ()=>{
+    history.push("/feed");
+  }
+
   return (
+    <div>
+    <Modal isOpen={isOpenAlert} onClose={onCloseRedirect}>
+      <h4>Reseña creada existosamente</h4>
+    </Modal>
     <div className={style.createReview}>
       <h3>Crear reseña</h3>
       <form onSubmit={handleSubmit} >
@@ -128,6 +142,7 @@ export default function CreateReview({ apiId, type, name }) {
         <p className={style.danger}>{error.description}</p>
         <input type="submit" value="Crear reseña" className={style.btn_createReview}/>
       </form>
+    </div>
     </div>
   );
 }

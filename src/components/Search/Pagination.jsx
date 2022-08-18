@@ -63,9 +63,9 @@ export default function Pagination ({pagination,query,filter,index,onMove}){
         <div className={style.box}>
           <div>
             <h5>{pagination.total} Resultados</h5>
-            {view && view.map(e=>{
+            {view && view.map((e,i)=>{
               return(
-                <span><h6>{e}</h6></span>
+                <span key={i}><h6>{e}</h6></span>
               )
             })}
           </div>

@@ -59,9 +59,9 @@ class Pagination extends Component{
             <div className={style.box}>
                 <div>
                     <h5>{this.props.totalRecords.length} Resultados</h5>
-                    {view && view.map(e=>{
+                    {view && view.map((e,i)=>{
                     return(
-                        <span><h6>{e}</h6></span>
+                        <span key={i}><h6>{e}</h6></span>
                     )
                     })}
                 </div>

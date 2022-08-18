@@ -11,6 +11,7 @@ import SearchBar from '../Search/SearchBar';
 import { getSearch, calcPages,onPageChanged } from '../../redux/actions';
 import style from "../../css/resultSearch.module.css";
 import { pageLimit } from "./PaginationFilter";
+import UserCard from "../SearchResultCards/UserCard";
 
 export default function SearchResult() {
   const pagination = useSelector(store=>store.pagination);
@@ -106,14 +107,24 @@ export default function SearchResult() {
                 type={e.type}
               />
             );
-          } else return <p>otro typo de dato esto es un error y no debe renderizarse hay, data que estamos ignorando</p>;
+          } else if(e.type === "user"){
+            return(
+              <UserCard
+                key={i}
+                id={e.id}
+                name={e.name}
+                img={e.userImg}
+              />
+            );
+          }else return <p key={i}>otro typo de dato esto es un error y no debe renderizarse hay, data que estamos ignorando</p>;
         })}
       </div>
       <div>
           {render.map((e, i)=>{
             if(e.selected){
               return(
-                <PaginationFilter/>
+                <PaginationFilter
+                key={i}/>
               )
             }else{
               return(
