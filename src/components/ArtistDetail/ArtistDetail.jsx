@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getArtistData } from "../../redux/actions";
+import { getArtistData, getPlaylist } from "../../redux/actions";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CreateReview from "../CreateReview/CreateReview";
@@ -13,12 +13,17 @@ import Tabs from 'react-bootstrap/Tabs';
 import ArtistAlbums from "../ArtistAlbums/ArtistAlbums";
 import ArtistSongs from "../ArtistSongs/ArtistSongs";
 import ArtistSongsSearch from "../ArtistSongs/ArtistSongSearch";
+import axios from "axios";
 
 export default function ArtistDetail() {
   let dispatch = useDispatch();
   let artistId = useParams().id;
   const [key, setKey] = useState('top');
   let history = useHistory();
+  const [user, setUser] = useState({
+    name:'',
+    id:'',
+  });
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -27,9 +32,29 @@ export default function ArtistDetail() {
             history.push("/login")
             return
         }
+        const config = {
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+          },
+      };
+      try {
+          const { data } = await axios(
+              `/api/back-end/users/perfil`,
+              config
+          );
+          setUser(data);
+          
+      } catch (error) {
+          console.log(error.response.data.msg);
+      };
     };
     autenticarUsuario()
   },[]);
+   
+  useEffect(() => {
+    dispatch(getPlaylist(user.id));
+  },[user.id,]);
 
   useEffect(() => {
     dispatch(getArtistData(artistId));
@@ -65,11 +90,13 @@ export default function ArtistDetail() {
       <Tab eventKey="songs" title="Canciones">
         <ArtistSongs 
           artistId={artistId}
+          userId={user.id}
         />
       </Tab>
       <Tab eventKey="searchsong" title="Buscar Cancion">
         <ArtistSongsSearch 
           artistId={artistId}
+          userId={user.id}
         />
       </Tab>
       <Tab eventKey="contact" title="Reseñas">

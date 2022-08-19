@@ -203,13 +203,13 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exactp path="/user/deactivate">
+      <Route exact path="/user/deactivate">
         <NavigationM />
         <DeactivateAccount />
         <Footer />
       </Route>
 
-      <Route exactp path="/user/restore">
+      <Route exact path="/user/restore">
         <NavigationB />
         <RestoreAccount />
         <Footer />
