@@ -76,9 +76,8 @@ export function getPlaylist (id){
         payload:response.data,
       });
     });
-  }
-  
-}
+  }  ;
+};
 
 export  function onPageChanged(data) {
   return {type: ON_PAGE_CHANGED, payload: data }

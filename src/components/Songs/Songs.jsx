@@ -7,7 +7,7 @@ function Songs(props) {
             <div className={style.songs}>
                     {
                         props.songs && props.songs.map( (song,index) => {
-                            let indexBase
+                            let indexBase;
                             props.index !== undefined? indexBase = props.index : indexBase = 0  ;
                             return (
                                 <SongCard 

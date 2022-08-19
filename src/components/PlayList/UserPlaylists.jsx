@@ -3,7 +3,7 @@ import {useSelector } from "react-redux";
 import PlaylistCard from "./PlaylistCard";
 
 export default function  UserPlaylist({isModal, id, name}){
-    const playList = useSelector(store=> store.playList) 
+    const playList = useSelector(store=> store.playList); 
     
     const  addSong = async (e) => {
         try {
@@ -14,8 +14,7 @@ export default function  UserPlaylist({isModal, id, name}){
         } catch (err) {
           throw new Error("No pudimos agregar tu canción");
         }
-    
-      }  
+    } ; 
     
     return(
         <div>{playList.length? (
@@ -36,7 +35,6 @@ export default function  UserPlaylist({isModal, id, name}){
             <div>
                 <h5>No tienes listas de reproduccion, crea una</h5>
             </div>)}
-            
         </div>
     )
 }

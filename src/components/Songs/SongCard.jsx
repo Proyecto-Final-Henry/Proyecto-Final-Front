@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import AddTrack from "../PlayList/AddTrack";
 
 function SongCard(props) {
-
-  
   return (
     <div className={style.songCard}>
       <div className={style.songCard_left}>

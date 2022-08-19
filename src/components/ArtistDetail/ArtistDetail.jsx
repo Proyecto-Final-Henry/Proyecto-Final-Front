@@ -15,7 +15,6 @@ import ArtistSongs from "../ArtistSongs/ArtistSongs";
 import ArtistSongsSearch from "../ArtistSongs/ArtistSongSearch";
 import axios from "axios";
 
-
 export default function ArtistDetail() {
   let dispatch = useDispatch();
   let artistId = useParams().id;
@@ -23,7 +22,7 @@ export default function ArtistDetail() {
   let history = useHistory();
   const [user, setUser] = useState({
     name:'',
-    id:''
+    id:'',
   });
 
   useEffect(() => {
@@ -48,18 +47,17 @@ export default function ArtistDetail() {
           
       } catch (error) {
           console.log(error.response.data.msg);
-      }
+      };
     };
     autenticarUsuario()
   },[]);
-
    
   useEffect(() => {
     dispatch(getPlaylist(user.id));
-  },[user.id,])
+  },[user.id,]);
 
   useEffect(() => {
-    dispatch(getArtistData(artistId));     
+    dispatch(getArtistData(artistId));
   }, []);
 
   let artistData = useSelector((state) => state.artistData);

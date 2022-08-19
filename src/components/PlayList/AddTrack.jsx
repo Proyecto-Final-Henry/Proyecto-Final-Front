@@ -19,8 +19,6 @@ export default function AddTrack({userId, trackId, name}) {
                 />
             </Modal>
             <button onClick={openModal}>Añadir a playlist</button>
-            
-
         </div>
     )
 }

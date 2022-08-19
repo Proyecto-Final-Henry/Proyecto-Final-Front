@@ -6,61 +6,60 @@ import { useHistory } from "react-router-dom";
 import style from "../../css/songs.module.css";
 
 export default function CreatePlaylist({onClose,userId}) {
-    const history = useHistory();
-    const dispatch = useDispatch();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-    const [playlist, setPlaylist] = useState({
-        name: "",
-    });
-    
-    const [error, setError] = useState({
-        name: "",
-    });
-    function validateInput (input){
-        let error = {}
-        if(input.name.length === 0){
-          error.name = '* Nombre de Playlist es requerido';
-        }
-        return error;
-      }
-       
+  const [playlist, setPlaylist] = useState({
+    name: "",
+  });
+  
+  const [error, setError] = useState({
+    name: "",
+  });
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-    
-        if(Object.entries(error).length === 0){
-          try {
-            await axios.post("/api/back-end/playlist/create", {              
-              name: playlist.name,
-              userId: userId,
-            });
-          } catch (err) {
-            throw new Error("No pudimos crear tu playlist");
-          }
-          if(onClose){
-            e.target.reset()
-            dispatch(getPlaylist(userId))
-            onClose();
-          }else {
-            history.push("/user");
-          }
-        }
-      };
-    
-      const handleChange = (e) => {
-        setPlaylist({
-          [e.target.name]: e.target.value
+  function validateInput (input){
+    let error = {}
+    if(input.name.length === 0){
+      error.name = '* Nombre de Playlist es requerido';
+    }
+    return error;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if(Object.entries(error).length === 0){
+      try {
+        await axios.post("/api/back-end/playlist/create", {              
+          name: playlist.name,
+          userId: userId,
         });
-        setError(
-          validateInput({[e.target.name]:e.target.value})
-        );
-      };
+      } catch (err) {
+        throw new Error("No pudimos crear tu playlist");
+      }
+      if(onClose){
+        e.target.reset()
+        dispatch(getPlaylist(userId))
+        onClose();
+      }else {
+        history.push("/user");
+      }
+    }
+  };
+  
+  const handleChange = (e) => {
+    setPlaylist({
+      [e.target.name]: e.target.value
+    });
+    setError(
+      validateInput({[e.target.name]:e.target.value})
+    );
+  };
 
-    return (
-        <div className={style.createReview}>
-            <h3>Crear Playlist</h3>
-      <form onSubmit={handleSubmit} >
-        
+  return (
+    <div className={style.createReview}>
+      <h3>Crear Playlist</h3>
+      <form onSubmit={handleSubmit} >      
         <input
           id="reviewTitle"
           type="text"
@@ -71,6 +70,6 @@ export default function CreatePlaylist({onClose,userId}) {
         <p className={style.danger}>{error.name}</p>
         <input type="submit" value="Crear Playlist" className={style.btn_createReview}/>
       </form>
-        </div>
-    )
+    </div>
+  )
 }
