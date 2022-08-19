@@ -1,37 +1,43 @@
-import { useEffect , useState } from "react"
-import { Link, useHistory } from "react-router-dom"
+import { useEffect, useRef, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "../../css/users.css";
 import Spinner from 'react-bootstrap/Spinner';
 import def from "../../img/def.png"
+import Spinner from "react-bootstrap/Spinner";
 
-export default function UserProfile (){
-    //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params 
-    const history = useHistory();
-    const [ user , setUser ] = useState({})
+export default function UserProfile() {
+  //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params
+  const history = useHistory();
+  const [user, setUser] = useState({});
 
-    useEffect(() => {
-        const autenticarUsuario = async () => {
-            const token = localStorage.getItem("token")
-            if(!token){
-                history.push("/login")
-                return
-            }
-            const config = {
-                headers: {
-                    "Content-Type" : "application/json",
-                    Authorization: `Bearer ${token}`
-                }
-            }
-            try {
-                const { data } = await axios(`/api/back-end/users/perfil`, config)
-                setUser(data)
-            } catch (error) {
-                console.log(error.response.data.msg)
-            }
-        }
-        autenticarUsuario()
-    },[]);
+  useEffect(() => {
+    const autenticarUsuario = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        history.push("/login");
+        return;
+      }
+      const active = localStorage.getItem("active");
+      if (active === "false") {
+        history.push("/user/restore");
+        return;
+      }
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      try {
+        const { data } = await axios(`/api/back-end/users/perfil`, config);
+        setUser(data);
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    };
+    autenticarUsuario();
+  }, []);
 
     return(
         <div className="to">
@@ -68,4 +74,4 @@ export default function UserProfile (){
             </div>
         </div>
     )
-};
+  };

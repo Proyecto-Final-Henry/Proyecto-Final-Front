@@ -16,6 +16,7 @@
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
+    "react-input-emoji": "^4.1.0",
     "react-is": "^18.2.0",
     "react-player": "^2.10.1",
     "react-redux": "^7.2.8",
@@ -25,11 +26,11 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
-    "sass": "^1.54.3",
-    "socket.io": "^4.5.1",
     "socket.io-client": "^4.5.1",
+    "sass": "^1.54.3",
     "sweetalert2": "^11.4.24",
     "thunk": "^0.0.1",
+    "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

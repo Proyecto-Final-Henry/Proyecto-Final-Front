@@ -14,6 +14,9 @@ import {
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
   GET_RANDOM_SONGS,
+  GET_TOP_SONGS,
+  GET_RANDOM_ARTISTS,
+  GET_TOP_ARTISTS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
   GET_ALL_USERS,
@@ -22,7 +25,8 @@ import {
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
   GET_RANDOM_FEED,
-  GET_OTHER_USER_DATA
+  GET_OTHER_USER_DATA,
+  GET_USER_SEARCH
 } from "../constants";
 
 const initialState = {
@@ -51,6 +55,9 @@ const initialState = {
   albumSongs: [],
   allReviews: [],
   randomSongs: [],
+  randomArtists: [],
+  topSongs: [],
+  topArtists: [],
   randomFeed:[],
   songData: {},
   users:[],
@@ -118,6 +125,12 @@ function rootReducer(state = initialState, action) {
         filter: action.payload.filter,
         index: valueIndex,
         selected:action.payload.selected
+      };
+    case GET_USER_SEARCH:
+      return {
+        ...state,
+        searchResult: action.payload,
+        pagination: {},
       };
     case GET_ARTIST_DATA:
       return {
@@ -188,6 +201,22 @@ function rootReducer(state = initialState, action) {
         ...state,
         randomSongs: action.payload,
       };
+    case GET_TOP_SONGS:
+      console.log(action.payload)
+      return {
+        ...state,
+        topSongs: action.payload,
+      };
+    case GET_RANDOM_ARTISTS:
+      return {
+        ...state,
+        randomArtists: action.payload,
+      };
+    case GET_TOP_ARTISTS:
+      return {
+        ...state,
+        topArtists: action.payload,
+      };                  
     case GET_SONG_DATA:
       return {
         ...state,

@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux';
 import { useState, useEffect} from 'react';
-import { getSearch } from '../../redux/actions';
+import { getSearch, getUserSearch } from '../../redux/actions';
 import Button from 'react-bootstrap/Button';
 import style from '../../css/filters.module.css';
 
@@ -12,8 +12,10 @@ export default function Filters (){
         album:'',
         explicit:''
     });
+    const [userstate, setUserState]=useState({
+        type:'',
+    })
     const queryStore= useSelector(store=>store.query);
-    const checkSearch= useSelector(store=>store.searchResult);
     const result= useSelector(store=>store.searchResult)
     const artist= [...(new Set(result.map(e=>e.artist)))];
     const album= [...(new Set(result.map(e=>e.album)))];
@@ -41,24 +43,29 @@ export default function Filters (){
     },[state.artist,state.album,state.explicit,dispatch]);
     
     const selectors=["map"]
+    const getUsers = (e)=>{
+        setUserState({...userstate,[e.target.name]: e.target.value});
+        dispatch(getUserSearch(queryStore))
+    }
 
     return( 
     <div>
-        {checkSearch.length ? <div className={style.box}>
+        {result.length || queryStore.length ? (<div className={style.box}>
             <div>            
             <Button className={style.btn} variant="outline-success" name='type' value='artist' onClick={eventHandler}>Artista</Button>
             <Button className={style.btn} variant="outline-success" name='type' value='album' onClick={eventHandler}>Álbum</Button>
             <Button className={style.btn} variant="outline-success" name='type' value='track' onClick={eventHandler}>Canción</Button>
+            <Button className={style.btn} variant="outline-success" name='type' value='user' onClick={getUsers}>Usuario</Button>
             </div>
             <div>
             <form className={style.filters}>
                 {
-                    selectors.map(e=>{
-                        if(state.type==='artist'){
+                    selectors.map((e,i) =>{
+                        if(state.type==='artist' || userstate.type==='user'){
                             return null
                         }else if(state.type==='album'){
                             return(
-                            <div>
+                            <div key={i}>
                                 <select name='artist' value={state.artist} onChange={eventHandler}>
                                     <option>Seleccione un artista</option>
                                     {artist.map((e,i)=>(<option key={i} value={e}>{e}</option>))}
@@ -72,7 +79,7 @@ export default function Filters (){
                             )
                         }else{
                             return(
-                                <div>
+                                <div key={i}>
                                     <select name='artist' value={state.artist} onChange={eventHandler}>
                                         <option>Seleccione un artista</option>
                                         {artist.map((e,i)=>(<option key={i} value={e}>{e}</option>))}
@@ -87,13 +94,13 @@ export default function Filters (){
                                         <option value={false}>no explícito</option>                      
                                     </select>
                                 </div>
-                                )
+                            )
                         }
                     })
                 }                  
             </form>
             </div>
-        </div> : <h1> ¡Encuentra tus canciones favoritas! </h1>}
+        </div>) : (<h1> ¡Encuentra tus canciones favoritas! </h1>)}
     </div>
     );
 };

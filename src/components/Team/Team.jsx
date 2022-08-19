@@ -8,25 +8,25 @@ export default function Team() {
                             <h4>Creadores</h4>
                             <ul className={style.listaCreadores}>
                                 <li>
-                                    <a href="https://github.com/JulianLechuga">Lechu</a>
+                                    <a href="https://github.com/JulianLechuga" target="_blank">Lechu</a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/Alejo2608">Ale</a>
+                                    <a href="https://github.com/Alejo2608" target="_blank">Ale</a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/cristhian-fernandez">Cris</a>
+                                    <a href="https://github.com/cristhian-fernandez" target="_blank">Cris</a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/djstylecali">CrisX2</a>
+                                    <a href="https://github.com/djstylecali" target="_blank">CrisX2</a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/Nacho1617">Nacho</a>
+                                    <a href="https://github.com/Nacho1617" target="_blank">Nacho</a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/MauricioCorzo">Mauri</a>
+                                    <a href="https://github.com/MauricioCorzo" target="_blank">Mauri</a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/lal-fac" className="cen">Luis</a>
+                                    <a href="https://github.com/lal-fac" target="_blank" className="cen">Luis</a>
                                 </li>
                             </ul>
                         </div>

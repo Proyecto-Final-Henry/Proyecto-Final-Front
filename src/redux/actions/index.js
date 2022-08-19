@@ -14,6 +14,9 @@ import {
   GET_ALBUM_SONGS,
   GET_ALL_REVIEWS,
   GET_RANDOM_SONGS,
+  GET_TOP_SONGS,
+  GET_RANDOM_ARTISTS,
+  GET_TOP_ARTISTS,
   CREATE_DB_ALBUMS,
   GET_DB_ALBUMS,
   GET_SONG_DATA,
@@ -24,7 +27,8 @@ import {
   GET_GENRE_ALBUM,
   GET_RANDOM_FEED,
   GET_OTHER_USER_DATA,
-  GET_MY_REVIEWS
+  GET_MY_REVIEWS,
+  GET_USER_SEARCH
 } from "../constants";
 
 export const sendEmailContact = (values) => {
@@ -42,13 +46,24 @@ export const sendEmailContact = (values) => {
   };
 };
 
-export function getUserData(id) {
-  return async function (dispatch) {
-    return fetch("/api/back-end/users/perfil")
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch({ type: GET_USER_DATA, payload: json });
-      });
+// export function getUserData(id) {
+//   return async function (dispatch) {
+//     return fetch("http://localhost:3001/api/back-end/users/perfil")
+//       .then((response) => response.json())
+//       .then((json) => {
+//         dispatch({ type: GET_USER_DATA, payload: json });
+//       });
+//   };
+// };
+
+export const getUserData = (id) => async (dispatch) => {
+  try {
+    const respuesta = await axios(`/api/back-end/user/${id}`);
+    if(respuesta?.data){
+      return dispatch({ type: GET_USER_DATA, payload: respuesta.data });
+    }
+  } catch (error) {
+    console.log(error)
   };
 };
 
@@ -101,6 +116,18 @@ export function getArtistSongSearch(toFind,filter,index,id) {
       });
   };
 };
+
+export function getUserSearch(query) {
+  return async (dispatch) => {
+    return axios (`/api/back-end/user/search?query=${query}`)
+      .then((response)=>{
+        dispatch({
+          type:GET_USER_SEARCH,
+          payload: response.data,
+        })
+      })
+  }
+}
 
 export function getArtistData(id) {
   return async (dispatch) => {
@@ -276,6 +303,45 @@ export function getRandomSongs() {
         dispatch({
           type: GET_RANDOM_SONGS,
           payload: randomSongs.data,
+        });
+      });
+  };
+};
+
+export function getTopSongs() {
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/songs/topdb")
+      .then((topSongs) => {
+        dispatch({
+          type: GET_TOP_SONGS,
+          payload: topSongs.data,
+        });
+      });
+  };
+};
+
+export function getRandomArtists() {
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/artists/create")
+      .then((randomArtists) => {
+        dispatch({
+          type: GET_RANDOM_ARTISTS,
+          payload: randomArtists.data,
+        });
+      });
+  };
+};
+
+export function getTopArtists() {
+  return async (dispatch) => {
+    axios
+      .get("/api/back-end/artists/createtop")
+      .then((topArtists) => {
+        dispatch({
+          type: GET_TOP_ARTISTS,
+          payload: topArtists.data,
         });
       });
   };
