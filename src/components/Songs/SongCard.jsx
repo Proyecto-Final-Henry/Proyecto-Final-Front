@@ -1,8 +1,11 @@
 import style from "../../css/songs.module.css";
 import { BsStopwatchFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import AddTrack from "../PlayList/AddTrack";
 
 function SongCard(props) {
+
+  
   return (
     <div className={style.songCard}>
       <div className={style.songCard_left}>
@@ -15,6 +18,13 @@ function SongCard(props) {
       <div className={style.songCard_rigth}>
         <p>{props.duration}</p>
         <BsStopwatchFill />
+      </div>
+      <div>
+        <AddTrack
+        userId={props.userId}
+        trackId={props.id}
+        name={props.title}
+        />
       </div>
     </div>
   );

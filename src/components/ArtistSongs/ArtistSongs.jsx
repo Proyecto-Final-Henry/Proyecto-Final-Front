@@ -4,7 +4,7 @@ import { getArtistSongs} from "../../redux/actions";
 import Songs from "../Songs/Songs";
 import Pagination from "../Search/Pagination";
 
-export default function ArtistSongs({artistId}) {
+export default function ArtistSongs({artistId, userId}) {
     let dispatch = useDispatch();
   
     useEffect(() => {
@@ -21,6 +21,7 @@ export default function ArtistSongs({artistId}) {
         <Songs 
           songs={artistSongs}
           index={index}
+          userId={userId}
         /> 
         <Pagination 
           pagination = {pagination}

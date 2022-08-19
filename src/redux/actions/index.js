@@ -27,7 +27,8 @@ import {
   GET_GENRE_ALBUM,
   GET_RANDOM_FEED,
   GET_OTHER_USER_DATA,
-  GET_USER_SEARCH
+  GET_USER_SEARCH,
+  GET_PLAYLIST
 } from "../constants";
 
 export const sendEmailContact = (values) => {
@@ -65,6 +66,19 @@ export const getUserData = (id) => async (dispatch) => {
     console.log(error)
   };
 };
+
+export function getPlaylist (id){
+  return async function (dispatch){
+    return axios(`/api/back-end/playlist/${id}`)
+    .then((response) => {
+      dispatch({
+        type: GET_PLAYLIST,
+        payload:response.data,
+      });
+    });
+  }
+  
+}
 
 export  function onPageChanged(data) {
   return {type: ON_PAGE_CHANGED, payload: data }

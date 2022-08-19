@@ -4,7 +4,7 @@ import Songs from "../Songs/Songs";
 import SearchBar from "../Search/SearchBar";
 
 
-export default function ArtistSongsSearch({artistId}) {
+export default function ArtistSongsSearch({artistId, userId}) {
     const index= useSelector(store=>store.index);
     let artistSongs = useSelector((state) => state.artistSongsSearch);
   
@@ -17,6 +17,7 @@ export default function ArtistSongsSearch({artistId}) {
         <Songs 
           songs={artistSongs}
           index={index}
+          userId={userId}
         /> 
       </div>
     );
