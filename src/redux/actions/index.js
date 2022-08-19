@@ -23,7 +23,8 @@ import {
   CREATE_DB_GENRES,
   GET_GENRE_ALBUM,
   GET_RANDOM_FEED,
-  GET_OTHER_USER_DATA
+  GET_OTHER_USER_DATA,
+  GET_MY_REVIEWS
 } from "../constants";
 
 export const sendEmailContact = (values) => {
@@ -266,6 +267,7 @@ export function getAllReviews() {
   };
 };
 
+
 export function getRandomSongs() {
   return async (dispatch) => {
     axios
@@ -329,3 +331,14 @@ export function getOtherUser(id) {
     })
   }
 }
+
+export function getMyReviews() {
+  return async (dispatch) => {
+    axios.get("/api/back-end/reviews").then((reviews) => {
+      dispatch({
+        type: GET_ALL_REVIEWS,
+        payload: reviews.data,
+      });
+    });
+  };
+};

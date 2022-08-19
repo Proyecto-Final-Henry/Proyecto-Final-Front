@@ -317,6 +317,9 @@ Nav h5:hover{
   background: rgb(2,0,36);
   background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0,46,16,1) 65%, rgba(29,185,84,1) 100%);
 }
+.pi img{
+  border-radius: 50%;
+}
 .ArtistT img{
   width: 200px;
   height: 200px;
@@ -335,10 +338,15 @@ Nav h5:hover{
   height: 100%;
   min-width: 100%;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  margin: 10px 15px;
+  border: 1px solid pink;
+  border-radius: 10px;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   justify-content: space-around;
   align-items: center;
   padding: 10px;
+  background-color: rgb(226, 177, 185);
+  margin-top: 40px;
 }
 
 .ArtistTo img{
@@ -439,6 +447,26 @@ Nav{
 .carousel-indicators button.active{
   background-color: #f73aa8 !important;
 }
+
 .t{
   min-height: 100vh;
+}
+
+
+ul.nav.nav-tabs {
+  justify-content: center;
+}
+
+ul.nav.nav-tabs .nav-item button{
+  width: 200px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #000;
+}
+ul.nav.nav-tabs .nav-item button.active{
+  color: #a64ac2;
+}
+
+.tab-content{
+  padding: 30px;
 }
