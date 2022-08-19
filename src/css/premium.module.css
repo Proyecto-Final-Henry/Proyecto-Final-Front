@@ -78,13 +78,21 @@
   justify-content: space-between;
 }
 .musicCard{
-  width: 18%;
-  border: 2px solid #dd00ff;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 20px;
+  width: 100%;
+  /* width: 18%; */
+  
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+  /* margin-bottom: 20px; */
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.musicCard_content{
+  border: 2px solid #f5bdfd;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 1px 1px 3px #f29dff;
 }
 
 .musicCard_header{
@@ -275,4 +283,83 @@
 .btn_premium:hover{
   background-color: #a142be;
   border: 1px solid #a142be;
+}
+
+.titte_music{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #a142be;
+}
+
+.contenedor{
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 20px;
+}
+
+.contenedor_titulo_controles{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.contenedor_titulo_controles h3{
+  font-size: 25px;
+}
+.indicadores button{
+  background-color: red;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+.indicadores button:hover,
+.indicadores button:active{
+  background-color: blue;
+}
+
+.contenedor_principal{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.flecha_izquierda,.flecha_derecha{
+  position: absolute;
+  border: none;
+  background: rgba(194, 60, 221, 0.3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 500;
+  transition: .2s ease all;
+}
+.flecha_izquierda:hover,.flecha_derecha:hover{
+  background: rgba(194, 60, 221, 0.9);
+}
+.flecha_izquierda{
+  left: 24px;
+}
+.flecha_derecha{
+  right: 24px;
+}
+.contenedor_carousel{
+  width: 100%;
+  padding: 10px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+.carousel{
+  display: flex;
+  flex-wrap: nowrap;
+  /* gap: 25px; */
+}
+
+.carousel .card{
+  min-width: 20%;
+  transition: .3s ease all;
 }

@@ -9,8 +9,15 @@ import {
   getTopSongs,
 } from "../../redux/actions";
 import Button from "react-bootstrap/Button";
-import MusicCard from "./MusicCard";
-import ArtistCard from "./ArtistCard";
+// import MusicCard from "./MusicCard";
+// import ArtistCard from "./ArtistCard";
+// import Carousel from "../Carousel/CarouselRandomSongs";
+import CarouselTopArtists from "../Carousel/CarouselTopArtists";
+import CarouselRandomArtists from "../Carousel/CarouselRandomArtists";
+import CarouselTopSongs from "../Carousel/CarouselTopSongs";
+import CarouselRandomSongs from "../Carousel/CarouselRandomSongs";
+// import CarouselTopArtists from "../Carousel/CarouselRandomArtists";
+// import { Carousel } from "./Carousel";
 
 export default function Music() {
   let history = useHistory();
@@ -58,37 +65,14 @@ export default function Music() {
     dispatch(getRandomSongs());
   };
 
+
   return (
     <div className="t">
       <div>
-        Descubre nuevas canciones <br />
+        <h1 className={style.titte_music}>Disfruta de nuestra variedad de canciones </h1>
+        
         {randomSongs ? (
-          <Button
-            style={{ marginTop: "25px" }}
-            onClick={handleSongs}
-            variant="outline-success"
-            type="submit"
-          >
-            Nuevas canciones
-          </Button>
-        ) : null}
-        {randomSongs ? (
-          <div className={style.musicRandom}>
-            {randomSongs.map((song) => {
-              return (
-                <MusicCard
-                  key={song.id}
-                  id={song.id}
-                  title={song.title}
-                  album={song.album}
-                  albumId={song.albumId}
-                  artist={song.artist}
-                  artistId={song.artistId}
-                  img={song.img}
-                />
-              );
-            })}
-          </div>
+          <CarouselRandomSongs data={randomSongs} title={'Descubre nuevas canciones'}/>
         ) : (
           <div className={style.mainDiv}>
             <h2> Cargando nuevos descubrimientos </h2>
@@ -98,26 +82,22 @@ export default function Music() {
             <Link to="/contact2">Contactanos</Link>
           </div>
         )}
+
+        {randomSongs ? (
+          <Button
+            style={{ marginTop: "0px" }}
+            onClick={handleSongs}
+            variant="outline-success"
+            type="submit"
+          >
+            Nuevas canciones
+          </Button>
+        ) : null}
       </div>
       <br />
       <div>
-        Canciones del momento
         {topSongs ? (
-          <div className={style.musicRandom}>
-            {topSongs.map((song) => {
-              return (
-                <MusicCard
-                  key={song.id}
-                  id={song.id}
-                  title={song.title}
-                  albumId={song.albumId}
-                  artist={song.artist?.name}
-                  artistId={song.artist?.id}
-                  img={song.artist?.image}
-                />
-              );
-            })}
-          </div>
+          <CarouselTopSongs data={topSongs} title={'Canciones del momento'}/>
         ) : (
           <div className={style.mainDiv}>
             <h2> Cargando las canciones del momento </h2>
@@ -130,21 +110,8 @@ export default function Music() {
       </div>
       <br />
       <div>
-        Descubre nuevos artistas
         {randomArtists ? (
-          <div className={style.musicRandom}>
-            {randomArtists.map((artist) => {
-              return (
-                <ArtistCard
-                  key={artist.id}
-                  apiId={artist.apiId}
-                  id={artist.id}
-                  name={artist.name}
-                  image={artist.image}
-                />
-              );
-            })}
-          </div>
+          <CarouselRandomArtists data={randomArtists} title={'Descubre nuevos artistas'}/>
         ) : (
           <div className={style.mainDiv}>
             <h2> Cargando nuevos artistas</h2>
@@ -157,21 +124,8 @@ export default function Music() {
       </div>
       <br />
       <div>
-        Artistas del momento
         {topArtists ? (
-          <div className={style.musicRandom}>
-            {topArtists.map((artist) => {
-              return (
-                <ArtistCard
-                  key={artist.id}
-                  apiId={artist.apiId}
-                  id={artist.id}
-                  name={artist.name}
-                  image={artist.image}
-                />
-              );
-            })}
-          </div>
+          <CarouselTopArtists data={topArtists} title={'Artistas del momento'}/>
         ) : (
           <div className={style.mainDiv}>
             <h2> Cargando los artistas del momento</h2>
