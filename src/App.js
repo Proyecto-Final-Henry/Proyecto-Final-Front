@@ -203,7 +203,7 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exactp path="/user/deactivate">
+      <Route exact path="/user/deactivate">
         <NavigationM />
         <DeactivateAccount />
         <Footer />

@@ -28,6 +28,7 @@ import {
   GET_OTHER_USER_DATA,
   GET_USER_SEARCH,
   SET_PRICE,
+  GET_PLAYLIST,
 } from "../constants";
 
 const initialState = {
@@ -64,16 +65,22 @@ const initialState = {
   users:[],
   genresDb: [],
   otherUser: {},
+  playList:[],
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_PLAYLIST:
+      return{
+        ...state,
+        playList:action.payload
+      };
     case CALC_PAGES:
       let limit = action.payload;
       return{
         ...state,
         totalPages: (Math.floor(state.searchResultFilter.length /limit))+1        
-      } 
+      } ;
     case GET_USER_DATA:
       return {
         ...state,

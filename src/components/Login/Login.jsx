@@ -28,6 +28,7 @@ const Login = () => {
       const url = `/api/back-end/users/login`;
       const { data } = await axios.post(url, { email, password });
       localStorage.setItem("token", data.token);
+      localStorage.setItem("active", data.active);
       if (!data.active) {
         return history.push("/user/restore");
       }
@@ -49,6 +50,7 @@ const Login = () => {
         userImg: user.photoURL ? user.photoURL : null,
       });
       localStorage.setItem("token", data.token);
+      localStorage.setItem("active", data.active);
       history.push("/feed");
     } catch (error) {
       setAlerta({ msg: error.response.data.msg, error: true });
