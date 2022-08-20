@@ -62,10 +62,13 @@ const prueba2 = usuariosPremium.reduce((contador, mes) => {
  let dataValues 
  if (Object.values(prueba2).length !== mesesGrafico3.length){
     dataValues = [...Object.values(prueba2)] 
-    for(let i = Object.values(prueba2).length; i <= mesesGrafico3.length - Object.values(prueba2).length; i++){
+    for(let i = Object.values(prueba2).length; i <= mesesGrafico3.length - 1; i++){
       dataValues[i] = 0
     }
+  } else {
+    dataValues = Object.values(prueba2)
   } 
+  console.log(dataValues)
 
  const data = { 
   labels: [...mesesGrafico3],
