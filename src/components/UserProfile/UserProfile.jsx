@@ -1,10 +1,9 @@
-//import {useSelector} from 'react-redux'; // descomentar cuando este llegando la data
+import {useSelector} from 'react-redux'; // descomentar cuando este llegando la data
 import { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import "../../css/users.css";
-import { useDispatch } from "react-redux";
 import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -13,6 +12,8 @@ export default function UserProfile() {
   const history = useHistory();
   const [user, setUser] = useState({});
   const [showImg, setShowImg] = useState(true);
+  let precio = useSelector(state => state.price);
+  console.log(precio);
 
   let handleAdmin = () => {
     history.push("/admin");
