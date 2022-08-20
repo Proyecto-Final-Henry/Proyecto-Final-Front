@@ -411,7 +411,7 @@ export default function GenreDetail() {
 
             <div>
             {genreDb.length ? genreDb.map((g) => 
-                <Link to={"/album/" + g.id}>
+                <Link to={"/album/" + g.apiId}>
                     <div className={style.albumDiv} key={g.id}>
                         <h2 style={{"fontSize": "larger"}}>{g.title}</h2>
                         <img src={g.image} alt="imagen de album" />

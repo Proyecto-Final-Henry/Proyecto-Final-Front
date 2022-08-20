@@ -48,13 +48,10 @@ export default function AdminPanel (){
                 <AdminIncome/>
             </div>
             <br />
-            <div>
-                Graficos
+            <div style={{display:"inline-flex", width: "45%"}}>
+                <BarChart/>
+                <LineChart/>
             </div>
         </div>
-        <> 
-            <BarChart/>
-            <LineChart/>
-        </>
     )
 };

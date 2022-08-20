@@ -26,7 +26,8 @@ function CarouselTopSongs({title, data, info}) {
                                     id={song.id}
                                     title={song.title}
                                     album={song.album}
-                                    albumId={song.albumId}
+                                    apiId = {song.apiId}
+                                    fixAlbumId={song.fixAlbumId}
                                     artist={song.artist?.name}
                                     artistId={song.artist?.id}
                                     img={song.artist?.image}
