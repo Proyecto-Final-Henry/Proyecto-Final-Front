@@ -62,7 +62,7 @@ const prueba2 = usuariosPremium.reduce((contador, mes) => {
   labels: [...mesesGrafico3],
   datasets: [
       {
-          label: "Usuarios Free",
+          label: "Usuarios Gratuitos",
           data: Object.values(prueba).reverse(),
           backgroundColor: "rgb(255, 99, 132)"
       },

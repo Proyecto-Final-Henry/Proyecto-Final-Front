@@ -19,20 +19,13 @@ function MusicCard(props) {
             >
               •••
             </Dropdown.Toggle>
-
             <Dropdown.Menu>
               <Dropdown.Item>
-                <Link to={"/song/" + props.id}>
-                  Ir a canción
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link to={"/artist/" + props.artistId}>
-                  Ir al artista                
-                </Link>
+                {console.log(props)}
+                {props.apiId ? <Link to={"/song/" + props.apiId}> Ir a la canción  </Link> :  <Link to={"/song/" + props.id}>  Ir a la canción   </Link>}
               </Dropdown.Item>
               <Dropdown.Item >
-                <Link to={"/album/" + props.albumId}>
+                <Link to={"/album/" + props.fixAlbumId}>
                   Ir al álbum
                 </Link>
               </Dropdown.Item> 

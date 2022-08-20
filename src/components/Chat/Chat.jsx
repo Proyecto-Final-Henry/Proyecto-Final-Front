@@ -128,7 +128,7 @@ const Chat = () => {
       console.log(error);
     }
   };
-
+  
   return (
     <div className="Chat">
       <div className="Left-side-chat">

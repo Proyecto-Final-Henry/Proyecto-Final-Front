@@ -27,6 +27,7 @@ import {
   GET_RANDOM_FEED,
   GET_OTHER_USER_DATA,
   GET_USER_SEARCH,
+  SET_PRICE,
   GET_PLAYLIST,
 } from "../constants";
 
@@ -84,6 +85,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         userData: action.payload,
+      };
+    case SET_PRICE:
+      return {
+        ...state,
+        basePrice: action.payload,
       };
     case GET_GENRES:
       return {
@@ -209,7 +215,6 @@ function rootReducer(state = initialState, action) {
         randomSongs: action.payload,
       };
     case GET_TOP_SONGS:
-      console.log(action.payload)
       return {
         ...state,
         topSongs: action.payload,
