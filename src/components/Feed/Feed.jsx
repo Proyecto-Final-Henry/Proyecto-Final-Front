@@ -7,12 +7,12 @@ import Re from './Re';
 import { createAlbum, createGenreDb, getAllReviews, getUserData, getRandomSongs, getTopArtists, getTopSongs, getRandomArtists } from "../../redux/actions";
 import { getGenres } from "../../redux/actions/actions_player";
 import axios from "axios";
-
+import { useState } from "react";
 
 export default function Feed(){
     const history = useHistory();
     let dispatch = useDispatch();
-    const albumCheck = useSelector((state) => state.albumDb);
+    const [user, setUser] = useState({});
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -30,10 +30,12 @@ export default function Feed(){
             try {
                 const { data } = await axios(`/api/back-end/users/perfil`, config);
                 dispatch(getUserData(data?.id))
+                setUser(data);
             } catch (error) {
                 console.log(error.response.data.msg);
             };
         };
+        
         autenticarUsuario();
         dispatch(getAllReviews());
         dispatch(getGenres());

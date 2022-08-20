@@ -209,7 +209,7 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exactp path="/user/restore">
+      <Route exact path="/user/restore">
         <NavigationB />
         <RestoreAccount />
         <Footer />

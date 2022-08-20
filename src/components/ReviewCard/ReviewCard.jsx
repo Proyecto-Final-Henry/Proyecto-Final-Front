@@ -4,9 +4,8 @@ import style from "../../css/rev.css";
 import { Link, useHistory } from "react-router-dom";
 import "../../css/perfilrev.css";
 import Follow from "../Follow/Follow";
-import DeleteReview from "../DeleteReview/DeleteReview"
-import axios from "axios"
-import { propTypes } from "react-bootstrap/esm/Image";
+import DeleteReview from "../DeleteReview/DeleteReview";
+import axios from "axios";
 import LikesReview from "../LikesReview/LikesReview";
 
 export default function ReviewCard() {

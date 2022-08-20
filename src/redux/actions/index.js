@@ -27,7 +27,8 @@ import {
   GET_GENRE_ALBUM,
   GET_RANDOM_FEED,
   GET_OTHER_USER_DATA,
-  GET_USER_SEARCH
+  GET_USER_SEARCH,
+  SET_PRICE
 } from "../constants";
 
 export const sendEmailContact = (values) => {
@@ -395,3 +396,12 @@ export function getOtherUser(id) {
     })
   }
 }
+
+export function setPrice(price) {
+  return async(dispatch) => {
+      dispatch({
+        type: SET_PRICE,
+        payload: price
+      })
+    };
+};

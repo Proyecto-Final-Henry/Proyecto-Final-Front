@@ -9,26 +9,33 @@ import User from './User';
 import { useSelector } from 'react-redux';
 
 const Chat = () => {
-    const history = useHistory()
-    const socket = useRef()
+    const history = useHistory();
+    const socket = useRef();
 
-    const [ user , setUser ] = useState({})
+    const [ user , setUser ] = useState({});
 
-    const [ users , setUsers ] = useState([])
+    const [ users , setUsers ] = useState([]);
     
-    const [ probando , setProbando] = useState(false)
+    const [ probando , setProbando] = useState(false);
 
-    const [ chats , setChats ] = useState([])
+    const [ chats , setChats ] = useState([]);
 
-    const [ currentChat , setCurrentChat ] = useState(null)
+    const [ currentChat , setCurrentChat ] = useState(null);
 
-    const [ onlineUsers , setOnlineUsers ] = useState([])
+    const [ onlineUsers , setOnlineUsers ] = useState([]);
 
-    const [ enviarMensaje , setEnviarMensaje ] = useState(null)
+    const [ enviarMensaje , setEnviarMensaje ] = useState(null);
 
-    const [ recibirMensaje , setRecibirMensaje ] = useState(null)
+    const [ recibirMensaje , setRecibirMensaje ] = useState(null);
 
-    const userData = useSelector(state => state.userData)
+    const userData = useSelector(state => state.userData);
+
+    useEffect(() => {
+        if (user.role === "Gratuito") {
+            history.push("/feed")
+        };
+    })
+ 
     console.log(userData)
 
     useEffect(() => {
@@ -51,9 +58,6 @@ const Chat = () => {
                 console.log(error.response.data.msg);
             };
         };
-        // if (!users.length) {
-        //     dispatch()
-        // }
          autenticarUsuario()
      },[])
 
