@@ -1,21 +1,39 @@
 import axios from "axios";
-import {useSelector } from "react-redux";
+import {useDispatch, useSelector } from "react-redux";
+import { getPlaylist } from "../../redux/actions";
 import PlaylistCard from "./PlaylistCard";
 
-export default function  UserPlaylist({isModal, id, name}){
+export default function  UserPlaylist({isModal, id, name, closeModal, userId}){
     const playList = useSelector(store=> store.playList); 
-    
+
+    let dispatch = useDispatch()
+
+
+
     const  addSong = async (e) => {
         try {
           await axios.put(`/api/back-end/playlist/addSongs/${e.target.name}`, {              
             name: name,
             id: id,
           });
+          dispatch(getPlaylist(userId))
         } catch (err) {
           throw new Error("No pudimos agregar tu canción");
         }
-    } ; 
-    
+    }; 
+
+    const removeSong = async (e) => {
+        try {
+            await axios.put(`/api/back-end/playlist/removeSongs/${e.target.name}`, {              
+              name: name,
+              id: id,
+            });
+          dispatch(getPlaylist(userId))
+          } catch (err) {
+            throw new Error("No pudimos remover tu canción");
+          }
+    }
+
     return(
         <div>{playList.length? (
             <div>
@@ -26,7 +44,10 @@ export default function  UserPlaylist({isModal, id, name}){
                             isModal={isModal? true : false}
                             id={e.id}
                             addSong={addSong}
+                            removeSong={removeSong}
                             name={e.name}
+                            songId={id}
+                            playlist={e}
                             />                           
                         </div>
                     )

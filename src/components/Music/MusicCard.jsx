@@ -3,6 +3,7 @@ import { BsMusicNoteBeamed } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
+import AddTrack from "../PlayList/AddTrack";
 
 function MusicCard(props) {
   return (
@@ -32,6 +33,11 @@ function MusicCard(props) {
                 <Link to={"#/addplaylist"}>
                   Agregar a playlist
                 </Link>
+                 {/* <AddTrack
+        userId={props.userId}
+        trackId={props.id}
+        name={props.title}
+        /> */}
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

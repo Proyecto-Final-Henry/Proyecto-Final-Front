@@ -8,17 +8,21 @@ export default function AddTrack({userId, trackId, name}) {
     return (
         <div>
             <Modal isOpen={isOpen} onClose={closeModal}>
-                <UserPlaylist
-                id={trackId}
-                name={name}                
-                isModal={true}
-                />
+                { trackId ?
+                    <UserPlaylist
+                    id={trackId}
+                    closeModal={closeModal}
+                    name={name}  
+                    userId={userId}              
+                    isModal={true}
+                    /> : <></>
+                }
                 <CreatePlaylist
                 onClose={closeModal}
                 userId={userId}
                 />
             </Modal>
-            <button onClick={openModal}>Añadir a playlist</button>
+            <button onClick={openModal}>+/- Playlist</button>
         </div>
     )
 }
