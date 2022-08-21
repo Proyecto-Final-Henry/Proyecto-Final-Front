@@ -60,6 +60,7 @@ export default function NavigationM(){
                         <Link to="/search"><h5>BUSCAR</h5></Link>
                         <Link to="/music"><h5>MÚSICA</h5></Link>
                         <Link to="/genres"><h5>GÉNEROS</h5></Link>
+                        <Link to={`/playlist/${user?.id}`}><h5>PLAYLIST</h5></Link>
                         {user.role === "Gratuito" ? null : <Link to="/chat"><h5>CHAT</h5></Link> }
                     </Nav>
                     <Nav className='nav_btn_registro'>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getPlaylist } from "../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import style from "../../css/songs.module.css";
@@ -8,6 +8,8 @@ import style from "../../css/songs.module.css";
 export default function CreatePlaylist({onClose,userId}) {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const playListUser = useSelector(store=> store.playList); 
 
   const [playlist, setPlaylist] = useState({
     name: "",
@@ -22,7 +24,10 @@ export default function CreatePlaylist({onClose,userId}) {
     if(input.name.length === 0){
       error.name = '* Nombre de Playlist es requerido';
     }
-    return error;
+    if(playListUser.find(p => p.name === input.name)){
+      error.name = "* No puedes repetir nombres de Playlist"
+    }
+      return error;
   };
 
   const handleSubmit = async (e) => {
@@ -41,8 +46,8 @@ export default function CreatePlaylist({onClose,userId}) {
         e.target.reset()
         dispatch(getPlaylist(userId))
         onClose();
-      }else {
-        history.push("/user");
+      } else {
+        dispatch(getPlaylist(userId))
       }
     }
   };
@@ -59,7 +64,7 @@ export default function CreatePlaylist({onClose,userId}) {
   return (
     <div className={style.createReview}>
       <h3>Crear Playlist</h3>
-      <form onSubmit={handleSubmit} >      
+      <form onSubmit={handleSubmit} id="formulario">      
         <input
           id="reviewTitle"
           type="text"

@@ -33,6 +33,7 @@ import TeamIn from "./components/Team/TeamIn";
 import OtherUserProfile from "./components/UserProfile/OtherUserProfile";
 import DeactivateAccount from "./components/DeactivateAccount/DeactivateAccount";
 import RestoreAccount from "./components/RestoreAccount/RestoreAccount";
+import PlaylistComponent from "./components/PlayList/PlaylistComponent"
 
 function App() {
   return (
@@ -212,6 +213,12 @@ function App() {
       <Route exact path="/user/restore">
         <NavigationB />
         <RestoreAccount />
+        <Footer />
+      </Route>
+
+      <Route exact path="/playlist/:id">
+        <NavigationM />
+        <PlaylistComponent />
         <Footer />
       </Route>
     </div>

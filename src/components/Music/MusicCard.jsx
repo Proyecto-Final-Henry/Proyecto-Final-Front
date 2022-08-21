@@ -30,14 +30,14 @@ function MusicCard(props) {
                 </Link>
               </Dropdown.Item> 
               <Dropdown.Item>
-                {/* <Link to={"#/addplaylist"}>
+                <Link to={"#/addplaylist"}>
                   Agregar a playlist
-                </Link> */}
-                 <AddTrack
+                </Link>
+                 {/* <AddTrack
         userId={props.userId}
         trackId={props.id}
         name={props.title}
-        />
+        /> */}
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
