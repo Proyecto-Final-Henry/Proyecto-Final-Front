@@ -128,7 +128,7 @@ export default function ReviewCard() {
                     <p>Descripcion:</p>
                     {/* <p className="reviewDescription">{r.description}</p> */}
                     <button className='btn_description' onClick={() => handleButton(r.description)}>Ver descripción</button>
-                    <Modal isOpen={isOpenAlert} onClose={closeAlert}>
+                    <Modal isOpen={isOpenAlert} onClose={closeAlert} className="modal_body">
                       <h4>Descripción de la reseña</h4>
                       <div  className="option_deleteReview">
                           <p className="reviewDescription">{description}</p>

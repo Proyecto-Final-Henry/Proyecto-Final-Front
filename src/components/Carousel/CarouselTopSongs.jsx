@@ -1,9 +1,21 @@
+import { useEffect } from "react";
 import style from "../../css/premium.module.css";
 // import ArtistCard from "../Music/ArtistCard";
 import MusicCard from "../Music/MusicCard";
 
+<<<<<<< HEAD
+function CarouselTopSongs({title, data, info}) {
+
+    // const fila = document.querySelector('.carouselTopSongs');
+    let fila = '';
+    useEffect(() => { 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        fila = document.querySelector('.carouselTopSongs');;
+    });
+=======
 function CarouselTopSongs({title, data}) {
     const fila = document.querySelector('.carouselTopSongs');
+>>>>>>> ac6986793e88f1f138ccd179ce4c0b6e14dfbb0c
     const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
     const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
 

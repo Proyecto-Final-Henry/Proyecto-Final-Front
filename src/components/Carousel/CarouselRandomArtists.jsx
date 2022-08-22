@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import style from "../../css/premium.module.css";
 import ArtistCard from "../Music/ArtistCard";
 
 function CarouselRandomArtists({title, data}) {
 
-    const fila = document.querySelector('.carouselRandomArtists');
+    // const fila = document.querySelector('.carouselRandomArtists');
+    let fila = '';
+    useEffect(() => { 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        fila = document.querySelector('.carouselRandomArtists');
+    });
     const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
     const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
 

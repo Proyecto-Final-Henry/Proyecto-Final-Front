@@ -72,3 +72,13 @@
     background-color: #99015a;
     border: 1px solid #99015a;
 }
+
+.option_deleteReview p{
+    /* width: 500px; */
+    padding: 10px;
+    /* overflow-wrap: break-word; */
+
+}
+.modal_body{
+    padding: 20px;
+}
