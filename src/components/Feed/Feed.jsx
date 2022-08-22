@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -52,7 +52,7 @@ export default function Feed(){
             <div className="er">
                 <Per />
             </div>
-            <div className="cen">
+            <div className="cen cen_scroll">
                 <ReviewCard/>
             </div>
             <div className="ult">

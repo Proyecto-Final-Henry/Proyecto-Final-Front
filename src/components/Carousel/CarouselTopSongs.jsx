@@ -1,10 +1,12 @@
 import style from "../../css/premium.module.css";
+// import ArtistCard from "../Music/ArtistCard";
 import MusicCard from "../Music/MusicCard";
 
 function CarouselTopSongs({title, data}) {
     const fila = document.querySelector('.carouselTopSongs');
-    const next = () => fila.scrollLeft += fila.offsetWidth;
-    const prev = () => fila.scrollLeft -= fila.offsetWidth;
+    const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
+    const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
+
 
     return (
         <div className={style.contenedor}>

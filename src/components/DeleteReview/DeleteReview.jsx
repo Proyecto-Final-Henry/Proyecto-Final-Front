@@ -5,7 +5,6 @@ import { getAllReviews } from "../../redux/actions";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
 
-
 export default function DeleteReview(props){
     let dispatch = useDispatch();
 
@@ -22,12 +21,14 @@ export default function DeleteReview(props){
     }
 
     return(
-        <div>
-            <button onClick={() => handleButton()}>Eliminar Reseña</button>
+        <div className="deleteReview">
+            <button className="btn_deleteReview" onClick={() => handleButton()}>Eliminar Reseña</button>
             <Modal isOpen={isOpenAlert} onClose={closeAlert}>
             <h4>¿Esta seguro que desea borrar su review?</h4>
-            <button onClick={() => handleButtonDelete()}>Si</button>
-            <button onClick={closeAlert}>No</button>
+            <div  className="option_deleteReview">
+                <button onClick={() => handleButtonDelete()}>Si</button>
+                <button onClick={closeAlert}>No</button>
+            </div>
             </Modal>
         </div>
     );

@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import style from "../../css/premium.module.css";
-import ArtistCard from "../Music/ArtistCard";
+// import ArtistCard from "../Music/ArtistCard";
 import MusicCard from "../Music/MusicCard";
 
 function CarouselRandomSongs({title, data}) {
+
     // const fila = document.querySelector(`.${style.contenedor_carousel}`);
     const fila = document.querySelector('.carouselRandomSongs');
-    const next = () => fila.scrollLeft += fila.offsetWidth;
-    const prev = () => fila.scrollLeft -= fila.offsetWidth;
+    const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
+    const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
+
 
     return (
         <div className={style.contenedor}>
@@ -16,7 +18,8 @@ function CarouselRandomSongs({title, data}) {
             </div>
 
             <div className={style.contenedor_principal}>
-            <button role={'button'} onClick={prev} className={style.flecha_izquierda}><i className="fa-solid fa-circle-chevron-left"></i></button>
+            <button onClick={prev} className={style.flecha_izquierda}>
+                <i className="fa-solid fa-circle-chevron-left"></i></button>
             <div className={`${style.contenedor_carousel} carouselRandomSongs`}>
                 <div className={style.carousel}>
                     {data.map((song) => {
@@ -38,7 +41,7 @@ function CarouselRandomSongs({title, data}) {
                     })}
                 </div>  
             </div>
-            <button role={'button'} onClick={next} className={style.flecha_derecha}><i className="fa-solid fa-circle-chevron-right"></i></button>
+            <button onClick={next} className={style.flecha_derecha}><i className="fa-solid fa-circle-chevron-right"></i></button>
             </div>
         </div>
     );
