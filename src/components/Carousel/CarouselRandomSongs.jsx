@@ -24,10 +24,11 @@ function CarouselRandomSongs({title, data}) {
                 <div className={style.carousel}>
                     {data.map((song) => {
                         return (
-                            <div className={`${style.card}`} key={song.id}>
+                            <div className={`${style.card}`} key={song.id || song.apiId}>
                                 <MusicCard
                                 key={song.id}
                                 id={song.id}
+                                apiId = {song.apiId}
                                 title={song.title}
                                 album={song.album}
                                 albumId={song.albumId}

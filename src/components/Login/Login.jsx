@@ -34,8 +34,11 @@ const Login = () => {
       }
       history.push("/feed");
     } catch (error) {
-      setAlerta({ msg: error.response.data.msg, error: true });
-    }
+      setAlerta({ msg: error.response.data.msg, error: true })
+      setTimeout(() => {
+        setAlerta({});
+      }, 3500);
+    };
   };
 
   const loginGoogle = async () => {

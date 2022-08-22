@@ -8,7 +8,7 @@ import Filters from "./Filters";
 import Pagination from "./Pagination";
 import PaginationFilter from "./PaginationFilter";
 import SearchBar from "../Search/SearchBar";
-import { getSearch, calcPages, onPageChanged, getPlaylist } from "../../redux/actions";
+import { getSearch, calcPages, onPageChanged, getPlaylist, clearArtist, clearAlbum, clearSong } from "../../redux/actions";
 import style from "../../css/resultSearch.module.css";
 import { pageLimit } from "./PaginationFilter";
 import UserCard from "../SearchResultCards/UserCard";
@@ -56,6 +56,9 @@ export default function SearchResult() {
       };
     };
     autenticarUsuario()
+    dispatch(clearArtist());
+    dispatch(clearAlbum());
+    dispatch(clearSong());
   },[]);
    
   useEffect(() => {

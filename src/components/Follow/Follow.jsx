@@ -9,24 +9,24 @@ export default function Follow(props){
         return f.id
     });
 
-
     const hasFollower = mapedFollowers?.includes(props?.meId);
 
     const handleButton = async () => {
         if (hasFollower) {   
-        await axios.get(`http://localhost:3001/api/back-end/user/unFollow/${props.meId}/${props?.id}`)
+        await axios.get(`http://localhost:3001/api/back-end/user/unFollow/${props.meId}/${props?.id}`);
     } else {
-        await axios.get(`http://localhost:3001/api/back-end/user/follow/${props.meId}/${props?.id}`)
+        await axios.get(`http://localhost:3001/api/back-end/user/follow/${props.meId}/${props?.id}`);
     };
-    dispatch(getOtherUser(props.id))
-    dispatch(getAllReviews())
+    dispatch(getOtherUser(props.id));
+    dispatch(getAllReviews());
     };
 
     return(
         <div >
             { hasFollower ? 
                 // <button onClick={() => handleButton()}>Dejar de Seguir</button>:
-                <button className="follow" onClick={() => handleButton()}>Siguiendo</button>:
+                <button className="follow" onClick={() => handleButton()}>Siguiendo</button>
+                :
                 <button className="follow" onClick={() => handleButton()}>Seguir</button>
             }
         </div>

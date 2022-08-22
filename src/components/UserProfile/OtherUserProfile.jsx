@@ -80,7 +80,7 @@ export default function OtherUserProfile() {
             return (
               <div className="pri">
                 <Link to={meUser.id === f.id ? "/user" : `/users/${f.id}`}>
-                  <img src={f.userImg} alt="userImg"></img>
+                  <img src={f.userImg} style={{height:"15%", width:"15%"}} alt="userImg"></img>
                   <p>{f.name}</p>
                 </Link>
               </div>
@@ -97,7 +97,7 @@ export default function OtherUserProfile() {
             return (
               <div className="pri">
                 <Link to={meUser.id === f.id ? "/user" : `/users/${f.id}`}>
-                  <img src={f.userImg} alt="userImg"></img>
+                  <img src={f.userImg} style={{height:"15%", width:"15%"}} alt="userImg"></img>
                   <p>{f.name}</p>
                 </Link>
               </div>

@@ -52,7 +52,7 @@ export default function NavigationM(){
                     <Nav className="me-auto">
                         <div className="logo">
                             <Link to= "/feed">
-                                <img src={Logo} alt="logo"/>
+                                <img style={{height:"48px"}} src={Logo} alt="logo"/>
                             </Link>
                         </div>
                         <Link to= "/feed" ><h5>INICIO</h5></Link>
