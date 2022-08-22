@@ -16,9 +16,9 @@ axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
   </Provider>
 );
 

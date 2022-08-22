@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import style from "../../css/premium.module.css";
 // import ArtistCard from "../Music/ArtistCard";
 import MusicCard from "../Music/MusicCard";
@@ -8,7 +9,6 @@ function CarouselRandomSongs({title, data}) {
     const fila = document.querySelector('.carouselRandomSongs');
     const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
     const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
-
 
 
     return (
@@ -33,7 +33,7 @@ function CarouselRandomSongs({title, data}) {
                                 albumId={song.albumId}
                                 artist={song.artist}
                                 artistId={song.artistId}
-                                img={song.img}
+                                image={song.image}
                                 />
                             
                             </div>
@@ -45,6 +45,6 @@ function CarouselRandomSongs({title, data}) {
             </div>
         </div>
     );
-}
+};
 
 export default CarouselRandomSongs;
