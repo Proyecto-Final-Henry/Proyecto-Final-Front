@@ -35,8 +35,7 @@ function CarouselRandomSongs({title, data}) {
                                 artist={song.artist}
                                 artistId={song.artistId}
                                 image={song.image}
-                                />
-                            
+                                />  
                             </div>
                         );
                     })}
