@@ -45,16 +45,7 @@ export default function CreatePlaylist({onClose,userId}) {
       setPlaylist({
         name: ""
       })
-      if(onClose){
-        e.target.reset()
-        setPlaylist({
-          name: ""
-        })
-        dispatch(getPlaylist(userId))
-        onClose();
-      } else {
-        dispatch(getPlaylist(userId))
-      }
+      dispatch(getPlaylist(userId))
     };
   };
   
