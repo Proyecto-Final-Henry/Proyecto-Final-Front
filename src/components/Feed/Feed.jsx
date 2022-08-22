@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Re from './Re';
-import { createAlbum, createGenreDb, getAllReviews, getUserData, getRandomSongs, getTopArtists, getTopSongs, getRandomArtists } from "../../redux/actions";
+import { createAlbum, createGenreDb, getAllReviews, getUserData, getRandomSongs, getTopArtists, getTopSongs, getRandomArtists, clearArtist, clearAlbum, clearSong } from "../../redux/actions";
 import { getGenres } from "../../redux/actions/actions_player";
 import axios from "axios";
 import { useState } from "react";
@@ -37,6 +37,9 @@ export default function Feed(){
         };
         
         autenticarUsuario();
+        dispatch(clearArtist());
+        dispatch(clearAlbum());
+        dispatch(clearSong());
         dispatch(getAllReviews());
         dispatch(getGenres());
         dispatch(createGenreDb());

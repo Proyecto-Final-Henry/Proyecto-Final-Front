@@ -49,16 +49,13 @@ export default function ArtistDetail() {
           console.log(error.response.data.msg);
       };
     };
-    autenticarUsuario()
+    autenticarUsuario();
+    dispatch(getArtistData(artistId));
   },[]);
    
   useEffect(() => {
     dispatch(getPlaylist(user.id));
   },[user.id,]);
-
-  useEffect(() => {
-    dispatch(getArtistData(artistId));
-  }, []);
 
   let artistData = useSelector((state) => state.artistData);
 
@@ -66,7 +63,7 @@ export default function ArtistDetail() {
     <div style={{"backgroundColor": "pink"}}>
       <div className={style.artistDetail_header}>
         <div>
-          <img src={artistData.image} alt={artistData.name} />
+          <img src={artistData.image} alt={artistData.name}/>
         </div>
         <div className={style.artistDetail_information}>
           <p><BsShieldFillCheck/> Artista Verificado</p>

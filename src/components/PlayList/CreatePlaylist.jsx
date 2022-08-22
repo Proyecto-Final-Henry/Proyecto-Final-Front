@@ -32,7 +32,6 @@ export default function CreatePlaylist({onClose,userId}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if(Object.entries(error).length === 0){
       try {
         await axios.post("/api/back-end/playlist/create", {              
@@ -41,7 +40,7 @@ export default function CreatePlaylist({onClose,userId}) {
         });
       } catch (err) {
         throw new Error("No pudimos crear tu playlist");
-      }
+      };
       if(onClose){
         e.target.reset()
         dispatch(getPlaylist(userId))
@@ -49,7 +48,7 @@ export default function CreatePlaylist({onClose,userId}) {
       } else {
         dispatch(getPlaylist(userId))
       }
-    }
+    };
   };
   
   const handleChange = (e) => {

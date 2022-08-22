@@ -3,6 +3,9 @@ import { Link, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  clearAlbum,
+  clearArtist,
+  clearSong,
   getRandomArtists,
   getRandomSongs,
   getTopArtists,
@@ -59,12 +62,14 @@ export default function Music() {
     if (!topArtists.length) {
       dispatch(getTopArtists());
     }
+    dispatch(clearArtist());
+    dispatch(clearAlbum());
+    dispatch(clearSong());
   }, []);
 
   let handleSongs = () => {
     dispatch(getRandomSongs());
   };
-
 
   return (
     <div className="t">
