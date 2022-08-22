@@ -9,7 +9,7 @@ function MusicCard(props) {
     <div className={style.musicCard}>
       <div className={style.musicCard_content}>
         <div className={style.musicCard_header}>
-          <img src={props.img} alt={props.title} />
+          <img src={props.image} alt={props.title} />
           <Dropdown className={style.dropdown}>
             <Dropdown.Toggle
               id="dropdown-basic-button"
@@ -20,7 +20,6 @@ function MusicCard(props) {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item>
-                {console.log(props)}
                 {props.apiId ? <Link to={"/song/" + props.apiId}> Ir a la canción  </Link> :  <Link to={"/song/" + props.id}>  Ir a la canción   </Link>}
               </Dropdown.Item>
               <Dropdown.Item >
