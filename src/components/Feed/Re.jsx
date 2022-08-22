@@ -21,9 +21,9 @@ export default function Re(){
             <h5>Canciones Recomendadas:</h5>
         {random ? (
             <div className="song">{
-                random.map(song => {
+                random.map((song,index) => {
                   return (
-                    <div className="can">
+                    <div className="can" key={index}>
                         <Link to={"/song/" + song.id}>
                         <img src={song.img} alt={song.img} />
                         </Link>

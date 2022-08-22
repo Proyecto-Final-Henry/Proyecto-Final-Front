@@ -9,8 +9,6 @@ export default function LikesReview(props){
         return l.id
     });
     
-
-
     const hasLikes = mapedLikes?.includes(props?.meId);
 
     const handleButton = async () => {
@@ -21,9 +19,9 @@ export default function LikesReview(props){
     return(
         <div>
             { hasLikes ? 
-                <button onClick={() => handleButton()}>♥dislike</button>:
-                <button onClick={() => handleButton()}>♥like</button>
-            }<>: </>
+                <button className="likesReview" onClick={() => handleButton()}>❤️</button>:
+                <button className="likesReview" onClick={() => handleButton()}>🖤</button>
+            }<> : </>
             {mapedLikes?.length}
         </div>
     );

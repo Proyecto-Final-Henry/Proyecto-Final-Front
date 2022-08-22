@@ -6,13 +6,17 @@ import "../../css/perfilrev.css";
 import Follow from "../Follow/Follow";
 import DeleteReview from "../DeleteReview/DeleteReview";
 import axios from "axios";
-import { propTypes } from "react-bootstrap/esm/Image";
+// import { propTypes } from "react-bootstrap/esm/Image";
 import LikesReview from "../LikesReview/LikesReview";
+import { useModal } from "../Modal/useModal";
+import Modal from "../Modal/Modal";
 
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
   const history = useHistory();
   const [user, setUser] = useState({});
+  const [isOpenAlert, openAlert, closeAlert] = useModal(false);
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -42,16 +46,30 @@ export default function ReviewCard() {
     autenticarUsuario();
   }, []);
 
-  console.log(reviewArray);
+  // console.log(reviewArray);
+
+  const handleButton = (message) => {
+    setDescription(message);
+    openAlert()
+  }
+
+  const score = (count) => {
+    let start = '';
+    for (let i = 0; i < count; i++) {
+      start += '★';
+    }
+    return start;
+  } 
+
   return (
-    <div className="reCart">
+    <div className="reCart scroll">
       {reviewArray ? (
         reviewArray.map((r) => {
           return (
             <div key={r.id} className="reCa">
               <div className="carti">
                 <div className="per">
-                  <div className="peRe">
+                  <div className="peRe peRe_border">
                     {r.userId !== user.id ? (
                       <Follow
                         followers={r.user.followers}
@@ -68,7 +86,7 @@ export default function ReviewCard() {
                     <h4>{r.user.name}</h4>
                     <h5>{r.user.role}</h5>
                     {r.userId !== user.id ?
-                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>}
+                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>❤️ likes: {r.likes.length}</>}
                   </div>
                 </div>
                 <div className="rev">
@@ -102,10 +120,21 @@ export default function ReviewCard() {
                   </div>
                   <div className="califica">
                     <p>Calificación: {r.score}</p>
+                    <p className='start'>
+                      {score(r.score)}
+                    </p>
                   </div>
                   <div className="descri">
                     <p>Descripcion:</p>
-                    <p className="reviewDescription">{r.description}</p>
+                    {/* <p className="reviewDescription">{r.description}</p> */}
+                    <button className='btn_description' onClick={() => handleButton(r.description)}>Ver descripción</button>
+                    <Modal isOpen={isOpenAlert} onClose={closeAlert}>
+                      <h4>Descripción de la reseña</h4>
+                      <div  className="option_deleteReview">
+                          <p className="reviewDescription">{description}</p>
+                          <button onClick={closeAlert}>Cerrar</button>
+                      </div>
+                    </Modal>
                   </div>
                 </div>
               </div>
@@ -121,3 +150,5 @@ export default function ReviewCard() {
     </div>
   );
 }
+
+

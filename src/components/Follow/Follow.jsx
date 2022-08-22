@@ -23,10 +23,11 @@ export default function Follow(props){
     };
 
     return(
-        <div>
+        <div >
             { hasFollower ? 
-                <button onClick={() => handleButton()}>Dejar de Seguir</button>:
-                <button onClick={() => handleButton()}>Seguir</button>
+                // <button onClick={() => handleButton()}>Dejar de Seguir</button>:
+                <button className="follow" onClick={() => handleButton()}>Siguiendo</button>:
+                <button className="follow" onClick={() => handleButton()}>Seguir</button>
             }
         </div>
     );
