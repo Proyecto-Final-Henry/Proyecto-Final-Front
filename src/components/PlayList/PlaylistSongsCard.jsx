@@ -29,7 +29,7 @@ function PlaylistSongsCard(props) {
     <div className={style.songCard}>
       <div className={style.songCard_left}>
         <p>{props.index + 1}</p>
-        <img src={props.img} alt={props.title} />
+        <img src={props.image} alt={props.title} />
         <Link to={`/song/${props.apiId}`}>
           <h2>{props.title}</h2>
         </Link>

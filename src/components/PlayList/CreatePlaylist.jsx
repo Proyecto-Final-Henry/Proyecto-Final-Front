@@ -32,7 +32,6 @@ export default function CreatePlaylist({onClose,userId}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if(Object.entries(error).length === 0){
       try {
         await axios.post("/api/back-end/playlist/create", {              
@@ -42,14 +41,12 @@ export default function CreatePlaylist({onClose,userId}) {
       } catch (err) {
         throw new Error("No pudimos crear tu playlist");
       }
-      if(onClose){
-        e.target.reset()
-        dispatch(getPlaylist(userId))
-        onClose();
-      } else {
-        dispatch(getPlaylist(userId))
-      }
-    }
+      e.target.reset()
+      setPlaylist({
+        name: ""
+      })
+      dispatch(getPlaylist(userId))
+    };
   };
   
   const handleChange = (e) => {
@@ -73,7 +70,7 @@ export default function CreatePlaylist({onClose,userId}) {
           onChange={handleChange}
         />
         <p className={style.danger}>{error.name}</p>
-        <input type="submit" value="Crear Playlist" className={style.btn_createReview}/>
+        <input type="submit" value="Crear Playlist" disabled={playlist.name === "" || error.name} className={style.btn_createReview}/>
       </form>
     </div>
   )

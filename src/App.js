@@ -14,7 +14,6 @@ import Feed from "./components/Feed/Feed";
 import RecoverPassword from "./components/RecoverPass/RecoverPass";
 import "./index.css";
 import NewPassword from "./components/NewPassword/NewPassword";
-import Free from "./components/Free/Free";
 import Pay from "./components/Pay/Pay";
 import ArtistDetail from "./components/ArtistDetail/ArtistDetail";
 import AlbumDetail from "./components/AlbumDetail/AlbumDetail";
@@ -72,12 +71,6 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exact path="/free">
-        <NavigationB />
-        <Free />
-        <Footer />
-      </Route>
-
       <Route exact path="/team">
         <NavigationB />
         <Team />
@@ -97,9 +90,7 @@ function App() {
       </Route>
 
       <Route exact path="/pay/success">
-        <NavigationB />
         <PaySuccess />
-        <Footer />
       </Route>
 
       <Route exact path="/pay/error">

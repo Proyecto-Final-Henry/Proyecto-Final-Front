@@ -15,6 +15,10 @@ function CarouselRandomSongs({title, data}) {
     const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
     const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ac6986793e88f1f138ccd179ce4c0b6e14dfbb0c
     return (
         <div className={style.contenedor}>
             <div className={style.contenedor_titulo_controles}>
@@ -28,16 +32,17 @@ function CarouselRandomSongs({title, data}) {
                 <div className={style.carousel}>
                     {data.map((song) => {
                         return (
-                            <div className={`${style.card}`} key={song.id}>
+                            <div className={`${style.card}`} key={song.id || song.apiId}>
                                 <MusicCard
                                 key={song.id}
                                 id={song.id}
+                                apiId = {song.apiId}
                                 title={song.title}
                                 album={song.album}
                                 albumId={song.albumId}
                                 artist={song.artist}
                                 artistId={song.artistId}
-                                img={song.img}
+                                image={song.image}
                                 />
                             
                             </div>
@@ -49,6 +54,6 @@ function CarouselRandomSongs({title, data}) {
             </div>
         </div>
     );
-}
+};
 
 export default CarouselRandomSongs;

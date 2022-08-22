@@ -51,7 +51,7 @@ export default function ReviewCard() {
   const handleButton = (message) => {
     setDescription(message);
     openAlert()
-  }
+  };
 
   const score = (count) => {
     let start = '';
@@ -59,7 +59,7 @@ export default function ReviewCard() {
       start += '★';
     }
     return start;
-  } 
+  };
 
   return (
     <div className="reCart scroll">

@@ -31,13 +31,13 @@ export default function GenreDetail() {
 
     return (
         <div>
-            <div className={style.albumDescDiv}>
+            <div className={style.albumDescDiv} key="main">
                 <h2 style={{"color": "white"}}>{GenreData.name}</h2>
                 <img src={GenreData.image} alt="imagen de género" />
             </div>
 
-            <div className={style.albumDescDiv} style={{"marginBottom": "60px"}}>
-        	    {GenreData.name === "Pop" ? 
+            <div className={style.albumDescDiv} style={{"marginBottom": "60px"}} key="genre">
+        	    {GenreData.name === "Pop" || GenreData.name === "Pop internacional" || GenreData.name === "International Pop" ? 
                     <div>
                         <h4>
                             La música pop (del inglés pop music, contracción de popular music) es un género de música popular que tuvo su origen a finales de los años 1950 como una derivación del traditional pop, en combinación con otros géneros musicales que estaban de moda en aquel momento.
@@ -406,7 +406,51 @@ export default function GenreDetail() {
                         </h4>
                     </div>
                     :
-                    null}                                                                                                                                             
+                    null} 
+                {GenreData.name === "Tango" ? 
+                    <div>
+                        <h4>
+                            El tango es un género musical y una danza, característica de la región del Río de la Plata y su zona de influencia, pero principalmente de las ciudades de Buenos Aires (en Argentina) y Montevideo (en Uruguay). El escritor Ernesto Sabato destacó la condición de "híbrido" del tango.​ El poeta Eduardo Giorlandini destaca sus raíces afrorrioplatenses, con la cultura gauchesca, española, italiana y la enorme diversidad étnica de la gran ola inmigratoria llegada principalmente de Europa.​ La investigadora Beatriz Crisorio dice que "el tango es deudor de aportes multiétnicos, gracias a nuestro pasado colonial (indígena, africano y criollo) y al sucesivo aporte inmigratorio".​ Desde entonces se ha mantenido como uno de los géneros musicales cuya presencia se ha vuelto familiar en todo el mundo, así como uno de los más conocidos.
+                        </h4>
+                        <br />
+                        <h4>
+                            Distintas investigaciones señalan seis estilos musicales principales que dejaron su impronta en el tango: el tango andaluz, la habanera cubana, el candombe, la milonga, la mazurca y la polka europea. El tango revolucionó el baile popular introduciendo una danza sensual con pareja abrazada que propone una profunda relación emocional de cada persona con su propio cuerpo y de los cuerpos de los bailarines entre sí. Refiriéndose a esa relación, Enrique Santos Discépolo, uno de sus máximos poetas, definió al tango como «un pensamiento triste que se baila».9 Musicalmente suele tener forma binaria (tema y estribillo) o ternaria (dos partes a las que se agrega un trío). Su interpretación puede llevarse a cabo mediante una amplia variedad de formaciones instrumentales, con una preponderancia clásica de la orquesta y del sexteto de dos bandoneones, dos violines, piano y contrabajo. Sin ser excluyente, el bandoneón ocupa un lugar central.
+                        </h4>
+                    </div>
+                    :
+                    null}    
+                {GenreData.name === "Chicago Blues" ? 
+                    <div>
+                        <h4>
+                            El Chicago blues es un tipo de música blues que se desarrolló en Chicago, Illinois, al añadir guitarras amplificadas, batería, piano, bajo y, en algunas ocasiones, saxofón al Delta blues básico de guitarras y armónica la cual también se empezó a amplificar. Este estilo es el resultado, principalmente, de la Gran Migración Afroamericana de trabajadores pobres del sur de Estados Unidos de América a las ciudades industriales del norte del país, tales como Chicago, durante la primera mitad del siglo XX. El Chicago Blues tiene un repertorio de notas musicales más amplio que la escala estándar de blues de seis notas: generalmente se añaden notas de la escala mayor consiguiendo así un efecto "jazzero" a la vez que se mantienen las características esenciales del blues. Este efecto, el de añadir notas de otra escala, no es tan común ni tiene tanta importancia como en otros estilos, como el Texas blues, en el cual suelen utilizarse terceras y sextas mayores. Otra característica importante del Chicago blues es la presencia de una gran cantidad de acordes "novenos" dominantes, así como la presencia de notas "novenas" en las escalas.
+                        </h4>
+                    </div>
+                    :
+                    null}    
+                {GenreData.name === "Indie Rock" ? 
+                    <div>
+                        <h4>
+                            El indie rock es un subgénero del rock alternativo, se originó en los Estados Unidos, Reino Unido y Nueva Zelanda en la década de 1980. De gran diversidad, presenta variados sub-géneros que incluyen al lo-fi, slowcore y entre otros. El término fue originalmente utilizado para describir sellos discográficos, pero con el tiempo se comenzó a asociar con la música que ellas producían. Luego, como las bandas de rock alternativo y post-punk estadounidenses, y luego las bandas de Britpop británicas, irrumpieron en el mercado musical de la década de 1990, pasó a ser utilizado como identificador de dichos grupos que, aunque también pertenecen de forma general al rock alternativo, no tomaron la ruta ni las estéticas impuestas por estos movimientos y que hicieron a estos populares. En la década de 2000 en tanto, como resultado de los cambios en la industria de la música y la creciente importancia de Internet, una serie de grupos de rock indie comenzaron a disfrutar de éxito comercial, dando lugar a preguntas acerca de su significado como término, pasando a ser referido como un género propiamente tal (según estadísticas).
+                        </h4>
+                        <br />
+                        <h4>
+                            El término indie es usado para referirse a un sonido nuevo presentado por un músico. Es un estilo musical del cual se desprenden el indie rock, indie pop, indietrónica, indie folk e indie hip hop. “Indie” viene del término “Independiente”, siendo así interpretado por generaciones como una actitud que adoptaron músicos al independizarse de las grandes compañías discográficas para crear música a través de sus propios medios. Pretendiendo así apoyar e incentivar a todos aquellos que se dediquen a reproducir sus creaciones en pequeños lugares. También el indie rock y sus derivados promueven el "hazlo tú mismo", "Do It Yourself" (DIY). Las influencias y estilos de los artistas han sido muy diversos, entre ellos punk, el rock psicodélico, y el rock. Los términos rock alternativo y el indie rock se utilizan indistintamente en la década de 1980, pero después de muchas bandas de música alternativa desde Nirvana en la corriente principal en la década de 1990 comenzó a utilizarse para distinguir esas bandas, que trabajan en una variedad de estilos, que no persiguen o alcanzan el éxito comercial.
+                        </h4>
+                    </div>
+                    :
+                    null}
+                {GenreData.name === "Techno/House" ? 
+                    <div>
+                        <h4>
+                            El Tech House es un subgénero de música electrónica de baile que se originó en la segunda mitad de los años 1990 y que se caracteriza por fusionar o mezclar elementos del Techno y del House. Su nombre fue acuñado por el DJ y productor británico Eddie Richards.
+                        </h4>
+                        <br />
+                        <h4>
+                            Sus características son heredadas de la fusión del House y el Techno: sonidos sintéticos, líneas de bajo robustas, beats con bombos más graves, estructura cíclica y un tempo que suele moverse en un rango de 120 a 128 BPM. Esto resulta en un sonido más simple que el House clásico y más monótono que el Techno puro.
+                        </h4>
+                    </div>
+                    :
+                    null}                                                                                                                                                                                                                                                 
             </div>
 
             <div>
@@ -418,7 +462,7 @@ export default function GenreDetail() {
                     </div>
                 </Link>)
                     : 
-                <div className={style.mainDiv}>
+                <div className={style.mainDiv} key={null}>
                     ¡Recomiendanos tu album favorito de {GenreData.name} para mostrar!
                 </div>
                 }

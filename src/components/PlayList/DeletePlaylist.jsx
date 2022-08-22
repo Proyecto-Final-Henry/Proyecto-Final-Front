@@ -8,9 +8,7 @@ import Modal from "../Modal/Modal";
 
 export default function DeletePlaylist(props){
     let dispatch = useDispatch();
-
     const [isOpenAlert, openAlert, closeAlert] = useModal(false);
-
 
     const handleButtonDelete = async () => {
         await axios.put(`http://localhost:3001/api/back-end/playlist//delete/${props.id}`)
@@ -19,7 +17,7 @@ export default function DeletePlaylist(props){
 
     const handleButton = () => {
         openAlert()
-    }
+    };
 
     return(
         <div>

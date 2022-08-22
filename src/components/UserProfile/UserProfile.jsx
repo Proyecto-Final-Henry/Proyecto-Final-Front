@@ -155,7 +155,7 @@ export default function UserProfile() {
             return (
               <div>
                 <Link to={`/users/${f.id}`}>
-                  <img src={f.userImg} alt="userImg"></img>
+                  <img src={f.userImg} style={{height:"15%", width:"15%"}} alt="userImg"></img>
                   <p>{f.name}</p>
                 </Link>
               </div>
@@ -172,7 +172,7 @@ export default function UserProfile() {
             return (
               <div>
                 <Link to={`/users/${f.id}`}>
-                  <img src={f.userImg} alt="userImg"></img>
+                  <img src={f.userImg} style={{height:"15%", width:"15%"}} alt="userImg"></img>
                   <p>{f.name}</p>
                 </Link>
               </div>
