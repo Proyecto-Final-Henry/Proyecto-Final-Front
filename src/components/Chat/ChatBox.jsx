@@ -2,7 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import "../../css/chat-box.css"
 import { format } from 'timeago.js'  // dependencia que formatea el tiempo y la funcion que te dice hace cuanto(se necesita el "timestamps:true" en el modelo)
-import InputEmoji from "react-input-emoji"
+import InputEmoji from "react-input-emoji";
+import send from "../../img/send.png";
 
 const ChatBox = ({chat , currentUser, setEnviarMensaje, recibirMensaje }) => {
 
@@ -112,7 +113,7 @@ const ChatBox = ({chat , currentUser, setEnviarMensaje, recibirMensaje }) => {
                     value={nuevoMensaje}
                     onChange ={handleChange}
                     />
-                    <button className="send-button button" onClick={enviarMensaje}>Enviar</button>
+                    <button className="send-button button" onClick={enviarMensaje}><img src={send} alt="send" /></button>
                 </div>
             </>
             ): (

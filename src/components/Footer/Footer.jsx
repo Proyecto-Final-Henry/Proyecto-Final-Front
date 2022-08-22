@@ -12,11 +12,11 @@ export default function Footer(){
                 <div>
                     <div><i className="fa-solid fa-earth-americas"></i></div>
                     <div className={style.footer_content}>
-                        <p>Argentina</p>
-                        <p>Colombia</p>
-                        <p>México</p>
-                        <p>Perú</p>
-                        <p>Venezuela</p>
+                        <a href="https://es.wikipedia.org/wiki/Argentina"><p>Argentina</p></a>
+                        <a href="https://es.wikipedia.org/wiki/Colombia"><p>Colombia</p></a>
+                        <a href="https://es.wikipedia.org/wiki/M%C3%A9xico"><p>México</p></a>
+                        <a href="https://es.wikipedia.org/wiki/Per%C3%BA"><p>Perú</p></a>
+                        <a href="https://es.wikipedia.org/wiki/Venezuela"><p>Venezuela</p></a>
                     </div>
                 </div> 
             </div>
@@ -37,8 +37,7 @@ export default function Footer(){
                         <h4>Planes</h4>
                             <div><i className="fa-solid fa-headphones-simple"></i></div>
                                 <div className={style.footer_content}>
-                                    <p><Link to="/free">Free</Link></p>
-                                    <p><Link to="/premium">Premium</Link></p>
+                                    <p><Link to="/premium">Información</Link></p>
                                     <p><Link to="/register">Registro</Link></p>
                                 </div>
                         </div> 
@@ -46,10 +45,9 @@ export default function Footer(){
                             null
                             }
                 <div className={style.footer_social}>
-                    <span className={style.footer_icons}><i className="fa-brands fa-facebook"></i></span>
-                    <span className={style.footer_icons}><i className="fa-brands fa-github"></i></span>
-                    <span className={style.footer_icons}><i className="fa-brands fa-linkedin"></i></span>
-                    <span className={style.footer_icons}><i className="fa-brands fa-spotify"></i></span>
+                    <span className={style.footer_icons}><a href="https://github.com/Proyecto-Final-Henry" target="_blank"><i className="fa-brands fa-github"></i></a></span>
+                    <span className={style.footer_icons}> {token ? <Link to ="/team2"><i className="fa-brands fa-linkedin"></i></Link>: <Link to ="/team"><i className="fa-brands fa-linkedin"></i></Link>}</span>
+                    <span className={style.footer_icons}><a href="https://spotify.com/" target="_blank"><i className="fa-brands fa-spotify"></i></a></span>
                 </div> 
             </div>
         </div>

@@ -25,7 +25,7 @@ const Register = () => {
     };
 
     if(password !== repetirPassword){
-      setAlerta({msg: "Las passwords deben ser iguales" , error: true})
+      setAlerta({msg: "Las contraseñas deben ser iguales" , error: true})
       setTimeout(() => {
         setAlerta({})
       },2500)
@@ -33,7 +33,7 @@ const Register = () => {
     };
 
     if(password.length < 6){
-      setAlerta({msg: "La password es muy corta, necesita mas de 6 caracteres", error: true})
+      setAlerta({msg: "La contraseña es muy corta, necesita mas de 6 caracteres", error: true})
       setTimeout(()=>{
         setAlerta({})
       },2500)

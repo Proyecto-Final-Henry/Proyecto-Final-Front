@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getPlaylist } from "../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import style from "../../css/songs.module.css";
@@ -8,6 +8,8 @@ import style from "../../css/songs.module.css";
 export default function CreatePlaylist({onClose,userId}) {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const playListUser = useSelector(store=> store.playList); 
 
   const [playlist, setPlaylist] = useState({
     name: "",
@@ -22,12 +24,14 @@ export default function CreatePlaylist({onClose,userId}) {
     if(input.name.length === 0){
       error.name = '* Nombre de Playlist es requerido';
     }
-    return error;
+    if(playListUser.find(p => p.name === input.name)){
+      error.name = "* No puedes repetir nombres de Playlist"
+    }
+      return error;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if(Object.entries(error).length === 0){
       try {
         await axios.post("/api/back-end/playlist/create", {              
@@ -37,14 +41,12 @@ export default function CreatePlaylist({onClose,userId}) {
       } catch (err) {
         throw new Error("No pudimos crear tu playlist");
       }
-      if(onClose){
-        e.target.reset()
-        dispatch(getPlaylist(userId))
-        onClose();
-      }else {
-        history.push("/user");
-      }
-    }
+      e.target.reset()
+      setPlaylist({
+        name: ""
+      })
+      dispatch(getPlaylist(userId))
+    };
   };
   
   const handleChange = (e) => {
@@ -59,7 +61,7 @@ export default function CreatePlaylist({onClose,userId}) {
   return (
     <div className={style.createReview}>
       <h3>Crear Playlist</h3>
-      <form onSubmit={handleSubmit} >      
+      <form onSubmit={handleSubmit} id="formulario">      
         <input
           id="reviewTitle"
           type="text"
@@ -68,7 +70,7 @@ export default function CreatePlaylist({onClose,userId}) {
           onChange={handleChange}
         />
         <p className={style.danger}>{error.name}</p>
-        <input type="submit" value="Crear Playlist" className={style.btn_createReview}/>
+        <input type="submit" value="Crear Playlist" disabled={playlist.name === "" || error.name} className={style.btn_createReview}/>
       </form>
     </div>
   )
