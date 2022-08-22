@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import style from "../../css/premium.module.css";
 // import ArtistCard from "../Music/ArtistCard";
 import MusicCard from "../Music/MusicCard";
@@ -5,11 +6,14 @@ import MusicCard from "../Music/MusicCard";
 function CarouselRandomSongs({title, data}) {
 
     // const fila = document.querySelector(`.${style.contenedor_carousel}`);
-    const fila = document.querySelector('.carouselRandomSongs');
+    let fila = '';
+    useEffect(() => { 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        fila = document.querySelector('.carouselRandomSongs');
+    });
+
     const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
     const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
-
-
 
     return (
         <div className={style.contenedor}>
