@@ -42,8 +42,15 @@ export default function CreatePlaylist({onClose,userId}) {
       } catch (err) {
         throw new Error("No pudimos crear tu playlist");
       }
+      e.target.reset()
+      setPlaylist({
+        name: ""
+      })
       if(onClose){
         e.target.reset()
+        setPlaylist({
+          name: ""
+        })
         dispatch(getPlaylist(userId))
         onClose();
       } else {
@@ -73,7 +80,7 @@ export default function CreatePlaylist({onClose,userId}) {
           onChange={handleChange}
         />
         <p className={style.danger}>{error.name}</p>
-        <input type="submit" value="Crear Playlist" className={style.btn_createReview}/>
+        <input type="submit" value="Crear Playlist" disabled={playlist.name === "" || error.name} className={style.btn_createReview}/>
       </form>
     </div>
   )
