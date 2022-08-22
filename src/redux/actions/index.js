@@ -30,6 +30,9 @@ import {
   GET_USER_SEARCH,
   SET_PRICE,
   GET_PLAYLIST,
+  CLEAR_ARTIST,
+  CLEAR_ALBUM,
+  CLEAR_SONG,
 } from "../constants";
 
 export const sendEmailContact = (values) => {
@@ -417,4 +420,22 @@ export function setPrice(price) {
         payload: price
       })
     };
+};
+
+export const clearArtist = () => {
+  return {
+      type: CLEAR_ARTIST
+  };
+};
+
+export const clearAlbum = () => {
+  return {
+      type: CLEAR_ALBUM
+  };
+};
+
+export const clearSong = () => {
+  return {
+      type: CLEAR_SONG
+  };
 };

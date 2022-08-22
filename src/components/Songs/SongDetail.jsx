@@ -16,6 +16,7 @@ export default function SongDetail() {
 
   useEffect(() => {
     dispatch(getSongData(songId));
+    return 
   }, []);
 
   let songData = useSelector((state) => state.songData);
@@ -24,7 +25,7 @@ export default function SongDetail() {
     <div className={style.songDetail}>
       <div className={style.songDetail_header}>
         <div>
-          <img src={songData.img} alt={songData.album} className={style.songDetail_img}/>
+          <img src={songData.image} alt={songData.album} className={style.songDetail_img}/>
         </div>
 
         <div className={style.songDetail_content}>
@@ -80,7 +81,6 @@ export default function SongDetail() {
             </Tab>
           </Tabs>
       </div>
-
     </div>
   );
-}
+};

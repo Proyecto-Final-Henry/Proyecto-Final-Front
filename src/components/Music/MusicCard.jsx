@@ -21,7 +21,7 @@ function MusicCard(props) {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item>
-                {props.apiId ? <Link to={"/song/" + props.apiId}> Ir a la canción  </Link> :  <Link to={"/song/" + props.id}>  Ir a la canción   </Link>}
+                <Link to={"/song/" + props.apiId}> Ir a la canción  </Link>
               </Dropdown.Item>
               <Dropdown.Item >
                 <Link to={"/album/" + props.fixAlbumId}>
@@ -29,14 +29,14 @@ function MusicCard(props) {
                 </Link>
               </Dropdown.Item> 
               <Dropdown.Item>
-                <Link to={"#/addplaylist"}>
+                {/* <Link to={}>
                   Agregar a playlist
-                </Link>
-                 {/* <AddTrack
-        userId={props.userId}
-        trackId={props.id}
-        name={props.title}
-        /> */}
+                </Link> */}
+                  <AddTrack
+                  userId={props.userId}
+                  trackId={props.id}
+                  name={props.title}
+                  />
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -49,7 +49,7 @@ function MusicCard(props) {
         </div>
         <div className={style.musicCard_footer}>
           <p>{props.artist}</p>
-          <Link to={"/song/" + props.id}>
+          <Link to={"/song/" + props.apiId}>
             <Button variant="outline-success" type="submit">
               Reseñas
             </Button>

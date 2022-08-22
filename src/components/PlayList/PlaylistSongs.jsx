@@ -19,7 +19,7 @@ function PlaylistSongs(props) {
                                     title = {song.title}
                                     duration = {(parseInt(song.duration) / 60).toFixed(2)}
                                     index = {indexBase+ index}
-                                    img = {song.img}
+                                    image = {song.image}
                                     playlistId={props.playlistId}
                                     userId={props.userId}
                                 />
