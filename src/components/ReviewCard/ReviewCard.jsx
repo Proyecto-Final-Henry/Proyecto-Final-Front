@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import style from "../../css/rev.css";
 import { Link, useHistory } from "react-router-dom";
@@ -8,11 +8,16 @@ import DeleteReview from "../DeleteReview/DeleteReview";
 import axios from "axios";
 import { propTypes } from "react-bootstrap/esm/Image";
 import LikesReview from "../LikesReview/LikesReview";
+import { AiFillHeart,AiOutlineHeart } from "react-icons/ai";
+import { socket } from "../Feed/Feed";
 
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
   const history = useHistory();
   const [user, setUser] = useState({});
+  const [liked, setLiked] = useState(false);
+  console.log(reviewArray)
+
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -42,7 +47,18 @@ export default function ReviewCard() {
     autenticarUsuario();
   }, []);
 
-  console.log(reviewArray);
+  const handleNotification = (type, revId, title) => {
+    console.log(title)
+    type === 1 && setLiked(true);
+    socket.emit("sendNotification", {
+      senderName: user?.name,
+      receiverName: revId,
+      type,
+      title
+    });
+  };
+
+
   return (
     <div className="reCart">
       {reviewArray ? (
@@ -67,8 +83,15 @@ export default function ReviewCard() {
                     </Link>
                     <h4>{r.user.name}</h4>
                     <h5>{r.user.role}</h5>
-                    {r.userId !== user.id ?
-                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>}
+                    {liked ? (
+                      <AiFillHeart />
+                    ) : (
+                      <AiOutlineHeart
+                        onClick={() => handleNotification(1, r.userId, r.title )}
+                      />
+                    )}
+                    {/* {r.userId !== user.id ?
+                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>} */}
                   </div>
                 </div>
                 <div className="rev">

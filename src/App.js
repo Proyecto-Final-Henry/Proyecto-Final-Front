@@ -1,4 +1,6 @@
 import { Route } from "react-router-dom";
+import { io } from "socket.io-client";
+import { useEffect, useState } from "react";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Contact from "./components/Contact/Contact";
@@ -35,6 +37,7 @@ import DeactivateAccount from "./components/DeactivateAccount/DeactivateAccount"
 import RestoreAccount from "./components/RestoreAccount/RestoreAccount";
 
 function App() {
+
   return (
     <div className="App">
       <Route exact path="/">
