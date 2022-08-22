@@ -28,16 +28,6 @@ function MusicCard(props) {
                   Ir al álbum
                 </Link>
               </Dropdown.Item> 
-              <Dropdown.Item>
-                {/* <Link to={}>
-                  Agregar a playlist
-                </Link> */}
-                  <AddTrack
-                  userId={props.userId}
-                  trackId={props.id}
-                  name={props.title}
-                  />
-              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>

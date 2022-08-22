@@ -1,6 +1,7 @@
+import axios from "axios"
 import { useDispatch, useSelector } from "react-redux";
 import { getSongData } from "../../redux/actions";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CreateReview from "../CreateReview/CreateReview";
 import ReviewDeck from "../ReviewDeck/ReviewDeck";
@@ -8,11 +9,41 @@ import { Tabs } from "react-bootstrap";
 import { Tab } from "bootstrap";
 import PreviewPlayer from "../PreviewPlayer/PreviewPlayer";
 import style from "../../css/songs.module.css";
+import AddTrack from "../PlayList/AddTrack";
 
 export default function SongDetail() {
+  let history = useHistory()
   let dispatch = useDispatch();
   let songId = useParams().id;
   const [key, setKey] = useState("detalle");
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    const autenticarUsuario = async () => {
+        const token = localStorage.getItem("token")
+        if(!token){
+            history.push("/login")
+            return
+        }
+        const config = {
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+          },
+      };
+      try {
+          const { data } = await axios(
+              `/api/back-end/users/perfil`,
+              config
+          );
+          setUser(data);
+          
+      } catch (error) {
+          console.log(error.response.data.msg);
+      };
+    };
+    autenticarUsuario();
+  },[]);
 
   useEffect(() => {
     dispatch(getSongData(songId));
@@ -20,6 +51,8 @@ export default function SongDetail() {
   }, []);
 
   let songData = useSelector((state) => state.songData);
+  console.log(songData)
+  console.log(user)
 
   return (
     <div className={style.songDetail}>
@@ -38,6 +71,13 @@ export default function SongDetail() {
                 <PreviewPlayer preview={songData.preview}/>
               </div>
             )}
+          </div>
+          <div>
+          <AddTrack
+        userId={user?.id}
+        trackId={songData.id}
+        name={songData.title}
+        />
           </div>
         </div>
       </div>        
