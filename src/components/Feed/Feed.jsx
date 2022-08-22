@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useDispatch} from "react-redux";
+import { useEffect, useRef  } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -8,11 +8,26 @@ import { createAlbum, createGenreDb, getAllReviews, getUserData, getRandomSongs,
 import { getGenres } from "../../redux/actions/actions_player";
 import axios from "axios";
 import { useState } from "react";
+import { io } from "socket.io-client";
+
+export const socket=io("http://localhost:3001");
+
 
 export default function Feed(){
     const history = useHistory();
     let dispatch = useDispatch();
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState("");
+    const userData = useSelector((state) => state.userData);
+    const [onlineUsers, setOnlineUsers] = useState([]);
+
+    useEffect(() => {
+        // socket.current = io("http://localhost:3001");
+        console.log(socket)
+        socket.emit("newUser", userData?.id);
+        socket.on("getUsers", (users) => {
+          setOnlineUsers(users);
+        });
+      }, [user]);
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -36,6 +51,7 @@ export default function Feed(){
             };
         };
         
+        
         autenticarUsuario();
         dispatch(clearArtist());
         dispatch(clearAlbum());
@@ -55,8 +71,8 @@ export default function Feed(){
             <div className="er">
                 <Per />
             </div>
-            <div className="cen cen_scroll">
-                <ReviewCard/>
+            <div className="cen">
+                <ReviewCard user={user}/>
             </div>
             <div className="ult">
                 <Re/>
