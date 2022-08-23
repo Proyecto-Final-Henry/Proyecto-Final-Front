@@ -48,7 +48,6 @@ export default function ReviewCard() {
     autenticarUsuario();
   }, []);
 
-
   const handleNotification = (type, revId, title) => {
     console.log(title)
     type === 1 && setLiked(true);
@@ -60,7 +59,7 @@ export default function ReviewCard() {
     });
   };
 
-
+  // console.log(reviewArray);
 
   const handleButton = (message) => {
     setDescription(message);
@@ -108,6 +107,8 @@ export default function ReviewCard() {
                     )}
                     {r.userId !== user.id ?
                       <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>❤️ likes: {r.likes.length}</>}
+                    {/* {r.userId !== user.id ?
+                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>} */}
                   </div>
                 </div>
                 <div className="rev">

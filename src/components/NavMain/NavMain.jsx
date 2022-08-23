@@ -61,8 +61,7 @@ export default function NavigationM(){
                         <Link to="/music"><h5>MÚSICA</h5></Link>
                         <Link to="/genres"><h5>GÉNEROS</h5></Link>
                         <Link to={`/playlist/${user?.id}`}><h5>PLAYLIST</h5></Link>
-                        <Link to="/chat"><h5>CHAT</h5></Link>
-                        {/* {user.role === "Gratuito" ? null : <Link to="/chat"><h5>CHAT</h5></Link> } */}
+                        {user.role === "Gratuito" ? null : <Link to="/chat"><h5>CHAT</h5></Link> }
                     </Nav>
                     <Nav className='nav_btn_registro'>
                         <button style={{marginTop: "6px", "color":"white"}} className="btn_registrate" onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</button>
