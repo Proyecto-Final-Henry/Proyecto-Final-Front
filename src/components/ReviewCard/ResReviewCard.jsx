@@ -7,7 +7,6 @@ export default function ResReviewCard({ resReviews }) {
       {resReviews.reviews ? (
         resReviews.reviews.map((r) => {
           return (
-            
             <div key={r.reviewId}>
               <div className="peRe">
                 <img src={r.userImg} alt="" />

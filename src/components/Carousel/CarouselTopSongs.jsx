@@ -3,7 +3,6 @@ import style from "../../css/premium.module.css";
 // import ArtistCard from "../Music/ArtistCard";
 import MusicCard from "../Music/MusicCard";
 
-<<<<<<< HEAD
 function CarouselTopSongs({title, data, info}) {
 
     // const fila = document.querySelector('.carouselTopSongs');
@@ -12,13 +11,9 @@ function CarouselTopSongs({title, data, info}) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         fila = document.querySelector('.carouselTopSongs');;
     });
-=======
-function CarouselTopSongs({title, data}) {
-    const fila = document.querySelector('.carouselTopSongs');
->>>>>>> ac6986793e88f1f138ccd179ce4c0b6e14dfbb0c
+
     const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
     const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
-
 
     return (
         <div className={style.contenedor}>
@@ -41,7 +36,7 @@ function CarouselTopSongs({title, data}) {
                                         fixAlbumId={song.fixAlbumId}
                                         artist={song.artist?.name}
                                         artistId={song.artist?.id}
-                                        image={song.artist?.image}
+                                        image={song.artist?.image ? song.artist?.image : song.image}
                                     />
                                 </div>
                             );

@@ -16,7 +16,6 @@ import Feed from "./components/Feed/Feed";
 import RecoverPassword from "./components/RecoverPass/RecoverPass";
 import "./index.css";
 import NewPassword from "./components/NewPassword/NewPassword";
-import Pay from "./components/Pay/Pay";
 import ArtistDetail from "./components/ArtistDetail/ArtistDetail";
 import AlbumDetail from "./components/AlbumDetail/AlbumDetail";
 import PaySuccess from "./components/Pay/PaySuccess";
@@ -83,12 +82,6 @@ function App() {
       <Route exact path="/team2">
         <NavigationM />
         <TeamIn />
-        <Footer />
-      </Route>
-
-      <Route exact path="/pay">
-        <NavigationB />
-        <Pay />
         <Footer />
       </Route>
 
