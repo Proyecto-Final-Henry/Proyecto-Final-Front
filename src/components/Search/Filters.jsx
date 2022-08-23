@@ -12,9 +12,7 @@ export default function Filters (){
         album:'',
         explicit:''
     });
-    const [userstate, setUserState]=useState({
-        type:'',
-    })
+   
     const queryStore= useSelector(store=>store.query);
     const result= useSelector(store=>store.searchResult)
     const artist= [...(new Set(result.map(e=>e.artist)))];
@@ -34,9 +32,11 @@ export default function Filters (){
     const dispatch= useDispatch();
 
     useEffect(()=>{
-        dispatch(getSearch(state.query, state.type,null,null,arg))
+        if(state.type !== 'user'){
+            dispatch(getSearch(state.query, state.type,null,null,arg))
+        }       
         resetSelect()
-    },[state.type,dispatch]);
+    },[state.type,dispatch,]);
     
     useEffect(()=>{
         dispatch(getSearch(state.query, state.type, null,null,arg))      
@@ -44,7 +44,7 @@ export default function Filters (){
     
     const selectors=["map"]
     const getUsers = (e)=>{
-        setUserState({...userstate,[e.target.name]: e.target.value});
+        setState({...state,[e.target.name]: e.target.value, query:queryStore});
         dispatch(getUserSearch(queryStore))
     }
 
@@ -61,7 +61,7 @@ export default function Filters (){
             <form className={style.filters}>
                 {
                     selectors.map((e,i) =>{
-                        if(state.type==='artist' || userstate.type==='user'){
+                        if(state.type==='artist' || state.type==='user'){
                             return null
                         }else if(state.type==='album'){
                             return(
