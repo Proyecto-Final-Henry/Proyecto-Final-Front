@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import style from "../../css/premium.module.css";
-// import ArtistCard from "../Music/ArtistCard";
 import MusicCard from "../Music/MusicCard";
 
 function CarouselTopSongs({title, data, info}) {
