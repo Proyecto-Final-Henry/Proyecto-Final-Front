@@ -5,11 +5,11 @@
   min-height: 100vh;
 }
 
-.modal-backdrop {
+#modal-backdrop {
   z-index: -1;
 }
 
-.modal-backdrop {
+#modal-backdrop {
   position: fixed;
   top: 0;
   right: 0;
