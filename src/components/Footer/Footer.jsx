@@ -13,11 +13,11 @@ export default function Footer(){
                     <div>
                         <div><i className="fa-solid fa-earth-americas"></i></div>
                         <div className={style.footer_content}>
-                            <a href="https://es.wikipedia.org/wiki/Argentina"><p>Argentina</p></a>
-                            <a href="https://es.wikipedia.org/wiki/Colombia"><p>Colombia</p></a>
-                            <a href="https://es.wikipedia.org/wiki/M%C3%A9xico"><p>México</p></a>
-                            <a href="https://es.wikipedia.org/wiki/Per%C3%BA"><p>Perú</p></a>
-                            <a href="https://es.wikipedia.org/wiki/Venezuela"><p>Venezuela</p></a>
+                            <a href="https://es.wikipedia.org/wiki/Argentina" target="_blank"><p>Argentina</p></a>
+                            <a href="https://es.wikipedia.org/wiki/Colombia" target="_blank"><p>Colombia</p></a>
+                            <a href="https://es.wikipedia.org/wiki/M%C3%A9xico" target="_blank"><p>México</p></a>
+                            <a href="https://es.wikipedia.org/wiki/Per%C3%BA" target="_blank"><p>Perú</p></a>
+                            <a href="https://es.wikipedia.org/wiki/Venezuela" target="_blank"><p>Venezuela</p></a>
                         </div>
                     </div> 
                 </div>

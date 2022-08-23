@@ -20,59 +20,45 @@ export default function AdminUsers() {
  console.log(users);
 
     let handlePremium = async (id) => {
-        if (window.confirm("otorgar premium")) {
-            await axios.put(`/api/back-end/users/givepremium`, {userId: id});
-            const { data } = await axios(`/api/back-end/user`);
-            setUsers(data);
-        };
+        await axios.put(`/api/back-end/users/givepremium`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
     };
 
-    let     unhandlePremium = async (id) => {
-        if (window.confirm("otorgar premium")) {
-            await axios.put(`/api/back-end/users/takepremium`, {userId: id});
-            const { data } = await axios(`/api/back-end/user`);
-            setUsers(data);
-        };
+    let unhandlePremium = async (id) => {
+        await axios.put(`/api/back-end/users/takepremium`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
     };
 
     let handleBan = async (id) => {
-        if (window.confirm("otorgar premium")) {
-            await axios.put(`/api/back-end/users/deactivate?role=admin.`, {userId: id});
-            const { data } = await axios(`/api/back-end/user`);
-            setUsers(data);
-        };
+        await axios.put(`/api/back-end/users/deactivate?role=admin.`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
     };
 
     let handleDeactivate = async (id) => {
-        if (window.confirm("desactivar usuario")) {
-            await axios.put(`/api/back-end/users/deactivate`, {userId: id});
-            const { data } = await axios(`/api/back-end/user`);
-            setUsers(data);
-        };
+        await axios.put(`/api/back-end/users/deactivate`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
     };
 
     let handleReactivate = async (id) => {
-        if (window.confirm("reactivar usuario")) {
-            await axios.put(`/api/back-end/users/restore`, {userId: id});
-            const { data } = await axios(`/api/back-end/user`);
-            setUsers(data);
-        };
+        await axios.put(`/api/back-end/users/restore`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
     };
 
     let handleAdmin = async (id) => {
-        if (window.confirm("otorgar admin")) {
-            await axios.put(`/api/back-end/users/giveadmin`, {userId: id});
-            const { data } = await axios(`/api/back-end/user`);
-            setUsers(data);
-        };
+        await axios.put(`/api/back-end/users/giveadmin`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
     };
 
     let unhandleAdmin = async (id) => {
-        if (window.confirm("quitar admin")) {
-            await axios.put(`/api/back-end/users/takeadmin`, {userId: id});
-            const { data } = await axios(`/api/back-end/user`);
-            setUsers(data);
-        };
+        await axios.put(`/api/back-end/users/takeadmin`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
     };
     
     return (

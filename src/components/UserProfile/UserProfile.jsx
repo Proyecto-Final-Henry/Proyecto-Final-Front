@@ -88,7 +88,6 @@ export default function UserProfile() {
 
   return (
     <div style={{position: "relative"}}>
-
       <div className="modal fade" id="MercadoModal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content">
