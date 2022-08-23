@@ -57,9 +57,6 @@ const Chat = () => {
         console.log(error.response.data.msg);
       }
     };
-    // if (!users.length) {
-    //     dispatch()
-    // }
     autenticarUsuario();
   }, []);
 
@@ -103,6 +100,7 @@ const Chat = () => {
       try {
         const { data } = await axios(`/api/back-end/user`);
         setUsers(data);
+
       } catch (error) {
         console.log(error);
       }
@@ -138,7 +136,7 @@ const Chat = () => {
             <h2>Usuarios</h2>
             {users &&
               users?.map((u) =>
-                u.id !== user.id ? (
+                u.id !== user.id && u.role !== "Gratuito" ? (
                   <div key={u.id} onClick={() => iniciarChat(u)}>
                     <User user={u} />
                   </div>
