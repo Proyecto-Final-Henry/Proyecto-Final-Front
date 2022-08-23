@@ -9,7 +9,7 @@ import Pagination from "./Pagination";
 import PaginationFilter from "./PaginationFilter";
 import SearchBar from "../Search/SearchBar";
 import { getSearch, calcPages, onPageChanged, getPlaylist, clearArtist, clearAlbum, clearSong } from "../../redux/actions";
-import style from "../../css/resultSearch.module.css";
+import style from '../../css/searchbar.module.css'
 import { pageLimit } from "./PaginationFilter";
 import UserCard from "../SearchResultCards/UserCard";
 import axios from "axios"
@@ -108,14 +108,14 @@ export default function SearchResult() {
     });
   }
   return (
-    <div className="t">
+    <div className={style.main_div}>
       <div>
         <SearchBar onSearch={getSearch} />
       </div>
       <div>
         <Filters />
       </div>
-      <div>
+      <div className={style.data}>
         {data.map((e, i) => {
           if (e.type === "artist") {
             return (

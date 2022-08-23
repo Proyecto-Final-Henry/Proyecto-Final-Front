@@ -1,8 +1,7 @@
 import { Fragment } from 'react';
 import {useDispatch} from 'react-redux';
-
-import Button from 'react-bootstrap/Button';
 import style from '../../css/pagination.module.css'
+import styles from '../../css/filters.module.css';
 
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
@@ -61,7 +60,7 @@ export default function Pagination ({pagination,query,filter,index,onMove}){
     return (       
       <Fragment>
         <div className={style.box}>
-          <div>
+          <div className={style.data}>
             <h5>{pagination.total} Resultados</h5>
             {view && view.map((e,i)=>{
               return(
@@ -72,10 +71,10 @@ export default function Pagination ({pagination,query,filter,index,onMove}){
           <div>
             {pages && pages.map((page, index) => {
               if (page === LEFT_PAGE) return (
-                <Button key={index} className={style.btn} variant="outline-success" onClick={handleMoveLeft}>&lt;&lt;Anterior</Button>
+                <button key={index} className={styles.btn}  onClick={handleMoveLeft}>&lt;&lt;Anterior</button>
               );
               if (page === RIGHT_PAGE) return (
-                <Button key={index} className={style.btn} variant="outline-success"  onClick={handleMoveRight}>Siguiente&gt;&gt;</Button>
+                <button key={index} className={styles.btn}  onClick={handleMoveRight}>Siguiente&gt;&gt;</button>
               ); return ""
             }) }
           </div>
