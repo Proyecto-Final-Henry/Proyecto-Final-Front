@@ -1,5 +1,5 @@
 import style from "../../css/premium.module.css";
-import Button from "react-bootstrap/Button";;
+import Button from "react-bootstrap/Button";
 import CarouselTopArtists from "../Carousel/CarouselTopArtists";
 import CarouselRandomArtists from "../Carousel/CarouselRandomArtists";
 import CarouselTopSongs from "../Carousel/CarouselTopSongs";
@@ -7,15 +7,7 @@ import CarouselRandomSongs from "../Carousel/CarouselRandomSongs";
 import { Link, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  clearAlbum,
-  clearArtist,
-  clearSong,
-  getRandomArtists,
-  getRandomSongs,
-  getTopArtists,
-  getTopSongs,
-} from "../../redux/actions";
+import { clearAlbum, clearArtist, clearSong, getRandomArtists, getRandomSongs, getTopArtists, getTopSongs } from "../../redux/actions";
 
 export default function Music() {
   let history = useHistory();
@@ -138,4 +130,4 @@ export default function Music() {
       </div>
     </div>
   );
-}
+};
