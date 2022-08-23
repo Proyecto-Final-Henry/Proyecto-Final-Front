@@ -49,8 +49,6 @@ export default function Feed(){
                 console.log(error.response.data.msg);
             };
         };
-        
-        
         autenticarUsuario();
         dispatch(clearArtist());
         dispatch(clearAlbum());
