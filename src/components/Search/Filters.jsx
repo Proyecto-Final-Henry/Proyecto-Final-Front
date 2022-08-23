@@ -79,7 +79,7 @@ export default function Filters (){
                             )
                         }else{
                             return(
-                                <div key={i}>
+                                <div key={i} className={style.filters_select}>
                                     <select name='artist' value={state.artist} onChange={eventHandler}>
                                         <option>Seleccione un artista</option>
                                         {artist.map((e,i)=>(<option key={i} value={e}>{e}</option>))}

@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 42px;
+    margin-top: 42px;
+    margin-bottom: 10px;
   }
   
   .search__input {
@@ -14,15 +15,16 @@
     border: none;
     color: #646464;
     padding: 0.7rem 1rem;
-    border-radius: 30px;
+    border-radius: 10px;
     width: 12em;
     height: 2.5em;
     transition: all ease-in-out .5s;
     margin-right: -2rem;
+    width: 500px;
   }
   
   .search__input:hover, .search__input:focus {
-    box-shadow: 0px 0px 15px	#F7567C
+    box-shadow: 0px 2px 4px	#ccc;
   }
   
   .search__input:focus {

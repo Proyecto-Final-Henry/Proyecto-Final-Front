@@ -20,7 +20,7 @@ export default function ReviewCard() {
   const [liked, setLiked] = useState(false);
   const [isOpenAlert, openAlert, closeAlert] = useModal(false);
   const [description, setDescription] = useState("");
-  console.log(reviewArray);
+  // console.log(reviewArray);
 
   useEffect(() => {
     const autenticarUsuario = async () => {

@@ -21,7 +21,7 @@ function CarouselTopSongs({title, data, info}) {
                 <h3>{title}</h3>              
             </div>
             <div className={style.contenedor_principal}>
-                <button role={'button'} onClick={prev} className={style.flecha_izquierda}><i className="fa-solid fa-circle-chevron-left"></i></button>
+                <button onClick={prev} className={style.flecha_izquierda}><i className="fa-solid fa-circle-chevron-left"></i></button>
                 <div className={`${style.contenedor_carousel} carouselTopSongs`}>
                     <div className={style.carousel}>
                         {data.map((song) => {
@@ -43,7 +43,7 @@ function CarouselTopSongs({title, data, info}) {
                         })}
                     </div>
                 </div>
-            <button role={'button'} onClick={next} className={style.flecha_derecha}><i className="fa-solid fa-circle-chevron-right"></i></button>
+            <button onClick={next} className={style.flecha_derecha}><i className="fa-solid fa-circle-chevron-right"></i></button>
             </div>
         </div>
     );

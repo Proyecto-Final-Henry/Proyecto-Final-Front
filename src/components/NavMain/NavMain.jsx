@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from "../../img/logo.png"
-import { Link, useHistory } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import axios from 'axios';
@@ -55,12 +55,12 @@ export default function NavigationM(){
                                 <img style={{height:"48px"}} src={Logo} alt="logo"/>
                             </Link>
                         </div>
-                        <Link to= "/feed" ><h5>INICIO</h5></Link>
-                        <Link to="/user"><h5>PERFIL</h5></Link>
-                        <Link to="/search"><h5>BUSCAR</h5></Link>
-                        <Link to="/music"><h5>MÚSICA</h5></Link>
-                        <Link to="/genres"><h5>GÉNEROS</h5></Link>
-                        <Link to={`/playlist/${user?.id}`}><h5>PLAYLIST</h5></Link>
+                        <NavLink to= "/feed" ><h5>INICIO</h5></NavLink>
+                        <NavLink to="/user"><h5>PERFIL</h5></NavLink>
+                        <NavLink to="/search"><h5>BUSCAR</h5></NavLink>
+                        <NavLink to="/music"><h5>MÚSICA</h5></NavLink>
+                        <NavLink to="/genres"><h5>GÉNEROS</h5></NavLink>
+                        <NavLink to={`/playlist/${user?.id}`}><h5>PLAYLIST</h5></NavLink>
                         {user.role === "Gratuito" ? null : <Link to="/chat"><h5>CHAT</h5></Link> }
                     </Nav>
                     <Nav className='nav_btn_registro'>

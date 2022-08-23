@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
-import style from "../../css/rev.css";
+// import style from "../../css/rev.css";
 import "../../css/perfilrev.css";
 import Follow from "../Follow/Follow";
 import DeleteReview from "../DeleteReview/DeleteReview";
