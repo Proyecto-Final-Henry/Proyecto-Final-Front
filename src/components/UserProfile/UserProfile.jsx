@@ -87,7 +87,7 @@ export default function UserProfile() {
   };
 
   return (
-    <div>
+    <div style={{position: "relative"}}>
 
       <div className="modal fade" id="MercadoModal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document">
@@ -107,7 +107,7 @@ export default function UserProfile() {
                                     </div>
                                 </div>
                             </div>
-                     </div>
+      </div>
 
                      <div className="modal fade" id="Mercado2Modal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document" >
