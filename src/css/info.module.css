@@ -131,6 +131,16 @@ a:hover { text-decoration: none; }
   z-index: -1;
 }
 
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+
 .content_box{
   /* background: radial-gradient(circle at left 50%,#8c569c,#e057be); */
   /* background: linear-gradient(101.38deg,#fa42cc,#8c569c 150.71%); */
