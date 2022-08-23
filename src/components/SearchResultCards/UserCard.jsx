@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import style from "../../css/resultSearch.module.css";
+import style from '../../css/searchbar.module.css'
 
 export default function UserCard(props) {
   return (
-    <div className={style.card}>
-      <img className={style.im} src={props.img} alt="img"></img>
-      <div className={style.text}>
+    <div className={style.ArtistTo}>
+      <div>
+        <img className={style.im} src={props.img} alt="img"></img>
+      </div>
+      <div className={style.linkto_artist}>
         <Link to={`/users/${props.id}`}>
           <p>{props.name}</p>
         </Link>
