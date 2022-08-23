@@ -15,10 +15,6 @@ function CarouselRandomSongs({title, data}) {
     const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
     const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ac6986793e88f1f138ccd179ce4c0b6e14dfbb0c
     return (
         <div className={style.contenedor}>
             <div className={style.contenedor_titulo_controles}>

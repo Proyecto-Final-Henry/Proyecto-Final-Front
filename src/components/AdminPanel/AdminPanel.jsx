@@ -1,7 +1,6 @@
 import { useEffect , useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import dashboard from "../../assets/dashboard.jpg"
 import AdminUsers from "./AdminUsers";
 import AdminIncome from "./AdminIncome";
 import BarChart from "../AdminGrafico/GraficoBarras";
