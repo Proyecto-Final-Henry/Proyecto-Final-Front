@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { useEffect, useRef  } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -71,7 +73,7 @@ export default function Feed(){
             <div className="er">
                 <Per />
             </div>
-            <div className="cen">
+            <div className="cen cen_scroll">
                 <ReviewCard user={user}/>
             </div>
             <div className="ult">

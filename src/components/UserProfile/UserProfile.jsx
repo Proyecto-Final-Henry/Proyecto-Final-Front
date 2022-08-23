@@ -1,20 +1,20 @@
-import {useSelector} from 'react-redux'; // descomentar cuando este llegando la data
+//import {useSelector} from 'react-redux'; // descomentar cuando este llegando la data
 import { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import "../../css/users.css";
+import { useDispatch } from "react-redux";
 import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
 import Spinner from "react-bootstrap/Spinner";
-import loading from "../../assets/loading.gif"
+import MyReview from "./MyReview";
+import loading from "../../assets/loading.gif";
 
 export default function UserProfile() {
   //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params
   const history = useHistory();
   const [user, setUser] = useState({});
   const [showImg, setShowImg] = useState(true);
-  let precio = useSelector(state => state.price);
-  console.log(precio);
 
   let handleAdmin = () => {
     history.push("/admin");
@@ -87,7 +87,7 @@ export default function UserProfile() {
   };
 
   return (
-    <div>
+    <div className="pepe">
 
       <div className="modal fade" id="MercadoModal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document">
@@ -128,21 +128,19 @@ export default function UserProfile() {
                                 </div>
                             </div>
                      </div>
-
       <div className="detailBac">
         <div className="detail">
           <div className="carta">
             {showImg ? (
-              <div>
+              <div className="hov">
                 {user.userImg ? (
                   <div className="pri">
                     <img src={user?.userImg} alt="userImg"></img>
+                    <button onClick={handleShowImg} className="bo">📸</button>
                   </div>
                 ) : (
                   <Spinner animation="border" variant="dark" />
                 )}
-                <br />
-                <button onClick={handleShowImg}>📸</button>
               </div>
             ) : (
               <ChangeProfileImg userId={user.id} setShowImg={setShowImg} />
@@ -176,17 +174,23 @@ export default function UserProfile() {
             >
               Cerrar Sesión
             </Button>
+            <br />
+            <div>
+          <Link to="/user/deactivate">
+            <p>Desactivar cuenta</p>
+          </Link>
+      </div>
           </div>
         </div>
       </div>
-      <div>
+      {/* <div>
         <h3>Seguidores:</h3>
         {user.followers?.length > 0 ? (
           user.followers?.map((f) => {
             return (
               <div>
                 <Link to={`/users/${f.id}`}>
-                  <img src={f.userImg} style={{height:"15%", width:"15%"}} alt="userImg"></img>
+                  <img src={f.userImg} alt="userImg"></img>
                   <p>{f.name}</p>
                 </Link>
               </div>
@@ -195,15 +199,15 @@ export default function UserProfile() {
         ) : (
           <p>Todavia no tienes seguidores</p>
         )}
-      </div>
-      <div>
+      </div> */}
+      {/* <div>
         <h3>Seguidos:</h3>
         {user.following?.length > 0 ? (
           user.following?.map((f) => {
             return (
               <div>
                 <Link to={`/users/${f.id}`}>
-                  <img src={f.userImg} style={{height:"15%", width:"15%"}} alt="userImg"></img>
+                  <img src={f.userImg} alt="userImg"></img>
                   <p>{f.name}</p>
                 </Link>
               </div>
@@ -212,11 +216,10 @@ export default function UserProfile() {
         ) : (
           <p>Todavia no sigues a nadie</p>
         )}
-      </div>
-      <div>
-        <Link to="/user/deactivate">
-          <p>Desactivar cuenta</p>
-        </Link>
+      </div> */}
+      <MyReview/>
+      <div className="play">
+        <h1>Aqui van las playlist</h1>
       </div>
     </div>
   );
