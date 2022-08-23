@@ -55,7 +55,7 @@ const ChatBox = ({chat , currentUser, setEnviarMensaje, recibirMensaje }) => {
     }
 
     const enviarMensaje = async (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         const mensaje = {
             senderId: currentUser,
             chatId: chat.id,
@@ -112,6 +112,8 @@ const ChatBox = ({chat , currentUser, setEnviarMensaje, recibirMensaje }) => {
                     <InputEmoji 
                     value={nuevoMensaje}
                     onChange ={handleChange}
+                    onEnter={enviarMensaje}
+                    placeholder='Escribe un mensaje aquí'
                     />
                     <button className="send-button button" onClick={enviarMensaje}><img src={send} alt="send" /></button>
                 </div>

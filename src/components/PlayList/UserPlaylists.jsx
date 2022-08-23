@@ -16,6 +16,7 @@ export default function  UserPlaylist({isModal, id, name, closeModal, userId}){
             name: name,
             id: id,
           });
+          closeModal()
           dispatch(getPlaylist(userId))
         } catch (err) {
           throw new Error("No pudimos agregar tu canción");
@@ -28,6 +29,7 @@ export default function  UserPlaylist({isModal, id, name, closeModal, userId}){
               name: name,
               id: id,
             });
+            closeModal()
           dispatch(getPlaylist(userId))
           } catch (err) {
             throw new Error("No pudimos remover tu canción");

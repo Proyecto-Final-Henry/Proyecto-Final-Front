@@ -1,26 +1,13 @@
 import style from "../../css/premium.module.css";
-import { Link, useHistory } from "react-router-dom";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  clearAlbum,
-  clearArtist,
-  clearSong,
-  getRandomArtists,
-  getRandomSongs,
-  getTopArtists,
-  getTopSongs,
-} from "../../redux/actions";
 import Button from "react-bootstrap/Button";
-// import MusicCard from "./MusicCard";
-// import ArtistCard from "./ArtistCard";
-// import Carousel from "../Carousel/CarouselRandomSongs";
 import CarouselTopArtists from "../Carousel/CarouselTopArtists";
 import CarouselRandomArtists from "../Carousel/CarouselRandomArtists";
 import CarouselTopSongs from "../Carousel/CarouselTopSongs";
 import CarouselRandomSongs from "../Carousel/CarouselRandomSongs";
-// import CarouselTopArtists from "../Carousel/CarouselRandomArtists";
-// import { Carousel } from "./Carousel";
+import { Link, useHistory } from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { clearAlbum, clearArtist, clearSong, getRandomArtists, getRandomSongs, getTopArtists, getTopSongs } from "../../redux/actions";
 
 export default function Music() {
   let history = useHistory();
@@ -47,7 +34,7 @@ export default function Music() {
       if (active === "false") {
         history.push("/user/restore");
         return;
-      }
+      };
     };
     autenticarUsuario();
     if (!randomSongs.length) {
@@ -143,4 +130,4 @@ export default function Music() {
       </div>
     </div>
   );
-}
+};
