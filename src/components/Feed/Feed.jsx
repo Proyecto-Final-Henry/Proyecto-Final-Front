@@ -1,18 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useRef  } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Re from './Re';
-import { createAlbum, createGenreDb, getAllReviews, getUserData, getRandomSongs, getTopArtists, getTopSongs, getRandomArtists } from "../../redux/actions";
+import { createAlbum, createGenreDb, getAllReviews, getUserData, getRandomSongs, getTopArtists, getTopSongs, getRandomArtists, clearArtist, clearAlbum, clearSong } from "../../redux/actions";
 import { getGenres } from "../../redux/actions/actions_player";
 import axios from "axios";
+import { useState } from "react";
+import { io } from "socket.io-client";
+
+export const socket=io("http://localhost:3001");
 
 
 export default function Feed(){
     const history = useHistory();
     let dispatch = useDispatch();
-    const albumCheck = useSelector((state) => state.albumDb);
+    const [user, setUser] = useState("");
+    const userData = useSelector((state) => state.userData);
+    const [onlineUsers, setOnlineUsers] = useState([]);
+
+    useEffect(() => {
+        // socket.current = io("http://localhost:3001");
+        console.log(socket)
+        socket.emit("newUser", userData?.id);
+        socket.on("getUsers", (users) => {
+          setOnlineUsers(users);
+        });
+      }, [user]);
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -30,11 +45,17 @@ export default function Feed(){
             try {
                 const { data } = await axios(`/api/back-end/users/perfil`, config);
                 dispatch(getUserData(data?.id))
+                setUser(data);
             } catch (error) {
                 console.log(error.response.data.msg);
             };
         };
+        
+        
         autenticarUsuario();
+        dispatch(clearArtist());
+        dispatch(clearAlbum());
+        dispatch(clearSong());
         dispatch(getAllReviews());
         dispatch(getGenres());
         dispatch(createGenreDb());
@@ -51,7 +72,7 @@ export default function Feed(){
                 <Per />
             </div>
             <div className="cen">
-                <ReviewCard/>
+                <ReviewCard user={user}/>
             </div>
             <div className="ult">
                 <Re/>

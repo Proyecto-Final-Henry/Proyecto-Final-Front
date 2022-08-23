@@ -27,7 +27,12 @@ import {
   GET_GENRE_ALBUM,
   GET_RANDOM_FEED,
   GET_OTHER_USER_DATA,
-  GET_USER_SEARCH
+  GET_USER_SEARCH,
+  SET_PRICE,
+  GET_PLAYLIST,
+  CLEAR_ARTIST,
+  CLEAR_ALBUM,
+  CLEAR_SONG,
 } from "../constants";
 
 export const sendEmailContact = (values) => {
@@ -64,6 +69,18 @@ export const getUserData = (id) => async (dispatch) => {
   } catch (error) {
     console.log(error)
   };
+};
+
+export function getPlaylist (id){
+  return async function (dispatch){
+    return axios(`/api/back-end/playlist/${id}`)
+    .then((response) => {
+      dispatch({
+        type: GET_PLAYLIST,
+        payload:response.data,
+      });
+    });
+  }  ;
 };
 
 export  function onPageChanged(data) {
@@ -395,3 +412,30 @@ export function getOtherUser(id) {
     })
   }
 }
+
+export function setPrice(price) {
+  return async(dispatch) => {
+      dispatch({
+        type: SET_PRICE,
+        payload: price
+      })
+    };
+};
+
+export const clearArtist = () => {
+  return {
+      type: CLEAR_ARTIST
+  };
+};
+
+export const clearAlbum = () => {
+  return {
+      type: CLEAR_ALBUM
+  };
+};
+
+export const clearSong = () => {
+  return {
+      type: CLEAR_SONG
+  };
+};

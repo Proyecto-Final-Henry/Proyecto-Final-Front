@@ -1,4 +1,6 @@
 import { Route } from "react-router-dom";
+import { io } from "socket.io-client";
+import { useEffect, useState } from "react";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Contact from "./components/Contact/Contact";
@@ -14,8 +16,6 @@ import Feed from "./components/Feed/Feed";
 import RecoverPassword from "./components/RecoverPass/RecoverPass";
 import "./index.css";
 import NewPassword from "./components/NewPassword/NewPassword";
-import Free from "./components/Free/Free";
-import Pay from "./components/Pay/Pay";
 import ArtistDetail from "./components/ArtistDetail/ArtistDetail";
 import AlbumDetail from "./components/AlbumDetail/AlbumDetail";
 import PaySuccess from "./components/Pay/PaySuccess";
@@ -33,8 +33,10 @@ import TeamIn from "./components/Team/TeamIn";
 import OtherUserProfile from "./components/UserProfile/OtherUserProfile";
 import DeactivateAccount from "./components/DeactivateAccount/DeactivateAccount";
 import RestoreAccount from "./components/RestoreAccount/RestoreAccount";
+import PlaylistComponent from "./components/PlayList/PlaylistComponent"
 
 function App() {
+
   return (
     <div className="App">
       <Route exact path="/">
@@ -71,12 +73,6 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exact path="/free">
-        <NavigationB />
-        <Free />
-        <Footer />
-      </Route>
-
       <Route exact path="/team">
         <NavigationB />
         <Team />
@@ -89,16 +85,8 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exact path="/pay">
-        <NavigationB />
-        <Pay />
-        <Footer />
-      </Route>
-
       <Route exact path="/pay/success">
-        <NavigationB />
         <PaySuccess />
-        <Footer />
       </Route>
 
       <Route exact path="/pay/error">
@@ -203,15 +191,21 @@ function App() {
         <Footer />
       </Route>
 
-      <Route exactp path="/user/deactivate">
+      <Route exact path="/user/deactivate">
         <NavigationM />
         <DeactivateAccount />
         <Footer />
       </Route>
 
-      <Route exactp path="/user/restore">
+      <Route exact path="/user/restore">
         <NavigationB />
         <RestoreAccount />
+        <Footer />
+      </Route>
+
+      <Route exact path="/playlist/:id">
+        <NavigationM />
+        <PlaylistComponent />
         <Footer />
       </Route>
     </div>

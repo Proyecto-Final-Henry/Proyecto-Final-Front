@@ -1,7 +1,10 @@
 import { useEffect , useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import dashboard from "../../assets/dashboard.jpg"
+import AdminUsers from "./AdminUsers";
+import AdminIncome from "./AdminIncome";
+import BarChart from "../AdminGrafico/GraficoBarras";
+import LineChart from "../AdminGrafico/GraficoLineal";
 
 export default function AdminPanel (){
     const history = useHistory();
@@ -35,8 +38,19 @@ export default function AdminPanel (){
         }, []);
 
     return (
-        <div>
-            <img src={dashboard} alt="panel de admin"/>
+        <div style={{border: "solid", margin: "5px", width: "85%"}}>
+            <div style={{display:"inline-flex"}}>
+                <AdminUsers/>
+            </div>
+
+            <div style={{display:"inline-flex"}}>
+                <AdminIncome/>
+            </div>
+            <br />
+            <div style={{display:"inline-flex", width: "45%"}}>
+                <BarChart/>
+                <LineChart/>
+            </div>
         </div>
     )
 };

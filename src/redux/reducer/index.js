@@ -26,7 +26,12 @@ import {
   GET_GENRE_ALBUM,
   GET_RANDOM_FEED,
   GET_OTHER_USER_DATA,
-  GET_USER_SEARCH
+  GET_USER_SEARCH,
+  SET_PRICE,
+  GET_PLAYLIST,
+  CLEAR_ARTIST,
+  CLEAR_ALBUM,
+  CLEAR_SONG,
 } from "../constants";
 
 const initialState = {
@@ -63,20 +68,31 @@ const initialState = {
   users:[],
   genresDb: [],
   otherUser: {},
+  playList:[],
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_PLAYLIST:
+      return{
+        ...state,
+        playList:action.payload
+      };
     case CALC_PAGES:
       let limit = action.payload;
       return{
         ...state,
         totalPages: (Math.floor(state.searchResultFilter.length /limit))+1        
-      } 
+      } ;
     case GET_USER_DATA:
       return {
         ...state,
         userData: action.payload,
+      };
+    case SET_PRICE:
+      return {
+        ...state,
+        basePrice: action.payload,
       };
     case GET_GENRES:
       return {
@@ -92,6 +108,21 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         genre: {},
+      };
+    case CLEAR_ARTIST:
+      return {
+        ...state,
+        artistData: {},
+      };
+    case CLEAR_ALBUM:
+      return {
+        ...state,
+        albumData: {},
+      };
+    case CLEAR_SONG:
+      return {
+        ...state,
+        songData: {},
       };
     case ON_PAGE_CHANGED:
       const { searchResultFilter } = state;      
@@ -202,7 +233,6 @@ function rootReducer(state = initialState, action) {
         randomSongs: action.payload,
       };
     case GET_TOP_SONGS:
-      console.log(action.payload)
       return {
         ...state,
         topSongs: action.payload,

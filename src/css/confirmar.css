@@ -17,6 +17,7 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 1px 10px 10px 2px rgb(0, 0, 0);
+    text-shadow: 0 0 5px #9027f1, 0 0 15px #9027f1, 0 0 20px #9027f1, 0 0 40px #9027f1, 0 0 60px #0066ff, 0 0 10px #177eed, 0 0 98px #8cf5ff75;
     border-radius: 5px;
     background: linear-gradient(137deg,#fa42cc 15.51%,#4c9284 51.65%,#8c569c 85.09%);
   }
