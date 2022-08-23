@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ArtistCard from "../SearchResultCards/ArtistCard";
@@ -8,10 +8,12 @@ import Filters from "./Filters";
 import Pagination from "./Pagination";
 import PaginationFilter from "./PaginationFilter";
 import SearchBar from "../Search/SearchBar";
-import { getSearch, calcPages, onPageChanged } from "../../redux/actions";
+import { getSearch, calcPages, onPageChanged, getPlaylist, clearArtist, clearAlbum, clearSong } from "../../redux/actions";
 import style from "../../css/resultSearch.module.css";
 import { pageLimit } from "./PaginationFilter";
 import UserCard from "../SearchResultCards/UserCard";
+import axios from "axios"
+
 
 export default function SearchResult() {
   const pagination = useSelector((store) => store.pagination);
@@ -23,6 +25,47 @@ export default function SearchResult() {
   const selected = useSelector((store) => store.selected);
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const [user, setUser] = useState({
+    name:'',
+    id:'',
+  });
+
+  useEffect(() => {
+    const autenticarUsuario = async () => {
+        const token = localStorage.getItem("token")
+        if(!token){
+            history.push("/login")
+            return
+        }
+        const config = {
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+          },
+      };
+      try {
+          const { data } = await axios(
+              `/api/back-end/users/perfil`,
+              config
+          );
+          setUser(data);
+          
+      } catch (error) {
+          console.log(error.response.data.msg);
+      };
+    };
+    autenticarUsuario()
+    dispatch(clearArtist());
+    dispatch(clearAlbum());
+    dispatch(clearSong());
+  },[]);
+   
+  useEffect(() => {
+    dispatch(getPlaylist(user.id));
+  },[user.id,]);
+
+
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -108,6 +151,7 @@ export default function SearchResult() {
                 album={e.album}
                 albumId={e.albumId}
                 type={e.type}
+                userId={user.id}
               />
             );
           } else if (e.type === "user") {

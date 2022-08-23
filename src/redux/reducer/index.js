@@ -29,6 +29,9 @@ import {
   GET_USER_SEARCH,
   SET_PRICE,
   GET_PLAYLIST,
+  CLEAR_ARTIST,
+  CLEAR_ALBUM,
+  CLEAR_SONG,
 } from "../constants";
 
 const initialState = {
@@ -105,6 +108,21 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         genre: {},
+      };
+    case CLEAR_ARTIST:
+      return {
+        ...state,
+        artistData: {},
+      };
+    case CLEAR_ALBUM:
+      return {
+        ...state,
+        albumData: {},
+      };
+    case CLEAR_SONG:
+      return {
+        ...state,
+        songData: {},
       };
     case ON_PAGE_CHANGED:
       const { searchResultFilter } = state;      

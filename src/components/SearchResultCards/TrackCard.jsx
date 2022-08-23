@@ -1,5 +1,6 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
+import AddTrack from "../PlayList/AddTrack";
 
 function HorizontalResponsiveExample(props) {
   return (
@@ -24,6 +25,12 @@ function HorizontalResponsiveExample(props) {
       </ListGroup.Item>
       <ListGroup.Item>
         <p>{props.type}</p>
+      </ListGroup.Item>
+      <ListGroup.Item>
+        <AddTrack 
+        userId={props.userId}
+        trackId={props.id}
+        name={props.title} />
       </ListGroup.Item>
     </ListGroup>
   );

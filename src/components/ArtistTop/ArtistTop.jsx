@@ -30,8 +30,8 @@ export default function ArtistTop({ artistId }) {
       <h2>Canciones del momento:</h2>
       {artistTop.map((s) => {
         return (
-            <div id={s.id} key={s.id} className="ArtistTo" style={{"backgroundColor": "black"}}>
-              <div>
+            <div id={s.id} key={s.id} className="ArtistTo">
+              <div className="pi">
                 <img src={s.album.imageAlbum} alt={s.album.titleAlbum} />
               </div>
               <div>
@@ -46,6 +46,9 @@ export default function ArtistTop({ artistId }) {
                 <Link to={`/album/${s.album.idAlbum}`}>
                   <p >{s.album.titleAlbum}</p>
                 </Link>
+              </div>
+              <div className="dura">
+                <p>{(parseInt(s.duration) / 60).toFixed(2)}<BsStopwatchFill /></p>
               </div>
             </div>
         );

@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Logo from "../../img/logo.png"
+import Logo from "../../img/logo_remusic.png";
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
@@ -50,9 +50,9 @@ export default function NavigationM(){
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <div className="logo">
+                        <div className="logoN">
                             <Link to= "/feed">
-                                <img src={Logo} alt="logo"/>
+                                <img style={{height:"48px"}} src={Logo} alt="logo"/>
                             </Link>
                         </div>
                         <Link to= "/feed" ><h5>INICIO</h5></Link>
@@ -60,7 +60,9 @@ export default function NavigationM(){
                         <Link to="/search"><h5>BUSCAR</h5></Link>
                         <Link to="/music"><h5>MÚSICA</h5></Link>
                         <Link to="/genres"><h5>GÉNEROS</h5></Link>
-                        {user.role === "Gratuito" ? null : <Link to="/chat"><h5>CHAT</h5></Link> }
+                        <Link to={`/playlist/${user?.id}`}><h5>PLAYLIST</h5></Link>
+                        <Link to="/chat"><h5>CHAT</h5></Link>
+                        {/* {user.role === "Gratuito" ? null : <Link to="/chat"><h5>CHAT</h5></Link> } */}
                     </Nav>
                     <Nav className='nav_btn_registro'>
                         <button style={{marginTop: "6px", "color":"white"}} className="btn_registrate" onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</button>

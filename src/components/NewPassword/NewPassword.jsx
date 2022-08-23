@@ -18,7 +18,7 @@ const NewPassword = () => {
             try {
                 const url = `/api/back-end/users/olvide-password/${token}`
                 await axios( url )
-                setAlerta({msg: "Coloca tu nuevo password", error: false})
+                setAlerta({msg: "Coloca tu nueva contraseña", error: false})
                 setTokenValido(true)
             } catch (error) {
                 setAlerta({msg: error.response.data.msg, error: true})
@@ -31,7 +31,7 @@ const NewPassword = () => {
         e.preventDefault()
 
         if(password.length < 6){
-            setAlerta({msg: "La password debe ser minimo de 6 caracteres" , error: true})
+            setAlerta({msg: "La contraseña debe ser minimo de 6 caracteres" , error: true})
             setTimeout(() => {
                 setAlerta({})
             },2500)
@@ -39,7 +39,7 @@ const NewPassword = () => {
         };
 
         if(password !== repitepassword){
-            setAlerta({msg: "Ambas passwords deben ser iguales", error: true})
+            setAlerta({msg: "Ambas contraseñas deben ser iguales", error: true})
             setTimeout(() => {
                 setAlerta({})
             }, 2500)
@@ -51,9 +51,11 @@ const NewPassword = () => {
             const { data } = await axios.post( url , { password })
             setAlerta({msg: data.msg , error: false})
             setPasswordConfirmada(true)
-            
         } catch (error) {
             setAlerta({msg: error.response.data.msg , error: true})
+            setTimeout(()=>{
+                setAlerta({})
+              },2500)
         };
     };
 
@@ -69,28 +71,28 @@ const NewPassword = () => {
         {tokenValido && ( 
 
             <form onSubmit={handleSubmit} className="form">
-            <h1>Reestablece tu password</h1>
+            <h1>Reestablece tu contraseña</h1>
             <div>
                 <br />
-                <label>Nueva Password:</label>
+                <label>Nueva contraseña:</label>
                 <br />
                 <input 
                 type="password" 
                 className="field"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                placeholder="Enter New Password"/>
+                placeholder="Ingrese su nueva contraseña..."/>
             </div> 
             <div>
                 <br />
-                <label>Repite Nueva Password:</label>
+                <label>Repita Nueva contraseña:</label>
                 <br />
                 <input 
                 type="password" 
                 className="field"
                 value={repitepassword}
                 onChange={e => setRepitePassword(e.target.value)}
-                placeholder="Repeat New Password"/>
+                placeholder="Repita la nueva contraseña..."/>
             </div>
             <div className="crear">
               <br />
