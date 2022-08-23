@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import style from "../../css/rev.css";
 import { Link, useHistory } from "react-router-dom";
@@ -8,6 +8,8 @@ import DeleteReview from "../DeleteReview/DeleteReview";
 import axios from "axios";
 // import { propTypes } from "react-bootstrap/esm/Image";
 import LikesReview from "../LikesReview/LikesReview";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { socket } from "../Feed/Feed";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
 
@@ -15,8 +17,10 @@ export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
   const history = useHistory();
   const [user, setUser] = useState({});
+  const [liked, setLiked] = useState(false);
   const [isOpenAlert, openAlert, closeAlert] = useModal(false);
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState("");
+  // console.log(reviewArray);
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -46,17 +50,28 @@ export default function ReviewCard() {
     autenticarUsuario();
   }, []);
 
+  const handleNotification = (type, revId, title) => {
+    console.log(title);
+    type === 1 && setLiked(true);
+    socket.emit("sendNotification", {
+      senderName: user?.name,
+      receiverName: revId,
+      type,
+      title,
+    });
+  };
+
   // console.log(reviewArray);
 
   const handleButton = (message) => {
     setDescription(message);
-    openAlert()
+    openAlert();
   };
 
   const score = (count) => {
-    let start = '';
+    let start = "";
     for (let i = 0; i < count; i++) {
-      start += '★';
+      start += "★";
     }
     return start;
   };
@@ -80,13 +95,27 @@ export default function ReviewCard() {
                     ) : (
                       <DeleteReview id={r.id} />
                     )}
-                    <Link to={user.id === r.user.id ? "/user" : `/users/${r.user.id}`}>
+                    <Link
+                      to={
+                        user.id === r.user.id ? "/user" : `/users/${r.user.id}`
+                      }
+                    >
                       <img src={r.user.userImg} alt="" />
                     </Link>
                     <h4>{r.user.name}</h4>
                     <h5>{r.user.role}</h5>
-                    {r.userId !== user.id ?
-                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>❤️ likes: {r.likes.length}</>}
+                    {liked ? (
+                      <AiFillHeart />
+                    ) : (
+                      <AiOutlineHeart
+                        onClick={() => handleNotification(1, r.userId, r.title)}
+                      />
+                    )}
+                    {/* {r.userId !== user.id ? (
+                      <LikesReview likes={r.likes} id={r.id} meId={user.id} />
+                    ) : (
+                      <>♥likes: {r.likes.length}</>
+                    )} */}
                   </div>
                 </div>
                 <div className="rev">
@@ -120,19 +149,26 @@ export default function ReviewCard() {
                   </div>
                   <div className="califica">
                     <p>Calificación: {r.score}</p>
-                    <p className='start'>
-                      {score(r.score)}
-                    </p>
+                    <p className="start">{score(r.score)}</p>
                   </div>
                   <div className="descri">
-                    <p>Descripcion:</p>
+                    <p>Descripción:</p>
                     {/* <p className="reviewDescription">{r.description}</p> */}
-                    <button className='btn_description' onClick={() => handleButton(r.description)}>Ver descripción</button>
-                    <Modal isOpen={isOpenAlert} onClose={closeAlert}>
+                    <button
+                      className="btn_description"
+                      onClick={() => handleButton(r.description)}
+                    >
+                      Ver descripción
+                    </button>
+                    <Modal
+                      isOpen={isOpenAlert}
+                      onClose={closeAlert}
+                      className="modal_body"
+                    >
                       <h4>Descripción de la reseña</h4>
-                      <div  className="option_deleteReview">
-                          <p className="reviewDescription">{description}</p>
-                          <button onClick={closeAlert}>Cerrar</button>
+                      <div className="option_deleteReview">
+                        <p className="reviewDescription">{description}</p>
+                        <button onClick={closeAlert}>Cerrar</button>
                       </div>
                     </Modal>
                   </div>
@@ -150,5 +186,3 @@ export default function ReviewCard() {
     </div>
   );
 }
-
-

@@ -232,9 +232,9 @@ export default function GenreDetail() {
                     </div>
                     :
                     null}   
-                {GenreData.name === "Romantica" || GenreData.name === "Romantica" ? 
+                {GenreData.name === "Romantica" || GenreData.name === "Romantic" ? 
                     <div>
-                        <h4>
+                        <h4>s
                             En la música, el Romanticismo fue un período que transcurrió, aproximadamente, entre los años 1810 y la primera década del siglo XX, y suele englobar toda la música escrita de acuerdo a las normas y formas de dicho período. El Romanticismo musical es un período de la música académica que fue precedido por el Clasicismo y seguido por el Impresionismo. Está relacionado, por supuesto, con el Romanticismo en otras disciplinas: la corriente de cambios en Literatura, Bellas Artes y Filosofía, aunque suele haber ligeras diferencias temporales dado que, el Romanticismo en aquellas Artes y en la Filosofía, se suele reconocer entre los años 1780 y 1840. El Romanticismo como movimiento global en las Artes y la Filosofía tiene como precepto que la verdad no podía ser deducida a partir de axiomas y que, en el mundo, había realidades inevitables que solo se podían captar mediante la emoción, el sentimiento y la intuición. La música del Romanticismo intentaba expresar estas emociones hacia una persona u objeto al cual quiere o aprecia.
                         </h4>
                         <br />

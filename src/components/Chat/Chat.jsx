@@ -4,13 +4,14 @@ import axios from "axios";
 import "../../css/chat.css";
 import Conversacion from "./Conversacion";
 import ChatBox from "./ChatBox";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import User from "./User";
 import { useSelector } from "react-redux";
+import { socket } from "../Feed/Feed";
 
 const Chat = () => {
   const history = useHistory();
-  const socket = useRef();
+  // const socket = useRef();
 
   const [user, setUser] = useState({});
 
@@ -63,16 +64,16 @@ const Chat = () => {
   }, []);
 
   useEffect(() => {
-    socket.current = io("http://localhost:3001");
-    socket.current.emit("new-user-add", userData?.id);
-    socket.current.on("get-users", (users) => {
+    // socket.current = io("http://localhost:3001");
+    socket.emit("new-user-add", userData?.id);
+    socket.on("get-users", (users) => {
       setOnlineUsers(users);
     });
   }, [user]);
 
   //Recibir mensaje del socket server
   useEffect(() => {
-    socket.current.on("receive-message", (data) => {
+    socket.on("receive-message", (data) => {
       setRecibirMensaje(data);
     });
   });
@@ -80,7 +81,7 @@ const Chat = () => {
   // Enviar mensaje al socket server
   useEffect(() => {
     if (enviarMensaje !== null) {
-      socket.current.emit("send-message", enviarMensaje);
+      socket.emit("send-message", enviarMensaje);
     }
   }, [enviarMensaje]);
 

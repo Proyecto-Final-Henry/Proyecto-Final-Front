@@ -42,13 +42,14 @@
 .selected:active{
     border: 1px solid #ceb09a;
     background-color: #ce9ab8;
+    margin-bottom: 30px;
 }
+
 .filters{
     display: flex;
     flex-direction:row ;
     align-items: center;
     justify-content: center;
-    
 }
 
 .filters select{
@@ -60,4 +61,12 @@
     border-radius: 10px;
 }
 
-
+.filters select{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    border-radius: 6px;
+    width: 30%;
+    background-color: transparent;
+};
