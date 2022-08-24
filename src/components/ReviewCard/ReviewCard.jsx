@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import style from "../../css/rev.css";
 import { Link, useHistory } from "react-router-dom";
@@ -6,16 +6,14 @@ import "../../css/perfilrev.css";
 import Follow from "../Follow/Follow";
 import DeleteReview from "../DeleteReview/DeleteReview";
 import axios from "axios";
+// import { propTypes } from "react-bootstrap/esm/Image";
 import LikesReview from "../LikesReview/LikesReview";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { socket } from "../Feed/Feed";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
   const history = useHistory();
   const [user, setUser] = useState({});
-  const [liked, setLiked] = useState(false);
   const [isOpenAlert, openAlert, closeAlert] = useModal(false);
   const [description, setDescription] = useState("");
 
@@ -46,17 +44,6 @@ export default function ReviewCard() {
     };
     autenticarUsuario();
   }, []);
-
-  const handleNotification = (type, revId, title) => {
-    console.log(title);
-    type === 1 && setLiked(true);
-    socket.emit("sendNotification", {
-      senderName: user?.name,
-      receiverName: revId,
-      type,
-      title,
-    });
-  };
 
   // console.log(reviewArray);
 
@@ -92,27 +79,18 @@ export default function ReviewCard() {
                     ) : (
                       <DeleteReview id={r.id} location="feed" />
                     )}
-
-                    <Link
-                      to={
-                        user.id === r.user.id ? "/user" : `/users/${r.user.id}`
-                      }
-                    >
+                    <Link to={user.id === r.user.id ? "/user" : `/users/${r.user.id}`}>
                       <img src={r.user.userImg} alt="" />
                     </Link>
                     <h4>{r.user.name}</h4>
                     <h5>{r.user.role}</h5>
-                    {r.userId !== user.id ? (
-                      <div
-                        onClick={() => handleNotification(1, r.userId, r.title)}
-                      >
-                        <LikesReview likes={r.likes} id={r.id} meId={user.id} />
-                      </div>
-                    ) : (
-                      <>❤️ likes: {r.likes.length}</>
-                    )}
-                    {/* {r.userId !== user.id ?
-                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>} */}
+                    {r.userId !== user.id ?(
+                      <div>
+                        <LikesReview likes={r.likes} id={r.id} meId={user.id} revId={r.userId} title={r.title} userName={user.name}/>
+                      </div>):(
+                      <div className="dis">
+                        <>❤️ likes: {r.likes.length}</>
+                        </div>)}
                   </div>
                 </div>
                 <div className="rev">

@@ -95,17 +95,15 @@ export default function NavigationM(){
                         <NavLink to={`/playlist/${user?.id}`}><h5>PLAYLIST</h5></NavLink>
                         {user.role === "Gratuito" ? null : <Link to="/chat"><h5>CHAT</h5></Link> }
                     </Nav>
-                        <NavDropdown id="basic-nav-dropdown" title={<FaRegBell/>} onClick={() => setOpen(!open)}>
+                        <NavDropdown id="basic-nav-dropdown" title={<FaRegBell/>}>
 
                         <NavDropdown.ItemText>
-                            {open && (
-                                    <div className="notifications">
+                                <div className="notifications">
                                     {notifications.map((n) => displayNotification(n))}
                                     <button className="nButton" onClick={handleRead}>
                                         Marcar como leído
                                     </button>
                                 </div>
-                            )}
                         </NavDropdown.ItemText>
                         </NavDropdown>
                     {/* <Nav>
