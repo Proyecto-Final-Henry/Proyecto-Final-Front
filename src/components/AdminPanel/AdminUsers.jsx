@@ -5,6 +5,20 @@ import admin from "../../css/adminPanel.module.css";
 export default function AdminUsers() {
   const [users, setUsers] = useState([]);
 
+    useEffect(() => {
+        const allUsers = async () => {
+            try {
+                const { data } = await axios(`/api/back-end/user`);
+                setUsers(data);
+            } catch (error) {
+                console.log(error);
+            };
+        };
+        allUsers([]);
+    },[]);
+
+ console.log(users);
+
   useEffect(() => {
     const allUsers = async () => {
       try {
@@ -17,70 +31,55 @@ export default function AdminUsers() {
     allUsers([]);
   }, []);
 
-  console.log(users);
 
-  let handlePremium = async (id) => {
-    if (window.confirm("otorgar premium")) {
-      await axios.put(`/api/back-end/users/givepremium`, { userId: id });
-      const { data } = await axios(`/api/back-end/user`);
-      setUsers(data);
-    }
-  };
+    let handlePremium = async (id) => {
+        await axios.put(`/api/back-end/users/givepremium`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
+    };
 
-  let unhandlePremium = async (id) => {
-    if (window.confirm("remover premium")) {
-      await axios.put(`/api/back-end/users/takepremium`, { userId: id });
-      const { data } = await axios(`/api/back-end/user`);
-      setUsers(data);
-    }
-  };
+    let unhandlePremium = async (id) => {
+        await axios.put(`/api/back-end/users/takepremium`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
+    };
 
-  let handleBan = async (id) => {
-    if (window.confirm("eliminar cuenta")) {
-      await axios.put(`/api/back-end/users/deactivate?role=admin`, {
-        userId: id,
-      });
-      const { data } = await axios(`/api/back-end/user`);
-      setUsers(data);
-    }
-  };
+    let handleBan = async (id) => {
+        await axios.put(`/api/back-end/users/deactivate?role=admin.`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
+    };
 
-  let handleDeactivate = async (id) => {
-    if (window.confirm("desactivar usuario")) {
-      await axios.put(`/api/back-end/users/deactivate`, { userId: id });
-      const { data } = await axios(`/api/back-end/user`);
-      setUsers(data);
-    }
-  };
+    let handleDeactivate = async (id) => {
+        await axios.put(`/api/back-end/users/deactivate`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
+    };
 
-  let handleReactivate = async (id) => {
-    if (window.confirm("reactivar usuario")) {
-      await axios.put(`/api/back-end/users/restore`, { userId: id });
-      const { data } = await axios(`/api/back-end/user`);
-      setUsers(data);
-    }
-  };
+    let handleReactivate = async (id) => {
+        await axios.put(`/api/back-end/users/restore`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
+    };
 
-  let handleAdmin = async (id) => {
-    if (window.confirm("otorgar admin")) {
-      await axios.put(`/api/back-end/users/giveadmin`, { userId: id });
-      const { data } = await axios(`/api/back-end/user`);
-      setUsers(data);
-    }
-  };
+    let handleAdmin = async (id) => {
+        await axios.put(`/api/back-end/users/giveadmin`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
+    };
 
-  let unhandleAdmin = async (id) => {
-    if (window.confirm("quitar admin")) {
-      await axios.put(`/api/back-end/users/takeadmin`, { userId: id });
-      const { data } = await axios(`/api/back-end/user`);
-      setUsers(data);
-    }
-  };
-
+    let unhandleAdmin = async (id) => {
+        await axios.put(`/api/back-end/users/takeadmin`, {userId: id});
+        const { data } = await axios(`/api/back-end/user`);
+        setUsers(data);
+    };
+  
   return (
-    <div className={admin.component}>
+    <div className={`${admin.component} adminUsers`}>
+      <h1>Usuarios</h1>
       <div className={admin.list}>
-        Usuarios Gratuitos
+        <h2>Usuarios Gratuitos: {users.filter(u => u.active === true && u.role === "Gratuito" && u.confirmado === true).length} </h2>
+        <div className={admin.list_user}>
         {users &&
           users.map((u) =>
             u.active === true &&
@@ -140,9 +139,11 @@ export default function AdminUsers() {
               </div>
             ) : null
           )}
+        </div>
       </div>
       <div className={admin.list}>
-        Usuarios Premium
+      <h2>Usuarios Premium : {users.filter(u => u.active === true && u.role === "Premium").length}</h2>
+        <div className={admin.list_user}>
         {users &&
           users.map((u) =>
             u.active === true && u.role === "Premium" ? (
@@ -207,12 +208,14 @@ export default function AdminUsers() {
               </div>
             ) : null
           )}
+        </div>
       </div>
       <div className={admin.list}>
-        Administradores
+      <h2>Administradores : {users.filter(u => u.active === true && u.role === "Admin").length}</h2>
+      <div className={admin.list_user}>
         {users &&
           users?.map((u) =>
-            u.role === "Admin" ? (
+            u.role === "Admin" && u.active === true ? (
               <div className={admin.user}>
                 <div>
                   <img
@@ -267,9 +270,11 @@ export default function AdminUsers() {
               </div>
             ) : null
           )}
+        </div>
       </div>
       <div className={admin.list}>
-        Usuarios Inactivos
+      <h2>Usuarios Inactivos : {users.filter(u => u.active === false && u.confirmado === true).length}</h2>
+      <div className={admin.list_user}>
         {users &&
           users.map((u) =>
             u.active === false && u.confirmado === true ? (
@@ -327,6 +332,7 @@ export default function AdminUsers() {
               </div>
             ) : null
           )}
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef  } from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -10,8 +10,7 @@ import axios from "axios";
 import { useState } from "react";
 import { io } from "socket.io-client";
 
-export const socket=io("http://localhost:3001");
-
+export const socket=io("http://localhost:3001"); // https://remusic.onrender.com // http://localhost:3001
 
 export default function Feed(){
     const history = useHistory();
@@ -19,11 +18,12 @@ export default function Feed(){
     const [user, setUser] = useState("");
     const userData = useSelector((state) => state.userData);
     const [onlineUsers, setOnlineUsers] = useState([]);
+    const userId = localStorage.getItem("userId");
 
     useEffect(() => {
         // socket.current = io("http://localhost:3001");
         console.log(socket)
-        socket.emit("newUser", userData?.id);
+        socket.emit("newUser", userData?.id || userId);
         socket.on("getUsers", (users) => {
           setOnlineUsers(users);
         });
@@ -50,8 +50,6 @@ export default function Feed(){
                 console.log(error.response.data.msg);
             };
         };
-        
-        
         autenticarUsuario();
         dispatch(clearArtist());
         dispatch(clearAlbum());

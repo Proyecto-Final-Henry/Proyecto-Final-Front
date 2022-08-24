@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getPlaylist } from "../../redux/actions";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
+import style from '../../css/filters.module.css';
 
 
 export default function DeletePlaylist(props){
@@ -21,11 +22,13 @@ export default function DeletePlaylist(props){
 
     return(
         <div>
-            <button onClick={() => handleButton()}>Eliminar Playlist</button>
+            <button className={style.btn} onClick={() => handleButton()}>Eliminar Playlist</button>
             <Modal isOpen={isOpenAlert} onClose={closeAlert}>
-            <h4>¿Esta seguro que desea borrar esta Playlist?</h4>
-            <button onClick={() => handleButtonDelete()}>Si</button>
-            <button onClick={closeAlert}>No</button>
+                <div  className={style.playList_box} >
+                    <h4>¿Esta seguro que desea borrar esta Playlist?</h4>
+                    <button className={style.btn} onClick={() => handleButtonDelete()}>Si</button>
+                    <button className={style.btn} onClick={closeAlert}>No</button>
+                </div>
             </Modal>
         </div>
     );

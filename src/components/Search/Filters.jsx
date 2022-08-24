@@ -91,7 +91,7 @@ export default function Filters (){
                             )
                         }else{
                             return(
-                                <div key={i}>
+                                <div key={i} className={style.filters_select}>
                                     <select name='artist' value={state.artist} onChange={selectHandler}>
                                         <option>Seleccione un artista</option>
                                         {artist.map((e,i)=>(<option key={i} value={e}>{e}</option>))}
@@ -100,11 +100,11 @@ export default function Filters (){
                                         <option>Seleccione un album</option>
                                         {album.map((e,i)=>(<option key={i} value={e}>{e}</option>))}
                                     </select>
-                                    <select name='explicit' value={state.explicit} onChange={selectHandler}>
-                                        <option>Seleccione una opción</option>
-                                        <option value={true}>explícito</option>
-                                        <option value={false}>no explícito</option>                      
-                                    </select>
+                                        <select name='explicit' value={state.explicit} onChange={selectHandler}>
+                                            <option>Seleccione una opción</option>
+                                            <option value={true}>explícito</option>
+                                            <option value={false}>no explícito</option>                      
+                                        </select>
                                 </div>
                             )
                         }

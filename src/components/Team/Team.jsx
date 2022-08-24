@@ -9,7 +9,7 @@ import luis from "../../assets/team/luis.jpg";
 
 export default function Team() {
     return (
-        <div>
+        <div style={{position: "relative"}}>
             <div className={style.creadorModal}>
                 <div className="modal fade" id="JulianModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
@@ -37,6 +37,7 @@ export default function Team() {
                             </div>
                         </div>
                  </div>
+                 
                  <div className="modal fade" id="AleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
@@ -160,7 +161,7 @@ export default function Team() {
                 <div className={style.listaCreadores}>
                     <div className={style.creador}>
                         <img src={lechuga} alt="Julian Lechuga" />
-                            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#JulianModal"> Julian Lechuga </button>
+                            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#JulianModal" data-backdrop="false"> Julian Lechuga </button>
                     </div>
                     <div className={style.creador}>
                         <img src={placeholder2} alt="Alejandro Briceño" />

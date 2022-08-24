@@ -44,7 +44,7 @@ export default function ReviewCard() {
   console.log(rev);
   return (
     <div className="reCart">
-        <h1>Tus Resenas</h1>
+        <h1>Tus Reseñas</h1>
       {rev? (
         rev.map((r) => {
           return (

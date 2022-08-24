@@ -15,8 +15,6 @@ export default function Re(){
     const userData = useSelector((state) => state.userData);
     const [onlineUsers, setOnlineUsers] = useState([]);
 
-    console.log(userData);
-
     useEffect(() => {
       console.log(socket)
       socket.on("getNotification", (data) => {
@@ -51,33 +49,16 @@ export default function Re(){
 
     return(
         <div className="side">
-          <div className="noti">
-          <div className="icon" onClick={() => setOpen(!open)}>
-                <FaRegBell/>
-                {
-                 notifications.length >0 &&
-                <div className="counter">{notifications.length}</div>
-                 }
-                </div>
-                {open && (
-                <div className="notifications">
-                 {notifications.map((n) => displayNotification(n))}
-                <button className="nButton" onClick={handleRead}>
-                      Marcar como leído
-                 </button>
-                </div>
-                  )}
-          </div>
             <h5>Canciones Recomendadas:</h5>
         {sliced ? (
             <div className="song">{
               sliced.map(song => {
                   return (
                     <div className="can" key={song.id}>
-                        <Link to={"/song/" + song.id}>
+                        <Link to={"/song/" + song.apiId}>
                         <img src={song.image} alt={song.img} />
                         </Link>
-                        <Link to={"/song/" + song.id}>
+                        <Link to={"/song/" + song.apiId}>
                             <p>{song.title}</p>
                         </Link>
                     </div>

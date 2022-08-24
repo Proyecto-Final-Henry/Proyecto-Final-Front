@@ -109,8 +109,8 @@ const prueba2 = usuariosPremium.reduce((contador, mes) => {
 
 
   return (
-        <div style={{width:650}}>
-          <h1 style={{ fontFamily: "monospace" }}>Dinero Ganado</h1>
+        <div style={{width:650, textAlign:'center',margin:'auto'}}>
+          <h1 style={{ fontSize: '35px',color: '#885197', marginBottom: '20px' }}>Ingresos</h1>
           <Line data={data} options={options}/>
         </div>
 
