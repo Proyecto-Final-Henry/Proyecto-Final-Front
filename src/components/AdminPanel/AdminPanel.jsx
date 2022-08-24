@@ -17,12 +17,12 @@ export default function AdminPanel (){
     const [ user , setUser ] = useState({});
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        if(!token){
-            history.push("/login");
-            return;
-        };
         const autenticarAdmin = async () => {
+            const token = localStorage.getItem("token");
+            if(!token){
+                history.push("/login");
+                return;
+            };
             const config = {
                 headers: {
                     "Content-Type" : "application/json",
@@ -44,22 +44,6 @@ export default function AdminPanel (){
         }, []);
 
     return (
-        // <div className={style.panelAdmin}>
-        //     <div className={style.panelAdmin_left}>
-        //         <AdminUsers/>
-        //     </div>
-
-        //     <div className={style.panelAdmin_right}>
-        //         <div style={{display:"inline-flex"}}>
-        //             <AdminIncome/>
-        //         </div>
-        //         <br />
-        //         <div style={{display:"inline-flex", width: "45%"}}>
-        //             <BarChart/>
-        //             <LineChart/>
-        //         </div>
-        //     </div>
-        // </div>
         <div className={style.panelAdmin}>
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                 <Row style={{padding:"0 !important"}}>

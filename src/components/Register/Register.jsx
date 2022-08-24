@@ -13,6 +13,13 @@ const Register = () => {
   const [ repetirPassword , setRepetirPassword ] = useState("");
   const [ alerta , setAlerta ] = useState({});
 
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      history.push("/feed")
+    }
+  },[]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
