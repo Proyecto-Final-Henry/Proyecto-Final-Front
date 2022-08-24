@@ -88,8 +88,7 @@ export default function UserProfile() {
   };
 
   return (
-    <div className="pepe">
-
+    <div  className="pepe" style={{position: "relative"}}>
       <div className="modal fade" id="MercadoModal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content">
@@ -158,9 +157,6 @@ export default function UserProfile() {
 </div>
 
 
-
-
-
       {/* <div className="detailBac">
         <div className="detail">
           <div className="carta">
@@ -168,6 +164,9 @@ export default function UserProfile() {
               <div className="hov">
                   <div className="pri">
                     <img src={user?.userImg} alt="userImg"></img>
+                    <br />
+                    <br />
+                    <button onClick={handleShowImg} className="bo">📸</button>
                   </div>
                   <button onClick={handleShowImg} className="bo">📸</button>
               </div>

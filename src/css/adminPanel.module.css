@@ -1,6 +1,14 @@
-.component {
-    height: 60%;
-    width: 70%;
+.component h1{
+    font-size: 35px;
+    color: #885197;
+}
+.component h2{
+    font-size: 20px;
+    background-color: #885197;
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 6px;
 }
 
 .component img{
@@ -15,7 +23,7 @@
     width: fit-content;
     align-items: center;
     justify-content: center;
-    border: 2px solid black;
+    border: 2px solid #a64ac2;
     border-radius: 15px;
 }
 
@@ -23,12 +31,17 @@
     margin: 15px;
 }
 
+.list_user{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .income{
     display: inline-flex;
     width: 70%;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid #a64ac2;
     padding: 10px;
     margin-top: 15px;
 }
@@ -36,6 +49,34 @@
 .income span {
     width: fit-content;
     margin: 15px;
-    border: 2px solid black;
+    border: 2px solid #a64ac2;
     padding: 15px
+}
+
+.panelAdmin_left{
+    background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+    min-height: calc(100vh - 300px);;
+}
+
+.panelAdmin_first{
+    margin-top: 20px;
+}
+.panelAdmin_right{
+    border:1px solid red;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.component button.btn{
+    margin-right: 10px !important;
+}
+.income b{
+    font-size: 25px;
+    display: block;
+}
+.income img{
+    display: block;
+    margin: auto;
 }

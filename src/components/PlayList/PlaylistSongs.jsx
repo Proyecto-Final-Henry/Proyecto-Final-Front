@@ -26,14 +26,14 @@ function PlaylistSongs(props) {
                             )
                         })
                     }
-                    <Link to={"/search"} ><h3>Agrega canciones a tus playlist</h3></Link>
+                    <Link className={style.addSognsToList} to={"/search"} ><h3>Agrega canciones a tus playlist</h3></Link>
             </div>
         );
     }else{
         return (
             <div>
                 <h2>No hay canciones</h2>
-                <Link to={"/search"} ><h3>Agrega canciones a tus playlist</h3></Link>
+                <Link  className={style.addSognsToList} to={"/search"} ><h3>Agrega canciones a tus playlist</h3></Link>
             </div>
             
         )

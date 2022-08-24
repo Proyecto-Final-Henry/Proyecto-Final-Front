@@ -8,6 +8,7 @@ import ingresos from "../../assets/ingresos.png"
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { setPrice } from "../../redux/actions";
+import style from "../../css/adminPanel.module.css";
 
 export default function AdminIncome() {
     const [ users , setUsers ] = useState([]);
@@ -40,12 +41,13 @@ export default function AdminIncome() {
 // };
 
     return (
-        <div>
+        <div className={style.component}>
+            <h1>Usuarios</h1>
             <div className={admin.income}>
-                <span> <img src={chart} alt="" style={{height: "35px"}}/> Numero de usuarios: {filtroAdmin.length} </span>
-                <span> <img src={usersImg} alt="" style={{height: "35px"}}/>  Numero de usuarios Gratuitos: {filtroGratis.length} </span>
-                <span> <img src={premium} alt="" style={{height: "35px"}}/>  Numero de usuarios Premium: {filtroPremium.length} </span>
-                <span> <img src={ingresos} alt="" style={{height: "35px"}}/>  Ingresos actuales: ${filtroPremium.length * 599}</span>
+                <span> <img src={chart} alt="" style={{height: "35px"}}/> Numero de usuarios: <b>{filtroAdmin.length}</b> </span>
+                <span> <img src={usersImg} alt="" style={{height: "35px"}}/>  Numero de usuarios Gratuitos: <b>{filtroGratis.length}</b> </span>
+                <span> <img src={premium} alt="" style={{height: "35px"}}/>  Numero de usuarios Premium: <b>{filtroPremium.length}</b> </span>
+                <span> <img src={ingresos} alt="" style={{height: "35px"}}/>  Ingresos actuales: <b>${filtroPremium.length * 599}</b></span>
             </div>
             {/* <div>
                 <input type="number" step=".01" name="price" onChange={onInputChange}/>

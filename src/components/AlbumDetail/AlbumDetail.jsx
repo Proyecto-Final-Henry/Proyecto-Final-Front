@@ -14,7 +14,7 @@ import { BsShieldFillCheck } from "react-icons/bs";
 export default function AlbumDetail() {
   let dispatch = useDispatch();
   let albumId = useParams().id;
-  const [key, setKey] = useState("top");
+  const [key, setKey] = useState("songs");
   let history = useHistory();
 
   useEffect(() => {
