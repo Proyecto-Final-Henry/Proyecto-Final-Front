@@ -70,6 +70,9 @@ export default function ResReviewCard({ resReviews, apiId, type }) {
                       followings={r.user.followings}
                       id={r.userId}
                       meId={user.id}
+                      location="detail"
+                      apiId={apiId}
+                      type={type}
                     />
                   ) : (
                     <DeleteReview
