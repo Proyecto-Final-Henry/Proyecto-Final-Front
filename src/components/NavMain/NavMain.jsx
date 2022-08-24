@@ -77,7 +77,7 @@ export default function NavigationM(){
 
     return (
         <div>
-            <Navbar  className={style.nav_remusic}>
+            <Navbar collapseOnSelect expand="lg" className={style.nav_remusic}>
                 <div className={style.container_nav}>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
