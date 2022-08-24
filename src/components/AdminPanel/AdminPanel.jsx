@@ -66,7 +66,7 @@ export default function AdminPanel (){
                     <Col sm={3}  className={style.panelAdmin_left}>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item>
-                            <Nav.Link eventKey="first" className={style.panelAdmin_first}>Listar Usuarios</Nav.Link>
+                            <Nav.Link eventKey="first" className={style.panelAdmin_first}>Lista de Usuarios</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link eventKey="second">Cantidad Usuarios</Nav.Link>
@@ -75,7 +75,7 @@ export default function AdminPanel (){
                             <Nav.Link eventKey="third">Usuarios Registrados</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="fourth">Dinero Ganado</Nav.Link>
+                            <Nav.Link eventKey="fourth">Ingresos</Nav.Link>
                         </Nav.Item>
                     </Nav>
                     </Col>

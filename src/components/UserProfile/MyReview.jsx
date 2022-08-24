@@ -43,7 +43,7 @@ export default function ReviewCard() {
   console.log(rev);
   return (
     <div className="reCart">
-        <h1 style={{fontStyle: "italic",color:"#fa42cc", textShadow: "0 0 5px #9027f1, 0 0 15px #9027f1, 0 0 20px, 0 0 40px #9027f1, 0 0 60px #0066ff, 0 0 10px, 0 0 98px #8cf5ff75"}}>Tus Reseñas</h1>
+        <h1 style={{fontStyle: "italic",color:"#fa42cc", textShadow: "0 0 3px #9027f1, 0 0 7px #9027f1, 0 0 12px, 0 0 18px #0066ff, 0 0 10px, 0 0 48px #8cf5ff75"}}>Tus Reseñas</h1>
       {rev? (
         rev.map((r) => {
           return (

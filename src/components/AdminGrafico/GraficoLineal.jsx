@@ -13,6 +13,8 @@ ChartJS.register(
 )
 
 const LineChart = () => {
+  let [refresh, setRefresh] = useState(false)
+
     const [ users , setUsers ] = useState([]);
     useEffect(() => {
         const allUsers = async () => {
@@ -24,7 +26,7 @@ const LineChart = () => {
             }
         }
         allUsers();
- },[]);
+ },[refresh]);
 
 const mesesGrafico = users?.map(user => new Date(user.createdDate).toLocaleString("es-ES", {month: "long"})).reverse()
 
@@ -106,6 +108,7 @@ const prueba2 = usuariosPremium.reduce((contador, mes) => {
 
   return (
         <div style={{width:650, textAlign:'center',margin:'auto'}}>
+          <button onClick={() => {setRefresh(!refresh)}}> Recargar</button>
           <h1 style={{ fontSize: '35px',color: '#885197', marginBottom: '20px' }}>Ingresos</h1>
           <Line data={data} options={options}/>
         </div>

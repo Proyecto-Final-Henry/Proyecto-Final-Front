@@ -70,7 +70,7 @@ const prueba2 = usuariosPremium.reduce((contador, mes) => {
 
   return (
         <div style={{width:650, textAlign:'center',margin:'auto'}}>
-          <button onClick={() => {setRefresh(true)}}> Recargar</button>
+          <button onClick={() => {setRefresh(!refresh)}}> Recargar</button>
           <h1 style={{ fontSize: '35px',color: '#885197', marginBottom: '20px' }}>Usuarios Registrados</h1>
           <Bar data={data}/>
         </div>

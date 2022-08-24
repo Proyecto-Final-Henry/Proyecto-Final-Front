@@ -6,6 +6,7 @@ const Modal = ({ children, isOpen, onClose }) => {
         <div className={`modal ${isOpen && "is-open"}`} onClick={onClose} >
             <div className="modal-container" onClick={handlerStopPropagation}>
                 <button className="modal-close" onClick={onClose}>X</button>
+                <br />
                 {children} 
             </div>
         </div>

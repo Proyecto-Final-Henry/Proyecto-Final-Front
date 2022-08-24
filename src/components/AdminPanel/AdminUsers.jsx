@@ -227,6 +227,8 @@ export default function AdminUsers() {
                   <div>
                     {u?.name}
                     <br />
+                    {u.email}
+                    <br />
                     Creado: {u.createdDate}
                     <div>
                       <button
