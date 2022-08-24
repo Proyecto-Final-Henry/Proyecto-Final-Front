@@ -36,7 +36,6 @@ const Login = () => {
       const { data } = await axios.post(url, { email, password });
       localStorage.setItem("token", data.token);
       localStorage.setItem("active", data.active);
-      localStorage.setItem("userId", data.id);
       if (!data.active) {
         return history.push("/user/restore");
       };
@@ -52,7 +51,6 @@ const Login = () => {
   const loginGoogle = async () => {
     const provider = new GoogleAuthProvider();
     const { user } = await signInWithPopup(auth, provider);
-    console.log(user);
     try {
       const url = `/api/back-end/users/googleLogin`;
       const { data } = await axios.post(url, {
@@ -62,7 +60,6 @@ const Login = () => {
       });
       localStorage.setItem("token", data.token);
       localStorage.setItem("active", data.active);
-      localStorage.setItem("userId", data.userId);
       if (!data.active) {
         return history.push("/user/restore");
       };

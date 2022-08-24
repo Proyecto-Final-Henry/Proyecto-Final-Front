@@ -19,11 +19,12 @@ export default function Feed(){
     const userData = useSelector((state) => state.userData);
     const [onlineUsers, setOnlineUsers] = useState([]);
     const userId = localStorage.getItem("userId");
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
         // socket.current = io("http://localhost:3001");
-        console.log(socket)
-        socket.emit("newUser", userData?.id || userId);
+        // console.log(socket)
+        socket.emit("newUser", token); // userData?.id || userId
         socket.on("getUsers", (users) => {
           setOnlineUsers(users);
         });
