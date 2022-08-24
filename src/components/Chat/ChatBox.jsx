@@ -6,14 +6,10 @@ import InputEmoji from "react-input-emoji";
 import send from "../../img/send.png";
 
 const ChatBox = ({chat , currentUser, setEnviarMensaje, recibirMensaje }) => {
-
-    const [ userData , setUserData ] = useState(null)
-
-    const [ mensajes , setMensajes ] = useState([])
-
-    const [ nuevoMensaje , setNuevoMensaje ] = useState("")
-
-    const scroll = useRef()
+    const [ userData , setUserData ] = useState(null);
+    const [ mensajes , setMensajes ] = useState([]);
+    const [ nuevoMensaje , setNuevoMensaje ] = useState("");
+    const scroll = useRef();
 
     useEffect(() => {
         if(recibirMensaje !== null && recibirMensaje?.chatId === chat?.id){
