@@ -8,11 +8,17 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { getUserData } from '../../redux/actions';
+import { FaRegBell } from "react-icons/fa";
+import { socket } from '../Feed/Feed';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function NavigationM(){
     const history = useHistory();
     let dispatch = useDispatch();
     const [user, setUser] = useState({});
+    const [notifications, setNotifications] = useState([]);
+    const [open, setOpen] = useState(false);
+    const [onlineUsers, setOnlineUsers] = useState([]);
 
     useEffect(() => {
         const autenticarUsuario = async () => {
@@ -37,6 +43,31 @@ export default function NavigationM(){
         };
         autenticarUsuario();
     },[])
+    useEffect(() => {
+        console.log(socket)
+        socket.on("getNotification", (data) => {
+          console.log(data)
+          setNotifications((prev) => [...prev, data]);
+        });
+      }, [socket]);
+      const displayNotification = ({ senderName, type, title }) => {
+        let action;
+    
+        if (type === 1) {
+          action = "gustado";
+        } else if (type === 2) {
+          action = "commented";
+        } else {
+          action = "shared";
+        }
+        return (
+          <span className="notification">{`A ${senderName} le ha ${action} tu reseña ${title}.`}</span>
+        );
+      };
+      const handleRead = () => {
+        setNotifications([]);
+        setOpen(false);
+      };    
 
     const cerrarSesion = () => {
         localStorage.removeItem("token");
@@ -63,9 +94,41 @@ export default function NavigationM(){
                         <NavLink to={`/playlist/${user?.id}`}><h5>PLAYLIST</h5></NavLink>
                         {user.role === "Gratuito" ? null : <Link to="/chat"><h5>CHAT</h5></Link> }
                     </Nav>
-                    <Nav className='nav_btn_registro'>
-                        <button style={{marginTop: "6px", "color":"white"}} className="btn_registrate" onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</button>
-                    </Nav>   
+                        <NavDropdown id="basic-nav-dropdown" title={<FaRegBell/>} onClick={() => setOpen(!open)}>
+
+                        <NavDropdown.ItemText>
+                            {open && (
+                                    <div className="notifications">
+                                    {notifications.map((n) => displayNotification(n))}
+                                    <button className="nButton" onClick={handleRead}>
+                                        Marcar como leído
+                                    </button>
+                                </div>
+                            )}
+                        </NavDropdown.ItemText>
+                        </NavDropdown>
+                    {/* <Nav>
+                        <div className="noti">
+                            <div className="icon" onClick={() => setOpen(!open)}>
+                                    <FaRegBell/>
+                                    {
+                                    notifications.length >0 &&
+                                    <div className="counter">{notifications.length}</div>
+                                    }
+                                    </div>
+                                    {open && (
+                                    <div className="notifications">
+                                    {notifications.map((n) => displayNotification(n))}
+                                    <button className="nButton" onClick={handleRead}>
+                                        Marcar como leído
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </Nav> */}
+                        <Nav className='nav_btn_registro'>
+                            <button style={{marginTop: "6px", "color":"white"}} className="btn_registrate" onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</button>
+                        </Nav>  
                     </Navbar.Collapse>
                 </Container>
          </Navbar>
