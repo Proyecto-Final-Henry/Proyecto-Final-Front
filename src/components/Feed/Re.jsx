@@ -13,7 +13,7 @@ export default function Re(){
     const [notifications, setNotifications] = useState([]);
     const [open, setOpen] = useState(false);
     const userData = useSelector((state) => state.userData);
-    const [onlineUsers, setOnlineUsers] = useState([]);
+
 
     console.log(userData);
 
@@ -51,23 +51,6 @@ export default function Re(){
 
     return(
         <div className="side">
-          <div className="noti">
-          <div className="icon" onClick={() => setOpen(!open)}>
-                <FaRegBell/>
-                {
-                 notifications.length >0 &&
-                <div className="counter">{notifications.length}</div>
-                 }
-                </div>
-                {open && (
-                <div className="notifications">
-                 {notifications.map((n) => displayNotification(n))}
-                <button className="nButton" onClick={handleRead}>
-                      Marcar como leído
-                 </button>
-                </div>
-                  )}
-          </div>
             <h5>Canciones Recomendadas:</h5>
         {sliced ? (
             <div className="song">{
