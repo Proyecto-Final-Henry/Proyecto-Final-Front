@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Alerta from "../AlertaMensaje/Alerta";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
