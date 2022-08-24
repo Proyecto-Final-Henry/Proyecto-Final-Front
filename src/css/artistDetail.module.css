@@ -31,3 +31,8 @@
 .background_body{
     background-color: green;
 }
+
+.div_box{
+    background-color: pink;
+    min-height: 100vh;
+}

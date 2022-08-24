@@ -65,7 +65,7 @@ export default function PlaylistComponent() {
   console.log(playlistData)
 
   return (
-    <div style={{"backgroundColor": "pink"}}>
+    <div className={style.div_box}>
       <div className={style.artistDetail_header}>
         <div>
           <img src={user.userImg} alt={user.name} />

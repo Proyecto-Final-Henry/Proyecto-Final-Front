@@ -1,6 +1,26 @@
 .songs{
     padding: 5px 20px;
 }
+.addSognsToList{
+    color:black;
+}
+.addSognsToList:hover{
+    color:#a77ab4;
+}
+.songCard_playlist{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 10px 15px;
+    border-radius: 8px;
+    background-color: rgb(226, 177, 185);
+}
+.songTitle h2{
+    font-size: 20px;
+    color: #fff;
+}
 
 .songCard{
     display: flex;
