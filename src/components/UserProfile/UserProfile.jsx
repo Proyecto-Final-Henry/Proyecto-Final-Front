@@ -255,7 +255,7 @@ export default function UserProfile() {
           <p>Todavia no sigues a nadie</p>
         )}
       </div> */}
-      <MyReview/>
+      <MyReview />
       <div className="play">
         <h1>Aqui van las playlist</h1>
       </div>

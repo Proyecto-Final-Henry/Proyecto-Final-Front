@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import style from "../../css/rev.css";
 import { Link, useHistory } from "react-router-dom";
 import "../../css/perfilrev.css";
 import Follow from "../Follow/Follow";
-import DeleteReview from "../DeleteReview/DeleteReview";
 import axios from "axios";
-import { propTypes } from "react-bootstrap/esm/Image";
 import LikesReview from "../LikesReview/LikesReview";
+import { useSelector } from "react-redux";
 
-export default function ReviewCard() {
+export default function OtherReviews(props) {
   const history = useHistory();
   const [user, setUser] = useState({});
   let reviewArray = useSelector((state) => state.allReviews);
-  const rev = reviewArray.filter(r => r.userId === user.id)
+  const rev = reviewArray.filter(r => r.userId === props.userId)
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -43,17 +41,23 @@ export default function ReviewCard() {
     autenticarUsuario();
   }, []);
 
+  console.log(rev);
   return (
     <div className="reCart">
-        <h1>Tus Reseñas</h1>
-      {rev? (
+      <h1>Tus Reseñas</h1>
+      {rev ? (
         rev.map((r) => {
           return (
             <div key={r.id} className="reCa">
               <div className="carti">
                 <div className="per">
                   <div className="peRe">
-                    <DeleteReview id={r.id} />
+                    <Follow 
+                    followers={r.user.followers}
+                    followings={r.user.followings}
+                    id={r.userId}
+                    meId={user.id}
+                    />
                     <img src={user.userImg} alt="" />
                     <h4>{user.name}</h4>
                     <h5>{user.role}</h5>

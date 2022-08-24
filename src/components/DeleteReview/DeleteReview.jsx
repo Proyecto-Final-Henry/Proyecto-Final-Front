@@ -18,7 +18,7 @@ export default function DeleteReview(props) {
       case "detail":
         return dispatch(getResReviews(props.apiId, props.type));
       case "user":
-        return dispatch(getUserData(props.meId));
+        return dispatch(getAllReviews());
       default:
         return dispatch(getAllReviews());
     }
