@@ -46,25 +46,30 @@ const Login = () => {
   };
 
   const loginGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-    const { user } = await signInWithPopup(auth, provider);
     try {
-      const url = `/api/back-end/users/googleLogin`;
-      const { data } = await axios.post(url, {
-        name: user.displayName,
-        email: user.providerData[0].email,
-        userImg: user.photoURL ? user.photoURL : null,
-      });
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("active", data.active);
-      if (!data.active) {
-        return history.push("/user/restore");
+      const provider = new GoogleAuthProvider();
+      const { user } = await signInWithPopup(auth, provider);
+      try {
+        const url = `/api/back-end/users/googleLogin`;
+        const { data } = await axios.post(url, {
+          name: user.displayName,
+          email: user.providerData[0].email,
+          userImg: user.photoURL ? user.photoURL : null,
+        });
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("active", data.active);
+        if (!data.active) {
+          return history.push("/user/restore");
+        };
+        history.push("/feed");
+      } catch (error) {
+        setAlerta({ msg: error.response.data.msg, error: true });
       };
-      history.push("/feed");
     } catch (error) {
-      setAlerta({ msg: error.response.data.msg, error: true });
+      console.log(error)
     };
   };
+
 
   // const loginFacebook = async () => {
   //   const provider =  new FacebookAuthProvider()

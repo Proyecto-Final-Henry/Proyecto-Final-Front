@@ -28,7 +28,6 @@ export default function Feed() {
   const [user, setUser] = useState("");
   const userData = useSelector((state) => state.userData);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
 
   useEffect(() => {

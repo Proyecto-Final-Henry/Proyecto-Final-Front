@@ -42,6 +42,11 @@ export const socket = io("https://remusic.onrender.com"); // https://remusic.onr
 
 function App() {
 
+  window.addEventListener("beforeunload", (e) => {
+    e.preventDefault()
+    localStorage.removeItem("token")
+  });
+
   return (
     <div className="App">
       <Switch>
