@@ -436,6 +436,7 @@ Nav{
   
 }
 .btn_registrate{
+  min-width: 8rem;
   background-color: #7368a7; 
   border-radius: 8px;
   padding: 5px 15px 10px 15px;
