@@ -13,9 +13,9 @@ export default function Follow(props){
 
     const handleButton = async () => {
         if (hasFollower) {   
-        await axios.get(`http://localhost:3001/api/back-end/user/unFollow/${props.meId}/${props?.id}`);
+        await axios.get(`/api/back-end/user/unFollow/${props.meId}/${props?.id}`);
     } else {
-        await axios.get(`http://localhost:3001/api/back-end/user/follow/${props.meId}/${props?.id}`);
+        await axios.get(`/api/back-end/user/follow/${props.meId}/${props?.id}`);
     };
     dispatch(getOtherUser(props.id));
     dispatch(getAllReviews());

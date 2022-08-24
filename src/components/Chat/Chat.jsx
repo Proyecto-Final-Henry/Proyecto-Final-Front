@@ -12,7 +12,7 @@ import { socket } from "../Feed/Feed";
 const Chat = () => {
   const history = useHistory();
   // const socket = useRef();
-
+  const userId = localStorage.getItem("userId");
   const [user, setUser] = useState({});
 
   const [users, setUsers] = useState([]);
@@ -53,19 +53,19 @@ const Chat = () => {
       try {
         const { data } = await axios(`/api/back-end/users/perfil`, config);
         setUser(data);
+        if (user.role === "Gratuito") {
+          history.push("/feed");
+        };
       } catch (error) {
         console.log(error.response.data.msg);
       }
     };
-    // if (!users.length) {
-    //     dispatch()
-    // }
     autenticarUsuario();
   }, []);
 
   useEffect(() => {
     // socket.current = io("http://localhost:3001");
-    socket.emit("new-user-add", userData?.id);
+    socket.emit("new-user-add", userData?.id || userId);
     socket.on("get-users", (users) => {
       setOnlineUsers(users);
     });
@@ -103,6 +103,7 @@ const Chat = () => {
       try {
         const { data } = await axios(`/api/back-end/user`);
         setUsers(data);
+
       } catch (error) {
         console.log(error);
       }
@@ -138,7 +139,7 @@ const Chat = () => {
             <h2>Usuarios</h2>
             {users &&
               users?.map((u) =>
-                u.id !== user.id ? (
+                u.id !== user.id && u.role !== "Gratuito" ? (
                   <div key={u.id} onClick={() => iniciarChat(u)}>
                     <User user={u} />
                   </div>

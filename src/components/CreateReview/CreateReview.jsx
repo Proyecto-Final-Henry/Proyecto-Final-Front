@@ -70,7 +70,7 @@ export default function CreateReview({ apiId, type, name }) {
         setMessage(response.data);
       } catch (err) {
         throw new Error("No pudimos crear tu reseña");
-      }
+      };
       //alert('Reseña creada existosamente');
       openAlert();
       //history.push("/feed");
@@ -78,7 +78,7 @@ export default function CreateReview({ apiId, type, name }) {
       if (review.title === "") return alert("Ingrese un titulo de reseña");
       if (error.title) return alert(error.title);
       if (error.description) return alert(error.description);
-    }
+    };
   };
 
   const handleChange = (e) => {
@@ -177,6 +177,7 @@ export default function CreateReview({ apiId, type, name }) {
             rows="4"
             columns="50"
             onChange={handleChange}
+            maxLength="255"
           />
           <p className={style.danger}>{error.description}</p>
           <input
@@ -194,10 +195,15 @@ export function validateInput(input) {
   let error = {};
   if (input.title.length === 0) {
     error.title = "* Título de reseña es requerido";
-  }
+  };
 
   if (input.description.length === 0) {
     error.description = "* Descripción de reseña es requerida";
-  }
+  };
+
+  if (input.description.length >= 255) {
+    error.description = "* La descripción no puede tener mas de 255 carácteres";
+  };
+  
   return error;
 }

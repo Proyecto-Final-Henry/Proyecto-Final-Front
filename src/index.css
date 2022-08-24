@@ -5,6 +5,11 @@
   min-height: 100vh;
 }
 
+.modal-backdrop {
+  z-index: -1;
+  display: none;    
+}
+
 .dropdown-toggle::after{
   display: none !important;
 }

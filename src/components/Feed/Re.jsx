@@ -14,7 +14,7 @@ export default function Re(){
     const [open, setOpen] = useState(false);
     const userData = useSelector((state) => state.userData);
     const [onlineUsers, setOnlineUsers] = useState([]);
-
+    console.log(sliced)
     console.log(userData);
 
     useEffect(() => {
@@ -74,10 +74,10 @@ export default function Re(){
               sliced.map(song => {
                   return (
                     <div className="can" key={song.id}>
-                        <Link to={"/song/" + song.id}>
+                        <Link to={"/song/" + song.apiId}>
                         <img src={song.image} alt={song.img} />
                         </Link>
-                        <Link to={"/song/" + song.id}>
+                        <Link to={"/song/" + song.apiId}>
                             <p>{song.title}</p>
                         </Link>
                     </div>

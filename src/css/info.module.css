@@ -6,6 +6,11 @@ a:visited { text-decoration: none; }
 
 a:hover { text-decoration: none; }
 
+.modal-backdrop {
+  z-index: -1;
+  display: none;    
+}
+
 .img{
     border-radius: 8px;
     border: 1px solid rgb(228, 228, 228);
@@ -113,7 +118,6 @@ a:hover { text-decoration: none; }
   overflow: hidden;
 }
 
-    
 .creador:hover{
     background-color: #fa42cc;
     text-decoration: none;
@@ -121,10 +125,11 @@ a:hover { text-decoration: none; }
     transform: scale(1.3);
 }
 
+/* 
 .creadorModal a:link { text-decoration: none; }
 .creadorModal a:link  { text-decoration: none; }
 .creadorModal a:link { text-decoration: none; }
-  
+   */
 
 .content_box{
   /* background: radial-gradient(circle at left 50%,#8c569c,#e057be); */

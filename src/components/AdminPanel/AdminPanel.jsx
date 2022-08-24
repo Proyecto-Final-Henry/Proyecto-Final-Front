@@ -38,19 +38,19 @@ export default function AdminPanel (){
         }, []);
 
     return (
-        <div style={{border: "solid", margin: "5px", width: "85%"}}>
-            <div style={{display:"inline-flex"}}>
-                <AdminUsers/>
-            </div>
+                <div style={{border: "solid", margin: "5px", width: "85%"}}>
+                    <div style={{display:"inline-flex"}}>
+                        <AdminUsers/>
+                    </div>
 
-            <div style={{display:"inline-flex"}}>
-                <AdminIncome/>
-            </div>
-            <br />
-            <div style={{display:"inline-flex", width: "45%"}}>
-                <BarChart/>
-                <LineChart/>
-            </div>
-        </div>
+                    <div style={{display:"inline-flex"}}>
+                        <AdminIncome/>
+                    </div>
+                    <br />
+                    <div style={{display:"inline-flex", width: "45%"}}>
+                        <BarChart/>
+                        <LineChart/>
+                    </div>
+                </div>
     )
 };
