@@ -29,6 +29,7 @@ const Login = () => {
       const { data } = await axios.post(url, { email, password });
       localStorage.setItem("token", data.token);
       localStorage.setItem("active", data.active);
+      localStorage.setItem("userId", data.id);
       if (!data.active) {
         return history.push("/user/restore");
       }
@@ -54,6 +55,10 @@ const Login = () => {
       });
       localStorage.setItem("token", data.token);
       localStorage.setItem("active", data.active);
+      localStorage.setItem("userId", data.userId);
+      if (!data.active) {
+        return history.push("/user/restore");
+      }
       history.push("/feed");
     } catch (error) {
       setAlerta({ msg: error.response.data.msg, error: true });

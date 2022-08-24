@@ -12,14 +12,15 @@ export default function LikesReview(props){
     const hasLikes = mapedLikes?.includes(props?.meId);
 
     const handleButton = async () => {
-    await axios.put(`http://localhost:3001/api/back-end/reviews/like/${props.meId}/${props?.id}`)
-    dispatch(getAllReviews())
+    await axios.put(`/api/back-end/reviews/like/${props.meId}/${props?.id}`);
+    dispatch(getAllReviews());
     };
 
     return(
         <div>
             { hasLikes ? 
-                <button className="likesReview" onClick={() => handleButton()}>❤️</button>:
+                <button className="likesReview" onClick={() => handleButton()}>❤️</button>
+                :
                 <button className="likesReview" onClick={() => handleButton()}>🖤</button>
             }<> : </>
             {mapedLikes?.length}

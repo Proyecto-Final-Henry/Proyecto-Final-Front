@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Logo from "../../img/logo.png"
+import Logo from "../../img/logo_remusic.png";
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
@@ -50,7 +50,7 @@ export default function NavigationM(){
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <div className="logo">
+                        <div className="logoN">
                             <Link to= "/feed">
                                 <img style={{height:"48px"}} src={Logo} alt="logo"/>
                             </Link>

@@ -1,5 +1,5 @@
-import { useEffect, useRef  } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -18,11 +18,12 @@ export default function Feed(){
     const [user, setUser] = useState("");
     const userData = useSelector((state) => state.userData);
     const [onlineUsers, setOnlineUsers] = useState([]);
+    const userId = localStorage.getItem("userId");
 
     useEffect(() => {
         // socket.current = io("http://localhost:3001");
         console.log(socket)
-        socket.emit("newUser", userData?.id);
+        socket.emit("newUser", userData?.id || userId);
         socket.on("getUsers", (users) => {
           setOnlineUsers(users);
         });
@@ -68,7 +69,7 @@ export default function Feed(){
             <div className="er">
                 <Per />
             </div>
-            <div className="cen">
+            <div className="cen cen_scroll">
                 <ReviewCard user={user}/>
             </div>
             <div className="ult">

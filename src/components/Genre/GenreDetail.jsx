@@ -395,7 +395,7 @@ export default function GenreDetail() {
                     </div>
                     :
                     null} 
-                {GenreData.name === "Traditional Mexico" ? 
+                {GenreData.name === "Traditional Mexicano" ? 
                     <div>
                         <h4>
                             La música en México es rica en variedad de géneros, ritmos y temas. Es fruto del mestizaje entre las tradiciones europea y americana, pero tiene profundas raíces de lo prehispánico y africano que, aunque poco reconocida en otros ámbitos culturales, es en la música donde adquiere mayor relevancia. El mariachi, organización musical que identifica actualmente a México, es una forma de expresión artística que unifica a través de sus sonidos al país y a sus habitantes. Las emociones y sentimientos que se muestran en una serenata o fiesta popular, está presente en todos los eventos sociales.

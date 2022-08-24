@@ -10,7 +10,7 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { socket } from "../Feed/Feed";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
-
+import LikesReview from "../LikesReview/LikesReview";
 export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
   const history = useHistory();
@@ -18,7 +18,6 @@ export default function ReviewCard() {
   const [liked, setLiked] = useState(false);
   const [isOpenAlert, openAlert, closeAlert] = useModal(false);
   const [description, setDescription] = useState("");
-  // console.log(reviewArray);
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -109,11 +108,10 @@ export default function ReviewCard() {
                         onClick={() => handleNotification(1, r.userId, r.title)}
                       />
                     )}
-                    {/* {r.userId !== user.id ? (
-                      <LikesReview likes={r.likes} id={r.id} meId={user.id} />
-                    ) : (
-                      <>♥likes: {r.likes.length}</>
-                    )} */}
+                    {r.userId !== user.id ?
+                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>❤️ likes: {r.likes.length}</>}
+                    {/* {r.userId !== user.id ?
+                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>} */}
                   </div>
                 </div>
                 <div className="rev">
