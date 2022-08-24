@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef  } from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Per from './PerfilSide';
 import ReviewCard from "../ReviewCard/ReviewCard";

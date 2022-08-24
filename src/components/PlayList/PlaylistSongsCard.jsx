@@ -26,14 +26,18 @@ function PlaylistSongsCard(props) {
 
 
   return (
-    <div className={style.songCard}>
+    <div className={style.songCard_playlist}>
       <div className={style.songCard_left}>
         <p>{props.index + 1}</p>
         <img src={props.image} alt={props.title} />
+      </div>
+      <div className={style.songTitle}>
         <Link to={`/song/${props.apiId}`}>
           <h2>{props.title}</h2>
         </Link>
-        <button onClick={() => removeSong()}>Borrar</button>
+      </div>
+      <div>
+        <button className="addplaylist" onClick={() => removeSong()}>Borrar</button>
       </div>
     </div>
   );
