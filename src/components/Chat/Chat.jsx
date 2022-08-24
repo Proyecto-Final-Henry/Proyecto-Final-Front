@@ -7,7 +7,7 @@ import ChatBox from "./ChatBox";
 // import { io } from "socket.io-client";
 import User from "./User";
 import { useSelector } from "react-redux";
-import { socket } from "../Feed/Feed";
+import { socket } from '../../App';
 
 const Chat = () => {
   const history = useHistory();

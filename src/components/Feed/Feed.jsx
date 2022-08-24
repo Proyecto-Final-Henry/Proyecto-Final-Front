@@ -20,9 +20,7 @@ import {
 import { getGenres } from "../../redux/actions/actions_player";
 import axios from "axios";
 import { useState } from "react";
-import { io } from "socket.io-client";
-
-export const socket = io("https://remusic.onrender.com"); // https://remusic.onrender.com // http://localhost:3001
+import { socket } from '../../App';
 
 export default function Feed() {
   const history = useHistory();

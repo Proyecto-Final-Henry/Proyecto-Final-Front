@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAllReviews, getOtherUser } from "../../redux/actions";
-import { socket } from "../Feed/Feed";
+import { socket } from '../../App';
 
 export default function LikesReview(props){
     let dispatch = useDispatch();

@@ -14,12 +14,10 @@ const Login = () => {
   const [alerta, setAlerta] = useState({});
   const history = useHistory();
 
-  // useEffect(() => {
-  //   let token = localStorage.getItem("token");
-  //   if (token) {
-  //     history.push("/feed")
-  //   }
-  // },[]);
+  useEffect(() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("active");
+  },[]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +28,6 @@ const Login = () => {
       }, 2500);
       return;
     };
-
     try {
       const url = `/api/back-end/users/login`;
       const { data } = await axios.post(url, { email, password });

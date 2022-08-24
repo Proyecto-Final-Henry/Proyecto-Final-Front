@@ -8,7 +8,7 @@ import DeleteReview from "../DeleteReview/DeleteReview";
 import axios from "axios";
 import LikesReview from "../LikesReview/LikesReview";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { socket } from "../Feed/Feed";
+import { socket } from '../../App';
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
 
