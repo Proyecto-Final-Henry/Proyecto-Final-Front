@@ -156,7 +156,6 @@ export default function UserProfile() {
       </div>
     </div>
 
-
       {/* <div className="detailBac">
         <div className="detail">
           <div className="carta">
@@ -199,7 +198,6 @@ export default function UserProfile() {
               >
                 Panel de administrador
               </Button>
-              
             ) : null}
             <br />
             <br />
