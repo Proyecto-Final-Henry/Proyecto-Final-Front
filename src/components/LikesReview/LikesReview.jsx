@@ -14,7 +14,7 @@ export default function LikesReview(props){
     const hasLikes = mapedLikes?.includes(props?.meId);
 
     const handleButton = async (type) => {
-    await axios.put(`http://localhost:3001/api/back-end/reviews/like/${props.meId}/${props?.id}`)
+    await axios.put(`/api/back-end/reviews/like/${props.meId}/${props?.id}`)
     dispatch(getAllReviews())
     if(type === 1){
     socket.emit("sendNotification", {
@@ -23,9 +23,8 @@ export default function LikesReview(props){
       title:props.title,
       type
     });
-    }
-}
-
+    };
+};
 
     return(
         <div>
