@@ -48,30 +48,32 @@ export default function UserProfile() {
       <div className="fe">
         <div className="car">
           <Link to="/user" style={{ textDecoration: "none" }}>
-            {user.userImg ? (
+            {user.userImg ?  (
               <div className="pri">
                 <img src={user?.userImg} alt="userImg"></img>
                 <h3>{user?.name}</h3>
+                <p>Desde {user?.createdDate}</p>
+                <p>Usuario {user.role}</p>
+                <hr />
+                { user.role==="Gratuito"?(
+                  <div className="bo">
+                    <p>Hazte Con Todos Los Beneficios</p>
+                    <Link to="/premium2">PRUEBA PREMIUM AHORA</Link>
+                  </div>
+                ):(
+                <div>
+                  <p style={{textShadow: "0 0 5px #9027f1, 0 0 15px #9027f1, 0 0 20px #9027f1, 0 0 40px #9027f1, 0 0 60px #0066ff, 0 0 10px #177eed, 0 0 98px #8cf5ff75"}}>Ya eres premium</p>
+                </div>
+                )}
               </div>
             ) : (
-              <Spinner animation="border" variant="light" />
+              <div className="spi">
+                <Spinner animation="border" variant="light" />
+              </div>
             )}
           </Link>
-          <p>Desde {user?.createdDate}</p>
-          <p>Usuario {user.role}</p>
         </div>
       </div>
-      <hr />
-      {user.role === "Gratuito" ? (
-        <div className="bo">
-          <p>Hazte Con Todos Los Beneficios</p>
-          <Link to="/premium2">PRUEBA PREMIUM AHORA</Link>
-        </div>
-      ) : (
-        <div>
-          <p>Eres Premium Alto Capo</p>
-        </div>
-      )}
     </div>
   );
 }

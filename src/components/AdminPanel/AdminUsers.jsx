@@ -31,7 +31,6 @@ export default function AdminUsers() {
     allUsers([]);
   }, []);
 
-
     let handlePremium = async (id) => {
         await axios.put(`/api/back-end/users/givepremium`, {userId: id});
         const { data } = await axios(`/api/back-end/user`);
@@ -73,11 +72,13 @@ export default function AdminUsers() {
         const { data } = await axios(`/api/back-end/user`);
         setUsers(data);
     };
-    
+  
   return (
-    <div className={admin.component}>
+    <div className={`${admin.component} adminUsers`}>
+      <h1>Usuarios</h1>
       <div className={admin.list}>
-        Usuarios Gratuitos
+        <h2>Usuarios Gratuitos: {users.filter(u => u.active === true && u.role === "Gratuito" && u.confirmado === true).length} </h2>
+        <div className={admin.list_user}>
         {users &&
           users.map((u) =>
             u.active === true &&
@@ -137,9 +138,11 @@ export default function AdminUsers() {
               </div>
             ) : null
           )}
+        </div>
       </div>
       <div className={admin.list}>
-        Usuarios Premium
+      <h2>Usuarios Premium : {users.filter(u => u.active === true && u.role === "Premium").length}</h2>
+        <div className={admin.list_user}>
         {users &&
           users.map((u) =>
             u.active === true && u.role === "Premium" ? (
@@ -204,9 +207,11 @@ export default function AdminUsers() {
               </div>
             ) : null
           )}
+        </div>
       </div>
       <div className={admin.list}>
-        Administradores
+      <h2>Administradores : {users.filter(u => u.active === true && u.role === "Admin").length}</h2>
+      <div className={admin.list_user}>
         {users &&
           users?.map((u) =>
             u.role === "Admin" && u.active === true ? (
@@ -220,6 +225,8 @@ export default function AdminUsers() {
                   />
                   <div>
                     {u?.name}
+                    <br />
+                    {u.email}
                     <br />
                     Creado: {u.createdDate}
                     <div>
@@ -264,9 +271,11 @@ export default function AdminUsers() {
               </div>
             ) : null
           )}
+        </div>
       </div>
       <div className={admin.list}>
-        Usuarios Inactivos
+      <h2>Usuarios Inactivos : {users.filter(u => u.active === false && u.confirmado === true).length}</h2>
+      <div className={admin.list_user}>
         {users &&
           users.map((u) =>
             u.active === false && u.confirmado === true ? (
@@ -324,6 +333,7 @@ export default function AdminUsers() {
               </div>
             ) : null
           )}
+        </div>
       </div>
     </div>
   );

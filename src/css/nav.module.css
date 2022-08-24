@@ -1,0 +1,17 @@
+.nav_remusic{
+    background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+    color: #fff;    
+}
+.nav_remusic .container_nav{
+margin-left: 2%;    
+width: 96%;
+}  
+.centerItems{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.resetMarPadd{
+    margin: 0%;
+    padding: 0%;
+}

@@ -12,11 +12,9 @@ ChartJS.register(
 )
 
 const BarChart = () => {
+    let [refresh, setRefresh] = useState(false)
 
-    const [ users , setUsers ] = useState([])
-
-    
-
+    const [ users , setUsers ] = useState([]);
     useEffect(() => {
         const allUsers = async () => {
             try {
@@ -26,37 +24,33 @@ const BarChart = () => {
                     console.log(error)
             }
         }
-        allUsers()       
- },[])
+        allUsers();
+ },[refresh])
+
 
 const mesesGrafico = users?.map(user => new Date(user.createdDate).toLocaleString("es-ES", {month: "long"})).reverse()
 
-const mesesGrafico2 = new Set(mesesGrafico)
+const mesesGrafico2 = new Set(mesesGrafico);
 
-const mesesGrafico3 = [...mesesGrafico2]
+const mesesGrafico3 = [...mesesGrafico2];
 
-let usuariosFree = []
-let usuariosPremium = []
+let usuariosFree = [];
+let usuariosPremium = [];
 
 for(let u of users){
   if(u.role ==="Gratuito") usuariosFree.push(new Date(u.createdDate).toLocaleString("es-ES", {month: "long"}))
   if(u.role === "Premium") usuariosPremium.push(new Date(u.createdDate).toLocaleString("es-ES", {month: "long"}))
 }
 
-
-
 const prueba = usuariosFree.reduce((contador, mes) => {
   contador[mes] = (contador[mes] || 0) + 1;
-  return contador
-},[])
+  return contador;
+},[]);
 
 const prueba2 = usuariosPremium.reduce((contador, mes) => {
   contador[mes] = (contador[mes] || 0) + 1;
-  return contador
-},[])
-
-//  console.log(Object.values(prueba).reverse())
-//  console.log(Object.values(prueba2).reverse())
+  return contador;
+},[]);
 
  const data = { 
   labels: [...mesesGrafico3],
@@ -72,18 +66,16 @@ const prueba2 = usuariosPremium.reduce((contador, mes) => {
           backgroundColor: "rgb(54, 162, 235)"
       }
   ],
-  }
-
-
-
+  };
 
   return (
-        <div style={{width:650}}>
-          <h1 style={{ fontFamily: "monospace" }}>Usuarios Registrados</h1>
+        <div style={{width:650, textAlign:'center',margin:'auto'}}>
+          <button onClick={() => {setRefresh(!refresh)}}> Recargar</button>
+          <h1 style={{ fontSize: '35px',color: '#885197', marginBottom: '20px' }}>Usuarios Registrados</h1>
           <Bar data={data}/>
         </div>
 
   )
-}
+};
 
-export default BarChart
+export default BarChart;

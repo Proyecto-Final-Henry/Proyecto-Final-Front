@@ -9,7 +9,7 @@ import LikesReview from "../LikesReview/LikesReview";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
 
-export default function ResReviewCard({ resReviews }) {
+export default function ResReviewCard({ resReviews, apiId, type }) {
   const history = useHistory();
   const [user, setUser] = useState({});
   const [isOpenAlert, openAlert, closeAlert] = useModal(false);
@@ -70,9 +70,17 @@ export default function ResReviewCard({ resReviews }) {
                       followings={r.user.followings}
                       id={r.userId}
                       meId={user.id}
+                      location="detail"
+                      apiId={apiId}
+                      type={type}
                     />
                   ) : (
-                    <DeleteReview id={r.id} />
+                    <DeleteReview
+                      id={r.id}
+                      location="detail"
+                      apiId={apiId}
+                      type={type}
+                    />
                   )}
                   <Link
                     to={user.id === r.user.id ? "/user" : `/users/${r.user.id}`}
