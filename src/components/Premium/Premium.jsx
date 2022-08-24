@@ -44,26 +44,26 @@ function Premium() {
     };
 
     return (
-      <div className={style.plan}>
-      <div className="modal fade" id="MercadoModal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="MercadoModalLabel">Pago Premium</h5>
-                                <button type="button" className="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close"> X </button>
-                            </div>
-                            <div className="modal-body">
-                                <h4>
-                                    Seras redirigido a MercadoPago
-                                </h4>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-outline-success" data-dismiss="modal" onClick={handleButton} data-toggle="modal" data-target="#Mercado2Modal">Ok</button>
-                                <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-             </div>
+      <div className={style.plan} style={{position: "relative"}}>
+        <div className="modal fade" id="MercadoModal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
+                      <div className="modal-dialog" role="document">
+                          <div className="modal-content">
+                              <div className="modal-header">
+                                  <h5 className="modal-title" id="MercadoModalLabel">Pago Premium</h5>
+                                  <button type="button" className="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close"> X </button>
+                              </div>
+                              <div className="modal-body">
+                                  <h4>
+                                      Seras redirigido a MercadoPago
+                                  </h4>
+                              </div>
+                              <div className="modal-footer">
+                                  <button type="button" className="btn btn-outline-success" data-dismiss="modal" onClick={handleButton} data-toggle="modal" data-target="#Mercado2Modal">Ok</button>
+                                  <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                              </div>
+                          </div>
+                      </div>
+              </div>
 
              <div className="modal fade" id="Mercado2Modal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document" >

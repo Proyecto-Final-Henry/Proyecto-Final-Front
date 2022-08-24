@@ -10,15 +10,14 @@ export default function DeleteReview(props){
 
     const [isOpenAlert, openAlert, closeAlert] = useModal(false);
 
-
     const handleButtonDelete = async () => {
-        await axios.put(`http://localhost:3001/api/back-end/reviews/delete/${props.id}`)
-        dispatch(getAllReviews())
+        await axios.put(`/api/back-end/reviews/delete/${props.id}`);
+        dispatch(getAllReviews());
     };
 
     const handleButton = () => {
-        openAlert()
-    }
+        openAlert();
+    };
 
     return(
         <div className="deleteReview">

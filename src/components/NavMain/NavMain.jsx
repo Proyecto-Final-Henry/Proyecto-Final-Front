@@ -11,6 +11,7 @@ import { getUserData } from '../../redux/actions';
 import { FaRegBell } from "react-icons/fa";
 import { socket } from '../Feed/Feed';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import style from '../../css/nav.module.css'
 
 export default function NavigationM(){
     const history = useHistory();
@@ -75,14 +76,14 @@ export default function NavigationM(){
     };
 
     return (
-        <nav>
-            <Navbar collapseOnSelect expand="lg" className='Nav nav_remusic'>
-                <Container>
+        <div>
+            <Navbar collapseOnSelect expand="lg" className={style.nav_remusic}>
+                <div className={style.container_nav}>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <div className="logoN">
-                            <Link to= "/feed">
+                        <div className={style.centerItems} >
+                            <Link className={style.resetMarPadd} to= "/feed">
                                 <img style={{height:"48px"}} src={Logo} alt="logo"/>
                             </Link>
                         </div>
@@ -128,8 +129,8 @@ export default function NavigationM(){
                             <button style={{marginTop: "6px", "color":"white"}} className="btn_registrate" onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</button>
                         </Nav>  
                     </Navbar.Collapse>
-                </Container>
+                </div>
          </Navbar>
-        </nav>
+        </div>
       );    
 };

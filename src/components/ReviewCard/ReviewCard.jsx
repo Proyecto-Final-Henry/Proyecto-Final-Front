@@ -8,7 +8,6 @@ import DeleteReview from "../DeleteReview/DeleteReview";
 import axios from "axios";
 // import { propTypes } from "react-bootstrap/esm/Image";
 import LikesReview from "../LikesReview/LikesReview";
-import { AiFillHeart,AiOutlineHeart } from "react-icons/ai";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
 export default function ReviewCard() {
@@ -45,6 +44,7 @@ export default function ReviewCard() {
     };
     autenticarUsuario();
   }, []);
+
 
   const handleButton = (message) => {
     setDescription(message);

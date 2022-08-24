@@ -2,6 +2,7 @@ import axios from "axios";
 import {useDispatch, useSelector } from "react-redux";
 import { getPlaylist } from "../../redux/actions";
 import PlaylistCard from "./PlaylistCard";
+import style from '../../css/filters.module.css';
 
 export default function  UserPlaylist({isModal, id, name, closeModal, userId}){
     const playList = useSelector(store=> store.playList); 
@@ -38,7 +39,7 @@ export default function  UserPlaylist({isModal, id, name, closeModal, userId}){
 
     return(
         <div>{playList.length? (
-            <div>
+            <div className={style.playList_box}>
                 {playList.map((e,i)=>{
                     return (
                         <div key={i}>
@@ -55,7 +56,7 @@ export default function  UserPlaylist({isModal, id, name, closeModal, userId}){
                     )
                 })}
             </div>): (
-            <div>
+            <div className={style.playList_box}>
                 <h5>No tienes listas de reproduccion, crea una</h5>
             </div>)}
         </div>

@@ -5,6 +5,11 @@
   min-height: 100vh;
 }
 
+.modal-backdrop {
+  z-index: -1;
+  display: none;    
+}
+
 .dropdown-toggle::after{
   display: none !important;
 }
@@ -431,6 +436,7 @@ Nav{
   
 }
 .btn_registrate{
+  min-width: 8rem;
   background-color: #7368a7; 
   border-radius: 8px;
   padding: 5px 15px 10px 15px;
@@ -503,4 +509,24 @@ html{
 .list-group-item>img{
   border-radius: 50%;
   box-shadow: 1px 2px 4px #ccc;
+}
+
+.row>*{
+  padding: 0 !important;
+}
+
+.nav-pills .nav-link {
+  border-radius: 0 !important;
+  font-size: 20px;
+  color: #fff !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #885197 !important;
+}
+
+.adminUsers button.btn{
+  margin-right: 5px !important;
+  margin-left: 5px !important;
 }

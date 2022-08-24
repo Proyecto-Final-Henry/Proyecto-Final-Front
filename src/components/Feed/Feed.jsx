@@ -10,8 +10,7 @@ import axios from "axios";
 import { useState } from "react";
 import { io } from "socket.io-client";
 
-export const socket=io("http://localhost:3001");
-
+export const socket=io("http://localhost:3001"); // https://remusic.onrender.com // http://localhost:3001
 
 export default function Feed(){
     const history = useHistory();
@@ -19,11 +18,13 @@ export default function Feed(){
     const [user, setUser] = useState("");
     const userData = useSelector((state) => state.userData);
     const [onlineUsers, setOnlineUsers] = useState([]);
+    const userId = localStorage.getItem("userId");
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
         // socket.current = io("http://localhost:3001");
-        console.log(socket)
-        socket.emit("newUser", userData?.id);
+        // console.log(socket)
+        socket.emit("newUser", token); // userData?.id || userId
         socket.on("getUsers", (users) => {
           setOnlineUsers(users);
         });
@@ -50,8 +51,6 @@ export default function Feed(){
                 console.log(error.response.data.msg);
             };
         };
-        
-        
         autenticarUsuario();
         dispatch(clearArtist());
         dispatch(clearAlbum());

@@ -24,7 +24,7 @@ export default function TeamIn() {
       },[]);
 
     return (
-            <div>
+            <div style={{position: "relative"}}>
                 <div className={style.creadorModal}>
                     <div className="modal fade" id="JulianModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document">

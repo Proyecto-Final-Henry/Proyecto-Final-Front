@@ -13,9 +13,7 @@ export default function Re(){
     const [notifications, setNotifications] = useState([]);
     const [open, setOpen] = useState(false);
     const userData = useSelector((state) => state.userData);
-
-
-    console.log(userData);
+    const [onlineUsers, setOnlineUsers] = useState([]);
 
     useEffect(() => {
       console.log(socket)
@@ -57,10 +55,10 @@ export default function Re(){
               sliced.map(song => {
                   return (
                     <div className="can" key={song.id}>
-                        <Link to={"/song/" + song.id}>
+                        <Link to={"/song/" + song.apiId}>
                         <img src={song.image} alt={song.img} />
                         </Link>
-                        <Link to={"/song/" + song.id}>
+                        <Link to={"/song/" + song.apiId}>
                             <p>{song.title}</p>
                         </Link>
                     </div>

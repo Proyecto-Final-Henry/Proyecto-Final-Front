@@ -24,21 +24,14 @@ export default function LikesReview(props){
       type
     });
     }
-    };
-    // const handleNotification = (type) => {
-    //     type === 1 && setLiked(true);
-    //     socket.emit("sendNotification", {
-    //       senderName: props.userName,
-    //       receiverName: props.revId,
-    //       title:props.title,
-    //       type
-    //     });
-    //   };
+}
+
 
     return(
         <div>
             { hasLikes ? 
-                <button className="likesReview" onClick={() => handleButton()}>❤️</button>:
+                <button className="likesReview" onClick={() => handleButton()}>❤️</button>
+                :
                 <button className="likesReview" onClick={() => handleButton(1)}>🖤</button>
             }<> : </>
             {mapedLikes?.length}
