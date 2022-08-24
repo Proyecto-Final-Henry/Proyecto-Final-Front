@@ -44,7 +44,7 @@ export default function ReviewCard() {
   return (
     <div className="reCart">
         <h1 style={{fontStyle: "italic",color:"#fa42cc", textShadow: "0 0 3px #9027f1, 0 0 7px #9027f1, 0 0 12px, 0 0 18px #0066ff, 0 0 10px, 0 0 48px #8cf5ff75"}}>Tus Reseñas</h1>
-      {rev? (
+      {rev?.length ? (
         rev.map((r) => {
           return (
             <div key={r.id} className="reCa">
@@ -99,8 +99,9 @@ export default function ReviewCard() {
         })
       ) : (
         <div className={style.revDiv}>
-          <h2>¡Aún no hay reseñas!</h2>
-          <h3>Se el primero en crear una!</h3>
+          <h2>¡Aún no has creado ninguna reseña!</h2>
+          <h3>Crea tu primer reseña y compartela con tus amigos</h3>
+          <Link to="/search">Crea tu primer reseña y compartela con tus amigos</Link>
         </div>
       )}
     </div>
