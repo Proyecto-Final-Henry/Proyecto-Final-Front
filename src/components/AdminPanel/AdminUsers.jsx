@@ -31,7 +31,6 @@ export default function AdminUsers() {
     allUsers([]);
   }, []);
 
-
     let handlePremium = async (id) => {
         await axios.put(`/api/back-end/users/givepremium`, {userId: id});
         const { data } = await axios(`/api/back-end/user`);

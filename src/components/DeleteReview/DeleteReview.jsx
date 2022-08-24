@@ -14,10 +14,13 @@ export default function DeleteReview(props) {
     await axios.put(`/api/back-end/reviews/delete/${props.id}`);
     switch (props.location) {
       case "feed":
+        closeAlert()
         return dispatch(getAllReviews());
       case "detail":
+        closeAlert()
         return dispatch(getResReviews(props.apiId, props.type));
       case "user":
+        closeAlert()
         return dispatch(getUserData(props.meId));
       default:
         return dispatch(getAllReviews());

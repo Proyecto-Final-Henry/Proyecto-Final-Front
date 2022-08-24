@@ -68,7 +68,6 @@ export default function ArtistDetail() {
         <div className={style.artistDetail_information}>
           <p><BsShieldFillCheck/> Artista Verificado</p>
           <h1>{artistData.name}</h1>
-          <Button  variant="outline-success">Seguir</Button>
         </div>
       </div>
 
