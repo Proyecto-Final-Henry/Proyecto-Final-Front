@@ -10,7 +10,7 @@ import axios from "axios";
 import LikesReview from "../LikesReview/LikesReview";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
-export default function ReviewCard() {
+export default function ReviewCard(props) {
   let reviewArray = useSelector((state) => state.allReviews);
   const history = useHistory();
   const [user, setUser] = useState({});
@@ -75,9 +75,10 @@ export default function ReviewCard() {
                         followings={r.user.followings}
                         id={r.userId}
                         meId={user.id}
+                        location={props.location}
                       />
                     ) : (
-                      <DeleteReview id={r.id} location="feed" />
+                      <DeleteReview id={r.id} location={props.location} />
                     )}
                     <Link to={user.id === r.user.id ? "/user" : `/users/${r.user.id}`}>
                       <img src={r.user.userImg} alt="" />

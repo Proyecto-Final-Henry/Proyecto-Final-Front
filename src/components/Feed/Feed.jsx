@@ -83,7 +83,7 @@ export default function Feed() {
         <Per />
       </div>
       <div className="cen cen_scroll">
-        <ReviewCard user={user} />
+        <ReviewCard user={user} location="feed" />
       </div>
       <div className="ult">
         <Re />
