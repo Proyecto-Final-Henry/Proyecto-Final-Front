@@ -1,6 +1,6 @@
 import style from "../../css/info.module.css";
 import lechuga from "../../assets/team/lechuga.jpg";
-import placeholder2 from "../../assets/team/placeholder2.jpg";
+import alejandro from "../../assets/team/alejandro.jpeg";
 import fernandez from "../../assets/team/fernandez.jpg"; 
 import alban from "../../assets/team/alban.jpg";
 import placeholder1 from "../../assets/team/placeholder1.png";
@@ -164,7 +164,7 @@ export default function Team() {
                             <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#JulianModal" data-backdrop="false"> Julian Lechuga </button>
                     </div>
                     <div className={style.creador}>
-                        <img src={placeholder2} alt="Alejandro Briceño" />
+                        <img src={alejandro} alt="Alejandro Briceño" />
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#AleModal"> Alejandro Briceño </button>
                     </div>
                     <div className={style.creador}>

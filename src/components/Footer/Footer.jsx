@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "../../css/footer.module.css";
 
 export default function Footer(){
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem("token");
 
     return(
         <div className="footer_body">
@@ -48,7 +48,6 @@ export default function Footer(){
                     <div className={style.footer_social}>
                         <span className={style.footer_icons}><a href="https://github.com/Proyecto-Final-Henry" target="_blank" rel="noreferrer"><i className="fa-brands fa-github"></i></a></span>
                         <span className={style.footer_icons}> {token ? <Link to ="/team2"><i className="fa-brands fa-linkedin"></i></Link>: <Link to ="/team"><i className="fa-brands fa-linkedin"></i></Link>}</span>
-                        <span className={style.footer_icons}><a href="https://spotify.com/" target="_blank" rel="noreferrer"><i className="fa-brands fa-spotify"></i></a></span>
                     </div> 
                 </div>
             </div>

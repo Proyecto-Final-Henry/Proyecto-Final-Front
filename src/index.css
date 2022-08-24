@@ -39,7 +39,7 @@ Nav{
   min-height: 0%;
   max-width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background-color:rgb(255, 255, 255);
   box-shadow: 0 5px 10px 	#032c61

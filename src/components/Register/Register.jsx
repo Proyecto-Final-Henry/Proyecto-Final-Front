@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Alerta from "../AlertaMensaje/Alerta";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
@@ -12,6 +12,13 @@ const Register = () => {
   const [ password , setPassword ] = useState("");
   const [ repetirPassword , setRepetirPassword ] = useState("");
   const [ alerta , setAlerta ] = useState({});
+
+  // useEffect(() => {
+  //   let token = localStorage.getItem("token");
+  //   if (token) {
+  //     history.push("/feed")
+  //   }
+  // },[]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
