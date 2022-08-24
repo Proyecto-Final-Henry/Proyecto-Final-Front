@@ -36,7 +36,7 @@ export default function UserProfile() {
     try {
         const { data } = await axios.post(
           `/api/back-end/users/create_preference`,
-          { description: "Premium", price: 1, quantity: 1 },
+          { description: "Premium", price: 599, quantity: 1 },
           config
         );
         window.open(data.id.sandbox_init_point); // sandbox_init_point
