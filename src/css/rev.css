@@ -131,6 +131,17 @@
     background-color: #6457a6;
     border: 2px solid #6457a6;
 }
+.addplaylist{
+    background-color: #6457a6;
+    border: 2px solid #6457a6;    
+    border-radius: 8px;
+    color:#fff;
+}
+.addplaylist:hover{
+    background-color: transparent;
+    border: 2px solid #aa9fdf;
+    color:#6457a6;
+}
 .likesReview{
     background-color: transparent;
     font-size: 20px;

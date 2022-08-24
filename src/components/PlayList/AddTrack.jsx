@@ -22,7 +22,7 @@ export default function AddTrack({userId, trackId, name}) {
                 userId={userId}
                 />
             </Modal>
-            <button className="follow" onClick={openModal}>+/- Playlist</button>
+            <button className="addplaylist" onClick={openModal}>+/- Playlist</button>
         </div>
     )
 }
