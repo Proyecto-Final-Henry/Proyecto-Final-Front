@@ -2,29 +2,29 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from "../../img/logo_remusic.png";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function NavigationB() {
   return (
     <nav>
-        <Navbar collapseOnSelect expand="lg"  className='Nav nav_remusic'>
+        <Navbar collapseOnSelect expand="lg" className='Nav nav_remusic'>
             <Container>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <div className="logo">
-                            <Link to="/">
+                            <NavLink to="/">
                                 <img src={Logo} alt="logo"/>
-                            </Link>
+                            </NavLink>
                         </div>
-                        <Link to="/" ><h5>Inicio</h5></Link>
-                        <Link to="/premium"><h5>Planes</h5></Link>
-                        <Link to="/contact"><h5>Contacto</h5></Link>
+                        <NavLink exact to="/"  ><h5>INICIO</h5></NavLink>
+                        <NavLink to="/premium" ><h5>PLANES</h5></NavLink>
+                        <NavLink to="/contact" ><h5>CONTACTO</h5></NavLink>
                     </Nav>
 
                     <Nav className='nav_btn_registro'>
-                        <Link to="/login"><h5>Ingresa</h5></Link>
-                        <Link to="/register"><h5 className="btn_registrate">Registrate</h5></Link>     
+                        <NavLink to="/login"><h5>INGRESA</h5></NavLink>
+                        <NavLink to="/register"><h5 className="btn_registrate">REGISTRATE</h5></NavLink>     
                     </Nav>   
                 </Navbar.Collapse>
             </Container>

@@ -5,6 +5,11 @@
   min-height: 100vh;
 }
 
+.modal-backdrop {
+  z-index: -1;
+  display: none;    
+}
+
 .dropdown-toggle::after{
   display: none !important;
 }
@@ -46,12 +51,18 @@ Nav a{
   margin-right: 18px;
 }
 Nav a h5{
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
   padding: 10px;
   padding-left: 10px;
+  color: #4b417c;
+  
+}
+a.active h5{
+  /* background-color:rgb(132, 80, 145,.2); */
+  color: #fff;
 }
 Nav h5:hover{
-  color: #032c61;
+  color: #fff;
   transition: all .3s ease-in-out;
 }
 .logo{
@@ -317,6 +328,9 @@ Nav h5:hover{
   background: rgb(2,0,36);
   background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0,46,16,1) 65%, rgba(29,185,84,1) 100%);
 }
+.pi img{
+  border-radius: 50%;
+}
 .ArtistT img{
   width: 200px;
   height: 200px;
@@ -335,10 +349,15 @@ Nav h5:hover{
   height: 100%;
   min-width: 100%;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  margin: 10px 15px;
+  border: 1px solid pink;
+  border-radius: 10px;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   justify-content: space-around;
   align-items: center;
   padding: 10px;
+  background-color: rgb(226, 177, 185);
+  margin-top: 40px;
 }
 
 .ArtistTo img{
@@ -397,6 +416,7 @@ Nav h5:hover{
   color: #f73aa8;
 }
 
+
 /* Estilos Nav */
 .nav_remusic{
   /* background: linear-gradient(101.38deg,#fa42cc,#fff 150.71%); */
@@ -404,9 +424,9 @@ Nav h5:hover{
   background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
   color: #fff;
 }
-.nav_remusic h5{
+/* .nav_remusic h5{
   color: #fff !important;
-}
+} */
 Nav{
   box-shadow: none;
 }
@@ -416,9 +436,10 @@ Nav{
   
 }
 .btn_registrate{
-  background-color: #6457a6; 
+  background-color: #7368a7; 
   border-radius: 8px;
   padding: 5px 15px 10px 15px;
+  color: #fff;
 }
 .btn_registrate:hover{
   background-color: #5c46be; 
@@ -463,7 +484,28 @@ ul.nav.nav-tabs .nav-item button.active{
   padding: 30px;
 }
 
-
-
 /* Estilos Slider Netflix */
 
+html{
+  height: 100%;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.footer_body{
+  margin-top: auto;
+}
+
+.list-group-item+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-group-item>img{
+  border-radius: 50%;
+  box-shadow: 1px 2px 4px #ccc;
+}

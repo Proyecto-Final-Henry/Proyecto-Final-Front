@@ -9,10 +9,120 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 8px 20px;
+    border: 1px solid #a77ab4;
+    background-color: #a77ab4;
+    color: #fff;
+    border-radius: 7px;
 }
+.btn:hover{
+    border: 1px solid #c39ace;
+    background-color: #c39ace;
+}
+.btn:active{
+    border: 1px solid #ceb09a;
+    background-color: #ce9ab8;
+}
+.selected{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 8px 20px;
+    border: 1px solid #a77ab4;
+    background-color: #7ab4a8;
+    color: #fff;
+    border-radius: 7px;
+}
+.selected:hover{
+    border: 1px solid #c39ace;
+    background-color: #7fcabc;
+}
+.selected:active{
+    border: 1px solid #ceb09a;
+    background-color: #ce9ab8;
+    margin-bottom: 30px;
+}
+
 .filters{
     display: flex;
     flex-direction:row ;
     align-items: center;
     justify-content: center;
+}
+
+.filters select{
+    padding: 0.4rem;
+    margin: 10px;
+    border: 1px solid #ccc;
+    background-color: #a77ab4;
+    color: #fff;
+    appearance: none;
+    border-radius: 6px;
+}
+ 
+/* .filters select{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    border-radius: 6px;
+    width: 30%;
+    background-color: transparent;
+}; */
+
+.playList_box{
+    margin-top: 1.5rem;
+    min-width: 18rem;
+    max-width: 50rem;
+}
+.playlist h5{
+    font-size: 1.25rem;
+    color: #ffffff;
+}
+
+.playlist{
+    display: grid;
+    grid-template-columns: 65% 35%;
+    justify-content: center;
+    align-items: center;
+    margin:0.5rem;
+    border-radius: 10px;
+    padding: 1rem;
+    min-width: 22rem;
+    background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+}
+.playlist button{
+    width: 7rem;
+    padding: 8px 20px;
+    border: 1px solid #a77ab4;
+    background-color: #a77ab4;
+    color: #fff;
+    border-radius: 7px;
+}
+.playlist button:hover{
+    border: 1px solid #c39ace;
+    background-color: #c39ace;
+}
+.playlist button:active{
+    border: 1px solid #ceb09a;
+    background-color: #ce9ab8;
+}
+.playlist .removebtn{
+    width: 7rem;
+    padding: 8px 20px;
+    border: 1px solid #a77ab4;
+    background-color: #7ab4a8;
+    color: #fff;
+    border-radius: 7px;
+
+}
+.playlist .removebtn:hover{
+    border: 1px solid #c39ace;
+    background-color: #7fcabc;
+}
+.playlist .removebtn:active{
+    border: 1px solid #ceb09a;
+    background-color: #ce9ab8;
 }

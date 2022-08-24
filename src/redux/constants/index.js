@@ -32,5 +32,7 @@ export const CALC_PAGES="CALC_PAGES";
 export const GET_RANDOM_FEED="GET_RANDOM_FEED";
 export const GET_OTHER_USER_DATA="GET_OTHER_USER_DATA";
 export const GET_USER_SEARCH="GET_USER_SEARCH";
-
-
+export const SET_PRICE="SET_PRICE";
+export const CLEAR_ARTIST="CLEAR_ARTIST";
+export const CLEAR_SONG="CLEAR_SONG";
+export const CLEAR_ALBUM="CLEAR_ALBUM";

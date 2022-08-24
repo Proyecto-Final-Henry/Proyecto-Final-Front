@@ -1,8 +1,8 @@
-import ComparativoPremium from "../../assets/comparativa.png";
 import style from "../../css/premium.module.css";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
+import loading from "../../assets/loading.gif";
 
 function PremiumIn() {
     let history = useHistory();
@@ -20,48 +20,84 @@ function PremiumIn() {
     
     const handleButton = async () => {
       const token = localStorage.getItem("token");
-      if(!token){
-          history.push("/login");
-          return;
-      };
+      if (!token) {
+        history.push("/login");
+        return;
+      }
       const config = {
-          headers: {
-              "Content-Type" : "application/json",
-              Authorization: `Bearer ${token}`
-          }
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       };
-        try {
-          if (window.confirm("Seras redirigido a MercadoPago")) {
-            const { data } = await axios.post(`/api/back-end/users/create_preference`, {description: "Premium", price: 1, quantity: 1}, config)
-            window.open(data.id.sandbox_init_point);   // sandbox_init_point / init_point
-            history.push("/pay");
-          }
-        } catch (error) {
-         console.log(error) ;
-        };
+      try {
+          const { data } = await axios.post(
+            `/api/back-end/users/create_preference`,
+            { description: "Premium", price: 1, quantity: 1 },
+            config
+          );
+          window.open(data.id.sandbox_init_point); // sandbox_init_point / init_point
+      } catch (error) {
+        console.log(error);
+      };
     };
 
     return (
-      <div>
+      <div className={style.plan} style={{position: "relative"}}>
+              <div className="modal fade" id="MercadoModal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="MercadoModalLabel">Pago Premium</h5>
+                                        <button type="button" className="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close"> X </button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <h4>
+                                            Seras redirigido a MercadoPago
+                                        </h4>
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-outline-success" data-dismiss="modal" onClick={handleButton} data-toggle="modal" data-target="#Mercado2Modal">Ok</button>
+                                        <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                     </div>
+
+                     <div className="modal fade" id="Mercado2Modal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document" >
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="MercadoModalLabel">Pago Premium</h5>
+                                        <button type="button" className="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close"> X </button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <h4>
+                                            Procesando tu pago...
+                                        </h4>
+                                        <img style={{heigth:"250px", width:"350px"}} src={loading} alt="cargando..." />
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                     </div>
         <br />
-        <div className={style.mainDiv}>
-           <h1>Beneficios de Usuarios Premium</h1>          
-        </div>
-        <br />
-        <div className={style.mainDiv}>
-            <h3>Canciones ilimitadas</h3>
-            <h3>Crea tus propias playlists</h3>
-            <h3>Ve quien te sigue</h3>
-            <h3>Recompensas exclusivas</h3>
-        </div>
-        <br />
-        <div className={style.comparative}>
-          <img src={ComparativoPremium} alt="Premium vs Free" />
-        </div>
-        <div>
-          <button class="btn btn-outline-success" onClick={handleButton}>Pasate al plan Premium</button>
-          <br />
-          <br />
+        <div className={`${style.plan_card} ${style.plan_premium} `}>
+          <h3>ReMusic Premium</h3>
+          <div className={style.plan_description}>
+            <span><i class="fa-solid fa-circle-check"></i> Música ilimitada todos los día.</span>
+            <span><i class="fa-solid fa-circle-check"></i> Sigue a todos los usuarios que quieras.</span>
+            <span><i class="fa-solid fa-circle-check"></i> Ver reseñas y comentarios sin restricciones.</span>
+            <span><i class="fa-solid fa-circle-check"></i> Más de cientos de canciones.</span>
+            <span><i class="fa-solid fa-circle-check"></i> Selecciona y escucha cualquier canción.</span>
+            <span><i class="fa-solid fa-circle-check"></i> Chatea con tus amigos y seguidores.</span>
+            <span><i class="fa-solid fa-circle-check"></i> Crea y comparte tus propias playlists.</span>
+          </div>
+          <span className={style.plan_price}>$ 599 <span>/ mes</span></span>
+          <button type="button" className={`${style.btn_free} ${style.btn_premium}`}  data-toggle="modal" data-target="#MercadoModal"> Pásate a premium </button> 
+          <span className={style.plan_footer}>Sin compromiso puedes cancelar cuando quieras</span>
         </div>
       </div>
     );

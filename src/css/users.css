@@ -1,12 +1,11 @@
-.detailBac{
-  padding: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 6px solid transparent;
-  border-radius: 5px;
-  padding-bottom: 80px;
-  background-color: rgb(242, 242, 242);
+.carti{
+  padding: 5px 10px;
+  margin: 10px 15px;
+  border-radius: 8px;
+}
+.pepe{
+  display: grid;
+  grid-template-columns: 25% 60% 15%;
 }
 
 .detail {
@@ -14,16 +13,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 1px 10px 10px 2px black;
   border: 6px solid transparent;
   border-radius: 5px;
   padding-bottom: 80px;
   background-color: rgb(255, 255, 255);
 }
 .detail img {
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
+}
+.hov:hover img{
+  filter: blur(1px);
+  opacity: 40%;
 }
 .detail h3 {
   color: #d400ff;

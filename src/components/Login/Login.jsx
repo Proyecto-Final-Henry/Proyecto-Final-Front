@@ -34,14 +34,16 @@ const Login = () => {
       }
       history.push("/feed");
     } catch (error) {
-      setAlerta({ msg: error.response.data.msg, error: true });
-    }
+      setAlerta({ msg: error.response.data.msg, error: true })
+      setTimeout(() => {
+        setAlerta({});
+      }, 3500);
+    };
   };
 
   const loginGoogle = async () => {
     const provider = new GoogleAuthProvider();
     const { user } = await signInWithPopup(auth, provider);
-    console.log(user);
     try {
       const url = `/api/back-end/users/googleLogin`;
       const { data } = await axios.post(url, {
@@ -51,6 +53,9 @@ const Login = () => {
       });
       localStorage.setItem("token", data.token);
       localStorage.setItem("active", data.active);
+      if (!data.active) {
+        return history.push("/user/restore");
+      }
       history.push("/feed");
     } catch (error) {
       setAlerta({ msg: error.response.data.msg, error: true });

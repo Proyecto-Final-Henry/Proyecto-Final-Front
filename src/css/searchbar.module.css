@@ -1,10 +1,18 @@
 /* From uiverse.io by @joe-watson-sbf */
+.main_div{
+  background-color: pink;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
 .search {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 42px;
+    margin-top: 42px;
+    margin-bottom: 10px;
   }
   
   .search__input {
@@ -15,14 +23,15 @@
     color: #646464;
     padding: 0.7rem 1rem;
     border-radius: 30px;
-    width: 12em;
+    width: 25em;
     height: 2.5em;
     transition: all ease-in-out .5s;
     margin-right: -2rem;
+    width: 500px;
   }
   
   .search__input:hover, .search__input:focus {
-    box-shadow: 0px 0px 15px	#F7567C
+    box-shadow: 0px 2px 4px	#ccc;
   }
   
   .search__input:focus {
@@ -37,6 +46,76 @@
   
   .search__input:focus + .search__button {
     background-color: #f0eeee;
+  }
+  
+  .ArtistTo{
+    width: 90%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+    margin: 1rem;
+    border-radius: 10px;
+  }
+  .ArtistTo_album{
+    width: 90%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+    margin: 1rem;
+    border-radius: 10px;
+  }
+  .main_div .data{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .div_left{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: center;
+    align-items: center;
+  }
+  .div_left_album{
+    display: grid;
+    grid-template-columns: 30% 30%;
+    justify-content: center;
+    align-items: center;
+  }
+  .ArtistTo_album .linkto,
+  .ArtistTo .linkto{   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+  }
+  .ArtistTo .linkto_artist{   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ArtistTo_album img,
+  .ArtistTo img{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+  }
+  .ArtistTo_album p,
+  .ArtistTo p{
+    color: white;
+    font-size: large;
+  }
+  .ArtistTo_album a,
+  .ArtistTo a{
+    text-decoration: none;
   }
   
   

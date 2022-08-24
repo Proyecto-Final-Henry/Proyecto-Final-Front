@@ -7,6 +7,8 @@ import "../../css/users.css";
 import { useDispatch } from "react-redux";
 import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
 import Spinner from "react-bootstrap/Spinner";
+import MyReview from "./MyReview";
+import loading from "../../assets/loading.gif";
 
 export default function UserProfile() {
   //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params
@@ -31,18 +33,15 @@ export default function UserProfile() {
       },
     };
     try {
-      if (window.confirm("Seras redirigido a MercadoPago")) {
         const { data } = await axios.post(
           `/api/back-end/users/create_preference`,
           { description: "Premium", price: 1, quantity: 1 },
           config
         );
         window.open(data.id.sandbox_init_point); // sandbox_init_point
-        history.push("/pay");
-      }
     } catch (error) {
       console.log(error);
-    }
+    };
   };
 
   const handleShowImg = (e) => {
@@ -88,21 +87,60 @@ export default function UserProfile() {
   };
 
   return (
-    <div>
+    <div  className="pepe" style={{position: "relative"}}>
+      <div className="modal fade" id="MercadoModal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="MercadoModalLabel">Pago Premium</h5>
+                        <button type="button" className="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close"> X </button>
+                    </div>
+                    <div className="modal-body">
+                        <h4>
+                            Seras redirigido a MercadoPago
+                        </h4>
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-outline-success" data-dismiss="modal" onClick={handleButton} data-toggle="modal" data-target="#Mercado2Modal">Ok</button>
+                        <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+      <div className="modal fade" id="Mercado2Modal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document" >
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="MercadoModalLabel">Pago Premium</h5>
+                        <button type="button" className="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close"> X </button>
+                    </div>
+                    <div className="modal-body">
+                        <h4>
+                            Procesando tu pago...
+                        </h4>
+                        <img style={{heigth:"250px", width:"350px"}} src={loading} alt="cargando..." />
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+      </div>
       <div className="detailBac">
         <div className="detail">
           <div className="carta">
             {showImg ? (
-              <div>
+              <div className="hov">
                 {user.userImg ? (
                   <div className="pri">
                     <img src={user?.userImg} alt="userImg"></img>
+                    <br />
+                    <br />
+                    <button onClick={handleShowImg} className="bo">📸</button>
                   </div>
                 ) : (
                   <Spinner animation="border" variant="dark" />
                 )}
-                <br />
-                <button onClick={handleShowImg}>📸</button>
               </div>
             ) : (
               <ChangeProfileImg userId={user.id} setShowImg={setShowImg} />
@@ -114,16 +152,7 @@ export default function UserProfile() {
             <p className="userP">Usuario {user?.role}</p>
             <p className="userP">Seguidores: {user?.followers?.length}</p>
             <p className="userP">Seguidos: {user?.following?.length}</p>
-            {user.role === "Gratuito" ? (
-              <Button
-                onClick={handleButton}
-                variant="outline-success"
-                type="submit"
-                className="boton"
-              >
-                Cambiar a plan Premium
-              </Button>
-            ) : null}
+            {user.role === "Gratuito" ? <span><button type="button" className="btn btn-outline-success" data-toggle="modal" data-target="#MercadoModal"> Cambiar a plan Premium </button> <br /> </span> : null}
             {user.role === "Admin" ? (
               <Button
                 onClick={handleAdmin}
@@ -133,6 +162,7 @@ export default function UserProfile() {
               >
                 Panel de administrador
               </Button>
+              
             ) : null}
             <br />
             <br />
@@ -144,10 +174,16 @@ export default function UserProfile() {
             >
               Cerrar Sesión
             </Button>
+            <br />
+            <div>
+          <Link to="/user/deactivate">
+            <p>Desactivar cuenta</p>
+          </Link>
+      </div>
           </div>
         </div>
       </div>
-      <div>
+      {/* <div>
         <h3>Seguidores:</h3>
         {user.followers?.length > 0 ? (
           user.followers?.map((f) => {
@@ -163,8 +199,8 @@ export default function UserProfile() {
         ) : (
           <p>Todavia no tienes seguidores</p>
         )}
-      </div>
-      <div>
+      </div> */}
+      {/* <div>
         <h3>Seguidos:</h3>
         {user.following?.length > 0 ? (
           user.following?.map((f) => {
@@ -180,11 +216,10 @@ export default function UserProfile() {
         ) : (
           <p>Todavia no sigues a nadie</p>
         )}
-      </div>
-      <div>
-        <Link to="/user/deactivate">
-          <p>Desactivar cuenta</p>
-        </Link>
+      </div> */}
+      <MyReview/>
+      <div className="play">
+        <h1>Aqui van las playlist</h1>
       </div>
     </div>
   );

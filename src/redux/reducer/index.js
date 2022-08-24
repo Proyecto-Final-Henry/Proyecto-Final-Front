@@ -27,7 +27,11 @@ import {
   GET_RANDOM_FEED,
   GET_OTHER_USER_DATA,
   GET_USER_SEARCH,
+  SET_PRICE,
   GET_PLAYLIST,
+  CLEAR_ARTIST,
+  CLEAR_ALBUM,
+  CLEAR_SONG,
 } from "../constants";
 
 const initialState = {
@@ -85,6 +89,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         userData: action.payload,
       };
+    case SET_PRICE:
+      return {
+        ...state,
+        basePrice: action.payload,
+      };
     case GET_GENRES:
       return {
         ...state,
@@ -99,6 +108,21 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         genre: {},
+      };
+    case CLEAR_ARTIST:
+      return {
+        ...state,
+        artistData: {},
+      };
+    case CLEAR_ALBUM:
+      return {
+        ...state,
+        albumData: {},
+      };
+    case CLEAR_SONG:
+      return {
+        ...state,
+        songData: {},
       };
     case ON_PAGE_CHANGED:
       const { searchResultFilter } = state;      
@@ -138,6 +162,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         searchResult: action.payload,
         pagination: {},
+        selected:false,
       };
     case GET_ARTIST_DATA:
       return {
@@ -209,7 +234,6 @@ function rootReducer(state = initialState, action) {
         randomSongs: action.payload,
       };
     case GET_TOP_SONGS:
-      console.log(action.payload)
       return {
         ...state,
         topSongs: action.payload,

@@ -1,11 +1,18 @@
+import { useEffect } from "react";
 import style from "../../css/premium.module.css";
 import ArtistCard from "../Music/ArtistCard";
 
 function CarouselRandomArtists({title, data}) {
 
-    const fila = document.querySelector('.carouselRandomArtists');
-    const next = () => fila.scrollLeft += fila.offsetWidth;
-    const prev = () => fila.scrollLeft -= fila.offsetWidth;
+    // const fila = document.querySelector('.carouselRandomArtists');
+    let fila = '';
+    useEffect(() => { 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        fila = document.querySelector('.carouselRandomArtists');
+    });
+    const next = () => {if (fila) fila.scrollLeft += fila.offsetWidth}
+    const prev = () => {if (fila) fila.scrollLeft -= fila.offsetWidth;}
+
 
     return (
         <div className={style.contenedor}>
@@ -14,7 +21,7 @@ function CarouselRandomArtists({title, data}) {
             </div>
 
             <div className={style.contenedor_principal}>
-            <button role={'button'} onClick={prev} className={style.flecha_izquierda}><i className="fa-solid fa-circle-chevron-left"></i></button>
+            <button onClick={prev} className={style.flecha_izquierda}><i className="fa-solid fa-circle-chevron-left"></i></button>
             <div className={`${style.contenedor_carousel} carouselRandomArtists`}>
                 <div className={style.carousel}>
                     {data.map((artist) => {
@@ -33,7 +40,7 @@ function CarouselRandomArtists({title, data}) {
                 </div>
                 
             </div>
-            <button role={'button'} onClick={next} className={style.flecha_derecha}><i className="fa-solid fa-circle-chevron-right"></i></button>
+            <button onClick={next} className={style.flecha_derecha}><i className="fa-solid fa-circle-chevron-right"></i></button>
             </div>
         </div>
     );

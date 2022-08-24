@@ -20,18 +20,68 @@
     padding: 1rem;
     min-width: 300px;
     max-width: 600px;
-    min-height: 200px;
-    max-height: 600px;
-    overflow-y: auto;
     background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 8px;
+    border:1px solid #ccc;
+    display: flex;
+    flex-direction: column;
 }
 .modal-close{
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: .35rem;
+    right: .5rem;
+    /* background-color: red; */
+    background-color: #f73aa8;
+    color:#fff;
+    border: 1px solid #f73aa8;
+    padding: 2px 8px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50%;
 }
 
+.modal-close:hover {
+    background-color: #99015a;
+    border: 1px solid #99015a;
+}
+
+.modal-container h4{
+    color: rgb(105, 105, 105) !important;
+}
+
+.option_deleteReview button{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 2px 20px;
+    border-radius: 8px;
+    background-color: #f73aa8;
+    color:#fff;
+    border: 1px solid #f73aa8;
+    font-weight: 600;
+}
+
+.option_deleteReview button:hover {
+    background-color: #99015a;
+    border: 1px solid #99015a;
+}
+
+.option_deleteReview p{
+
+    padding: 10px;
+    min-height: 150px;
+    max-height: 600px;
+    overflow-y: auto;
+
+    word-break: break-all;
+    word-break: break-word; 
+    hyphens: auto;
+}
+.modal_body{
+    padding: 20px;
+}

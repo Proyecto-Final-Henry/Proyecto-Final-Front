@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux'
 import {onPageChanged,calcPages } from "../../redux/actions"
-import Button from 'react-bootstrap/Button';
 import style from '../../css/pagination.module.css'
+import styles from '../../css/filters.module.css';
 
 export const pageLimit =10;
 
@@ -37,7 +37,6 @@ class Pagination extends Component{
       }
     }
     render() {
-        //if (!this.props.totalRecords || this.props.totalPages === 1) return null;  
         const pages = this.fetchPageNumbers();
         const view=[]
         if(this.props.totalRecords.length>0){
@@ -57,7 +56,7 @@ class Pagination extends Component{
         return (       
             <Fragment>
             <div className={style.box}>
-                <div>
+                <div className={style.data}>
                     <h5>{this.props.totalRecords.length} Resultados</h5>
                     {view && view.map((e,i)=>{
                     return(
@@ -68,10 +67,10 @@ class Pagination extends Component{
                 <div>                
                 {pages && pages.map((page, index) => {
                     if (page === LEFT_PAGE) return (
-                        <Button key={index} className={style.btn} variant="outline-success" onClick={this.handleMoveLeft}>&lt;&lt;Anterior</Button>
+                        <button key={index} className={styles.btn}  onClick={this.handleMoveLeft}>&lt;&lt;Anterior</button>
                     );
                     if (page === RIGHT_PAGE) return (
-                        <Button key={index} className={style.btn} variant="outline-success" onClick={this.handleMoveRight}>Siguiente&gt;&gt;</Button>
+                        <button key={index} className={styles.btn}  onClick={this.handleMoveRight}>Siguiente&gt;&gt;</button>
                     );
                 }) }
                 </div>                

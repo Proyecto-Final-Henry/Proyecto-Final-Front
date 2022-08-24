@@ -26,12 +26,9 @@ export default function AlbumDetail() {
         }
     };
     autenticarUsuario()
+    dispatch(getAlbumData(albumId));
   },[]);
   
-  useEffect(() => {
-    dispatch(getAlbumData(albumId));
-  }, []);
-
   let albumData = useSelector((state) => state.albumData);
 
   return (

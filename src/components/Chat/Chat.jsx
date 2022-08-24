@@ -4,14 +4,16 @@ import axios from "axios";
 import "../../css/chat.css";
 import Conversacion from "./Conversacion";
 import ChatBox from "./ChatBox";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import User from "./User";
 import { useSelector } from "react-redux";
+import { socket } from "../Feed/Feed";
 
 const Chat = () => {
   const history = useHistory();
-  const socket = useRef();
-
+  // const socket = useRef();
+  // const userId = localStorage.getItem("userId");
+  const token = localStorage.getItem("token");
   const [user, setUser] = useState({});
 
   const [users, setUsers] = useState([]);
@@ -52,27 +54,27 @@ const Chat = () => {
       try {
         const { data } = await axios(`/api/back-end/users/perfil`, config);
         setUser(data);
+        if (user.role === "Gratuito") {
+          history.push("/feed");
+        };
       } catch (error) {
         console.log(error.response.data.msg);
       }
     };
-    // if (!users.length) {
-    //     dispatch()
-    // }
     autenticarUsuario();
   }, []);
 
   useEffect(() => {
-    socket.current = io("http://localhost:3001");
-    socket.current.emit("new-user-add", userData?.id);
-    socket.current.on("get-users", (users) => {
+    // socket.current = io("http://localhost:3001");
+    socket.emit("new-user-add", token); // userData?.id || userId
+    socket.on("get-users", (users) => {
       setOnlineUsers(users);
     });
   }, [user]);
 
   //Recibir mensaje del socket server
   useEffect(() => {
-    socket.current.on("receive-message", (data) => {
+    socket.on("receive-message", (data) => {
       setRecibirMensaje(data);
     });
   });
@@ -80,7 +82,7 @@ const Chat = () => {
   // Enviar mensaje al socket server
   useEffect(() => {
     if (enviarMensaje !== null) {
-      socket.current.emit("send-message", enviarMensaje);
+      socket.emit("send-message", enviarMensaje);
     }
   }, [enviarMensaje]);
 
@@ -102,6 +104,7 @@ const Chat = () => {
       try {
         const { data } = await axios(`/api/back-end/user`);
         setUsers(data);
+
       } catch (error) {
         console.log(error);
       }
@@ -128,7 +131,7 @@ const Chat = () => {
       console.log(error);
     }
   };
-
+  
   return (
     <div className="Chat">
       <div className="Left-side-chat">
@@ -137,7 +140,7 @@ const Chat = () => {
             <h2>Usuarios</h2>
             {users &&
               users?.map((u) =>
-                u.id !== user.id ? (
+                u.id !== user.id && u.role !== "Gratuito" ? (
                   <div key={u.id} onClick={() => iniciarChat(u)}>
                     <User user={u} />
                   </div>
@@ -161,7 +164,7 @@ const Chat = () => {
       </div>
 
       <div className="Right-side-chat">
-        <div style={{ width: "10rem", alignSelf: "flex-start" }}>
+        <div style={{ width: "100%", alignSelf: "flex-start", paddingRight: "25px" }}>
           <ChatBox
             chat={currentChat}
             currentUser={user?.id}

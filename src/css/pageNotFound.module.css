@@ -1,0 +1,43 @@
+.pageNotFound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+}
+
+.pageNotFound h3{
+    font-size: 120px;
+    font-weight: 700; 
+}
+
+.pageNotFound img{
+    margin-bottom: 15px;
+}
+
+.pageNotFound h2{
+    font-size: 40px;
+    font-weight: 500; 
+}
+
+.pageNotFound p{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.btn_return {
+    border: 1px solid #403575;
+    background-color: #403575;
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-size: 25px;
+}
+
+.btn_return:hover{
+    border:1px solid #9183d6;
+    background-color: #9183d6;
+}

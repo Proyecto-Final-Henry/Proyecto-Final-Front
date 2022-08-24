@@ -24,7 +24,6 @@ function Genres() {
         dispatch(getAlbumsDb());
     },[dispatch]);
 
-
     if (genres.length !== 0) {
         return (
             <div>

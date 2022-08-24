@@ -28,7 +28,11 @@ import {
   GET_RANDOM_FEED,
   GET_OTHER_USER_DATA,
   GET_USER_SEARCH,
-  GET_PLAYLIST
+  SET_PRICE,
+  GET_PLAYLIST,
+  CLEAR_ARTIST,
+  CLEAR_ALBUM,
+  CLEAR_SONG,
 } from "../constants";
 
 export const sendEmailContact = (values) => {
@@ -408,3 +412,30 @@ export function getOtherUser(id) {
     })
   }
 }
+
+export function setPrice(price) {
+  return async(dispatch) => {
+      dispatch({
+        type: SET_PRICE,
+        payload: price
+      })
+    };
+};
+
+export const clearArtist = () => {
+  return {
+      type: CLEAR_ARTIST
+  };
+};
+
+export const clearAlbum = () => {
+  return {
+      type: CLEAR_ALBUM
+  };
+};
+
+export const clearSong = () => {
+  return {
+      type: CLEAR_SONG
+  };
+};

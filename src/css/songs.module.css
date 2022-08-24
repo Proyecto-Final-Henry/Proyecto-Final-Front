@@ -7,9 +7,8 @@
     justify-content: space-between;
     padding: 5px 10px;
     margin: 10px 15px;
-    border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(226, 177, 185);
 }
 
 .songCard_left{
@@ -56,10 +55,10 @@
 .albumCard{
     /* width: 200px; */
     margin: 10px;
-    border: 1px solid red;
     width: 200px;
     overflow: hidden;
     border-radius: 8px;
+    background-color: rgb(226, 177, 185);
 }
 
 .albumCard img{
