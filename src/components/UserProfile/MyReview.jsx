@@ -12,7 +12,7 @@ import LikesReview from "../LikesReview/LikesReview";
 export default function ReviewCard() {
   const history = useHistory();
   const [user, setUser] = useState({});
-  const rev=user.reviews
+  const rev = user.reviews;
   useEffect(() => {
     const autenticarUsuario = async () => {
       const token = localStorage.getItem("token");
@@ -44,14 +44,15 @@ export default function ReviewCard() {
   console.log(rev);
   return (
     <div className="reCart">
-        <h1>Tus Reseñas</h1>
-      {rev? (
+      <h1>Tus Reseñas</h1>
+      {rev ? (
         rev.map((r) => {
           return (
             <div key={r.id} className="reCa">
               <div className="carti">
                 <div className="per">
                   <div className="peRe">
+                    <DeleteReview id={r.id} location="user" meId={user.id} />
                     <img src={user.userImg} alt="" />
                     <h4>{user.name}</h4>
                     <h5>{user.role}</h5>
