@@ -12,6 +12,8 @@ ChartJS.register(
 )
 
 const BarChart = () => {
+    let [refresh, setRefresh] = useState(false)
+
     const [ users , setUsers ] = useState([]);
     useEffect(() => {
         const allUsers = async () => {
@@ -23,7 +25,8 @@ const BarChart = () => {
             }
         }
         allUsers();
- },[])
+ },[refresh])
+
 
 const mesesGrafico = users?.map(user => new Date(user.createdDate).toLocaleString("es-ES", {month: "long"})).reverse()
 
@@ -67,6 +70,7 @@ const prueba2 = usuariosPremium.reduce((contador, mes) => {
 
   return (
         <div style={{width:650, textAlign:'center',margin:'auto'}}>
+          <button onClick={() => {setRefresh(true)}}> Recargar</button>
           <h1 style={{ fontSize: '35px',color: '#885197', marginBottom: '20px' }}>Usuarios Registrados</h1>
           <Bar data={data}/>
         </div>

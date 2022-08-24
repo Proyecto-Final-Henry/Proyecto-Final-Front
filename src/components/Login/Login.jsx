@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Alerta from "../AlertaMensaje/Alerta";
@@ -14,6 +14,13 @@ const Login = () => {
   const [alerta, setAlerta] = useState({});
   const history = useHistory();
 
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      history.push("/feed")
+    }
+  },[]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if ([email, password].includes("")) {
@@ -22,7 +29,7 @@ const Login = () => {
         setAlerta({});
       }, 2500);
       return;
-    }
+    };
 
     try {
       const url = `/api/back-end/users/login`;
@@ -32,7 +39,7 @@ const Login = () => {
       localStorage.setItem("userId", data.id);
       if (!data.active) {
         return history.push("/user/restore");
-      }
+      };
       history.push("/feed");
     } catch (error) {
       setAlerta({ msg: error.response.data.msg, error: true })
@@ -58,11 +65,11 @@ const Login = () => {
       localStorage.setItem("userId", data.userId);
       if (!data.active) {
         return history.push("/user/restore");
-      }
+      };
       history.push("/feed");
     } catch (error) {
       setAlerta({ msg: error.response.data.msg, error: true });
-    }
+    };
   };
 
   // const loginFacebook = async () => {

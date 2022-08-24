@@ -62,7 +62,7 @@ export default function UserProfile() {
                   </div>
                 ):(
                 <div>
-                  <p>Eres Premium Alto Capo</p>
+                  <p style={{textShadow: "0 0 5px #9027f1, 0 0 15px #9027f1, 0 0 20px #9027f1, 0 0 40px #9027f1, 0 0 60px #0066ff, 0 0 10px #177eed, 0 0 98px #8cf5ff75"}}>Ya eres premium</p>
                 </div>
                 )}
               </div>

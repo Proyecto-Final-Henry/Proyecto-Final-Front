@@ -128,33 +128,33 @@ export default function UserProfile() {
                                 </div>
                             </div>
                      </div>
-<div className="carda">
-  <div className="img">
-    <img src={user?.userImg} alt="userImg"></img>
-  </div>
-  <div className="content">
-    <h3>{user?.name}</h3>
-      <p>{user?.email}</p>
-      <p>Usuario {user?.role}</p>
-      <p >Miembro desde {user?.createdDate}</p>
-       <div className="center">
-          <div className="box">
-             <p>{user?.followers?.length}</p>
-             <p className="userP">Seguidores</p>
-          </div>
-          <div className="box">
-             <p>{user?.following?.length}</p>
-             <p className="userP">Seguidos</p>
-          </div>
+    <div className="carda">
+      <div className="img">
+        <img src={user?.userImg} alt="userImg"></img>
+      </div>
+      <div className="content">
+        <h3>{user?.name}</h3>
+          <p>{user?.email}</p>
+          <p>Usuario {user?.role}</p>
+          <p >Miembro desde {user?.createdDate}</p>
+          <div className="center">
+              <div className="box">
+                <p>{user?.followers?.length}</p>
+                <p className="userP">Seguidores</p>
+              </div>
+              <div className="box">
+                <p>{user?.following?.length}</p>
+                <p className="userP">Seguidos</p>
+              </div>
+        </div>
+        <br />
+        <Nav className='nav_btn_registro'>
+            <button style={{marginTop: "6px", "color":"white"}} className="btn_registrate" onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</button>
+        </Nav> 
+        <br />
+        {user.role === "Gratuito" ? <span><button type="button" className="btn btn-outline-success" data-toggle="modal" data-target="#MercadoModal"> Cambiar a plan Premium </button> <br /> </span> : null}
+      </div>
     </div>
-    <br />
-    <Nav className='nav_btn_registro'>
-        <button style={{marginTop: "6px", "color":"white"}} className="btn_registrate" onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</button>
-    </Nav> 
-    <br />
-    {user.role === "Gratuito" ? <span><button type="button" className="btn btn-outline-success" data-toggle="modal" data-target="#MercadoModal"> Cambiar a plan Premium </button> <br /> </span> : null}
-  </div>
-</div>
 
 
       {/* <div className="detailBac">
@@ -212,15 +212,6 @@ export default function UserProfile() {
         </div>
       </div> */}
 
-
-
-
-
-
-
-
-
-
       {/* <div>
         <h3>Seguidores:</h3>
         {user.followers?.length > 0 ? (
@@ -261,4 +252,4 @@ export default function UserProfile() {
       </div>
     </div>
   );
-}
+};

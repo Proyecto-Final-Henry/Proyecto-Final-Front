@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useSelector } from "react-redux";
 import style from "../../css/rev.css";
 import { Link, useHistory } from "react-router-dom";
 import "../../css/perfilrev.css";
-import Follow from "../Follow/Follow";
 import DeleteReview from "../DeleteReview/DeleteReview";
-import axios from "axios";
 import { propTypes } from "react-bootstrap/esm/Image";
 import LikesReview from "../LikesReview/LikesReview";
 
 export default function ReviewCard() {
   const history = useHistory();
   const [user, setUser] = useState({});
-  const rev=user.reviews
+  const rev = user.reviews;
   useEffect(() => {
     const autenticarUsuario = async () => {
       const token = localStorage.getItem("token");
@@ -44,7 +43,7 @@ export default function ReviewCard() {
   console.log(rev);
   return (
     <div className="reCart">
-        <h1>Tus Reseñas</h1>
+        <h1 style={{fontStyle: "italic",color:"#fa42cc", textShadow: "0 0 5px #9027f1, 0 0 15px #9027f1, 0 0 20px, 0 0 40px #9027f1, 0 0 60px #0066ff, 0 0 10px, 0 0 98px #8cf5ff75"}}>Tus Reseñas</h1>
       {rev? (
         rev.map((r) => {
           return (
@@ -106,4 +105,4 @@ export default function ReviewCard() {
       )}
     </div>
   );
-}
+};
