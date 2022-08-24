@@ -174,7 +174,7 @@ export default function OtherUserProfile() {
           <p>Todavia no sigues a nadie</p>
         )}
       </div> */}
-      <OtherReviews userId={user.id}/>
+      <OtherReviews userId={user.id} name={user.name}/>
       <div className="play">
         <h1>Aqui van las playlist</h1>
       </div>

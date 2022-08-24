@@ -44,7 +44,7 @@ export default function OtherReviews(props) {
   console.log(rev);
   return (
     <div className="reCart">
-      <h1>Tus Reseñas</h1>
+      <h1>Reseñas de {props.name}</h1>
       {rev ? (
         rev.map((r) => {
           return (
@@ -58,9 +58,9 @@ export default function OtherReviews(props) {
                     id={r.userId}
                     meId={user.id}
                     />
-                    <img src={user.userImg} alt="" />
-                    <h4>{user.name}</h4>
-                    <h5>{user.role}</h5>
+                    <img src={r.user.userImg} alt="" />
+                    <h4>{r.user.name}</h4>
+                    <h5>{r.user.role}</h5>
                   </div>
                 </div>
                 <div className="rev">
