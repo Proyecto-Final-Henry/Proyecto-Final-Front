@@ -125,12 +125,6 @@ a:hover { text-decoration: none; }
     transform: scale(1.3);
 }
 
-/* 
-.creadorModal a:link { text-decoration: none; }
-.creadorModal a:link  { text-decoration: none; }
-.creadorModal a:link { text-decoration: none; }
-   */
-
 .content_box{
   /* background: radial-gradient(circle at left 50%,#8c569c,#e057be); */
   /* background: linear-gradient(101.38deg,#fa42cc,#8c569c 150.71%); */

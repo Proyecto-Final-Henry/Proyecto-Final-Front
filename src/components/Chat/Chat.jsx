@@ -104,7 +104,6 @@ const Chat = () => {
       try {
         const { data } = await axios(`/api/back-end/user`);
         setUsers(data);
-
       } catch (error) {
         console.log(error);
       }
@@ -125,7 +124,7 @@ const Chat = () => {
         reciverId: info.id,
       });
       setChats(data);
-      // setCurrentChat(data)
+      // setCurrentChat(data);
       setProbando(!probando);
     } catch (error) {
       console.log(error);

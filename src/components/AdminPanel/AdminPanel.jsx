@@ -17,12 +17,12 @@ export default function AdminPanel (){
     const [ user , setUser ] = useState({});
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        if(!token){
-            history.push("/login");
-            return;
-        };
         const autenticarAdmin = async () => {
+            const token = localStorage.getItem("token");
+            if(!token){
+                history.push("/login");
+                return;
+            };
             const config = {
                 headers: {
                     "Content-Type" : "application/json",
@@ -44,29 +44,13 @@ export default function AdminPanel (){
         }, []);
 
     return (
-        // <div className={style.panelAdmin}>
-        //     <div className={style.panelAdmin_left}>
-        //         <AdminUsers/>
-        //     </div>
-
-        //     <div className={style.panelAdmin_right}>
-        //         <div style={{display:"inline-flex"}}>
-        //             <AdminIncome/>
-        //         </div>
-        //         <br />
-        //         <div style={{display:"inline-flex", width: "45%"}}>
-        //             <BarChart/>
-        //             <LineChart/>
-        //         </div>
-        //     </div>
-        // </div>
         <div className={style.panelAdmin}>
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                 <Row style={{padding:"0 !important"}}>
                     <Col sm={3}  className={style.panelAdmin_left}>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item>
-                            <Nav.Link eventKey="first" className={style.panelAdmin_first}>Listar Usuarios</Nav.Link>
+                            <Nav.Link eventKey="first" className={style.panelAdmin_first}>Lista de Usuarios</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link eventKey="second">Cantidad Usuarios</Nav.Link>
@@ -75,7 +59,7 @@ export default function AdminPanel (){
                             <Nav.Link eventKey="third">Usuarios Registrados</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="fourth">Dinero Ganado</Nav.Link>
+                            <Nav.Link eventKey="fourth">Ingresos</Nav.Link>
                         </Nav.Item>
                     </Nav>
                     </Col>

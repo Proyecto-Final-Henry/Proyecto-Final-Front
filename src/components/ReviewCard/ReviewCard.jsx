@@ -10,6 +10,7 @@ import axios from "axios";
 import LikesReview from "../LikesReview/LikesReview";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
+
 export default function ReviewCard(props) {
   let reviewArray = useSelector((state) => state.allReviews);
   const history = useHistory();
