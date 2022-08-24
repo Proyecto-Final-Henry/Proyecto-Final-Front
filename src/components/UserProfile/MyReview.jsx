@@ -11,27 +11,9 @@ import LikesReview from "../LikesReview/LikesReview";
 export default function ReviewCard() {
   const history = useHistory();
   const [user, setUser] = useState({});
-  const rev = user.reviews?.filter(r => r.show === true);
+  let reviewArray = useSelector((state) => state.allReviews);
+  const rev = reviewArray.filter(r => r.userId === user.id)
   console.log(rev);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      history.push("/login");
-      return;
-    };
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const refresh = async () => {
-      const { data } = await axios(`/api/back-end/users/perfil`, config);
-      setUser(data);
-    }
-    refresh()
-  },[]);
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -61,7 +43,6 @@ export default function ReviewCard() {
     autenticarUsuario();
   }, []);
 
-  console.log(rev);
   return (
     <div className="reCart">
       <h1 style={{fontStyle: "italic",color:"#fa42cc", textShadow: "0 0 3px #9027f1, 0 0 7px #9027f1, 0 0 12px, 0 0 18px #0066ff, 0 0 10px, 0 0 48px #8cf5ff75"}}>Tus Reseñas</h1>
