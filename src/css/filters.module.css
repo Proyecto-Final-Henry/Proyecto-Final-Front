@@ -55,13 +55,14 @@
 .filters select{
     padding: 0.4rem;
     margin: 10px;
+    border: 1px solid #ccc;
     background-color: #a77ab4;
     color: #fff;
     appearance: none;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
-.filters select{
+/* .filters select{
     margin-left: 10px;
     margin-right: 10px;
     border: 1px solid #ccc;
@@ -69,4 +70,4 @@
     border-radius: 6px;
     width: 30%;
     background-color: transparent;
-};
+}; */
