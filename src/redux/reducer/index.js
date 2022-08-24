@@ -162,6 +162,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         searchResult: action.payload,
         pagination: {},
+        selected:false,
       };
     case GET_ARTIST_DATA:
       return {

@@ -20,9 +20,6 @@
     padding: 1rem;
     min-width: 300px;
     max-width: 600px;
-    min-height: 200px;
-    max-height: 600px;
-    overflow-y: auto;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -60,6 +57,7 @@
     margin-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 20px;
     padding: 2px 20px;
     border-radius: 8px;
     background-color: #f73aa8;
@@ -74,10 +72,15 @@
 }
 
 .option_deleteReview p{
-    /* width: 500px; */
-    padding: 10px;
-    /* overflow-wrap: break-word; */
 
+    padding: 10px;
+    min-height: 150px;
+    max-height: 600px;
+    overflow-y: auto;
+
+    word-break: break-all;
+    word-break: break-word; 
+    hyphens: auto;
 }
 .modal_body{
     padding: 20px;

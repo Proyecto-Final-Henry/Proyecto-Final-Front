@@ -9,16 +9,13 @@ import { socket } from "./Feed";
 export default function Re(){
     let dispatch = useDispatch();
     let random = useSelector((state)=>state.randomFeed);
-    let sliced = random.slice(null,8)
-
-
-
+    let sliced = random.slice(null,8);
     const [notifications, setNotifications] = useState([]);
     const [open, setOpen] = useState(false);
     const userData = useSelector((state) => state.userData);
     const [onlineUsers, setOnlineUsers] = useState([]);
 
-    console.log(userData)
+    console.log(userData);
 
     useEffect(() => {
       console.log(socket)
@@ -66,7 +63,7 @@ export default function Re(){
                 <div className="notifications">
                  {notifications.map((n) => displayNotification(n))}
                 <button className="nButton" onClick={handleRead}>
-                      Mark as read
+                      Marcar como leído
                  </button>
                 </div>
                   )}

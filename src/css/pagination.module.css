@@ -4,7 +4,14 @@
     align-items: center;
     justify-content: center;
     margin-top: 5px;
-    color: #F7567C;
+    color: #fff;
+    
+}
+.data{
+    padding: 10px;
+    background-color: #a77ab4;
+    border: 1px solid #a77ab4;
+    border-radius: 5px;
 }
 
 .btn{
