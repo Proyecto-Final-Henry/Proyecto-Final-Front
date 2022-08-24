@@ -56,7 +56,7 @@ export default function  UserPlaylist({isModal, id, name, closeModal, userId}){
                     )
                 })}
             </div>): (
-            <div>
+            <div className={style.playList_box}>
                 <h5>No tienes listas de reproduccion, crea una</h5>
             </div>)}
         </div>
