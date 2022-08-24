@@ -19,6 +19,8 @@ export default function CreateReview({ apiId, type, name }) {
     description: "",
   });
 
+  const [message, setMessage] = useState("");
+
   const history = useHistory();
 
   const [user, setUser] = useState("");
@@ -56,7 +58,7 @@ export default function CreateReview({ apiId, type, name }) {
 
     if (Object.entries(error).length === 0) {
       try {
-        await axios.post("/api/back-end/reviews/create", {
+        let response = await axios.post("/api/back-end/reviews/create", {
           apiId,
           type,
           name,
@@ -65,6 +67,7 @@ export default function CreateReview({ apiId, type, name }) {
           description: review.description,
           userId: user.id,
         });
+        setMessage(response.data);
       } catch (err) {
         throw new Error("No pudimos crear tu reseña");
       }
@@ -94,7 +97,7 @@ export default function CreateReview({ apiId, type, name }) {
   return (
     <div>
       <Modal isOpen={isOpenAlert} onClose={onCloseRedirect}>
-        <h4>Reseña creada existosamente</h4>
+        <h4>{message}</h4>
       </Modal>
       <div className={style.createReview}>
         <h3>Crear reseña</h3>
