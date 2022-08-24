@@ -1,13 +1,13 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAllReviews, getResReviews, getUserData } from "../../redux/actions";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
+import { useHistory } from "react-router-dom";
 
 export default function DeleteReview(props) {
   let dispatch = useDispatch();
-
   const [isOpenAlert, openAlert, closeAlert] = useModal(false);
 
   const handleButtonDelete = async () => {
@@ -21,10 +21,9 @@ export default function DeleteReview(props) {
         return dispatch(getResReviews(props.apiId, props.type));
       case "user":
         closeAlert()
-        return dispatch(getUserData(props.meId));
       default:
         return dispatch(getAllReviews());
-    }
+    };
   };
 
   const handleButton = () => {

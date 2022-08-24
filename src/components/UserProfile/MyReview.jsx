@@ -12,8 +12,8 @@ export default function ReviewCard() {
   const history = useHistory();
   const [user, setUser] = useState({});
   const rev = user.reviews?.filter(r => r.show === true);
-  console.log(rev)
-  
+  console.log(rev);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -31,7 +31,7 @@ export default function ReviewCard() {
       setUser(data);
     }
     refresh()
-  }, [rev])
+  },[]);
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -72,7 +72,7 @@ export default function ReviewCard() {
                 <div className="carti">
                   <div className="per">
                     <div className="peRe">
-                      <DeleteReview id={r.id} location="user" meId={user.id} />
+                      <DeleteReview id={r.id} location="user" meId={user.id}/>
                       <img src={user.userImg} alt="" />
                       <h4>{user.name}</h4>
                       <h5>{user.role}</h5>
