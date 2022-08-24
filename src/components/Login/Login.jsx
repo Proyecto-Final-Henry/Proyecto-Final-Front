@@ -14,12 +14,12 @@ const Login = () => {
   const [alerta, setAlerta] = useState({});
   const history = useHistory();
 
-  useEffect(() => {
-    let token = localStorage.getItem("token");
-    if (token) {
-      history.push("/feed")
-    }
-  },[]);
+  // useEffect(() => {
+  //   let token = localStorage.getItem("token");
+  //   if (token) {
+  //     history.push("/feed")
+  //   }
+  // },[]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

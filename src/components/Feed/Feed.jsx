@@ -10,7 +10,7 @@ import axios from "axios";
 import { useState } from "react";
 import { io } from "socket.io-client";
 
-export const socket=io("https://remusic.onrender.com"); // https://remusic.onrender.com // http://localhost:3001
+export const socket = io("http://localhost:3001"); // https://remusic.onrender.com // http://localhost:3001
 
 export default function Feed(){
     const history = useHistory();
