@@ -12,7 +12,8 @@ import { socket } from "../Feed/Feed";
 const Chat = () => {
   const history = useHistory();
   // const socket = useRef();
-  const userId = localStorage.getItem("userId");
+  // const userId = localStorage.getItem("userId");
+  const token = localStorage.getItem("token");
   const [user, setUser] = useState({});
 
   const [users, setUsers] = useState([]);
@@ -65,7 +66,7 @@ const Chat = () => {
 
   useEffect(() => {
     // socket.current = io("http://localhost:3001");
-    socket.emit("new-user-add", userData?.id || userId);
+    socket.emit("new-user-add", token); // userData?.id || userId
     socket.on("get-users", (users) => {
       setOnlineUsers(users);
     });
