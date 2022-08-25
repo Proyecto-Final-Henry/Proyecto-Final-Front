@@ -37,7 +37,7 @@ import PlaylistComponent from "./components/PlayList/PlaylistComponent"
 import { Switch } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 
-export const socket = io("http://localhost:3001"); // https://remusic.onrender.com // http://localhost:3001
+export const socket = io("https://remusic.onrender.com"); // https://remusic.onrender.com // http://localhost:3001
 
 
 function App() {
