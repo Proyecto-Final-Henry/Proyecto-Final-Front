@@ -103,10 +103,14 @@ export default function ReviewCard(props) {
                         user.id === r.user.id ? "/user" : `/users/${r.user.id}`
                       }
                     >
+
                     <img src={r.user.userImg} alt="" />
 
                     </Link>
+                    <Link to={user.id === r.user.id ? "/user" : `/users/${r.user.id}`}>
                     <h4>{r.user.name}</h4>
+                    </Link>
+
                     <h5>{r.user.role}</h5>
                     {r.userId !== user.id ?(
                     <div> 

@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-function PlaylistSongsCard(props) {
+function OtherPlaylistSongsCard(props) {
 
     let dispatch = useDispatch()
 
@@ -22,7 +22,6 @@ function PlaylistSongsCard(props) {
           }
     }
 
-
   return (
     <div className={style.songCard_playlist}>
       <div className={style.songCard_left}>
@@ -35,10 +34,9 @@ function PlaylistSongsCard(props) {
         </Link>
       </div>
       <div>
-        <button className="addplaylist" onClick={() => removeSong()}>Borrar</button>
       </div>
     </div>
   );
 };
 
-export default PlaylistSongsCard;
+export default OtherPlaylistSongsCard;
