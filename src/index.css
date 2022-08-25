@@ -572,3 +572,40 @@ html{
 .seNa p{
   color: black;
 }
+
+.profile_photo{
+  background-color: #885197;
+  padding: 2px 30px;
+  border: 1px solid #5e3569;
+  border-radius: 6px;
+  color: #ffff;
+  margin-bottom: 10px;
+}
+.profile_photo:hover{
+  background-color: #60366b;
+}
+
+.box_userProfile h4{
+  font-size: 18px;
+}
+.box_userProfile button{
+  border: 1px solid #885197;
+  margin: 10px;
+  border-radius: 6px;
+  color: #885197;
+  font-size: 20px;
+  padding: 0 20px;
+  font-weight: 18px;
+}
+
+.box_userProfile button a{
+  color: #885197;
+}
+
+.box_userProfile button:hover{
+  background-color: #885197;
+  color: #ccc;
+}
+.box_userProfile button:hover a{
+  color: #ccc;
+}
