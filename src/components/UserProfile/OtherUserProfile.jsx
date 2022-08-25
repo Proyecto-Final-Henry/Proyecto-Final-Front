@@ -10,8 +10,7 @@ import Follow from "../Follow/Follow";
 import Nav from 'react-bootstrap/Nav';
 import ReviewCard from "./MyReview";
 import OtherReviews from "./OtherReviews";
-import OtherPlaylist from "./OtherPlaylist";
-
+import OtherPlaylist from "./OtherPlaylist.jsx";
 
 export default function OtherUserProfile() {
   //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params
