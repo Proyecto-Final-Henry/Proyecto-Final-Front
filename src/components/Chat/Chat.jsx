@@ -65,7 +65,6 @@ const Chat = () => {
   }, []);
 
   useEffect(() => {
-    // socket.current = io("http://localhost:3001");
     socket.emit("new-user-add", token); // userData?.id || userId
     socket.on("get-users", (users) => {
       setOnlineUsers(users);

@@ -44,7 +44,7 @@ export default function Feed() {
       },5000)
     };
     prueba()
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     const autenticarUsuario = async () => {
