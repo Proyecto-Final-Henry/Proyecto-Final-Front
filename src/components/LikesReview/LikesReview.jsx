@@ -6,6 +6,7 @@ import { getAllReviews, getOtherUser } from "../../redux/actions";
 import { socket } from '../../App';
 
 export default function LikesReview(props){
+    const [liked, setLiked] = useState(false);
     let dispatch = useDispatch();
     const mapedLikes = props?.likes?.map(l => {
         return l.id

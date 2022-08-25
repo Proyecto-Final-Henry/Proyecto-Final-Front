@@ -491,7 +491,7 @@ export default function GenreDetail() {
                 </div>
             : 
             <div className="spi">
-                <Spinner animation="border" variant="light" />
+                <Spinner animation="border" variant="dark" />
             </div>  
           }
             <div className={style.genreDetail_albums}>
