@@ -30,12 +30,23 @@ export default function LikesReview(props){
         };
     };
 
+    const handleNotification = (type) => {
+        console.log(type)
+        type === 1 && setLiked(true);
+            socket.emit("sendNotification", {
+            senderName: props.userName,
+            receiverName: props.revId,
+            title:props.title,
+            type
+        });
+      };
+
     return(
         <div>
             { hasLikes ? 
-                <button className="likesReview" onClick={() => handleButton()}>❤️</button>
+                <button className="likesReview" onClick={() => handleNotification()}>❤️</button>
                 :
-                <button className="likesReview" onClick={() => handleButton(1)}>🖤</button>
+                <button className="likesReview" onClick={() => handleNotification(1)}>🖤</button>
             }<> : </>
             {mapedLikes?.length}
         </div>
