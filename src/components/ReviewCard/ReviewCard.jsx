@@ -19,7 +19,8 @@ export default function ReviewCard(props) {
   const [liked, setLiked] = useState(false);
   const [isOpenAlert, openAlert, closeAlert] = useModal(false);
   const [description, setDescription] = useState('');
-
+  const myUser = useSelector((state) => state.userData);
+  
   useEffect(() => {
     const autenticarUsuario = async () => {
       const token = localStorage.getItem("token");
@@ -49,10 +50,6 @@ export default function ReviewCard(props) {
   }, []);
 
   const handleNotification = (type, revId, title) => {
-    console.log(props)
-    console.log(type)
-    console.log(revId)
-    console.log(title)
     type === 1 && setLiked(true);
     socket.emit("sendNotification", {
       senderName: user?.name,
@@ -88,8 +85,11 @@ export default function ReviewCard(props) {
                   <div className="peRe peRe_border">
                     {r.userId !== user.id ? (
                       <Follow
+                        targetName={r.user?.name}
+                        targetEmail={r.user?.email}
                         followers={r.user.followers}
                         followings={r.user.followings}
+                        name = {r.user.name}
                         id={r.userId}
                         meId={user.id}
                         location={props.location}
