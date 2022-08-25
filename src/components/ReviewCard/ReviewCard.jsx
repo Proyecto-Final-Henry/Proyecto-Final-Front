@@ -11,8 +11,7 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { socket } from "../Feed/Feed";
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
-
-export default function ReviewCard(props) {
+export default function ReviewCard() {
   let reviewArray = useSelector((state) => state.allReviews);
   const history = useHistory();
   const [user, setUser] = useState({});
@@ -89,10 +88,9 @@ export default function ReviewCard(props) {
                         followings={r.user.followings}
                         id={r.userId}
                         meId={user.id}
-                        location={props.location}
                       />
                     ) : (
-                      <DeleteReview id={r.id} location={props.location} />
+                      <DeleteReview id={r.id} />
                     )}
                     
                     <Link
