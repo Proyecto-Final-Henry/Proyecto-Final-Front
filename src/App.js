@@ -39,10 +39,10 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 function App() {
 
-  window.addEventListener("beforeunload", (e) => {
-    e.preventDefault()
-    localStorage.removeItem("token")
-  })
+  // window.addEventListener("beforeunload", (e) => {
+  //   e.preventDefault()
+  //   localStorage.removeItem("token")
+  // })
 
   return (
     <div className="App">

@@ -107,7 +107,7 @@ export default function ReviewCard(props) {
                     <h5>{r.user.role}</h5>
                     {r.userId !== user.id ?(
                     <div onClick={() => handleNotification(1, r.userId, r.title)}> 
-                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/></div>):(<>❤️ likes: {r.likes.length}</>)}
+                      <LikesReview likes={r.likes} id={r.id} iD={r?.user?.id} meId={user.id}/></div>):(<>❤️ likes: {r.likes.length}</>)}
                     {/* {r.userId !== user.id ?
                       <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>} */}
                   </div>
