@@ -1,11 +1,15 @@
 import style from "../../css/contact.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { sendEmailContact } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Contact() {
     let history = useHistory();
+    useEffect(() => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("active");
+      },[]);
 
     const dispatch = useDispatch();
     const [input, setInput] = useState({

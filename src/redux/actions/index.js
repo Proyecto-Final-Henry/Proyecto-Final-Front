@@ -50,16 +50,6 @@ export const sendEmailContact = (values) => {
   };
 };
 
-// export function getUserData(id) {
-//   return async function (dispatch) {
-//     return fetch("http://localhost:3001/api/back-end/users/perfil")
-//       .then((response) => response.json())
-//       .then((json) => {
-//         dispatch({ type: GET_USER_DATA, payload: json });
-//       });
-//   };
-// };
-
 export const getUserData = (id) => async (dispatch) => {
   try {
     const respuesta = await axios(`/api/back-end/user/${id}`);
@@ -437,5 +427,15 @@ export const clearAlbum = () => {
 export const clearSong = () => {
   return {
       type: CLEAR_SONG
+  };
+};
+
+export const sendEmailNotifications = (values) => {
+  console.log('sendEmailNotifications::::',values);
+  const url = "/api/back-end/notifications/follow";
+  return async () => {
+    axios
+      .post(url, values)
+      .catch((e) => console.log(e));
   };
 };

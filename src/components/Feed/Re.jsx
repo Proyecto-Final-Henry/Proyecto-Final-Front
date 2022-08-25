@@ -4,7 +4,7 @@ import { getRandomFeed } from "../../redux/actions";
 import styles from "../../css/side.css"
 import { Link } from "react-router-dom";
 import { FaRegBell } from "react-icons/fa";
-import { socket } from "./Feed";
+import { socket } from '../../App';
 
 export default function Re(){
     let dispatch = useDispatch();

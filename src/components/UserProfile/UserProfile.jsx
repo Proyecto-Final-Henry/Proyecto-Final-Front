@@ -4,7 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import "../../css/users.css";
-import Nav from 'react-bootstrap/Nav';
+import Nav from "react-bootstrap/Nav";
 import { useDispatch } from "react-redux";
 import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
 import Spinner from "react-bootstrap/Spinner";
@@ -40,17 +40,16 @@ export default function UserProfile() {
       },
     };
     try {
-        const { data } = await axios.post(
-          `/api/back-end/users/create_preference`,
-          { description: "Premium", price: 1, quantity: 1 },
-          config
-        );
-        window.open(data.id.sandbox_init_point); // sandbox_init_point
+      const { data } = await axios.post(
+        `/api/back-end/users/create_preference`,
+        { description: "Premium", price: 1, quantity: 1 },
+        config
+      );
+      window.open(data.id.sandbox_init_point); // sandbox_init_point
     } catch (error) {
       console.log(error);
-    };
+    }
   };
-
 
   const handleShowImg = (e) => {
     e.preventDefault();
@@ -104,27 +103,56 @@ export default function UserProfile() {
   };
 
   return (
-    <div  className="pepe" style={{position: "relative"}}>
-      <div className="modal fade" id="MercadoModal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
-                            <div className="modal-dialog" role="document">
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title" id="MercadoModalLabel">Pago Premium</h5>
-                                        <button type="button" className="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close"> X </button>
-                                    </div>
-                                    <div className="modal-body">
-                                        <h4>
-                                            Seras redirigido a MercadoPago
-                                        </h4>
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button type="button" className="btn btn-outline-success" data-dismiss="modal" onClick={handleButton} data-toggle="modal" data-target="#Mercado2Modal">Ok</button>
-                                        <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-                                    </div>
-                                </div>
-                            </div>
-                     </div>
-
+    <div className="pepe" style={{ position: "relative" }}>
+      <div
+        className="modal fade"
+        id="MercadoModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="MercadoModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="MercadoModalLabel">
+                Pago Premium
+              </h5>
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                {" "}
+                X{" "}
+              </button>
+            </div>
+            <div className="modal-body">
+              <h4>Seras redirigido a MercadoPago</h4>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-outline-success"
+                data-dismiss="modal"
+                onClick={handleButton}
+                data-toggle="modal"
+                data-target="#Mercado2Modal"
+              >
+                Ok
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-danger"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
                      <div className="modal fade" id="Mercado2Modal" tabIndex="-1" role="dialog" aria-labelledby="MercadoModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document" >
                                 <div className="modal-content">
@@ -156,11 +184,29 @@ export default function UserProfile() {
               <ChangeProfileImg userId={user.id} setShowImg={setShowImg} />
             )}
       </div>
-      <div className="content">
-        <h3>{user?.name}</h3>
+      <div className="carda">
+        {/* <div className="img">
+          <img src={user?.userImg} alt="userImg"></img>
+        </div> */}
+        {showImg ? (
+          <div className="hov">
+            <div className="pri">
+              <div className="img">
+                <img src={user?.userImg} alt="userImg"></img>
+              </div>
+              <button onClick={handleShowImg} className="bo">
+                📸
+              </button>
+            </div>
+          </div>
+        ) : (
+          <ChangeProfileImg userId={user.id} setShowImg={setShowImg} />
+        )}
+        <div className="content">
+          <h3>{user?.name}</h3>
           <p>{user?.email}</p>
           <p>Usuario {user?.role}</p>
-          <p >Miembro desde {user?.createdDate}</p>
+          <p>Miembro desde {user?.createdDate}</p>
           <div className="center">
               <div className="box">
                 <p>{user?.following?.length}</p>
@@ -257,7 +303,6 @@ export default function UserProfile() {
       </Dropdown>
       </div>
     </div> */}
-
       <div className="detailBac">
         <div className="detail">
           <div className="carta">
@@ -374,9 +419,7 @@ export default function UserProfile() {
         </div>
       </div>
       <MyReview />
-      <div className="play">
-        <MyPlaylist userId={user.id}/>
-      </div>
+      <div className="play">{user.id && <MyPlaylist userId={user.id} />}</div>
     </div>
   );
-};
+}
