@@ -10,7 +10,6 @@ import Follow from "../Follow/Follow";
 import Nav from 'react-bootstrap/Nav';
 import ReviewCard from "./MyReview";
 import OtherReviews from "./OtherReviews";
-import OtherPlaylist from "./OtherPlaylist.jsx"
 import OtherPlaylist from "./OtherPlaylist.jsx";
 
 export default function OtherUserProfile() {

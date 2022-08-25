@@ -1,4 +1,6 @@
-import info1 from '../../img/info1.jpeg';
+import carrousel4 from "../../assets/carrousel4.png"
+import carrousel5 from "../../assets/carrousel5.png"
+import carrousel6 from "../../assets/carrousel6.png"
 import info2 from '../../img/info2.jpeg';
 import info3 from '../../img/info3.jpeg';
 import style from "../../css/info.module.css";
@@ -9,15 +11,15 @@ export default function Info (){
         <div>
             <div className={style.boxTop}>
                 <div className={style.boxTopChild}>
-                    <img className={style.img} src={info1} alt="info 1"/>
+                    <img className={style.img} src={carrousel4} alt="info 1"/>
                     <p>Conecta con tus amigos</p>          
                 </div> 
                 <div className={style.boxTopChild}>
-                    <img className={style.img} src={info2} alt="info 2"/>
+                    <img className={style.img} src={carrousel5} alt="info 2"/>
                     <p>Califica tus canciones favoritas</p>         
                 </div>
                 <div className={style.boxTopChild}>
-                    <img className={style.img} src={info3} alt="info 3"/>
+                    <img className={style.img} src={carrousel6} alt="info 3"/>
                     <p>Escucha y guarda tus canciones favoritas</p>         
                 </div>
 

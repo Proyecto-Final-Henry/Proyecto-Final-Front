@@ -95,8 +95,7 @@ export default function NavigationM(){
                         <NavLink to={`/playlist/${user?.id}`}><h5>PLAYLIST</h5></NavLink>
                         {user.role === "Gratuito" ? null : <Link to="/chat"><h5>CHAT</h5></Link> }
                     </Nav>
-                        <NavDropdown id="basic-nav-dropdown" title={<FaRegBell/>}>
-
+                        {/* <NavDropdown id="basic-nav-dropdown" title={<FaRegBell/>}>
                         <NavDropdown.ItemText>
                                 <div className="notifications">
                                     {notifications.map((n) => displayNotification(n))}
@@ -105,7 +104,7 @@ export default function NavigationM(){
                                     </button>
                                 </div>
                         </NavDropdown.ItemText>
-                        </NavDropdown>
+                        </NavDropdown> */}
                     {/* <Nav>
                         <div className="noti">
                             <div className="icon" onClick={() => setOpen(!open)}>

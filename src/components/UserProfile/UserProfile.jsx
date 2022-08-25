@@ -185,9 +185,8 @@ export default function UserProfile() {
             )}
       </div>
       <div className="carda">
-        {/* <div className="img">
-          <img src={user?.userImg} alt="userImg"></img>
-        </div> */}
+{user?.userImg? 
+        <div>
         {showImg ? (
           <div className="hov">
             <div className="pri">
@@ -284,6 +283,15 @@ export default function UserProfile() {
                 }
               </div>
         </div>
+<<<<<<< HEAD
+        </div> 
+        :
+      <div className="spi">
+        <Spinner animation="border" variant="dark" />
+      </div>
+      }
+      </div>
+=======
         <br />
         <Nav className='nav_btn_registro'>
             <button style={{marginTop: "6px", "color":"white"}} className="btn_registrate" onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</button>
@@ -295,6 +303,7 @@ export default function UserProfile() {
         <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
           ...
         </Dropdown.Toggle>
+>>>>>>> 2060b11bcd695dab776ed04d6f3e94c69b37d5ba
 
         <Dropdown.Menu variant="dark">
           <Dropdown.Item href="#/action-3">{user.role === "Admin" ? (<Button onClick={handleAdmin} variant="outline-info" type="submit" className="boton">Panel de administrador</Button>) : null}</Dropdown.Item>
