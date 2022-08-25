@@ -17,12 +17,16 @@ export default function LikesReview(props){
         await axios.put(`/api/back-end/reviews/like/${props.meId}/${props?.id}`)
         dispatch(getAllReviews())
         if(type === 1){
-        socket.emit("sendNotification", {
-            senderName: props.userName,
-            receiverName: props.revId,
-            title:props.title,
-            type
-            });
+            try {
+                socket.emit("sendNotification", {
+                    senderName: props.userName,
+                    receiverName: props.revId,
+                    title:props.title,
+                    type
+                    });
+            } catch (error) {
+                console.log(error)
+            };
         };
     };
 
