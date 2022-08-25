@@ -530,3 +530,18 @@ html{
   margin-right: 5px !important;
   margin-left: 5px !important;
 }
+.seTo{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.seTo .sim img{
+  width: 50px;
+  height: 50px;
+}
+.moH3 h4{
+  color: rgb(0, 0, 0);
+}
+.seNa p{
+  color: black;
+}

@@ -5,8 +5,6 @@ import style from "../../css/rev.css";
 import { Link, useHistory } from "react-router-dom";
 import "../../css/perfilrev.css";
 import DeleteReview from "../DeleteReview/DeleteReview";
-import { propTypes } from "react-bootstrap/esm/Image";
-import LikesReview from "../LikesReview/LikesReview";
 
 export default function ReviewCard() {
   const history = useHistory();

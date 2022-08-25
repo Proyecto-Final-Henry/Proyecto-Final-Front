@@ -1,6 +1,4 @@
 .carti{
-  padding: 5px 10px;
-  margin: 10px 15px;
   border-radius: 8px;
 }
 .pepe{
@@ -11,14 +9,12 @@
 .carta{
 
   border-radius: 10px;
-  background-color: rgb(145, 145, 145);
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
 }
 
 .detail {
-  padding: 70px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   border: 6px solid transparent;
   border-radius: 5px;
   padding-bottom: 80px;
@@ -28,18 +24,19 @@
   border: 100px white;
 }
 .pri img {
+  margin-top: 30px;
   width: 200px;
   height: 200px;
   border-radius: 50%;
   border: 100px white;
 }
 .detail h3 {
-  color: #d400ff;
+  color: #ffffff;
 }
 .detail p {
   text-align: center;
-  font-weight: 700;
-  color: rgb(0, 0, 0);
+  font-weight: 500;
+  color: rgb(255, 255, 255);
   font-size: 17px;
 }
 #previewImg {
@@ -52,37 +49,6 @@
 }
 .ci{
   align-items: center;
-}
-
-
-/*Card*/
-.carda{
-  margin-left: 10px;
-  margin-top: 20px;
-  width: 320px;
-  height: 500px;
-  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
-  border-radius: 10px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.carda .img{
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  z-index: 10;
-  transform: translateY(50px);
-  border: 7px solid white;
-  overflow: hidden;
-  position: absolute;
-  background-color: white;
-}
-.carda .img img{
-
-  width: 120%;
-  height: 120%;
-  transform: translate(-8%, -8%);
 }
 .content{
   width: 100%;
@@ -105,3 +71,38 @@
   align-items: center;
   margin-top: 20px;
 }
+.box p{
+  cursor: pointer;
+}
+
+
+/* Card
+.carda{
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 320px;
+  height: 600px;
+  background: radial-gradient(circle at left 50%,#a64ac2,#f73aa8);
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.carda .img{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  z-index: 10;
+  transform: translateY(50px);
+  border: 7px solid white;
+  overflow: hidden;
+  position: absolute;
+  background-color: white;
+}
+
+.carda .img img{
+
+  width: 120%;
+  height: 120%;
+  transform: translate(-8%, -8%);
+} */

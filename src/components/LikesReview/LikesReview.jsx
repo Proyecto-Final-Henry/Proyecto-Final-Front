@@ -16,14 +16,14 @@ export default function LikesReview(props){
     const handleButton = async (type) => {
     await axios.put(`/api/back-end/reviews/like/${props.meId}/${props?.id}`)
     dispatch(getAllReviews())
-    if(type === 1){
-    socket.emit("sendNotification", {
-      senderName: props.userName,
-      receiverName: props.revId,
-      title:props.title,
-      type
-    });
-    };
+    // if(type === 1){
+    // socket.emit("sendNotification", {
+    //   senderName: props.userName,
+    //   receiverName: props.revId,
+    //   title:props.title,
+    //   type
+    // });
+    // };
 };
 
     return(
@@ -31,7 +31,7 @@ export default function LikesReview(props){
             { hasLikes ? 
                 <button className="likesReview" onClick={() => handleButton()}>❤️</button>
                 :
-                <button className="likesReview" onClick={() => handleButton(1)}>🖤</button>
+                <button className="likesReview" onClick={() => handleButton()}>🖤</button>
             }<> : </>
             {mapedLikes?.length}
         </div>
