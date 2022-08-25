@@ -39,7 +39,6 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 export const socket = io("https://remusic.onrender.com"); // https://remusic.onrender.com // http://localhost:3001
 
-
 function App() {
 
   // window.addEventListener("beforeunload", (e) => {

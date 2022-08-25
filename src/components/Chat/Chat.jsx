@@ -11,8 +11,6 @@ import { socket } from '../../App';
 
 const Chat = () => {
   const history = useHistory();
-  // const socket = useRef();
-  // const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
   const [user, setUser] = useState({});
 
@@ -31,6 +29,7 @@ const Chat = () => {
   const [recibirMensaje, setRecibirMensaje] = useState(null);
 
   const userData = useSelector((state) => state.userData);
+  let userId = localStorage.getItem("userId");
   console.log(userData);
 
   useEffect(() => {
@@ -65,7 +64,7 @@ const Chat = () => {
   }, []);
 
   useEffect(() => {
-    socket.emit("new-user-add", token); // userData?.id || userId
+    socket.emit("new-user-add", userData?.id || userId); // userData?.id || userId / token
     socket.on("get-users", (users) => {
       setOnlineUsers(users);
     });
