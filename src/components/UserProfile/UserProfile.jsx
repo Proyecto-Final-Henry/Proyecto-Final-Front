@@ -321,7 +321,7 @@ export default function UserProfile() {
                     <img src={user?.userImg} alt="userImg"></img>
                     <br />
                     <br />
-                    <button onClick={handleShowImg} className="bo">📸</button>
+                    <button onClick={handleShowImg} className="profile_photo"><i class="fa-solid fa-camera"></i></button>
                   </div>
               </div>
             ) : (
@@ -332,14 +332,17 @@ export default function UserProfile() {
             <p className="userP">Usuario {user?.role}</p>
             <p className="userP">Miembro desde {user?.createdDate}</p>
             <div className="center">
-              <div className="box">
+              <div className="box box_userProfile">
               <p>{user?.following?.length}</p>
                 <p className="userP" onClick={() => handleSeg(1)}>Seguidos</p>
                 { user?.role === "Premium"?(
                   <Modal isOpen={isOpenAlert1} onClose={closeAlert1} className="modal_body">
                   <h4>Eres Un Usuario Gratuito</h4>
-                  <br />
-                  <h4>Pasate a Premium para ver tus Seguidos</h4>
+                  <h4>Pasate a Premium para ver tus seguidores</h4>
+                  <div>
+                    <button onClick={closeAlert}>Cerrar</button>
+                    <button ><Link to="/premium2">Premium</Link></button>
+                  </div>
                   </Modal>):
                   <Modal isOpen={isOpenAlert1} onClose={closeAlert1} className="modal_body">
                     <div className="moH3">
@@ -368,15 +371,18 @@ export default function UserProfile() {
                   </Modal>
                 }
               </div>
-              <div className="box">
+              <div className="box box_userProfile">
               <p>{user?.followers?.length}</p>
                 <p className="userP" onClick={() => handleSeg()}>Seguidores</p>
                 {
                   user?.role === "Premium"?(
                   <Modal isOpen={isOpenAlert} onClose={closeAlert} className="modal_body">
                   <h4>Eres Un Usuario Gratuito</h4>
-                  <br />
                   <h4>Pasate a Premium para ver tus seguidores</h4>
+                  <div>
+                    <button onClick={closeAlert}>Cerrar</button>
+                    <button ><Link to="/premium2">Premium</Link></button>
+                  </div>
                   </Modal>):
                   <Modal isOpen={isOpenAlert} onClose={closeAlert} className="modal_body">
                   <div className="moH3">
