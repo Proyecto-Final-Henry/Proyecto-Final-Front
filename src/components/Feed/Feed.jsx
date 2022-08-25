@@ -30,13 +30,20 @@ export default function Feed() {
   const [onlineUsers, setOnlineUsers] = useState([]);
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    // socket.current = io("http://localhost:3001");
-    // console.log(socket)
+  const awaitToken = () => {
     socket.emit("newUser", token); // userData?.id || userId
     socket.on("getUsers", (users) => {
       setOnlineUsers(users);
     });
+  };
+
+  useEffect(() => {
+    const prueba = () => {
+      setTimeout(() => {
+        awaitToken()
+      },5000)
+    };
+    prueba()
   }, [user]);
 
   useEffect(() => {
