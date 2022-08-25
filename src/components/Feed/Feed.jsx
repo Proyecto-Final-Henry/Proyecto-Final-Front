@@ -29,9 +29,10 @@ export default function Feed() {
   const userData = useSelector((state) => state.userData);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const token = localStorage.getItem("token");
+  let userId = localStorage.getItem("userId");
 
   const awaitToken = () => {
-    socket.emit("newUser", token); // userData?.id || userId
+    socket.emit("newUser", userData?.id || userId); // userData?.id || userId / token
     socket.on("getUsers", (users) => {
       setOnlineUsers(users);
     });

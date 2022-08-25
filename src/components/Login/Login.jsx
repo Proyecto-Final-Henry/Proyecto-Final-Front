@@ -17,6 +17,7 @@ const Login = () => {
   useEffect(() => {
     localStorage.removeItem("token");
     localStorage.removeItem("active");
+    localStorage.removeItem("userId");
   },[]);
 
   const handleSubmit = async (e) => {
@@ -32,6 +33,7 @@ const Login = () => {
       const url = `/api/back-end/users/login`;
       const { data } = await axios.post(url, { email, password });
       localStorage.setItem("token", data.token);
+      localStorage.setItem("userId", data.id);
       localStorage.setItem("active", data.active);
       if (!data.active) {
         return history.push("/user/restore");
@@ -58,6 +60,7 @@ const Login = () => {
         });
         localStorage.setItem("token", data.token);
         localStorage.setItem("active", data.active);
+        localStorage.setItem("userId", data.id);
         if (!data.active) {
           return history.push("/user/restore");
         };
