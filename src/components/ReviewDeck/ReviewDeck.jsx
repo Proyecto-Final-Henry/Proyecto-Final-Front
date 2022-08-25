@@ -5,7 +5,7 @@ import ResReviewCard from "../ReviewCard/ResReviewCard";
 
 export default function ReviewDeck({ apiId, type }) {
   let dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(getResReviews(apiId, type));
   }, []);

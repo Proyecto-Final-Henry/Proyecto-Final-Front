@@ -1,7 +1,5 @@
 import Songs from "../Songs/Songs"; // la idea es reusar este componente para renderizar las canciones que tiene una playlist
-
 // falta ruta en el back que me traiga las canciones de la api que tiene una playlist en especificx
-
 import { useDispatch, useSelector } from "react-redux";
 import { getPlaylist } from "../../redux/actions";
 import { useHistory, useParams } from "react-router-dom";
@@ -27,7 +25,6 @@ export default function MyPlaylist(props) {
   });
 
   const index= useSelector(store=>store.index);
-
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -60,7 +57,7 @@ export default function MyPlaylist(props) {
     dispatch(getPlaylist(userId));
   },[]);
 
-    const playlistData = useSelector((state) => state.playList);
+  const playlistData = useSelector((state) => state.playList);
     
   console.log(playlistData)
 
