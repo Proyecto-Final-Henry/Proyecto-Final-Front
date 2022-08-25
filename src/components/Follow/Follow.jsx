@@ -6,6 +6,7 @@ import {
   getOtherUser,
   getResReviews,
   getUserData,
+  sendEmailNotifications,
 } from "../../redux/actions";
 
 export default function Follow(props) {
@@ -21,10 +22,18 @@ export default function Follow(props) {
   const handleButton = async () => {
     if (hasFollower) {
       await axios.get(`/api/back-end/user/unFollow/${props.meId}/${props?.id}`);
-      console.log(`Hola ${props.targetName}, ${myData.name}, te ha seguido.  ----> mail objetivo ${props.targetEmail}`);
+
+      
+      console.log(`Hola ${props.targetName}, ${myData.name}, ya NO te sigue.  ----> mail objetivo ${props.targetEmail}`);
     } else {
       await axios.get(`/api/back-end/user/follow/${props.meId}/${props?.id}`);
-      console.log(`Hola ${props.targetName}, ${myData.name}, te ha seguido.  ----> mail objetivo ${props.targetEmail}`);
+      let valuesNotificacion = {
+        nameUser : props.targetName,
+        email: props.targetEmail,
+        nameFollow : myData.name
+      }
+      dispatch(sendEmailNotifications(valuesNotificacion));
+      console.log(`Hola ${props.targetName}, ${myData.name}, ha comenzado a seguirte.  ----> mail objetivo ${props.targetEmail}`);
     }
     dispatch(getOtherUser(props.id));
     switch (props.location) {
