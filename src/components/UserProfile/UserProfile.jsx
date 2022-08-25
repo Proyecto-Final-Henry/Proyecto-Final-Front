@@ -218,18 +218,6 @@ export default function UserProfile() {
             </div>
           </div>
           <br />
-          <Nav className="nav_btn_registro">
-            <button
-              style={{ marginTop: "6px", color: "white" }}
-              className="btn_registrate"
-              onClick={cerrarSesion}
-              variant="outline-danger"
-              type="submit"
-            >
-              Cerrar Sesión
-            </button>
-          </Nav>
-          <br />
           {user.role === "Gratuito" ? (
             <span>
               <button
@@ -244,6 +232,29 @@ export default function UserProfile() {
               <br />{" "}
             </span>
           ) : null}
+          <br />
+          {user.role === "Admin" ? (
+              <Button
+                onClick={handleAdmin}
+                variant="outline-info"
+                type="submit"
+                className="boton"
+              >
+                Panel de administrador
+              </Button>
+            ) : null}
+          <Nav className="nav_btn_registro">
+            <button
+              style={{ marginTop: "6px", color: "white" }}
+              className="btn_registrate"
+              onClick={cerrarSesion}
+              variant="outline-danger"
+              type="submit"
+            >
+              Cerrar Sesión
+            </button>
+          </Nav>
+          <br />
         </div>
       </div>
 

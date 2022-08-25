@@ -61,9 +61,11 @@ export default function Feed() {
         },
       };
       try {
-        const { data } = await axios(`/api/back-end/users/perfil`, config);
-        dispatch(getUserData(data?.id));
-        setUser(data);
+        if (Object.keys(user).length === 0) {
+          const { data } = await axios(`/api/back-end/users/perfil`, config);
+          dispatch(getUserData(data?.id));
+          setUser(data);
+        }
       } catch (error) {
         console.log(error.response.data.msg);
       }
