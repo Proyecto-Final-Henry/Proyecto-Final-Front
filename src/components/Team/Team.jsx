@@ -3,7 +3,7 @@ import lechuga from "../../assets/team/lechuga.jpg";
 import alejandro from "../../assets/team/alejandro.jpeg";
 import fernandez from "../../assets/team/fernandez.jpg"; 
 import alban from "../../assets/team/alban.jpg";
-import placeholder1 from "../../assets/team/placeholder1.png";
+import ignacio from "../../assets/team/ignacio.jpeg";
 import mauricio from "../../assets/team/mauricio.jpg";
 import luis from "../../assets/team/luis.jpg";
 import { useEffect } from "react";
@@ -182,7 +182,7 @@ export default function Team() {
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#CrisAlbModal"> Cristhian Alban </button>
                     </div>
                     <div className={style.creador}>
-                        <img src={placeholder1} alt="Ignacio Balderrama" />
+                        <img src={ignacio} alt="Ignacio Balderrama" />
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#NachoModal"> Ignacio Balderrama </button>
                     </div>
                     <div className={style.creador}>
