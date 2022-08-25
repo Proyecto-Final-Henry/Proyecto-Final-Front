@@ -86,7 +86,6 @@ export default function UserProfile() {
     };
     autenticarUsuario();
   }, [showImg]);
-  console.log(user)
   
   const handleSeg = (type) => {
     if (type===1) {

@@ -59,7 +59,6 @@ export default function ReviewCard(props) {
     });
   };
 
-  // console.log(reviewArray);
 
   const handleButton = (message) => {
     setDescription(message);

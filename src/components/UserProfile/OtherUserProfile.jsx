@@ -18,7 +18,6 @@ export default function OtherUserProfile() {
   const history = useHistory();
   const dispatch = useDispatch();
   const [meUser, setMeUser] = useState({});
-  console.log(meUser)
   const { id } = useParams();
 
   useEffect(() => {

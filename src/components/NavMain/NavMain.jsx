@@ -45,9 +45,7 @@ export default function NavigationM(){
         autenticarUsuario();
     },[])
     useEffect(() => {
-        console.log(socket)
         socket.on("getNotification", (data) => {
-          console.log(data)
           setNotifications((prev) => [...prev, data]);
         });
       }, [socket]);

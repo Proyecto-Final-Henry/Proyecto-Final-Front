@@ -5,7 +5,6 @@ import "../../css/perfilrev.css"
 export default function UserProfile (){
     //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params 
     let reviewArray = useSelector((state) => state.allReviews);
-    console.log(reviewArray)
     var role="Free"
     if (reviewArray.role==="Base") {
         role="Free"

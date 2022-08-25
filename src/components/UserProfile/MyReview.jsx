@@ -10,8 +10,7 @@ export default function ReviewCard() {
   const history = useHistory();
   const [user, setUser] = useState({});
   let reviewArray = useSelector((state) => state.allReviews);
-  const rev = reviewArray.filter(r => r.userId === user.id)
-  console.log(rev);
+  const rev = reviewArray.filter(r => r.userId === user.id);
 
   useEffect(() => {
     const autenticarUsuario = async () => {

@@ -41,7 +41,6 @@ export default function OtherReviews(props) {
     autenticarUsuario();
   }, []);
 
-  console.log(rev);
   return (
     <div className="reCart">
       <h1>Reseñas de {props.name}</h1>

@@ -30,7 +30,6 @@ const Chat = () => {
 
   const userData = useSelector((state) => state.userData);
   let userId = localStorage.getItem("userId");
-  console.log(userData);
 
   useEffect(() => {
     const autenticarUsuario = async () => {

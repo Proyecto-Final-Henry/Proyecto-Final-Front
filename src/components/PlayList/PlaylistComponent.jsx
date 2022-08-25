@@ -56,8 +56,6 @@ export default function PlaylistComponent() {
 
   const playlistData = useSelector((state) => state.playList);
 
-  console.log(playlistData);
-
   return (
     <div className={style.div_box}>
       <div className={style.artistDetail_header}>

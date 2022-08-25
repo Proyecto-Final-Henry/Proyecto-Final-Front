@@ -16,9 +16,7 @@ export default function Re(){
     const [onlineUsers, setOnlineUsers] = useState([]);
 
     useEffect(() => {
-      console.log(socket)
       socket.on("getNotification", (data) => {
-        console.log(data)
         setNotifications((prev) => [...prev, data]);
       });
     }, [socket]);

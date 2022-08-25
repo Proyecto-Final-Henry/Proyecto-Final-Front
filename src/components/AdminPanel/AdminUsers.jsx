@@ -17,8 +17,6 @@ export default function AdminUsers() {
         allUsers([]);
     },[]);
 
- console.log(users);
-
   useEffect(() => {
     const allUsers = async () => {
       try {

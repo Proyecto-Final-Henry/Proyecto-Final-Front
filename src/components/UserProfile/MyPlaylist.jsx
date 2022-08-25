@@ -16,7 +16,6 @@ import DeletePlaylist from "../PlayList/DeletePlaylist";
 export default function MyPlaylist(props) {
   let dispatch = useDispatch();
   let userId = props.userId;
-  // console.log(userId)
   const [key, setKey] = useState("top");
   let history = useHistory();
   const [user, setUser] = useState({
@@ -49,12 +48,10 @@ export default function MyPlaylist(props) {
     autenticarUsuario();
   }, []);
   useEffect(() => {
-    console.log(userId);
     dispatch(getPlaylist(userId));
   }, []);
 
   const playlistData = useSelector((state) => state.playList);
-  console.log(playlistData);
   return (
     <div>
       <div>

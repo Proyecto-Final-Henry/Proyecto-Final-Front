@@ -48,8 +48,6 @@ export default function SongDetail() {
   }, []);
 
   let songData = useSelector((state) => state.songData);
-  console.log(songData);
-  console.log(user);
 
   return (
     <div className={style.songDetail}>
