@@ -49,6 +49,9 @@ export default function ReviewCard(props) {
   }, []);
 
   const handleNotification = (type, revId, title) => {
+    console.log(props)
+    console.log(type)
+    console.log(revId)
     console.log(title)
     type === 1 && setLiked(true);
     socket.emit("sendNotification", {
@@ -108,8 +111,6 @@ export default function ReviewCard(props) {
                     {r.userId !== user.id ?(
                     <div onClick={() => handleNotification(1, r.userId, r.title)}> 
                       <LikesReview likes={r.likes} id={r.id} meId={user.id}/></div>):(<>❤️ likes: {r.likes.length}</>)}
-                    {/* {r.userId !== user.id ?
-                      <LikesReview likes={r.likes} id={r.id} meId={user.id}/>:<>♥likes: {r.likes.length}</>} */}
                   </div>
                 </div>
                 <div className="rev">
