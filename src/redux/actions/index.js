@@ -429,3 +429,13 @@ export const clearSong = () => {
       type: CLEAR_SONG
   };
 };
+
+export const sendEmailNotifications = (values) => {
+  console.log('sendEmailNotifications::::',values);
+  const url = "/api/back-end/notifications/follow";
+  return async () => {
+    axios
+      .post(url, values)
+      .catch((e) => console.log(e));
+  };
+};
