@@ -283,7 +283,6 @@ export default function UserProfile() {
                 }
               </div>
         </div>
-<<<<<<< HEAD
         </div> 
         :
       <div className="spi">
@@ -291,7 +290,6 @@ export default function UserProfile() {
       </div>
       }
       </div>
-=======
         <br />
         <Nav className='nav_btn_registro'>
             <button style={{marginTop: "6px", "color":"white"}} className="btn_registrate" onClick={cerrarSesion} variant="outline-danger" type="submit">Cerrar Sesión</button>
@@ -315,6 +313,8 @@ export default function UserProfile() {
       <div className="detailBac">
         <div className="detail">
           <div className="carta">
+       {user?.userImg?      
+            <div>
             {showImg ? (
               <div className="hov">
                   <div className="pri">
@@ -371,6 +371,7 @@ export default function UserProfile() {
                   </Modal>
                 }
               </div>
+
               <div className="box box_userProfile">
               <p>{user?.followers?.length}</p>
                 <p className="userP" onClick={() => handleSeg()}>Seguidores</p>
@@ -414,9 +415,18 @@ export default function UserProfile() {
                 }
               </div>
             </div>
-            <Button onClick={cerrarSesion} variant="outline-danger" type="submit" className="boton">Cerrar Sesión</Button>
+            </div>  
+            :
+            <div className="spi">
+              <Spinner animation="border" variant="dark" />
+            </div>
+            }
+            {user.role === "Admin" ? (<Button onClick={handleAdmin} variant="outline-info" type="submit" className="boton">Panel de administrador</Button>) : null}
             <br />
             {user.role === "Gratuito" ? <span><button type="button" className="btn btn-outline-success" data-toggle="modal" data-target="#MercadoModal"> Cambiar a plan Premium </button> <br /> </span> : null}
+            <br />
+            <Button onClick={cerrarSesion} variant="btn btn-danger" type="submit" className="boton">Cerrar Sesión</Button>
+            <br />
             <br />
             <Dropdown>
             <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
@@ -424,7 +434,6 @@ export default function UserProfile() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu variant="dark">
-              <Dropdown.Item href="#/action-3">{user.role === "Admin" ? (<Button onClick={handleAdmin} variant="outline-info" type="submit" className="boton">Panel de administrador</Button>) : null}</Dropdown.Item>
               <Dropdown.Item href="#/action-4"><Link to="/user/deactivate"><Button variant="outline-info" type="submit" className="boton">Desactivar cuenta</Button></Link></Dropdown.Item>
             </Dropdown.Menu>
             </Dropdown>
