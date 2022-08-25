@@ -10,13 +10,13 @@ import ChangeProfileImg from "../ChangeProfileImg/ChangeProfileImg";
 import Spinner from "react-bootstrap/Spinner";
 import MyReview from "./MyReview";
 import loading from "../../assets/loading.gif";
+import MyPlaylist from "./MyPlaylist.jsx"
 
 export default function UserProfile() {
   //const data =useSelector(store => store.userData) // descomentar para subcribir el componete al stado global con la data que se pide por params
   const history = useHistory();
   const [user, setUser] = useState({});
   const [showImg, setShowImg] = useState(true);
-
   let handleAdmin = () => {
     history.push("/admin");
   };
@@ -44,6 +44,7 @@ export default function UserProfile() {
       console.log(error);
     };
   };
+
 
   const handleShowImg = (e) => {
     e.preventDefault();
@@ -80,6 +81,7 @@ export default function UserProfile() {
     };
     autenticarUsuario();
   }, [showImg]);
+  console.log(user)
 
   const cerrarSesion = () => {
     localStorage.removeItem("token");
@@ -246,7 +248,7 @@ export default function UserProfile() {
       </div> */}
       <MyReview />
       <div className="play">
-        <h1>Aqui van las playlist</h1>
+        <MyPlaylist userId={user.id}/>
       </div>
     </div>
   );

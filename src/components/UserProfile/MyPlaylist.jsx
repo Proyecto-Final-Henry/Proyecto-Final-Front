@@ -11,13 +11,14 @@ import { BsShieldFillCheck } from "react-icons/bs";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import axios from "axios";
-import PlaylistSongs from "./PlaylistSongs"
-import CreatePlaylist from "./CreatePlaylist";
-import DeletePlaylist from "./DeletePlaylist";
+import PlaylistSongs from "../PlayList/PlaylistSongs"
+import CreatePlaylist from "../PlayList/CreatePlaylist";
+import DeletePlaylist from "../PlayList/DeletePlaylist";
 
-export default function PlaylistComponent() {
+export default function MyPlaylist(props) {
   let dispatch = useDispatch();
-  let userId = useParams().id;
+  let userId=props.userId
+  console.log(userId)
   const [key, setKey] = useState('top');
   let history = useHistory();
   const [user, setUser] = useState({
@@ -54,23 +55,19 @@ export default function PlaylistComponent() {
     };
     autenticarUsuario()
   },[]);
-   
   useEffect(() => {
+    console.log(userId)
     dispatch(getPlaylist(userId));
   },[]);
 
-
-  const playlistData = useSelector((state) => state.playList);
-
+    const playlistData = useSelector((state) => state.playList);
+    
   console.log(playlistData)
 
   return (
-    <div className={style.div_box}>
-      <div className={style.artistDetail_header}>
+    <div>
+      <div >
         <div>
-          <img src={user.userImg} alt={user.name} />
-        </div>
-        <div className={style.artistDetail_information}>
           {/* <p><BsShieldFillCheck/> Artista Verificado</p> */}
           <h1>Playlists de {user.name}</h1>
           {/* <Button  variant="outline-success">Seguir</Button> */}
@@ -90,9 +87,6 @@ export default function PlaylistComponent() {
             </Tab>
         })
         }
-        <Tab eventKey="crear" title="Crear nueva Playlist">
-            <CreatePlaylist/>
-        </Tab>
     </Tabs>
 
     </div>
