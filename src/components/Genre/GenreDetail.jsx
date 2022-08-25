@@ -85,7 +85,7 @@ export default function GenreDetail() {
                             :
                             null}
 
-                        {GenreData.name === "Reggaeton" ? 
+                        {GenreData.name === "Reggaetón" ? 
                             <div>
                                 <h2><span>{GenreData.name}</span></h2>
                                 <h4>
