@@ -12,7 +12,7 @@ export default function DeletePlaylist(props){
     const [isOpenAlert, openAlert, closeAlert] = useModal(false);
 
     const handleButtonDelete = async () => {
-        await axios.put(`http://localhost:3001/api/back-end/playlist//delete/${props.id}`)
+        await axios.put(`/api/back-end/playlist//delete/${props.id}`)
         dispatch(getPlaylist(props.userId))
     };
 

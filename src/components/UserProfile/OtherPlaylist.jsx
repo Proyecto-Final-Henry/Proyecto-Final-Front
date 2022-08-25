@@ -12,19 +12,16 @@ import axios from "axios";
 import PlaylistSongs from "../PlayList/PlaylistSongs";
 import CreatePlaylist from "../PlayList/CreatePlaylist";
 import DeletePlaylist from "../PlayList/DeletePlaylist";
+import OtherPlaylistSongs from "../PlayList/OtherPlaylistSongs";
 
-export default function MyPlaylist(props) {
-  let dispatch = useDispatch();
-  let userId = props.userId;
-  // console.log(userId)
-  const [key, setKey] = useState("top");
-  let history = useHistory();
-  const [user, setUser] = useState({
-    name: "",
-    id: "",
-  });
-
-  const index = useSelector((store) => store.index);
+export default function OtherPlaylist(props) {
+    const user = useSelector((state) => state.otherUser);
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const [key, setKey] = useState("top");
+    const [meUser, setMeUser] = useState({});
+    const params = useParams();
+    let {id} = params
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -32,29 +29,17 @@ export default function MyPlaylist(props) {
       if (!token) {
         history.push("/login");
         return;
-      }
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
       };
-      try {
-        const { data } = await axios(`/api/back-end/users/perfil`, config);
-        setUser(data);
-      } catch (error) {
-        console.log(error.response.data.msg);
-      }
     };
     autenticarUsuario();
   }, []);
+
   useEffect(() => {
-    console.log(userId);
-    dispatch(getPlaylist(userId));
+    dispatch(getPlaylist(id));
   }, []);
 
   const playlistData = useSelector((state) => state.playList);
-  console.log(playlistData);
+
   return (
     <div>
       <div>
@@ -74,12 +59,11 @@ export default function MyPlaylist(props) {
         {playlistData?.map((p) => {
           return (
             <Tab eventKey={p.name} title={p.name}>
-              <PlaylistSongs
+              <OtherPlaylistSongs
                 songs={p.songs}
-                userId={userId}
+                userId={id}
                 playlistId={p.id}
               />
-              <DeletePlaylist id={p.id} userId={userId} />
             </Tab>
           );
         })}

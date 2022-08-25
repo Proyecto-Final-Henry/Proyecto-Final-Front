@@ -10,6 +10,7 @@ import Follow from "../Follow/Follow";
 import Nav from 'react-bootstrap/Nav';
 import ReviewCard from "./MyReview";
 import OtherReviews from "./OtherReviews";
+import OtherPlaylist from "./OtherPlaylist";
 
 
 export default function OtherUserProfile() {
@@ -176,7 +177,7 @@ export default function OtherUserProfile() {
       </div> */}
       <OtherReviews userId={user.id} name={user.name}/>
       <div className="play">
-        <h1>Aqui van las playlist</h1>
+      <div className="play">{user.id && <OtherPlaylist userId={user.id} />}</div>
       </div>
     </div>
   );

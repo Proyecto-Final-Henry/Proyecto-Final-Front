@@ -8,7 +8,7 @@ import DeleteReview from "../DeleteReview/DeleteReview";
 import axios from "axios";
 import LikesReview from "../LikesReview/LikesReview";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { socket } from "../Feed/Feed";
+import { socket } from '../../App';
 import { useModal } from "../Modal/useModal";
 import Modal from "../Modal/Modal";
 
@@ -49,6 +49,9 @@ export default function ReviewCard(props) {
   }, []);
 
   const handleNotification = (type, revId, title) => {
+    console.log(props)
+    console.log(type)
+    console.log(revId)
     console.log(title)
     type === 1 && setLiked(true);
     socket.emit("sendNotification", {
@@ -100,10 +103,14 @@ export default function ReviewCard(props) {
                         user.id === r.user.id ? "/user" : `/users/${r.user.id}`
                       }
                     >
+
                     <img src={r.user.userImg} alt="" />
 
                     </Link>
+                    <Link to={user.id === r.user.id ? "/user" : `/users/${r.user.id}`}>
                     <h4>{r.user.name}</h4>
+                    </Link>
+
                     <h5>{r.user.role}</h5>
                     {r.userId !== user.id ?(
                     <div> 

@@ -7,7 +7,7 @@ import ChatBox from "./ChatBox";
 // import { io } from "socket.io-client";
 import User from "./User";
 import { useSelector } from "react-redux";
-import { socket } from "../Feed/Feed";
+import { socket } from '../../App';
 
 const Chat = () => {
   const history = useHistory();
@@ -65,7 +65,6 @@ const Chat = () => {
   }, []);
 
   useEffect(() => {
-    // socket.current = io("http://localhost:3001");
     socket.emit("new-user-add", token); // userData?.id || userId
     socket.on("get-users", (users) => {
       setOnlineUsers(users);

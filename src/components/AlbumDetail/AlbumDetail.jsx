@@ -10,6 +10,7 @@ import Tabs from "react-bootstrap/Tabs";
 import style from "../../css/artistDetail.module.css";
 import Button from "react-bootstrap/Button";
 import { BsShieldFillCheck } from "react-icons/bs";
+import Spinner from "react-bootstrap/Spinner";
 
 export default function AlbumDetail() {
   let dispatch = useDispatch();
@@ -37,16 +38,24 @@ export default function AlbumDetail() {
         <div>
           <div>
             <div className={style.artistDetail_header}>
-              <div>
-                <img src={albumData.image} alt={albumData.name} />
+              {albumData.image ? 
+              <div> 
+                <div>
+                  <img src={albumData.image} alt={albumData.name} />
+                </div>
+                <div className={style.artistDetail_information}>
+                  <p>
+                    <BsShieldFillCheck /> Álbum Verificado
+                  </p>
+                  <h1>{albumData.name}</h1>
+                  <Button variant="outline-success">Seguir</Button>
+                </div> 
               </div>
-              <div className={style.artistDetail_information}>
-                <p>
-                  <BsShieldFillCheck /> Álbum Verificado
-                </p>
-                <h1>{albumData.name}</h1>
-                <Button variant="outline-success">Seguir</Button>
+              :
+              <div className="spi">
+                <Spinner animation="border" variant="dark" />
               </div>
+            }
             </div>
             <div>
               {albumData.artist && (

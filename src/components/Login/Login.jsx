@@ -14,12 +14,11 @@ const Login = () => {
   const [alerta, setAlerta] = useState({});
   const history = useHistory();
 
-  // useEffect(() => {
-  //   let token = localStorage.getItem("token");
-  //   if (token) {
-  //     history.push("/feed")
-  //   }
-  // },[]);
+  useEffect(() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("active");
+    localStorage.removeItem("userId");
+  },[]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,11 +29,11 @@ const Login = () => {
       }, 2500);
       return;
     };
-
     try {
       const url = `/api/back-end/users/login`;
       const { data } = await axios.post(url, { email, password });
       localStorage.setItem("token", data.token);
+      localStorage.setItem("userId", data.id);
       localStorage.setItem("active", data.active);
       if (!data.active) {
         return history.push("/user/restore");
@@ -49,25 +48,31 @@ const Login = () => {
   };
 
   const loginGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-    const { user } = await signInWithPopup(auth, provider);
     try {
-      const url = `/api/back-end/users/googleLogin`;
-      const { data } = await axios.post(url, {
-        name: user.displayName,
-        email: user.providerData[0].email,
-        userImg: user.photoURL ? user.photoURL : null,
-      });
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("active", data.active);
-      if (!data.active) {
-        return history.push("/user/restore");
+      const provider = new GoogleAuthProvider();
+      const { user } = await signInWithPopup(auth, provider);
+      try {
+        const url = `/api/back-end/users/googleLogin`;
+        const { data } = await axios.post(url, {
+          name: user.displayName,
+          email: user.providerData[0].email,
+          userImg: user.photoURL ? user.photoURL : null,
+        });
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("active", data.active);
+        localStorage.setItem("userId", data.id);
+        if (!data.active) {
+          return history.push("/user/restore");
+        };
+        history.push("/feed");
+      } catch (error) {
+        setAlerta({ msg: error.response.data.msg, error: true });
       };
-      history.push("/feed");
     } catch (error) {
-      setAlerta({ msg: error.response.data.msg, error: true });
+      console.log(error)
     };
   };
+
 
   // const loginFacebook = async () => {
   //   const provider =  new FacebookAuthProvider()

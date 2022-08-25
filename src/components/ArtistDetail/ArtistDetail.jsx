@@ -14,6 +14,7 @@ import ArtistAlbums from "../ArtistAlbums/ArtistAlbums";
 import ArtistSongs from "../ArtistSongs/ArtistSongs";
 import ArtistSongsSearch from "../ArtistSongs/ArtistSongSearch";
 import axios from "axios";
+import Spinner from "react-bootstrap/Spinner";
 
 export default function ArtistDetail() {
   let dispatch = useDispatch();
@@ -62,14 +63,21 @@ export default function ArtistDetail() {
   return (
     <div style={{"backgroundColor": "pink"}}>
       <div className={style.artistDetail_header}>
+        {artistData.image ? 
         <div>
-          <img src={artistData.image} alt={artistData.name}/>
+            <div>
+              <img src={artistData.image} alt={artistData.name}/>
+            </div>
+            <div className={style.artistDetail_information}>
+              <p><BsShieldFillCheck/> Artista Verificado</p>
+              <h1>{artistData.name}</h1>
+            </div>
         </div>
-        <div className={style.artistDetail_information}>
-          <p><BsShieldFillCheck/> Artista Verificado</p>
-          <h1>{artistData.name}</h1>
+            : 
+              <div className="spi">
+              <Spinner animation="border" variant="light" />
+            </div>}
         </div>
-      </div>
 
       <Tabs
         id="controlled-tab-example"

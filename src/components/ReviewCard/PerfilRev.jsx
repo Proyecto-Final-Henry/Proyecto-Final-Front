@@ -11,7 +11,7 @@ export default function UserProfile (){
         role="Free"
     }else{
         role="Premium"
-    }
+    };
     return(
             <div className="peRe">
                 <img src={reviewArray?.userImg} alt='userImg'></img>
