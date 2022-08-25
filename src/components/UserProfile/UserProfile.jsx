@@ -185,9 +185,8 @@ export default function UserProfile() {
         </div>
       </div>
       <div className="carda">
-        {/* <div className="img">
-          <img src={user?.userImg} alt="userImg"></img>
-        </div> */}
+{user?.userImg? 
+        <div>
         {showImg ? (
           <div className="hov">
             <div className="pri">
@@ -256,6 +255,12 @@ export default function UserProfile() {
           </Nav>
           <br />
         </div>
+        </div> 
+        :
+      <div className="spi">
+        <Spinner animation="border" variant="dark" />
+      </div>
+      }
       </div>
 
       {/* <div className="detailBac">
