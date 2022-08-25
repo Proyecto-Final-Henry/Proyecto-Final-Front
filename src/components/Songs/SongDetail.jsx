@@ -10,6 +10,7 @@ import { Tab } from "bootstrap";
 import PreviewPlayer from "../PreviewPlayer/PreviewPlayer";
 import style from "../../css/songs.module.css";
 import AddTrack from "../PlayList/AddTrack";
+import Spinner from "react-bootstrap/Spinner";
 
 export default function SongDetail() {
   let history = useHistory();
@@ -53,19 +54,32 @@ export default function SongDetail() {
   return (
     <div className={style.songDetail}>
       <div className={style.songDetail_header}>
+        {songData.image ? 
         <div>
-          <img
-            src={songData.image}
-            alt={songData.album}
-            className={style.songDetail_img}
-          />
-        </div>
+          <div>
+            <img
+              src={songData.image}
+              alt={songData.album}
+              className={style.songDetail_img}
+            />
+          </div>
 
-        <div className={style.songDetail_content}>
+          <div className={style.songDetail_content}>
           <h3>CANCION</h3>
           <h1>
             <i className="fa-regular fa-heart"></i> {songData.title}
           </h1>
+ 
+
+          <div>
+            <AddTrack
+              userId={user?.id}
+              trackId={songData.id}
+              name={songData.title}
+            />
+          </div>
+
+        </div>
           <div>
             {songData.preview && (
               <div>
@@ -74,14 +88,13 @@ export default function SongDetail() {
               </div>
             )}
           </div>
-          <div>
-            <AddTrack
-              userId={user?.id}
-              trackId={songData.id}
-              name={songData.title}
-            />
-          </div>
-        </div>
+
+        </div> 
+        : 
+            <div className="spi">
+              <Spinner animation="border" variant="dark" />
+            </div>
+            }
       </div>
 
       <div>

@@ -3,11 +3,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAllReviews, getOtherUser } from "../../redux/actions";
-import { socket } from "../Feed/Feed";
+import { socket } from '../../App';
 
 
 export default function LikesReview(props){
     const [ userData , setUserData ] = useState(null)
+    const [liked, setLiked] = useState(false);
     let dispatch = useDispatch();
     const mapedLikes = props?.likes?.map(l => {
         return l.id
@@ -48,6 +49,7 @@ const handlebutton = async () => {
     console.log(error)
    }
 }
+
 
     return(
         <div>

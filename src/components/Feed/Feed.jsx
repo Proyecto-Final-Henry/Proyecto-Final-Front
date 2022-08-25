@@ -20,9 +20,7 @@ import {
 import { getGenres } from "../../redux/actions/actions_player";
 import axios from "axios";
 import { useState } from "react";
-import { io } from "socket.io-client";
-
-export const socket = io("http://localhost:3001"); // https://remusic.onrender.com // http://localhost:3001
+import { socket } from '../../App';
 
 export default function Feed() {
   const history = useHistory();
@@ -30,17 +28,24 @@ export default function Feed() {
   const [user, setUser] = useState("");
   const userData = useSelector((state) => state.userData);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
+  let userId = localStorage.getItem("userId");
 
-  useEffect(() => {
-    // socket.current = io("http://localhost:3001");
-    // console.log(socket)
-    socket.emit("newUser", token); // userData?.id || userId
+  const awaitToken = () => {
+    socket.emit("newUser", userData?.id || userId); // userData?.id || userId / token
     socket.on("getUsers", (users) => {
       setOnlineUsers(users);
     });
-  }, [user]);
+  };
+
+  useEffect(() => {
+    const prueba = () => {
+      setTimeout(() => {
+        awaitToken()
+      },5000)
+    };
+    prueba()
+  }, []);
 
   useEffect(() => {
     const autenticarUsuario = async () => {
@@ -56,9 +61,11 @@ export default function Feed() {
         },
       };
       try {
-        const { data } = await axios(`/api/back-end/users/perfil`, config);
-        dispatch(getUserData(data?.id));
-        setUser(data);
+        if (Object.keys(user).length === 0) {
+          const { data } = await axios(`/api/back-end/users/perfil`, config);
+          dispatch(getUserData(data?.id));
+          setUser(data);
+        }
       } catch (error) {
         console.log(error.response.data.msg);
       }
@@ -90,4 +97,4 @@ export default function Feed() {
       </div>
     </div>
   );
-}
+};

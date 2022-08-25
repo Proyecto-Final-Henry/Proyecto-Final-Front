@@ -37,13 +37,13 @@ import PlaylistComponent from "./components/PlayList/PlaylistComponent"
 import { Switch } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 
-function App() {
+export const socket = io("https://remusic.onrender.com"); // https://remusic.onrender.com // http://localhost:3001
 
   // window.addEventListener("beforeunload", (e) => {
   //   e.preventDefault()
   //   localStorage.removeItem("token")
-  // })
-
+  // });
+  
   return (
     <div className="App">
       <Switch>

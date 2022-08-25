@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { getUserData } from '../../redux/actions';
 import { FaRegBell } from "react-icons/fa";
-import { socket } from '../Feed/Feed';
+import { socket } from '../../App';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import style from '../../css/nav.module.css'
 

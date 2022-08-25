@@ -6,8 +6,14 @@ import alban from "../../assets/team/alban.jpg";
 import placeholder1 from "../../assets/team/placeholder1.png";
 import mauricio from "../../assets/team/mauricio.jpg";
 import luis from "../../assets/team/luis.jpg";
+import { useEffect } from "react";
 
 export default function Team() {
+    useEffect(() => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("active");
+      },[]);
+
     return (
         <div style={{position: "relative"}}>
             <div className={style.creadorModal}>
